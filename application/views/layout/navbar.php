@@ -37,7 +37,9 @@
                           </div>
                           <div class="flex-grow-1">
                             <span class="fw-semibold d-block"><?php echo $this->session->userdata('nama') ?></span>
-                            <small class="text-muted">Admin</small>
+                            <small class="text-muted">
+                              <?php if ($this->session->userdata('role')>0) { echo 'Admin';} else echo 'Siswa'?>
+                            </small>
                           </div>
                         </div>
                       </a>
@@ -72,5 +74,5 @@
               </ul>
             </div>
           </nav>
-
+ 
           <!-- / Navbar -->

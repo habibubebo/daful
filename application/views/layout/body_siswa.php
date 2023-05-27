@@ -14,7 +14,7 @@
                             Kamu telah diterima sebagai siswa di <span class="fw-bold">SMA Negeri 1 Srengat</span>, lengkapi data dirimu untuk melakukan daftar ulang!
                           </p>
 
-                          <a href="<?= base_url("siswa/data")?>" class="btn btn-sm btn-outline-primary">Isi data diri</a>
+                          <a href="<?= base_url("siswa")?>" class="btn btn-sm btn-outline-primary">Isi data diri</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">

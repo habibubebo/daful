@@ -2,9 +2,10 @@
 
 <html
   lang="en"
-  class="light-style layout-menu-fixed"
+  class="light-style layout-menu-fixed layout-navbar-fixed"
   dir="ltr"
   data-theme="theme-default"
+  data-app-path="<?php echo base_url() ?>"
   data-assets-path="<?php echo base_url("assets/") ?>"
   data-template="vertical-menu-template-free"
 >
@@ -39,12 +40,18 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/css/demo.css") ?>" />
 
     <!-- Vendors CSS -->
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/typeahead-js/typeahead.css") ?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" />
-
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/bs-stepper/bs-stepper.css") ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.css") ?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/apex-charts/apex-charts.css") ?>" />
-
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/select2/select2.css") ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/formvalidation/dist/css/formValidation.min.css") ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css") ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/responsive.bootstrap5.css") ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables.checkboxes.css") ?>">
     <!-- Page CSS -->
-
+    <script src="<?php echo base_url("assets/vendor/libs/jquery/jquery.js") ?>"></script>
     <!-- Helpers -->
     <script src="<?php echo base_url("assets/vendor/js/helpers.js") ?>"></script>
 

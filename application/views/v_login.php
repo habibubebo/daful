@@ -71,7 +71,7 @@
               </div>
               <!-- /Logo -->
               <h4 class="mb-2 center">Halo Admin! 👋</h4>
-              <p class="mb-4">untuk login peserta didik silahkan klik disini</p>
+              <p class="mb-4">untuk login peserta didik silahkan <a href="<?= base_url() ?>">klik disini</a></p>
 
               <form id="formAuthentication" class="mb-3" action="<?= base_url("auth/login") ?>" method="POST">
                 <div class="mb-3">
@@ -101,11 +101,12 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
+
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                 </div>
               </form>
-
+              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Username atau password salah!</div>'; }?>
               <p class="text-center">
                 <span>Lupa password?</span>
                 <a href="#">

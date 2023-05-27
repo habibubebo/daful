@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Pages extends CI_Controller
+class Admin extends CI_Controller
 {
     
   public function __construct()
@@ -35,7 +35,7 @@ class Pages extends CI_Controller
     if($this->session->userdata('status') == ""){
         redirect(base_url("auth"));
     } elseif($this->session->userdata('role') < "1"){
-      redirect(base_url("404"));
+      redirect(base_url());
     }
   }
 
@@ -45,8 +45,6 @@ class Pages extends CI_Controller
   }
 
   function akunsiswa(){
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
-    // $this->load->view('menu/profil',$data);
     $this->load->view('menu/admin/lihat');
     $this->load->view('layout/footer');
   }
@@ -74,5 +72,5 @@ class Pages extends CI_Controller
 }
 
 
-/* End of file Pages.php */
-/* Location: ./application/controllers/Pages.php */
+/* End of file Admin.php */
+/* Location: ./application/controllers/Admin.php */

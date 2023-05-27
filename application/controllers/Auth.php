@@ -29,7 +29,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
   // Fungsi Index() Untuk menjalankan baris kode secara otomatis ketika program berjalan-------------------------
       function index(){
           // Menambahkan/memanggil file view (v_login.php)-------------------------------------------------------
-              $this->load->view('v_login');
+          $data['alert'] = 0;    
+          $this->load->view('v_login',$data);
       }
   // Fungsi Auth() Untuk memeriksa / memproses inputan yang dikirim dari form login (v_login.php)----------------
   function login(){
@@ -45,17 +46,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
     // Membuat variabel statement(stat) yang berisi hasil dari pemeriksaan ke database---------------------
      // Fungsi cek_akun($where) untuk mengecek kondisi yang diberikan dengan data yang ada di tabel akun---
      // Fungsi num_rows() akan menghasilkan nilai 0 jika tidak ada data / 1 jika ada data yang sesuai -----
-        $stat = $this->Model_APS->cek_akun($where)->num_rows();
+        $stat = $this->Model_APS->cek_akun('akun',$where)->num_rows();
     // Membuat kondisi untuk memeriksa hasil statement-----------------------------------------------------
         if ($stat > 0) {
         // Membuat variabel list untuk menampung data kondisi yang diberikan------------------------------- 
-            $data = $this->Model_APS->cek_akun($where)->result();
+            $data = $this->Model_APS->cek_akun('akun',$where)->result();
         // Membuat pengulangan untuk variabel $data agar data dapat dijabarkan-----------------------------
             foreach ($data as $data);
         // Membuat variabel untuk menampung data akun yang login-------------------------------------------
             $datalogin = array(
                 // 'Field_database' => $var_penampung_data_kondisi-----------------------------------------
-                'id'=> $data->id,
+                'id'=> $data->Id,
                 'nama'=> $data->nama,
                 'username'=> $data->username,
                 'password'=> $data->password,
@@ -65,19 +66,61 @@ defined('BASEPATH') or exit('No direct script access allowed');
         // Membuat Session untuk mengatur data user yang login---------------------------------------------
             $this->session->set_userdata($datalogin);
         // Memanggil fungsi header() untuk mengarahkan halaman---------------------------------------------
-            header('location:'.base_url().'');
+            header('location:'.base_url().'dashboard');
             
     }else{
-        // Memanggil fungsi header() untuk mengarahkan halaman---------------------------------------------
-            header('location:'.base_url().'auth');
+            $data['alert'] = 1;    
+          $this->load->view('v_login',$data);
     }
 }
+
+function logins(){
+    // Membuat variabel untuk menampung hasil inputan dari form login (v_login.php)------------------------
+        $nopend = $this->input->post('nopend');
+        $pass = $this->input->post('pass');
+    // Pemeriksaan Antara inputan dengan data yang ada di database-----------------------------------------
+        $where = array(
+            // 'Field_database' => $var_penampung----------------------------------------------------------
+                'no_pendaftaran' => $nopend,
+                'password' => $pass
+        );
+    // Membuat variabel statement(stat) yang berisi hasil dari pemeriksaan ke database---------------------
+     // Fungsi cek_akun($where) untuk mengecek kondisi yang diberikan dengan data yang ada di tabel akun---
+     // Fungsi num_rows() akan menghasilkan nilai 0 jika tidak ada data / 1 jika ada data yang sesuai -----
+        $stat = $this->Model_APS->cek_akun('siswa',$where)->num_rows();
+    // Membuat kondisi untuk memeriksa hasil statement-----------------------------------------------------
+        if ($stat > 0) {
+        // Membuat variabel list untuk menampung data kondisi yang diberikan------------------------------- 
+            $data = $this->Model_APS->cek_akun('siswa',$where)->result();
+        // Membuat pengulangan untuk variabel $data agar data dapat dijabarkan-----------------------------
+            foreach ($data as $data);
+        // Membuat variabel untuk menampung data akun yang login-------------------------------------------
+            $datalogin = array(
+                // 'Field_database' => $var_penampung_data_kondisi-----------------------------------------
+                'id'=> $data->id_siswa,
+                'nama'=> $data->nama_lengkap,
+                'no_pendaftaran'=> $data->no_pendaftaran,
+                'password'=> $data->password,
+                'role'=> $data->role,
+                'status' => "masuk"
+            );
+        // Membuat Session untuk mengatur data user yang login---------------------------------------------
+            $this->session->set_userdata($datalogin);
+        // Memanggil fungsi header() untuk mengarahkan halaman---------------------------------------------
+            header('location:'.base_url().'dashboard');
+            
+    }else{
+            $data['alert'] = 1;    
+          $this->load->view('home',$data);
+    }
+}
+
 // Membuat fungsi logout() untuk keluar akun
 function logout(){
     // Memanggil fungsi session_destroy() untuk mengahapus data login--------------------------------------
         $this->session->sess_destroy();
     // Memanggil fungsi header() untuk mengarahkan halaman---------------------------------------------
-        header('location:'.base_url().'auth');
+        header('location:'.base_url().'');
 }
   
 }

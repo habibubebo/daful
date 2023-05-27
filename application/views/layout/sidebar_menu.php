@@ -23,11 +23,12 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item" id="dashboard">
-              <a href="<?= base_url()?>" class="menu-link">
+              <a href="<?= base_url('Dashboard')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Menu</span></li>
        <?php if($this->session->userdata('role') < "1"){ ?>
               <!-- Menu siswa -->
             <li class="menu-item open" id="menu1">
@@ -59,19 +60,18 @@
 
               <ul class="menu-sub">
                 <li class="menu-item" id="m1-1">
-                  <a href="<?= base_url("pages/akunsiswa")?>" class="menu-link">
+                  <a href="<?= base_url("admin/akunsiswa")?>" class="menu-link">
                     <div data-i18n="Without menu">Akun siswa</div>
                   </a>
                 </li>
                 <li class="menu-item" id="m1-2">
-                  <a href="<?= base_url("pages/verifikasi")?>" class="menu-link">
+                  <a href="<?= base_url("admin/verifikasi")?>" class="menu-link">
                     <div data-i18n="Without navbar">Verifikasi</div>
                   </a>
                 </li>
               </ul>
             </li>
-        <?php } ?>
-        <!-- end of Menu admin -->
+            
             <li class="menu-item" id="pengaturan" >
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
@@ -79,16 +79,18 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item" id="p-profil">
-                  <a href="<?= base_url("pages/profil")?>" class="menu-link">
+                  <a href="<?= base_url("admin/profil")?>" class="menu-link">
                     <div data-i18n="Account">Profil</div>
                   </a>
                 </li>
                 <li class="menu-item" id="p-akun">
-                  <a href="<?= base_url("pages/akun")?>" class="menu-link">
+                  <a href="<?= base_url("admin/akun")?>" class="menu-link">
                     <div data-i18n="Notifications">Akun</div>
                   </a>
                 </li>
               </ul>
             </li>
+        <?php } ?>
+        <!-- end of Menu admin -->
           </ul>
         </aside>

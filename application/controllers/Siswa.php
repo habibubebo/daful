@@ -39,7 +39,8 @@ class Siswa extends CI_Controller
 
   public function index()
   {
-    // 
+    $this->load->view('form/wizard');
+    $this->load->view('layout/footer');
   }
 
   function data()

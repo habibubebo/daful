@@ -18,14 +18,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Utama extends CI_Controller
+class Dashboard extends CI_Controller
 {
     
   public function __construct()
   {
     parent::__construct();
     // Menambahkan Model-------------------------------------------------------------------------------------
-    $this->load->model('Model_APS');
+        $this->load->model('Model_APS');
     // Menambahkan Helper URL
         $this->load->helper('url');
     // Menambahkan tampilan dan memanggil tampilan
@@ -54,5 +54,5 @@ class Utama extends CI_Controller
 }
 
 
-/* End of file Utama.php */
-/* Location: ./application/controllers/Utama.php */
+/* End of file Dashboard.php */
+/* Location: ./application/controllers/Dashboard.php */
