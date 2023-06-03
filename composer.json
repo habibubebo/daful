@@ -12,9 +12,10 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"anourvalar/office": "*",
-		"phpoffice/phpspreadsheet": "^1.28",
-		"mpdf/mpdf": "*"
+		"phpoffice/phpspreadsheet": "*",
+		"mpdf/mpdf": "*",
+		"enyo/dropzone": "^5.9",
+		"dompdf/dompdf": "^2.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

@@ -29,6 +29,21 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-sm-6 col-lg-4 mb-4">
+                <?php foreach ($pengumuman as $tp) { ?>
+                  <div class="card bg-primary text-white text-center p-3">
+                    <figure class="mb-0">
+                      <blockquote class="blockquote">
+                        <small><?php $tp->tgl ?></small>
+                        <p><?php if ($tp->ket == "") { echo 'Tidak ada pengumuman untuk saat ini'; } else echo $tp->ket; ?></p>
+                      </blockquote>
+                      <figcaption class="blockquote-footer mb-0 text-white">
+                        Panitia <cite title="Source Title">PPDB SMA Negeri 1 Srengat</cite>
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <?php } ?>
+                </div>
                 <div class="col-lg-4 col-md-4 order-1">
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-6 mb-4">

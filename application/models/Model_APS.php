@@ -100,6 +100,45 @@ function tampil_data_seleksi($sel,$nm_table,$field,$order){
         $this->db->order_by($field, $order);
         return $this->db->get();
 }
+//update master
+function update_master($tabel,$id,$field,$value){
+        
+    // Update
+    $data=array($field => $value);
+    $this->db->where('id',$id);
+    $this->db->update($tabel,$data);
+}
+//mon maaf males bikin library
+function tgl_id($tanggal){
+    $day = date('D', strtotime($tanggal));
+    $dayList = array(
+        'Sun' => 'Minggu',
+        'Mon' => 'Senin',
+        'Tue' => 'Selasa',
+        'Wed' => 'Rabu',
+        'Thu' => 'Kamis',
+        'Fri' => 'Jumat',
+        'Sat' => 'Sabtu'
+      );
+            $bulan = array (
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    echo $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}       
+
 }
 /* End of file Model_APS_model.php */
 /* Location: ./application/models/Model_APS_model.php */

@@ -8,8 +8,8 @@
 
     <title>Website Daftar Ulang SMA Negeri 1 Srengat</title>
     
-    <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
-    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+    <meta name="description" content="Web Daftar Ulang SMA Negeri 1 Srengat" />
+    <meta name="keywords" content="smangat, sma srengat, sman 1 srengat, daftar ulang, srengat, blitar">
  
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/favicon/favicon.ico") ?>" />
@@ -109,9 +109,9 @@
                   </div>
                   <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                      <i class="bx bx-window-open fs-4"></i>
+                      <i class="bx bxl-instagram fs-4"></i>
                     </span>
-                    <a href="<?= base_url("auth") ?>" class="stretched-link">Panitia</a>
+                    <a href="https://www.instagram.com/smangatofficial/" target="_blank" class="stretched-link">@smangatofficial</a>
                     <small class="text-muted mb-0"></small>
                   </div>
                 </div>
@@ -133,28 +133,18 @@
           <div class="container-xxl flex-grow-1 container-p-y">
             
 <div class="card overflow-hidden">
-  <!-- Help Center Header -->
-  <div class="help-center-header d-flex flex-column justify-content-center align-items-center">
-    <h3 class="text-center"> Daftar Ulang Calon Peserta Didik SMA Negeri 1 Srengat </h3>
-    <div class="input-wrapper my-3 input-group input-group-merge">
-      <!-- <span class="input-group-text" id="basic-addon1"><i class="bx bx-search-alt bx-xs text-muted"></i></span> -->
-      <!-- <input type="text" class="form-control form-control-lg" placeholder="Find anything (features, payment or reset password)" aria-label="Search" aria-describedby="basic-addon1" /> -->
-    </div>
-    <p class="text-center px-3 mb-0">text</p>
-  </div>
-  <!-- /Help Center Header -->
-  <!-- test -->
-  <div class="authentication-wrapper authentication-cover">
+    <!-- test -->
+    <div class="authentication-wrapper authentication-cover border-bottom border-light">
   <div class="authentication-inner row m-0">
     <!-- /Left Text -->
-    <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center p-5">
+    <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center p-0">
       <div class="w-100 d-flex justify-content-center">
-        <img src="<?php echo base_url("assets/img/illustrations/boy-with-rocket-light.png") ?>" class="img-fluid" alt="Login image" width="400" data-app-dark-img="illustrations/boy-with-rocket-dark.png" data-app-light-img="illustrations/boy-with-rocket-light.png">
+        <img src="<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>" class="img-fluid">
       </div>
     </div>
     <!-- /Left Text -->
 	<!-- login siswa -->
-	<div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4">
+	<div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4" id="login">
       <div class="w-px-400 mx-auto">
 		
 			  <h4 class="mb-2 center">Sudah punya akun?</h4>
@@ -197,222 +187,65 @@
               </p>
       </div>
     </div>
-	<!-- /login siswa -->
   </div>  
-</div>
+	<!-- /login siswa -->
+  </div>
   <!-- /test -->
-  <!-- Popular Articles -->
-  <div class="help-center-popular-articles py-5">
-    <div class="container-xl">
-      <h4 class="text-center mt-2 mb-4">Popular Articles</h4>
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="row mb-3">
-            <div class="col-md-4 mb-md-0 mb-4">
-              <div class="card border shadow-none">
-                <div class="card-body text-center">
-                  <img class="mb-3" src="../../assets/img/icons/unicons/rocket.png" height="60" alt="Help center articles">
-                  <h5>Getting Started</h5>
-                  <p> Whether you're new or you're a power user, this article will… </p>
-                  <a class="btn btn-label-primary" href="./pages-help-center-article.html">Read More</a>
+  <div class="d-flex flex-column justify-content-between align-items-between border-bottom border-light">
+    <div class="row tabs" data-aos="fade-up">
+          <div class="col-lg-6 m-auto p-3">
+            <h3 class="text-center m-5">Daftar Ulang Peserta Didik</h3>
+            <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
+            <div class="accordion-item card active">
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconOne">
+                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-1" aria-controls="accordionPopoutIcon-1">
+                <i class='bx bx-street-view me-2'></i>
+                  1. Datang ke SMA Negeri 1 Srengat
+                </button>
+              </h2>
+
+              <div id="accordionPopoutIcon-1" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
+                <div class="accordion-body">
+                  dengan membawa bukti telah diterima.
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4 mb-md-0 mb-4">
-              <div class="card border shadow-none">
-                <div class="card-body text-center">
-                  <img class="mb-3" src="../../assets/img/icons/unicons/cube-secondary.png" height="60" alt="Help center articles">
-                  <h5>First Steps</h5>
-                  <p> Are you a new customer wondering how to get started? </p>
-                  <a class="btn btn-label-primary" href="./pages-help-center-article.html">Read More</a>
+            <div class="accordion-item card">
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
+                  <i class="bx bx-data me-2"></i>
+                  2. Masuk dan lengkapi data
+                </button>
+              </h2>
+              <div id="accordionPopoutIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+                <div class="accordion-body">
+                Login ke web dengan akun yang sudah dibuatkan oleh petugas, isi data diri dengan benar dan sesuai keadaan sekarang. Apabila terdapat kendala silahkan menghubungi petugas
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4">
-              <div class="card border shadow-none">
-                <div class="card-body text-center">
-                  <img class="mb-3" src="../../assets/img/icons/unicons/desktop.png" height="60" alt="Help center articles">
-                  <h5>Add External Content</h5>
-                  <p> This article will show you how to expand the functionality of... </p>
-                  <a class="btn btn-label-primary" href="./pages-help-center-article.html">Read More</a>
+            <div class="accordion-item card">
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconThree">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-3" aria-expanded="true" aria-controls="accordionPopoutIcon-3">
+                  <i class="bx bx-file me-2"></i>
+                  3. Cetak Bukti Daftar Ulang
+                </button>
+              </h2>
+              <div id="accordionPopoutIcon-3" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+                <div class="accordion-body">
+                  Cetak bukti daftar ulang dan serahkan kepada petugas.
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!-- /Popular Articles -->
-
-  <!-- Knowledge Base -->
-  <div class="help-center-knowledge-base py-5">
-    <div class="container-xl">
-      <h4 class="text-center mb-4">Knowledge Base</h4>
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="row">
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-label-success p-2 rounded me-2"><i class="bx bx-cart bx-sm"></i></span>
-                    <h5 class="fw-semibold mt-3 ms-1">eCommerce</h5>
-                  </div>
-                  <ul>
-                    <li class="text-primary py-1"><a href="./pages-help-center-categories.html">Pricing Wizard</a></li>
-                    <li class="text-primary pb-1"><a href="./pages-help-center-categories.html">Square Sync</a></li>
-                  </ul>
-                  <p class="mb-0 fw-semibold">
-                    <a href="javascript:void(0);">56 articles</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-label-info p-2 rounded me-2"><i class="bx bx-laptop bx-sm"></i></span>
-                    <h5 class="fw-semibold mt-3 ms-1">Building Your Website</h5>
-                  </div>
-                  <ul>
-                    <li class="text-primary py-1"><a href="./pages-help-center-categories.html">First Steps</a></li>
-                    <li class="text-primary pb-1"><a href="./pages-help-center-categories.html">Add Images</a></li>
-                  </ul>
-                  <p class="mb-0 fw-semibold">
-                    <a href="javascript:void(0);">111 articles</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-label-primary p-2 rounded me-2"><i class="bx bx-user bx-sm"></i></span>
-                    <h5 class="fw-semibold mt-3 ms-1">Your Account</h5>
-                  </div>
-                  <ul>
-                    <li class="text-primary py-1"><a href="./pages-help-center-categories.html">Insights</a></li>
-                    <li class="text-primary pb-1">
-                      <a href="./pages-help-center-categories.html">Manage Your Orders</a>
-                    </li>
-                  </ul>
-                  <p class="mb-0 fw-semibold">
-                    <a href="javascript:void(0);">29 articles</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-label-danger p-2 rounded me-2"><i class="bx bx-world bx-sm"></i></span>
-                    <h5 class="fw-semibold mt-3 ms-1">Domains and Email</h5>
-                  </div>
-                  <ul>
-                    <li class="text-primary py-1">
-                      <a href="./pages-help-center-categories.html">Access to Admin Account</a>
-                    </li>
-                    <li class="text-primary pb-1">
-                      <a href="./pages-help-center-categories.html">Send Email From an Alias</a>
-                    </li>
-                  </ul>
-                  <p class="mb-0 fw-semibold">
-                    <a href="javascript:void(0);">22 articles</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-label-warning p-2 rounded me-2"><i class="bx bx-mobile-alt bx-sm"></i></span>
-                    <h5 class="fw-semibold mt-3 ms-1">Mobile Apps</h5>
-                  </div>
-                  <ul>
-                    <li class="text-primary py-1">
-                      <a href="./pages-help-center-categories.html">Getting Started with the App</a>
-                    </li>
-                    <li class="text-primary pb-1">
-                      <a href="./pages-help-center-categories.html">Getting Started with Android</a>
-                    </li>
-                  </ul>
-                  <p class="mb-0 fw-semibold">
-                    <a href="javascript:void(0);">24 articles</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center mb-2">
-                    <span class="badge bg-label-secondary p-2 rounded me-2"><i class="bx bx-envelope bx-sm"></i></span>
-                    <h5 class="fw-semibold mt-3 ms-1">Email Marketing</h5>
-                  </div>
-                  <ul>
-                    <li class="text-primary py-1"><a href="./pages-help-center-categories.html">Getting Started</a></li>
-                    <li class="text-primary pb-1">
-                      <a href="./pages-help-center-categories.html">How does this work?</a>
-                    </li>
-                  </ul>
-                  <p class="mb-0 fw-semibold">
-                    <a href="javascript:void(0);">27 articles</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div class="col-lg-6 p-0">
+            <img src="assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="">
           </div>
-        </div>
-      </div>
-    </div>
+    </div> 
   </div>
-  <!-- /Knowledge Base -->
 
-  <!-- Keep Learning -->
-  <div class="help-center-keep-learning py-5">
-    <div class="container-xl">
-      <h4 class="text-center mb-5">Keep Learning</h4>
-      <div class="row">
-        <div class="col-lg-10 mx-auto">
-          <div class="row">
-            <div class="col-md-4 mb-md-0 mb-4 text-center">
-              <img src="../../assets/img/icons/unicons/laptop.png" class="mb-2" height="50" alt="Help center blog">
-              <h5 class="my-3">Blogging</h5>
-              <p class="mb-1"> Expert tips and tools to improve your website or online store using our blog. </p>
-              <a href="./pages-help-center-categories.html" class="d-flex align-items-center justify-content-center mt-2">
-                <span class="align-middle me-1">Learn More</span>
-                <i class="bx bx-right-arrow-circle scaleX-n1-rtl"></i>
-              </a>
-            </div>
-            <div class="col-md-4 mb-md-0 mb-4 text-center">
-              <img src="../../assets/img/icons/unicons/bulb.png" class="mb-2" height="50" alt="Help center inspiration">
-              <h5 class="my-3">Inspiration Center</h5>
-              <p class="mb-1"> Inspiration from experts to help you start and grow your big ideas. </p>
-              <a href="./pages-help-center-categories.html" class="d-flex align-items-center justify-content-center mt-2">
-                <span class="align-middle me-1">Learn More</span>
-                <i class="bx bx-right-arrow-circle scaleX-n1-rtl"></i></a>
-            </div>
-            <div class="col-md-4 text-center">
-              <img src="../../assets/img/icons/unicons/community.png" class="mb-2" height="50" alt="Help center inspiration">
-              <h5 class="my-3">Community</h5>
-              <p class="mb-1"> A group of people living in the same place or having a particular. </p>
-              <a href="./pages-help-center-categories.html" class="d-flex align-items-center justify-content-center mt-2">
-                <span class="align-middle me-1">Learn More</span>
-                <i class="bx bx-right-arrow-circle scaleX-n1-rtl"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- /Keep Learning -->
 
   <!-- kontak -->
   <div class="help-center-contact-us help-center-bg-alt">

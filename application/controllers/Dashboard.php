@@ -30,9 +30,7 @@ class Dashboard extends CI_Controller
         $this->load->helper('url');
     // Menambahkan tampilan dan memanggil tampilan
         $this->load->view('layout/header');
-        // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
         $this->load->view('layout/sidebar_menu');
-        // $this->load->view('layout/sidebar_menu',$data);
         $this->load->view('layout/navbar');
         if($this->session->userdata('status') == ""){
             redirect(base_url("auth"));
@@ -41,11 +39,11 @@ class Dashboard extends CI_Controller
 
   public function index()
   {
-    // Menambahkan tampilan dan memanggil tampilan
+    $data['pengumuman'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
     if($this->session->userdata('role') < "1"){
-      $this->load->view('layout/body_siswa');
+      $this->load->view('layout/body_siswa',$data);
     } else {
-      $this->load->view('layout/body_admin');
+      $this->load->view('layout/body_admin',$data);
     }
     
     $this->load->view('layout/footer');

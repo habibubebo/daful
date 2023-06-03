@@ -44,7 +44,7 @@
                   </a>
                 </li>
                 <li class="menu-item" id="m1-2">
-                  <a href="<?= base_url("pages/verifikasi")?>" class="menu-link">
+                  <a href="<?= base_url("siswa/unduhan")?>" class="menu-link">
                     <div data-i18n="Without navbar">Unduhan</div>
                   </a>
                 </li>
@@ -65,6 +65,11 @@
                   </a>
                 </li>
                 <li class="menu-item" id="m1-2">
+                  <a href="<?= base_url("admin/master")?>" class="menu-link">
+                    <div data-i18n="Without menu">Data Master</div>
+                  </a>
+                </li>
+                <li class="menu-item" id="m1-3">
                   <a href="<?= base_url("admin/verifikasi")?>" class="menu-link">
                     <div data-i18n="Without navbar">Verifikasi</div>
                   </a>

@@ -47,6 +47,7 @@
     <!-- Page JS -->
     <script src="<?php echo base_url("assets/js/dashboards-analytics.js") ?>"></script>
     <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>
     <script src="<?php echo base_url("assets/js/datatables.js") ?>"></script>
     <!-- Wizard JS -->
     <script src="<?php echo base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.js") ?>"></script>
@@ -54,7 +55,8 @@
     <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js") ?>"></script>
     <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js") ?>"></script>
     <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js") ?>"></script>
-
+    <script src="<?php echo base_url("assets/vendor/libs/dropzone/dropzone.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.min.js") ?>"></script>
     
     <!-- <script src="<?php echo base_url("assets/js/form-wizard-numbered.js") ?>"></script> -->
     <script src="<?php echo base_url("assets/js/form-wizard-validation.js") ?>"></script>

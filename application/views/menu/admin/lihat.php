@@ -20,7 +20,7 @@
                         <th>Nama</th>
                         <th>No. Pendaftaran</th>
                         <th>NISN</th>
-                        <th class="w-px-200">Timestamp</th>
+                        <th class="w-px-200">Dibuat</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
