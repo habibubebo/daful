@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                   <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                      <a class="nav-link" href="<?= base_url("pages/profil")?>"><i class="bx bx-buildings me-1"></i> Profil</a>
+                      <a class="nav-link" href="<?= base_url("admin/profil")?>"><i class="bx bx-buildings me-1"></i> Profil</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link  active" href="#"
@@ -52,7 +52,7 @@
                       </div>
                     </div>
                     <hr class="my-0" />
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                       <form id="formAccountSettings" method="POST" onsubmit="return false">
                         <div class="row">
                           <div class="mb-3 col-md-6">
@@ -203,7 +203,7 @@
                           <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                         </div>
                       </form>
-                    </div>
+                    </div> -->
                     <!-- /Account -->
                   </div>
                   <div class="card">

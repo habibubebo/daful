@@ -41,8 +41,14 @@ class Dashboard extends CI_Controller
   {
     $data['pengumuman'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
     if($this->session->userdata('role') < "1"){
+      // dashboard siswa
+      $id = "id_siswa = ".$this->session->userdata('id');
+      $data['tgl'] = $this->db->query("SELECT status_verifikasi,tgl_verif FROM siswa WHERE $id")->result();
       $this->load->view('layout/body_siswa',$data);
     } else {
+      // dashboard admin
+      $data['akuns'] = $this->Model_APS->tampil_data('siswa','id_siswa','ASC')->num_rows();
+      $data['verifs'] = $this->Model_APS->cek_akun('siswa',['status_verifikasi' => '0' ])->num_rows();
       $this->load->view('layout/body_admin',$data);
     }
     

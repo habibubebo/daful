@@ -3,7 +3,14 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang/</span> Data diri</h4>
+              <div class="d-flex justify-content-between">
+                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang/</span> Data diri</h4> 
+                <div class="flex-column my-auto">
+                <a href="<?= base_url("siswa")?>" class="btn btn-outline-primary">
+                <i class="bx bx-edit me-sm-1"></i> <span class="d-none d-sm-inline-block" >Edit</span>
+                </a>
+                </div>
+              </div>
               <?php if ($this->session->flashdata('alert') == !""){ 
                 $data = $this->session->flashdata('alert');
                   echo '<div class="alert alert-'.$data['tipe'].' alert-dismissible" role="alert">'.$data['isi'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'; 
@@ -109,12 +116,6 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="alamat">Alamat</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="alamat" name="alamat" />
-                          </div>
-                        </div>
-                        <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="notelp">No. Telepon / HP</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="notelp" name="notelp" />
@@ -148,6 +149,12 @@
                           <label class="col-sm-4 col-form-label" for="tinggal">tinggal dengan</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="tinggal" name="tinggal" />
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="alamat">Alamat</label>
+                          <div class="col-sm-8">
+                            <textarea type="text" class="form-control" id="alamat" name="alamat"></textarea>
                           </div>
                         </div>
                     </div>
@@ -586,7 +593,7 @@
                         document.getElementById("kw").value = myObj.data[0].kw;
                         document.getElementById("anak-ke").value = myObj.data[0].anak_ke;
                         document.getElementById("stat-anak").value = myObj.data[0].status_anak;
-                        document.getElementById("alamat").value = myObj.data[0].jalan+myObj.data[0].rt+myObj.data[0].rw+myObj.data[0].desa+myObj.data[0].kec+myObj.data[0].kab+myObj.data[0].prov;
+                        document.getElementById("alamat").value = "Jl. "+myObj.data[0].jalan+" RT "+myObj.data[0].rt+" RW "+myObj.data[0].rw+" Desa "+myObj.data[0].desa+" Kec. "+myObj.data[0].kec+" Kab/Kota "+myObj.data[0].kab+" Prov. "+myObj.data[0].prov;
                         document.getElementById("notelp").value = myObj.data[0].notelp;
                         document.getElementById("goldar").value = myObj.data[0].goldar;
                         document.getElementById("tb").value = myObj.data[0].tinggi_badan+" cm";

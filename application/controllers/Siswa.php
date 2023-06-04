@@ -40,6 +40,7 @@ class Siswa extends CI_Controller
   public function index()
   {
     $data['pdds'] = $this->Model_APS->tampil_data('tbl_pdd','id','ASC')->result();
+    $data['agamas'] = $this->Model_APS->tampil_data('tbl_agama','id','ASC')->result();
     $data['phs'] = $this->Model_APS->tampil_data('tbl_penghasilan','id','ASC')->result();
     $data['pks'] = $this->Model_APS->tampil_data('tbl_pekerjaan','id','ASC')->result();
     $this->load->view('form/wizard',$data);
@@ -209,6 +210,7 @@ class Siswa extends CI_Controller
         'no_kks' => $this->input->post('no-kks'),
         'no_pkh' => $this->input->post('no-pkh'),
         'no_kip' => $this->input->post('no-kip'),
+        'status_verifikasi' => '1'
       );
       $where = array('id_siswa' => $Id);
       $this->Model_APS->proses_update($where,$data,'siswa');

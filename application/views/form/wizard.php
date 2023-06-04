@@ -152,13 +152,9 @@
                 <label class="form-label" for="agama">Agama</label>
                 <select class="selectpicker form-control" name="agama" id="agama" data-style="btn-default">
                   <option value="" disabled>Pilih agama yang dianut</option>
-                  <option value="Islam">Islam</option>
-                  <option value="Kristen">Kristen</option>
-                  <option value="Katolik">Katolik</option>
-                  <option value="Hindu">Hindu</option>
-                  <option value="Budha">Budha</option>
-                  <option value="Konghucu">Konghucu</option>
-                  <option value="lainnya">Lainnya</option>
+                  <?php foreach($agamas as $ag) {?>
+                    <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
+                  <?php }?>
                 </select>
               </div>
               <div class="col-sm-6">
@@ -180,10 +176,40 @@
                 </select>
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="alamat">Alamat</label>
+                <label class="form-label" for="notelp">No. Telepon / HP</label>
+                <input type="text" name="notelp" id="notelp" class="form-control" placeholder="No. Telepon / HP" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="goldar">Golongan Darah</label>
+                <select class="selectpicker form-control" name="goldar" id="goldar" data-style="btn-default">
+                  <option value="" disabled selected>Pilih</option>
+                    <option value="O">O</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="AB">AB</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="tinggal">Tinggal Dengan</label>
+                <select class="selectpicker form-control" name="tinggal" id="tinggal" data-style="btn-default">
+                  <option value="" disabled selected>Pilih</option>
+                    <option value="Orang Tua">Orang Tua</option>
+                    <option value="Wali">Wali</option>
+                    <option value="Saudara">Saudara</option>
+                    <option value="Kos">Kos</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="tb">Tinggi Badan</label>
+                <input type="text" name="tb" id="tb" class="form-control" placeholder="Tinggi Badan" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="jalan">Alamat</label>
                 <div class="input-group">
                   <span class="input-group-text">Jalan</span>
                   <input type="text" class="form-control" name="jalan" id="jalan">
+                </div>
+                <div class="input-group mt-1">
                   <span class="input-group-text">RT</span>
                   <input type="text" class="form-control" name="rt" id="rt">
                   <span class="input-group-text">RW</span>
@@ -192,7 +218,7 @@
                 <div class="input-group mt-1">
                   <span class="input-group-text">Desa</span>
                   <input type="text" class="form-control" name="desa" id="desa">
-                  <span class="input-group-text">Kecamatan</span>
+                  <span class="input-group-text">Kec.</span>
                   <input type="text" class="form-control" name="kec" id="kec">
                 </div>
                 <div class="input-group mt-1">
@@ -241,34 +267,6 @@
                   <option value="Sumatra Utara">Sumatra Utara</option>
                 </select>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="notelp">No. Telepon / HP</label>
-                <input type="text" name="notelp" id="notelp" class="form-control" placeholder="No. Telepon / HP" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="goldar">Golongan Darah</label>
-                <select class="selectpicker form-control" name="goldar" id="goldar" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
-                    <option value="O">O</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="AB">AB</option>
-                </select>
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="tinggal">Tinggal Dengan</label>
-                <select class="selectpicker form-control" name="tinggal" id="tinggal" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
-                    <option value="Orang Tua">Orang Tua</option>
-                    <option value="Wali">Wali</option>
-                    <option value="Saudara">Saudara</option>
-                    <option value="Kos">Kos</option>
-                </select>
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="tb">Tinggi Badan</label>
-                <input type="text" name="tb" id="tb" class="form-control" placeholder="Tinggi Badan" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="bb">Berat Badan</label>
@@ -320,13 +318,9 @@
                 <label class="form-label" for="agama-ayah">Agama</label>
                 <select class="selectpicker form-control" name="agama-ayah" id="agama-ayah" data-style="btn-default">
                   <option value="" disabled>Pilih agama yang dianut</option>
-                  <option value="Islam">Islam</option>
-                  <option value="Kristen">Kristen</option>
-                  <option value="Katolik">Katolik</option>
-                  <option value="Hindu">Hindu</option>
-                  <option value="Budha">Budha</option>
-                  <option value="Konghucu">Konghucu</option>
-                  <option value="lainnya">Lainnya</option>
+                  <?php foreach($agamas as $ag) {?>
+                    <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
+                  <?php }?>
                 </select>
               </div>
               <div class="col-sm-6">
@@ -392,13 +386,9 @@
                 <label class="form-label" for="agama-ibu">Agama</label>
                 <select class="selectpicker form-control" name="agama-ibu" id="agama-ibu" data-style="btn-default">
                   <option value="" disabled>Pilih agama yang dianut</option>
-                  <option value="Islam">Islam</option>
-                  <option value="Kristen">Kristen</option>
-                  <option value="Katolik">Katolik</option>
-                  <option value="Hindu">Hindu</option>
-                  <option value="Budha">Budha</option>
-                  <option value="Konghucu">Konghucu</option>
-                  <option value="lainnya">Lainnya</option>
+                  <?php foreach($agamas as $ag) {?>
+                    <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
+                  <?php }?>
                 </select>
               </div>
               <div class="col-sm-6">
@@ -469,13 +459,9 @@
                 <label class="form-label" for="agama-wali">Agama</label>
                 <select class="selectpicker form-control" name="agama-wali" id="agama-wali" data-style="btn-default">
                   <option value="" disabled selected>Pilih agama yang dianut</option>
-                  <option value="Islam">Islam</option>
-                  <option value="Kristen">Kristen</option>
-                  <option value="Katolik">Katolik</option>
-                  <option value="Hindu">Hindu</option>
-                  <option value="Budha">Budha</option>
-                  <option value="Konghucu">Konghucu</option>
-                  <option value="lainnya">Lainnya</option>
+                  <?php foreach($agamas as $ag) {?>
+                    <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
+                  <?php }?>
                 </select>
               </div>
               <div class="col-sm-6">
@@ -577,7 +563,11 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="masuk-kelas">Diterima di Kelas</label>
-                <input type="text" id="masuk-kelas" name="masuk-kelas" class="form-control" placeholder="Diterima di Kelas" />
+                <select id="masuk-kelas" name="masuk-kelas" class="selectpicker form-control" data-style="btn-default">
+                  <option value="X">X (sepuluh)</option>
+                  <option value="XI">XI (sebelas)</option>
+                  <option value="XII">XII (dua belas)</option>
+                </select>
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="masuk-jalur">Diterima Lewat Jalur</label>
@@ -749,6 +739,15 @@
     </div>
   </div>
   <!-- /Validation Wizard -->
-
+<!-- Wizard JS -->
+<script src="<?php echo base_url("assets/vendor/libs/bs-stepper/bs-stepper.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/select2/select2.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/dropzone/dropzone.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.min.js") ?>"></script>
+    <script src="<?php echo base_url("assets/js/form-wizard-validation.js") ?>"></script>
 
  

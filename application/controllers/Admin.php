@@ -114,18 +114,87 @@ class Admin extends CI_Controller
 	    exit;
 	}
 
-  function verifikasi(){
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
-    // $this->load->view('menu/profil',$data);
-    $this->load->view('menu/admin/verifikasi');
-    $this->load->view('layout/footer');
+  function deletemaster($jenis,$id){
+  switch ($jenis) {
+    case 'ag':  $tabel = 'tbl_agama';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'ph':  $tabel = 'tbl_penghasilan';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'pd':  $tabel = 'tbl_pdd';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'pk':  $tabel = 'tbl_pekerjaan';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'pn':  $tabel = 'tbl_pengumuman';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    default:
+      //
+  };
+    exit;
+}
+
+  function verifikasi($aksi = null,$id = null){
+    switch ($aksi) {
+      case 'verif' : $data = ['status_verifikasi' => '2','tgl_verif' => date('Y-m-d H:i:s')];
+                     $where = ['id_siswa' => $id ];
+                     $this->Model_APS->proses_update($where,$data,'siswa');
+                     $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil diverifikasi"));
+                     redirect(base_url('admin/verifikasi'));
+        break;
+      case 'undo' : $data = ['status_verifikasi' => '1','tgl_verif' => ''];
+                    $where = ['id_siswa' => $id ];
+                    $this->Model_APS->proses_update($where,$data,'siswa');
+                    $this->session->set_flashdata('alert',array('tipe' => 'info', 'isi' => "Data berhasil diupdate"));
+                    redirect(base_url('admin/verifikasi'));
+        break;
+      case 'reset' : $data = ['status_verifikasi' => '0','tgl_verif' => ''];
+                    $where = ['id_siswa' => $id ];
+                    $this->Model_APS->proses_update($where,$data,'siswa');
+                    $this->session->set_flashdata('alert',array('tipe' => 'info', 'isi' => "Data berhasil direset"));
+                    redirect(base_url('admin/verifikasi'));
+        break;
+      default : $this->load->view('menu/admin/verifikasi');
+                $this->load->view('layout/footer');
+    };
+    
   }
 
-  function profil(){
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
-    // $this->load->view('menu/profil',$data);
-    $this->load->view('menu/profil');
-    $this->load->view('layout/footer');
+  function profil($aksi=null){
+    switch ($aksi) {
+      case 'update' : $data = [
+                          'nama' => $this->input->post('nama'),
+                          'alamat' => $this->input->post('alamat'),
+                          'email' => $this->input->post('email'),
+                          'website' => $this->input->post('website'),
+                          'telepon' => $this->input->post('telepon'),
+                          'th_ajaran' => $this->input->post('th-ajaran'),
+                          'kepsek' => $this->input->post('kepsek'),
+                          'nip_kepsek' => $this->input->post('nip-kepsek'),
+                          'tgl_daftar' => date('Y-m-d H:i:s')
+                      ];
+                      $where = array('id' => '1');
+                      $this->Model_APS->proses_update($where,$data,'profil');
+                      $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil diupdate"));
+                      redirect('admin/profil');
+        break;
+      default : $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
+                $this->load->view('menu/profil',$data);
+                $this->load->view('layout/footer');
+    };
   }
 
   function akun(){

@@ -30,11 +30,13 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" />
-    <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/typeahead-js/typeahead.css") ?>" />
+    <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/typeahead-js/typeahead.css") ?>" /> -->
     
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="<?= base_url("assets/vendor/css/pages/page-home.css") ?>" />
+    
+    <script src="<?php echo base_url("assets/vendor/js/bootstrap.js") ?>"></script>
     <!-- Helpers -->
     <script src="<?= base_url("assets/vendor/js/helpers.js") ?>"></script>
 
@@ -43,6 +45,15 @@
     <script src="<?= base_url("assets/vendor/js/template-customizer.js") ?>"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url("assets/js/config.js") ?>"></script>
+    <style>
+      .header {
+        background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>");
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+        min-height: 600px !important
+      }
+    </style>
 </head>
 
 <body>
@@ -137,9 +148,56 @@
     <div class="authentication-wrapper authentication-cover border-bottom border-light">
   <div class="authentication-inner row m-0">
     <!-- /Left Text -->
-    <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center p-0">
-      <div class="w-100 d-flex justify-content-center">
-        <img src="<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>" class="img-fluid">
+    <div class="header d-lg-flex col-lg-7 col-xl-8 align-items-center p-0">
+      <div class="w-100 p-1 p-lg-5 d-flex flex-column justify-content-center">
+      <h3 class="text-center m-5 text-white">Daftar Ulang Peserta Didik</h3>
+          <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
+            
+            <div class="accordion-item card active">
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
+                  <i class="bx bx-data me-2"></i>
+                  1. Masuk dan lengkapi data
+                </button>
+              </h2>
+              <div id="accordionPopoutIcon-2" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
+                <div class="accordion-body">
+                Login aplikasi dengan menggunakan No Pendaftaran dan NISN. Isi data dengan benar, dan upload berkas : abcdef
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item card">
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconThree">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-3" aria-expanded="true" aria-controls="accordionPopoutIcon-3">
+                  <i class="bx bx-file me-2"></i>
+                  2. Cetak Bukti Daftar Ulang
+                </button>
+              </h2>
+              <div id="accordionPopoutIcon-3" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+                <div class="accordion-body">
+                  Cetak bukti daftar ulang.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item card">
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconOne">
+                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-1" aria-controls="accordionPopoutIcon-1">
+                <i class='bx bx-street-view me-2'></i>
+                  3. Datang ke SMA Negeri 1 Srengat
+                </button>
+              </h2>
+
+              <div id="accordionPopoutIcon-1" class="accordion-collapse collapse " data-bs-parent="#accordionPopoutIcon">
+                <div class="accordion-body">
+                Datang Ke SMAN 1 Srengat Dengan membawa berkas abcdef, 
+                <br>dimasukkan ke dalam map : <br>a. <strong>warna merah</strong> untuk jalur xxxx; <br>b. <strong>warna kuning</strong> utk jalur xxx; <br>c. …  pada tanggal xxxxx pukul xxxxx
+
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
     <!-- /Left Text -->
@@ -180,8 +238,8 @@
               </form>
               <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">No. Pendaftaran atau NISN salah! Jika belum membuat akun silahkan menghubungi panitia</div>'; }?>
               <p class="text-center">
-                <span>Lupa password?</span>
-                <a href="#">
+                <span>Ada Masalah?</span>
+                <a href="https://www.instagram.com/smangatofficial/">
                   <span>Hubungi Panitia</span>
                 </a>
               </p>
@@ -191,59 +249,10 @@
 	<!-- /login siswa -->
   </div>
   <!-- /test -->
-  <div class="d-flex flex-column justify-content-between align-items-between border-bottom border-light">
-    <div class="row tabs" data-aos="fade-up">
-          <div class="col-lg-6 m-auto p-3">
-            <h3 class="text-center m-5">Daftar Ulang Peserta Didik</h3>
-            <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
-            <div class="accordion-item card active">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconOne">
-                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-1" aria-controls="accordionPopoutIcon-1">
-                <i class='bx bx-street-view me-2'></i>
-                  1. Datang ke SMA Negeri 1 Srengat
-                </button>
-              </h2>
-
-              <div id="accordionPopoutIcon-1" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                  dengan membawa bukti telah diterima.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item card">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
-                  <i class="bx bx-data me-2"></i>
-                  2. Masuk dan lengkapi data
-                </button>
-              </h2>
-              <div id="accordionPopoutIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                Login ke web dengan akun yang sudah dibuatkan oleh petugas, isi data diri dengan benar dan sesuai keadaan sekarang. Apabila terdapat kendala silahkan menghubungi petugas
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item card">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconThree">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-3" aria-expanded="true" aria-controls="accordionPopoutIcon-3">
-                  <i class="bx bx-file me-2"></i>
-                  3. Cetak Bukti Daftar Ulang
-                </button>
-              </h2>
-              <div id="accordionPopoutIcon-3" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                  Cetak bukti daftar ulang dan serahkan kepada petugas.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="d-flex justify-content-center border-bottom border-light">
           <div class="col-lg-6 p-0">
-            <img src="assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="">
+            <img src="assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="putra-putri-smangat">
           </div>
-    </div> 
   </div>
 
 

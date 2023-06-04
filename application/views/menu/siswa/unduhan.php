@@ -10,9 +10,18 @@
                 // echo var_dump($this->session->userdata());?>
               <!-- Basic Layout & Basic with Icons -->
                 <div class="row">
+                  <div class="col-md-4">
                     <!-- Basic  -->
                     <a href="<?= base_url("aksi/unduh")?>" class="btn btn-sm btn-outline-primary">Unduh</a>
-                    
+                  </div>
+                  <div class="col-md-4">
+                    <!-- Basic  -->
+                    <a href="<?= base_url("aksi/unduha")?>" class="btn btn-sm btn-outline-primary">Unduh A</a>
+                  </div>
+                  <div class="col-md-4">
+                    <!-- Basic  -->
+                    <a href="<?= base_url("aksi/unduhb")?>" class="btn btn-sm btn-outline-primary">Unduh B</a>
+                  </div>
             <script type="text/javascript"> document.title = "Unduhan data <?= $this->session->userdata('nama')?>";
             document.getElementById("menu1").classList.add("active","open");
             document.getElementById("m1-2").classList.add("active");</script>

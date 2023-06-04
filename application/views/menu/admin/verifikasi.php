@@ -4,46 +4,29 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang /</span> Verifikasi</h4>
-              <!-- Hoverable Table rows -->
-              <div class="card">
-                <div class="table-responsive text-nowrap">
-                  <table class="table table-hover">
+              <?php if ($this->session->flashdata('alert') == !""){ 
+                $data = $this->session->flashdata('alert');
+                  echo '<div class="alert alert-'.$data['tipe'].' alert-dismissible" role="alert">'.$data['isi'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'; 
+                };
+                // echo var_dump($this->session->userdata());?>
+              <!-- tabel responsive -->
+              <div class="card mb-4">
+                <div class="card-datatable table-responsive">
+                  <table class="verifikasi border-top table">
                     <thead>
                       <tr>
+                        <th></th>
                         <th>No</th>
-                        <th>No. Pendaftaran</th>
-                        <th>NISN</th>
                         <th>Nama</th>
+                        <th>No. Pendaftaran</th>
+                        <th class="w-px-200">Status</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><strong>1</strong></td>
-                        <td>1234567890</td>
-                        <td>1234567890</td>
-                        <td>John Doe</td>
-                        <td>
-                          <div class="dropend">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
                   </table>
                 </div>
               </div>
-              <!--/ Hoverable Table rows -->
+              <!-- /tabel responsive -->
               
               <!-- Modal tambah -->
               <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
@@ -109,4 +92,7 @@
               <hr class="my-5" />
             <script type="text/javascript"> document.title = "Verifikasi Data Siswa";</script>
             <script type="text/javascript"> document.getElementById("menu1").classList.add("active","open");</script>
-            <script type="text/javascript"> document.getElementById("m1-2").classList.add("active");</script>
+            <script type="text/javascript"> document.getElementById("m1-3").classList.add("active");</script>
+            <script src="<?php echo base_url("assets/js/datatables-verify.js") ?>"></script>
+            <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>

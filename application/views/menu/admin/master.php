@@ -3,12 +3,13 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang /</span> Data Master</h4>
+              <h4 class="fw-bold py-3 mb-2"><span class="text-muted fw-light">Daftar Ulang /</span> Data Master</h4>
               <div class="row">
-               <div class="col-4 mb-3">
+                <small class="mb-2">Klik di teks untuk edit, dan klik ditempat lain untuk menyimpan</small>
+               <div class="col-xl mb-3">
               <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h5>Agama</h5>
+                    <h5 class="my-auto">Agama</h5>
                     <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/ag">
                         <span class="tf-icons bx bx-plus"></span>
                     </a>
@@ -17,6 +18,7 @@
                     <table class="table table-hover">
                     <thead>
                         <tr>
+                        <th></th>
                         <th width='10%'>Urutan</th>
                         <th width='90%'>Data</th>
                         </tr>
@@ -24,6 +26,7 @@
                     <tbody class="table-border-bottom-0">
                         <?php foreach ($agamas as $tp) { ?>
                         <tr>
+                        <td><a  class="text-danger" href="<?= base_url('admin/deletemaster/ag/'.$tp->id) ?>"><i class='bx bx-trash'></i></a></td>
                         <td><strong>
                             <span class='edit' ><?= $tp->id ?></span>
                             <input type='text' class='txtedit ag' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
@@ -40,10 +43,10 @@
                 </div>
               </div>
               
-              <div class="col-4 mb-3">
+              <div class="col-xl mb-3">
               <div class="card">
               <div class="card-header d-flex justify-content-between">
-                    <h5>Penghasilan</h5>
+                    <h5 class="my-auto">Penghasilan</h5>
                     <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/ph">
                         <span class="tf-icons bx bx-plus"></span>
                     </a>
@@ -52,6 +55,7 @@
                     <table class="table table-hover">
                     <thead>
                         <tr>
+                        <th></th>
                         <th width='10%'>Urutan</th>
                         <th width='90%'>Data</th>
                         </tr>
@@ -59,6 +63,7 @@
                     <tbody class="table-border-bottom-0">
                     <?php foreach ($phs as $tp) { ?>
                         <tr>
+                        <td><a  class="text-danger" href="<?= base_url('admin/deletemaster/ph/'.$tp->id) ?>"><i class='bx bx-trash'></i></a></td>
                         <td><strong>
                             <span class='edit' ><?= $tp->id ?></span>
                             <input type='text' class='txtedit ph' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
@@ -74,10 +79,10 @@
                 </div>
                 </div>
               </div>
-              <div class="col-4 mb-3">
+              <div class="col-xl mb-3">
               <div class="card">
               <div class="card-header d-flex justify-content-between">
-                    <h5>Pendidikan</h5>
+                    <h5 class="my-auto">Pendidikan</h5>
                     <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/pd">
                         <span class="tf-icons bx bx-plus"></span>
                     </a>
@@ -86,6 +91,7 @@
                     <table class="table table-hover">
                     <thead>
                         <tr>
+                        <th></th>
                         <th width='10%'>Urutan</th>
                         <th width='90%'>Data</th>
                         </tr>
@@ -93,6 +99,7 @@
                     <tbody class="table-border-bottom-0">
                     <?php foreach ($pdds as $tp) { ?>
                         <tr>
+                        <td><a  class="text-danger" href="<?= base_url('admin/deletemaster/pd/'.$tp->id) ?>"><i class='bx bx-trash'></i></a></td>
                         <td><strong>
                             <span class='edit' ><?= $tp->id ?></span>
                             <input type='text' class='txtedit pd' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
@@ -108,44 +115,10 @@
                 </div>
                 </div>
               </div>
-              <div class="col-4 mb-3">
+              <div class="col-xl mb-3">
               <div class="card">
               <div class="card-header d-flex justify-content-between">
-                    <h5>Pengumuman</h5>
-                    <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/pn">
-                        <span class="tf-icons bx bx-plus"></span>
-                    </a>
-                </div>
-                <div class="table-responsive text-nowrap">
-                    <table class="table table-hover">
-                    <thead>
-                        <tr>
-                        <th width='10%'>Urutan</th>
-                        <th width='90%'>Data</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                    <?php foreach ($pengumumans as $tp) { ?>
-                        <tr>
-                        <td><strong>
-                            <span class='edit' ><?= $tp->id ?></span>
-                            <input type='text' class='txtedit pn' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
-                        </td>
-                        <td>
-                            <span class='edit' ><?= $tp->ket ?></span>
-                            <input type='text' class='txtedit pn' data-id='<?= $tp->id ?>' data-field='ket' id='kettxt_<?= $tp->id ?>' value='<?= $tp->ket ?>'>
-                        </td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                    </table>
-                </div>
-                </div>
-              </div>
-              <div class="col-4 mb-3">
-              <div class="card">
-              <div class="card-header d-flex justify-content-between">
-                    <h5>Pekerjaan</h5>
+                    <h5 class="my-auto">Pekerjaan</h5>
                     <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/pk">
                         <span class="tf-icons bx bx-plus"></span>
                     </a>
@@ -154,6 +127,7 @@
                     <table class="table table-hover">
                     <thead>
                         <tr>
+                        <th></th>
                         <th width='10%'>Urutan</th>
                         <th width='90%'>Data</th>
                         </tr>
@@ -161,6 +135,7 @@
                     <tbody class="table-border-bottom-0">
                     <?php foreach ($pks as $tp) { ?>
                         <tr>
+                        <td><a  class="text-danger" href="<?= base_url('admin/deletemaster/pk/'.$tp->id) ?>"><i class='bx bx-trash'></i></a></td>
                         <td><strong>
                             <span class='edit' ><?= $tp->id ?></span>
                             <input type='text' class='txtedit pk' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
@@ -176,6 +151,43 @@
                 </div>
                 </div>
               </div>
+              <div class="col-xl mb-3">
+              <div class="card">
+              <div class="card-header d-flex justify-content-between">
+                    <h5 class="my-auto">Pengumuman</h5>
+                    <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/pn">
+                        <span class="tf-icons bx bx-plus"></span>
+                    </a>
+                </div>
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th></th>
+                        <th width='10%'>Urutan</th>
+                        <th width='90%'>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    <?php foreach ($pengumumans as $tp) { ?>
+                        <tr>
+                        <td><a  class="text-danger" href="<?= base_url('admin/deletemaster/pn/'.$tp->id) ?>"><i class='bx bx-trash'></i></a></td>
+                        <td><strong>
+                            <span class='edit' ><?= $tp->id ?></span>
+                            <input type='text' class='txtedit pn' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
+                        </td>
+                        <td>
+                            <span class='edit' ><?= $tp->ket ?></span>
+                            <input type='text' class='txtedit pn' data-id='<?= $tp->id ?>' data-field='ket' id='kettxt_<?= $tp->id ?>' value='<?= $tp->ket ?>'>
+                        </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+              </div>
+              
             </div>
             <script type="text/javascript">
             $(document).ready(function(){

@@ -164,10 +164,11 @@
                         </div>
                 <!-- end modal -->
               <hr class="my-5" />
-            <script type="text/javascript"> document.title = "Daftar Akun Siswa";</script>
-            <script type="text/javascript"> document.getElementById("menu1").classList.add("active","open");</script>
-            <script type="text/javascript"> document.getElementById("m1-1").classList.add("active");</script>
+            <script src="<?php echo base_url("assets/js/datatables.js") ?>"></script>
+            <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
+            <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>
             <script>
+              document.title = "Daftar Akun Siswa";document.getElementById("menu1").classList.add("active","open");document.getElementById("m1-1").classList.add("active");
               function get(nomor) {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {

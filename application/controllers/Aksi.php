@@ -46,6 +46,11 @@ class Aksi extends CI_Controller
 		echo json_encode($data);
   }
 
+  function details(){
+		$data['data'] = $this->Model_APS->tampil_data_seleksi('*','siswa','tgl_siswa','DESC')->result_array();
+		echo json_encode($data);
+  }
+
   function datasiswa($Id){
     $where = array('id_siswa' => $Id);
 		$data['data'] = $this->Model_APS->edit_data('siswa',$where)->result_array();
@@ -184,7 +189,7 @@ class Aksi extends CI_Controller
             //     'bahasa' => $tp->bahasa
             //   );
             // };
-        $this->load->view('cetak/1',$data);
+        $this->load->view('cetak/1a',$data);
   }
 
   function unduh()
@@ -195,7 +200,7 @@ class Aksi extends CI_Controller
     $teks = $this->load->view('cetak/1.php',$data,TRUE);
     $mpdf->WriteHTML($teks);
     $this->output->set_header('Content-Type', 'application/pdf');
-		$mpdf->Output('test.pdf','I'); 
+		$mpdf->Output('unduh biasa.pdf','I'); 
   }
 
   function unggah($jenis)
@@ -266,7 +271,7 @@ class Aksi extends CI_Controller
   $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
   $this->pdf->render();
     // Output the generated PDF to Browser
-  $this->pdf->stream('tes.pdf', array("Attachment" => false));
+  $this->pdf->stream('unduh B.pdf', array("Attachment" => false));
     
   }
 }

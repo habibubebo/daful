@@ -286,7 +286,7 @@ function wali() {
                         document.getElementById("lama").value = myObj.data[0].lama_belajar;
                         document.getElementById("nopeserta-un").value = myObj.data[0].nopeserta_un;
                         document.getElementById("no-skhu").value = myObj.data[0].no_skhu;
-                        document.getElementById("masuk-kelas").value = myObj.data[0].masuk_kelas;
+                        $('#masuk-kelas').selectpicker('val', myObj.data[0].masuk_kelas);
                         document.getElementById("masuk-jalur").value = myObj.data[0].masuk_jalur;
                         document.getElementById("masuk-tgl").value = myObj.data[0].masuk_tgl;
                         document.getElementById("pindahan-asal").value = myObj.data[0].pindahan_asal;
