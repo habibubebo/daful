@@ -13,6 +13,7 @@
  */
 use Dompdf\Dompdf;
 class Pdf extends Dompdf{
+    
     /**
      * PDF filename
      * @var String
@@ -21,6 +22,7 @@ class Pdf extends Dompdf{
     public function __construct(){
         parent::__construct();
         $this->filename = "laporan.pdf";
+        $this->set_option('isHtml5ParserEnabled', true);
     }
     /**
      * Get an instance of CodeIgniter

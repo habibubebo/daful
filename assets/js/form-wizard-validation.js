@@ -314,7 +314,7 @@ function wali() {
         },1000);
         $('#simple-date2 .input-group.date').datepicker({
             startView: 2,
-            format: 'dd-mm-yyyy',
+            format: 'yyyy-mm-dd',
             autoclose: true,
             todayBtn: 'linked',
           });

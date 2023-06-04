@@ -74,6 +74,11 @@
                     <div data-i18n="Without navbar">Verifikasi</div>
                   </a>
                 </li>
+                <li class="menu-item" id="m1-4">
+                  <a href="<?= base_url("admin/data")?>" class="menu-link">
+                    <div data-i18n="Without navbar">Data Siswa</div>
+                  </a>
+                </li>
               </ul>
             </li>
             

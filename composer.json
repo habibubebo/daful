@@ -14,7 +14,6 @@
 		"php": ">=5.3.7",
 		"phpoffice/phpspreadsheet": "*",
 		"mpdf/mpdf": "*",
-		"enyo/dropzone": "^5.9",
 		"dompdf/dompdf": "^2.0"
 	},
 	"suggest": {

@@ -47,7 +47,7 @@
     <script src="<?= base_url("assets/js/config.js") ?>"></script>
     <style>
       .header {
-        background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>");
+        background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>");
         background-size: cover;
         background-repeat: no-repeat;
         

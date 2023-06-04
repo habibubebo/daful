@@ -33,14 +33,6 @@ class Aksi extends CI_Controller
     // 
   }
 
-  function cetak()
-	{
-		$mpdf = new \Mpdf\Mpdf();
-		$data = $this->load->view('cetak', [], TRUE);
-		$mpdf->WriteHTML($data);
-		$mpdf->Output();
-	}
-
   function all(){
 		$data['data'] = $this->Model_APS->tampil_data_seleksi('id_siswa,nama_lengkap,no_pendaftaran,nisn,tgl_siswa','siswa','tgl_siswa','DESC')->result_array();
 		echo json_encode($data);
@@ -112,6 +104,77 @@ class Aksi extends CI_Controller
     $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil dihapus"));
       redirect('admin/akunsiswa');
 
+  }
+
+  function unggah($jenis)
+  { 
+    if (!file_exists('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')))) {
+      mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0777, true);
+    };
+    // mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0755);
+    $config['upload_path']          = 'file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran').'/');
+    $config['allowed_types']        = 'gif|jpg|png';
+    $config['max_size']             = 2048;
+    switch ($jenis) {
+      case 'kk':
+        $config['file_name'] = 'KK-'.str_replace(' ','-',$this->session->userdata('nama'));
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('ukk')) {
+          var_dump($this->upload->display_errors());
+        } else {
+          $where = array('id_siswa' => $this->session->userdata('id'));
+          $this->Model_APS->proses_update($where,array('kk' => $this->upload->data('orig_name')),'siswa');
+          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "KK berhasil diupload"));
+        };
+        break;
+      case 'akta':
+        $config['file_name'] = 'AKTA-'.str_replace(' ','-',$this->session->userdata('nama'));
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('akta')) {
+          var_dump($this->upload->display_errors());
+        } else {
+          $where = array('id_siswa' => $this->session->userdata('id'));
+          $this->Model_APS->proses_update($where,array('akta' => $this->upload->data('orig_name')),'siswa');
+          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Akta berhasil diupload"));
+        };
+        break;
+      case 'ijazah':
+        $config['file_name'] = 'IJAZAH-'.str_replace(' ','-',$this->session->userdata('nama'));
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('ijazah')) {
+          var_dump($this->upload->display_errors());
+        } else {
+          $where = array('id_siswa' => $this->session->userdata('id'));
+          $this->Model_APS->proses_update($where,array('ijazah' => $this->upload->data('orig_name')),'siswa');
+          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Ijazah berhasil diupload"));
+        };
+        break;
+      case 'bukti':
+          $config['file_name'] = 'BUKTI-'.str_replace(' ','-',$this->session->userdata('nama'));
+          $this->load->library('upload', $config);
+          if (!$this->upload->do_upload('bukti')) {
+            var_dump($this->upload->display_errors());
+          } else {
+            $where = array('id_siswa' => $this->session->userdata('id'));
+            $this->Model_APS->proses_update($where,array('bukti' => $this->upload->data('orig_name')),'siswa');
+            $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "bukti berhasil diupload"));
+          };
+        break;
+      default:
+        //
+    };
+    
+  }
+
+  function unduh()
+  {
+    $mpdf = new \Mpdf\Mpdf(['format' => 'Legal-P']);
+    $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
+    // $mpdf->AddPage('Legal-L');
+    $teks = $this->load->view('cetak/1b.php',$data,TRUE);
+    $mpdf->WriteHTML($teks);
+    $this->output->set_header('Content-Type', 'application/pdf');
+		$mpdf->Output('unduh biasa.pdf','I'); 
   }
 
   function unduha()
@@ -189,78 +252,7 @@ class Aksi extends CI_Controller
             //     'bahasa' => $tp->bahasa
             //   );
             // };
-        $this->load->view('cetak/1a',$data);
-  }
-
-  function unduh()
-  {
-    $mpdf = new \Mpdf\Mpdf(['format' => 'Legal-P']);
-    $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
-    // $mpdf->AddPage('Legal-L');
-    $teks = $this->load->view('cetak/1.php',$data,TRUE);
-    $mpdf->WriteHTML($teks);
-    $this->output->set_header('Content-Type', 'application/pdf');
-		$mpdf->Output('unduh biasa.pdf','I'); 
-  }
-
-  function unggah($jenis)
-  { 
-    if (!file_exists('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')))) {
-      mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0777, true);
-    };
-    // mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0755);
-    $config['upload_path']          = 'file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran').'/');
-    $config['allowed_types']        = 'gif|jpg|png';
-    $config['max_size']             = 2048;
-    switch ($jenis) {
-      case 'kk':
-        $config['file_name'] = 'KK-'.str_replace(' ','-',$this->session->userdata('nama'));
-        $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('ukk')) {
-          var_dump($this->upload->display_errors());
-        } else {
-          $where = array('id_siswa' => $this->session->userdata('id'));
-          $this->Model_APS->proses_update($where,array('kk' => $this->upload->data('orig_name')),'siswa');
-          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "KK berhasil diupload"));
-        };
-        break;
-      case 'akta':
-        $config['file_name'] = 'AKTA-'.str_replace(' ','-',$this->session->userdata('nama'));
-        $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('akta')) {
-          var_dump($this->upload->display_errors());
-        } else {
-          $where = array('id_siswa' => $this->session->userdata('id'));
-          $this->Model_APS->proses_update($where,array('akta' => $this->upload->data('orig_name')),'siswa');
-          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Akta berhasil diupload"));
-        };
-        break;
-      case 'ijazah':
-        $config['file_name'] = 'IJAZAH-'.str_replace(' ','-',$this->session->userdata('nama'));
-        $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('ijazah')) {
-          var_dump($this->upload->display_errors());
-        } else {
-          $where = array('id_siswa' => $this->session->userdata('id'));
-          $this->Model_APS->proses_update($where,array('ijazah' => $this->upload->data('orig_name')),'siswa');
-          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Ijazah berhasil diupload"));
-        };
-        break;
-      case 'bukti':
-          $config['file_name'] = 'BUKTI-'.str_replace(' ','-',$this->session->userdata('nama'));
-          $this->load->library('upload', $config);
-          if (!$this->upload->do_upload('bukti')) {
-            var_dump($this->upload->display_errors());
-          } else {
-            $where = array('id_siswa' => $this->session->userdata('id'));
-            $this->Model_APS->proses_update($where,array('bukti' => $this->upload->data('orig_name')),'siswa');
-            $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "bukti berhasil diupload"));
-          };
-        break;
-      default:
-        //
-    };
-    
+        $this->load->view('cetak/1b',$data);
   }
   // dompdf
   function unduhb() {
@@ -268,11 +260,25 @@ class Aksi extends CI_Controller
 
   $this->load->library('pdf');
   $this->pdf->setPaper('Legal', 'portrait');
-  $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
+  $this->pdf->load_html($this->load->view('cetak/1b',$data,TRUE));
   $this->pdf->render();
     // Output the generated PDF to Browser
   $this->pdf->stream('unduh B.pdf', array("Attachment" => false));
     
+  }
+
+  function view($jenis)
+  {
+    switch ($jenis) {
+      case '1' : $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
+                 $this->load->view('cetak/hal1',$data);
+        break;
+      case '2' :
+
+        break;
+      default:
+
+    }
   }
 }
 
