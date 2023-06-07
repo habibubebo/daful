@@ -164,11 +164,8 @@ function wali() {
   Dropzone.options.uKk = {
     url:"./aksi/unggah/kk",
     method:"post",
-    autoDiscover:false,
     paramName:"ukk",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png,.pdf",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -176,11 +173,8 @@ function wali() {
 };Dropzone.options.uAkta = {
     url:"./aksi/unggah/akta",
     method:"post",
-    autoDiscover:false,
     paramName:"akta",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png,.pdf",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -188,11 +182,8 @@ function wali() {
 };Dropzone.options.uIjazah = {
     url:"./aksi/unggah/ijazah",
     method:"post",
-    autoDiscover:false,
     paramName:"ijazah",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png,.pdf",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -200,11 +191,8 @@ function wali() {
 };Dropzone.options.uBukti = {
     url:"./aksi/unggah/bukti",
     method:"post",
-    autoDiscover:false,
     paramName:"bukti",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png,.pdf",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -277,7 +265,7 @@ function wali() {
                         $('#ph-wali').selectpicker('val', myObj.data[0].ph_wali);
                         document.getElementById("notelp-wali").value = myObj.data[0].notelp_wali;
                         document.getElementById("hub-wali").value = myObj.data[0].hub_wali;
-                        document.getElementById("alamat-wali").value = myObj.data[0].alamat_wali;
+                        document.getElementById("jalan-wali").value = myObj.data[0].alamat_wali;
                         document.getElementById("no-pend").value = myObj.data[0].no_pendaftaran;
                         document.getElementById("no-urut").value = myObj.data[0].no_urut;
                         document.getElementById("asal").value = myObj.data[0].asal;
@@ -300,9 +288,10 @@ function wali() {
                         document.getElementById("no-kks").value = myObj.data[0].no_kks;
                         document.getElementById("no-pkh").value = myObj.data[0].no_pkh;
                         document.getElementById("no-kip").value = myObj.data[0].no_kip;
-                        let bahasa = myObj.data[0].bahasa;
+                        if (myObj.data[0].bahasa === "") {}
+                        else { let bahasa = myObj.data[0].bahasa;
                         const bhsArray = bahasa.split(", ");
-                        $('#bahasa').selectpicker('val', bhsArray);
+                        $('#bahasa').selectpicker('val', bhsArray); };
                     });
 
                 }

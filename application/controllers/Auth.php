@@ -111,7 +111,8 @@ function logins(){
             
     }else{
             $data['alert'] = 1;    
-          $this->load->view('home',$data);
+            $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
+            $this->load->view('home',$data);
     }
 }
 

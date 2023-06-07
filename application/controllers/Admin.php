@@ -55,6 +55,7 @@ class Admin extends CI_Controller
     $data['phs'] = $this->Model_APS->tampil_data('tbl_penghasilan','id','ASC')->result();
     $data['pks'] = $this->Model_APS->tampil_data('tbl_pekerjaan','id','ASC')->result();
     $data['pengumumans'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
+    $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
     $this->load->view('menu/admin/master',$data);
     $this->load->view('layout/footer');
   }
@@ -82,6 +83,10 @@ class Admin extends CI_Controller
                  $this->Model_APS->simpan_data($data,'tbl_pengumuman');
                  redirect(base_url('admin/master'));
         break;
+      case 'info': $data = array('nama' => "baru",'ket' => "baru");
+                 $this->Model_APS->simpan_data($data,'tbl_info');
+                 redirect(base_url('admin/master'));
+        break;
       default:
         //
     };
@@ -107,10 +112,12 @@ class Admin extends CI_Controller
       case 'pn': $tabel = 'tbl_pengumuman';
                  $this->Model_APS->update_master($tabel,$id,$field,$value);
         break;
+      case 'info': $tabel = 'tbl_info';
+                 $this->Model_APS->update_master($tabel,$id,$field,$value);
+        break;
       default:
         //
     };
-	    echo 1;
 	    exit;
 	}
 
@@ -137,6 +144,11 @@ class Admin extends CI_Controller
                 redirect(base_url('admin/master'));
       break;
     case 'pn':  $tabel = 'tbl_pengumuman';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'info':  $tabel = 'tbl_info';
                 $where = ['id' => $id];
                 $this->Model_APS->hapus_data($where,$tabel);
                 redirect(base_url('admin/master'));

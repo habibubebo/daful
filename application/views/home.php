@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Website Daftar Ulang SMA Negeri 1 Srengat</title>
+    <title>Daftar Ulang SMA Negeri 1 Srengat</title>
     
     <meta name="description" content="Web Daftar Ulang SMA Negeri 1 Srengat" />
     <meta name="keywords" content="smangat, sma srengat, sman 1 srengat, daftar ulang, srengat, blitar">
@@ -153,7 +153,7 @@
       <h3 class="text-center m-5 text-white">Daftar Ulang Peserta Didik</h3>
           <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
             
-            <div class="accordion-item card active">
+            <!-- <div class="accordion-item card active">
               <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
                 <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
                   <i class="bx bx-data me-2"></i>
@@ -165,38 +165,21 @@
                 Login aplikasi dengan menggunakan No Pendaftaran dan NISN. Isi data dengan benar, dan upload berkas : abcdef
                 </div>
               </div>
-            </div>
-
+            </div> -->
+            <?php foreach ($infos as $tp) { ?>
             <div class="accordion-item card">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconThree">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-3" aria-expanded="true" aria-controls="accordionPopoutIcon-3">
-                  <i class="bx bx-file me-2"></i>
-                  2. Cetak Bukti Daftar Ulang
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIcon<?= $tp->id ?>">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-<?= $tp->id ?>" aria-expanded="true" aria-controls="accordionPopoutIcon-<?= $tp->id ?>">
+                  <?= $tp->nama ?>
                 </button>
               </h2>
-              <div id="accordionPopoutIcon-3" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+              <div id="accordionPopoutIcon-<?= $tp->id ?>" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
                 <div class="accordion-body">
-                  Cetak bukti daftar ulang.
+                <?= $tp->ket ?>
                 </div>
               </div>
             </div>
-
-            <div class="accordion-item card">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconOne">
-                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-1" aria-controls="accordionPopoutIcon-1">
-                <i class='bx bx-street-view me-2'></i>
-                  3. Datang ke SMA Negeri 1 Srengat
-                </button>
-              </h2>
-
-              <div id="accordionPopoutIcon-1" class="accordion-collapse collapse " data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                Datang Ke SMAN 1 Srengat Dengan membawa berkas abcdef, 
-                <br>dimasukkan ke dalam map : <br>a. <strong>warna merah</strong> untuk jalur xxxx; <br>b. <strong>warna kuning</strong> utk jalur xxx; <br>c. …  pada tanggal xxxxx pukul xxxxx
-
-                </div>
-              </div>
-            </div>
+              <?php } ?>
           </div>
       </div>
     </div>
@@ -278,5 +261,11 @@
 </div>
          </div>
           <!-- / Content -->
+          <script type="text/javascript">
+            const col = document.getElementsByClassName("accordion-item card");
+            col[0].classList.add('active');
+            const body = document.getElementsByClassName("accordion-collapse collapse");
+            body[0].classList.add('show');
+          </script>
 
 <?php $this->load->view('layout/footer'); ?>

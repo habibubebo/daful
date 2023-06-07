@@ -26,6 +26,9 @@ class Aksi extends CI_Controller
     parent::__construct();
     // Menambahkan Model-------------------------------------------------------------------------------------
     $this->load->model('Model_APS');
+    if($this->session->userdata('status') == ""){
+      redirect(base_url());
+  };
   }
 
   public function index()
@@ -56,6 +59,9 @@ class Aksi extends CI_Controller
   }
   
   function tambahakun(){
+    if($this->session->userdata('role') < "1"){
+      redirect(base_url("auth"));
+    } else {
     $np = $this->input->post('nopend');
     $nisn = $this->input->post('nisn');
     $nama = $this->input->post('nama');
@@ -76,11 +82,14 @@ class Aksi extends CI_Controller
       $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $np dengan NISN $nisn berhasil diinput"));
       redirect('admin/akunsiswa');
     };
-    
+  };
   }
   
   // ubah
   function updateakun($Id=null){
+    if($this->session->userdata('role') < "1"){
+      redirect(base_url("auth"));
+    } else {
     $Id = $this->input->post('id-siswa');
     $np = $this->input->post('nopendEdit');
     $nisn = $this->input->post('nisnEdit');
@@ -96,31 +105,36 @@ class Aksi extends CI_Controller
     $this->Model_APS->proses_update($where,$data,'siswa');
     $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $np dengan NISN $nisn berhasil diedit"));
       redirect('admin/akunsiswa');
+  };
   }
   // hapus
   function hapusakun($Id){
+    if($this->session->userdata('role') < "1"){
+      redirect(base_url("auth"));
+    } else {
     $where = array('id_siswa' => $Id);
     $this->Model_APS->hapus_data($where,'siswa');
     $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil dihapus"));
       redirect('admin/akunsiswa');
-
+    };
   }
 
   function unggah($jenis)
   { 
     if (!file_exists('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')))) {
-      mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0777, true);
+      mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0755, true);
     };
-    // mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0755);
+    // mkdir('file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran')), 0755 0777);
     $config['upload_path']          = 'file/uploads/'.str_replace(' ','-',$this->session->userdata('no_pendaftaran').'/');
-    $config['allowed_types']        = 'gif|jpg|png';
+    $config['allowed_types']        = 'jpg|png|jpeg|JPG|PNG|JPEG|PDF';
+    $config['overwrite']            = FALSE;
     $config['max_size']             = 2048;
     switch ($jenis) {
       case 'kk':
         $config['file_name'] = 'KK-'.str_replace(' ','-',$this->session->userdata('nama'));
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('ukk')) {
-          var_dump($this->upload->display_errors());
+          json_encode($this->upload->display_errors());
         } else {
           $where = array('id_siswa' => $this->session->userdata('id'));
           $this->Model_APS->proses_update($where,array('kk' => $this->upload->data('orig_name')),'siswa');
@@ -131,7 +145,7 @@ class Aksi extends CI_Controller
         $config['file_name'] = 'AKTA-'.str_replace(' ','-',$this->session->userdata('nama'));
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('akta')) {
-          var_dump($this->upload->display_errors());
+          echo $this->upload->display_errors();
         } else {
           $where = array('id_siswa' => $this->session->userdata('id'));
           $this->Model_APS->proses_update($where,array('akta' => $this->upload->data('orig_name')),'siswa');
@@ -142,7 +156,7 @@ class Aksi extends CI_Controller
         $config['file_name'] = 'IJAZAH-'.str_replace(' ','-',$this->session->userdata('nama'));
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('ijazah')) {
-          var_dump($this->upload->display_errors());
+          echo $this->upload->display_errors();
         } else {
           $where = array('id_siswa' => $this->session->userdata('id'));
           $this->Model_APS->proses_update($where,array('ijazah' => $this->upload->data('orig_name')),'siswa');
@@ -153,7 +167,7 @@ class Aksi extends CI_Controller
           $config['file_name'] = 'BUKTI-'.str_replace(' ','-',$this->session->userdata('nama'));
           $this->load->library('upload', $config);
           if (!$this->upload->do_upload('bukti')) {
-            var_dump($this->upload->display_errors());
+            echo $this->upload->display_errors();
           } else {
             $where = array('id_siswa' => $this->session->userdata('id'));
             $this->Model_APS->proses_update($where,array('bukti' => $this->upload->data('orig_name')),'siswa');
