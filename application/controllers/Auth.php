@@ -74,7 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     }
 }
 
-function logins(){
+function loginsori(){
     // Membuat variabel untuk menampung hasil inputan dari form login (v_login.php)------------------------
         $nopend = $this->input->post('nopend');
         $pass = $this->input->post('pass');
@@ -112,6 +112,48 @@ function logins(){
     }else{
             $data['alert'] = 1;    
             $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
+            $this->load->view('home',$data);
+    }
+}
+function logins(){
+    // Membuat variabel untuk menampung hasil inputan dari form login (v_login.php)------------------------
+        $jalur = $this->input->post('jalur');
+        $pass = $this->input->post('pass');
+    // Pemeriksaan Antara inputan dengan data yang ada di database-----------------------------------------
+        $where = array(
+            // 'Field_database' => $var_penampung----------------------------------------------------------
+                'masuk_jalur' => $jalur,
+                'password' => $pass
+        );
+    // Membuat variabel statement(stat) yang berisi hasil dari pemeriksaan ke database---------------------
+     // Fungsi cek_akun($where) untuk mengecek kondisi yang diberikan dengan data yang ada di tabel akun---
+     // Fungsi num_rows() akan menghasilkan nilai 0 jika tidak ada data / 1 jika ada data yang sesuai -----
+        $stat = $this->Model_APS->cek_akun('siswa',$where)->num_rows();
+    // Membuat kondisi untuk memeriksa hasil statement-----------------------------------------------------
+        if ($stat > 0) {
+        // Membuat variabel list untuk menampung data kondisi yang diberikan------------------------------- 
+            $data = $this->Model_APS->cek_akun('siswa',$where)->result();
+        // Membuat pengulangan untuk variabel $data agar data dapat dijabarkan-----------------------------
+            foreach ($data as $data);
+        // Membuat variabel untuk menampung data akun yang login-------------------------------------------
+            $datalogin = array(
+                // 'Field_database' => $var_penampung_data_kondisi-----------------------------------------
+                'id'=> $data->id_siswa,
+                'nama'=> $data->nama_lengkap,
+                'no_pendaftaran'=> $data->no_pendaftaran,
+                'password'=> $data->password,
+                'role'=> $data->role,
+                'status' => "masuk"
+            );
+        // Membuat Session untuk mengatur data user yang login---------------------------------------------
+            $this->session->set_userdata($datalogin);
+        // Memanggil fungsi header() untuk mengarahkan halaman---------------------------------------------
+            header('location:'.base_url().'dashboard');
+            
+    }else{
+            $data['alert'] = 1;    
+            $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
+            $data['jms'] = $this->Model_APS->tampil_data('tbl_jalur','id','ASC')->result();
             $this->load->view('home',$data);
     }
 }

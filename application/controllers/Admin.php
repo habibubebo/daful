@@ -45,7 +45,8 @@ class Admin extends CI_Controller
   }
 
   function akunsiswa(){
-    $this->load->view('menu/admin/lihat');
+    $data['jms'] = $this->Model_APS->tampil_data('tbl_jalur','id','ASC')->result();
+    $this->load->view('menu/admin/lihat',$data);
     $this->load->view('layout/footer');
   }
 
@@ -56,6 +57,7 @@ class Admin extends CI_Controller
     $data['pks'] = $this->Model_APS->tampil_data('tbl_pekerjaan','id','ASC')->result();
     $data['pengumumans'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
     $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
+    $data['jms'] = $this->Model_APS->tampil_data('tbl_jalur','id','ASC')->result();
     $this->load->view('menu/admin/master',$data);
     $this->load->view('layout/footer');
   }
@@ -87,6 +89,10 @@ class Admin extends CI_Controller
                  $this->Model_APS->simpan_data($data,'tbl_info');
                  redirect(base_url('admin/master'));
         break;
+      case 'jm': $data = array('nama' => "baru");
+                 $this->Model_APS->simpan_data($data,'tbl_jalur');
+                 redirect(base_url('admin/master'));
+        break;
       default:
         //
     };
@@ -113,6 +119,9 @@ class Admin extends CI_Controller
                  $this->Model_APS->update_master($tabel,$id,$field,$value);
         break;
       case 'info': $tabel = 'tbl_info';
+                 $this->Model_APS->update_master($tabel,$id,$field,$value);
+        break;
+      case 'jm': $tabel = 'tbl_jalur';
                  $this->Model_APS->update_master($tabel,$id,$field,$value);
         break;
       default:
@@ -149,6 +158,11 @@ class Admin extends CI_Controller
                 redirect(base_url('admin/master'));
       break;
     case 'info':  $tabel = 'tbl_info';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'jm':  $tabel = 'tbl_jalur';
                 $where = ['id' => $id];
                 $this->Model_APS->hapus_data($where,$tabel);
                 redirect(base_url('admin/master'));

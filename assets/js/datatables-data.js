@@ -126,7 +126,7 @@ $(function() {
         }, {
             data: "hub_wali"
         },{
-            data: "alamat_wali"
+            data: "jalan_wali"
         }, {
             data: "asal"
         }, {

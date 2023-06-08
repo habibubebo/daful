@@ -37,7 +37,7 @@ class Aksi extends CI_Controller
   }
 
   function all(){
-		$data['data'] = $this->Model_APS->tampil_data_seleksi('id_siswa,nama_lengkap,no_pendaftaran,nisn,tgl_siswa','siswa','tgl_siswa','DESC')->result_array();
+		$data['data'] = $this->Model_APS->tampil_data_seleksi('id_siswa,nama_lengkap,masuk_jalur,no_urut,nisn,tgl_siswa','siswa','tgl_siswa','DESC')->result_array();
 		echo json_encode($data);
   }
 
@@ -62,28 +62,80 @@ class Aksi extends CI_Controller
     if($this->session->userdata('role') < "1"){
       redirect(base_url("auth"));
     } else {
-    $np = $this->input->post('nopend');
-    $nisn = $this->input->post('nisn');
+    $jalur = $this->input->post('masuk-jalur');
+    $no_urut = $this->input->post('no-urut');
     $nama = $this->input->post('nama');
-    $cek = array('no_pendaftaran' => $np);
+    $cek = array('masuk_jalur' => $jalur,'no_urut' => $no_urut);
     if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 0){
-      $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Data $np dengan NISN $nisn gagal diinput, duplikasi"));
+      $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Data $jalur dengan No. Urut $no_urut gagal diinput, duplikasi"));
       redirect("admin/akunsiswa");    
     } else {
       $data = array(
         'admin' => $this->session->userdata('id'),
-        'no_pendaftaran' => $np,
-        'password' => $nisn,
-        'nisn' => $nisn,
+        'masuk_jalur' => $jalur,
+        'password' => $no_urut,
+        'no_urut' => $no_urut,
         'nama_lengkap' => $nama,
         'tgl_siswa' => date('Y-m-d H:i:s')
       );
       $this->Model_APS->simpan_data($data,'siswa');
-      $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $np dengan NISN $nisn berhasil diinput"));
+      $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $jalur dengan No. Urut $no_urut berhasil diinput"));
       redirect('admin/akunsiswa');
     };
   };
   }
+
+  function import(){
+    if($this->session->userdata('role') < "1"){
+      redirect(base_url("auth"));
+    } else {
+      if ( isset($_POST['import'])) {
+
+        $file = $_FILES['file']['tmp_name'];
+
+        // Medapatkan ekstensi file csv yang akan diimport.
+        $ekstensi  = explode('.', $_FILES['file']['name']);
+
+        // Tampilkan peringatan jika submit tanpa memilih menambahkan file.
+        if (empty($file)) {
+          echo 'File tidak boleh kosong!';
+        } else {
+          // Validasi apakah file yang diupload benar-benar file csv.
+          if (strtolower(end($ekstensi)) === 'csv' && $_FILES["file"]["size"] > 0) {
+
+      $i = 0;
+      $handle = fopen($file, "r");
+      while (($row = fgetcsv($handle, 2048,';'))) {
+        $i++;
+        if ($i == 1) continue;
+
+        // Data yang akan disimpan ke dalam databse
+        $data = array(
+          'masuk_jalur' => $row[1],
+          'no_urut' => $row[2],
+          'nama_lengkap' => $row[3],
+          'password' => $row[2],
+          'tgl_siswa' => date('Y-m-d H:i:s')
+        );
+
+        // Simpan data ke database.
+        $this->Model_APS->simpan_data($data,'siswa');
+      };
+
+      fclose($handle);
+      redirect('admin/akunsiswa');
+
+    } else {
+      echo 'Format file tidak valid!';
+    }
+  }
+    }
+};
+
+
+    }
+  
+
   
   // ubah
   function updateakun($Id=null){
@@ -202,16 +254,16 @@ class Aksi extends CI_Controller
         break;
       default : 
       
-  };
+    };
 
-  $this->load->library('pdf');
-  $this->pdf->setPaper('Legal', 'portrait');
-  $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
-  $this->pdf->add_info('Bukti Daftar Ulang', 'SMA Negeri 1 Srengat');
-  $this->pdf->render();
-    // Output the generated PDF to Browser
-  $this->pdf->stream('bukti '.$id.'.pdf', array("Attachment" => false));
-    
+    $this->load->library('pdf');
+    $this->pdf->setPaper('Legal', 'portrait');
+    $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
+    $this->pdf->add_info('Bukti Daftar Ulang', 'SMA Negeri 1 Srengat');
+    $this->pdf->render();
+      // Output the generated PDF to Browser
+    $this->pdf->stream('bukti '.$id.'.pdf', array("Attachment" => false));
+      
   }
 }
 

@@ -1067,7 +1067,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  </tr>
  <tr class=xl6523733 height=25 style='height:18.75pt'>
   <td height=25 class=xl6523733 style='height:18.75pt'></td>
-  <td colspan=24 class=xl6823733>TAHUN PELAJARAN 2022/2023</td>
+  <td colspan=24 class=xl6823733>TAHUN PELAJARAN <?= date("Y")?>/<?= date("Y")+1 ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=21 style='height:15.75pt'>

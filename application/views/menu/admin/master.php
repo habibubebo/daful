@@ -190,6 +190,42 @@
               <div class="col-xl mb-3">
               <div class="card">
               <div class="card-header d-flex justify-content-between">
+                    <h5 class="my-auto">Jalur Masuk</h5>
+                    <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/jm">
+                        <span class="tf-icons bx bx-plus"></span>
+                    </a>
+                </div>
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th></th>
+                        <th width='10%'>Urutan</th>
+                        <th width='90%'>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    <?php foreach ($jms as $tp) { ?>
+                        <tr>
+                        <td><a  class="text-danger" href="<?= base_url('admin/deletemaster/jm/'.$tp->id) ?>"><i class='bx bx-trash'></i></a></td>
+                        <td><strong>
+                            <span class='edit' ><?= $tp->id ?></span>
+                            <input type='text' class='txtedit jm' data-id='<?= $tp->id ?>' data-field='id' id='idtxt_<?= $tp->id ?>' value='<?= $tp->id ?>'></strong>
+                        </td>
+                        <td>
+                            <span class='edit' ><?= $tp->nama ?></span>
+                            <input type='text' class='txtedit jm' data-id='<?= $tp->id ?>' data-field='nama' id='namatxt_<?= $tp->id ?>' value='<?= $tp->nama ?>'>
+                        </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+              </div>
+              <div class="col-xl mb-3">
+              <div class="card">
+              <div class="card-header d-flex justify-content-between">
                     <h5 class="my-auto">Halaman Utama</h5>
                     <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/info">
                         <span class="tf-icons bx bx-plus"></span>

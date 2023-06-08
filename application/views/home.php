@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/demo.css") ?>" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" />
+    <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" /> -->
     <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/typeahead-js/typeahead.css") ?>" /> -->
     
 
@@ -42,7 +42,7 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="<?= base_url("assets/vendor/js/template-customizer.js") ?>"></script>
+    <!-- <script src="<?= base_url("assets/vendor/js/template-customizer.js") ?>"></script> -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url("assets/js/config.js") ?>"></script>
     <style>
@@ -50,7 +50,6 @@
         background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>");
         background-size: cover;
         background-repeat: no-repeat;
-        
         min-height: 600px !important
       }
     </style>
@@ -64,21 +63,12 @@
 
     <!-- Layout container -->
     <div class="layout-page">
-      
-      
-
-
-
 <!-- Navbar -->
-
-
-
-
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-        <!-- Search -->
+        <!-- Brand -->
         <div class="navbar-nav align-items-center">
           <div class="nav-item navbar-search-wrapper mb-0">
 		  	<a href="<?= base_url()?>" class="app-brand-link">
@@ -89,12 +79,7 @@
             </a>
           </div>
         </div>
-        <!-- /Search -->
-        
-
-
-        
-
+        <!-- /Brand -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
           
           
@@ -174,29 +159,27 @@
 	<div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4" id="login">
       <div class="w-px-400 mx-auto">
 		
-			  <h4 class="mb-2 center">Sudah punya akun?</h4>
-              <p class="mb-4">Silahkan login disini.</p>
+			  <h4 class="mb-2 center">Silahkan Masuk disini</h4>
+              <p class="mb-4">menggunakan informasi <b>jalur masuk</b> dan <b>nomor urut diterima</b></p>
 
               <form id="formAuthentication" class="mb-3" action="<?= base_url("auth/logins") ?>" method="POST">
                 <div class="mb-3">
-                  <label for="nopend" class="form-label">Nomor Pendaftaran</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nopend"
-                    name="nopend"
-                    placeholder="Masukkan Nomor Pendaftaran"
-                    autofocus
-                  />
+                  <label for="jalur" class="form-label">Jalur Masuk</label>
+                  <select class="selectpicker form-control" name="jalur" id="jalur" data-style="btn-default">
+                  <option value="" disabled selected>Pilih</option>
+                  <?php foreach ($jms as $jm) { ?>
+                    <option value="<?= $jm->nama ?>"><?= $jm->nama ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="mb-3">
-                  <label for="pass" class="form-label">NISN</label>
+                  <label for="pass" class="form-label">Nomor Urut</label>
                   <input
                     type="text"
                     class="form-control"
                     id="pass"
                     name="pass"
-                    placeholder="Masukkan NISN"
+                    placeholder="Masukkan Password"
                     autofocus
                   />
                 </div>
@@ -205,7 +188,7 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                 </div>
               </form>
-              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">No. Pendaftaran atau NISN salah! Jika belum membuat akun silahkan menghubungi panitia</div>'; }?>
+              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silahkan menghubungi panitia</div>'; }?>
               <p class="text-center">
                 <span>Ada Masalah?</span>
                 <a href="https://www.instagram.com/smangatofficial/">
