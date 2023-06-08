@@ -353,7 +353,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="alamat-ortu">Alamat</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="alamat-ortu" name="alamat-ortu" />
+                            <textarea type="text" class="form-control" id="alamat-ortu" name="alamat-ortu"></textarea>
                           </div>
                         </div>
                     </div>
@@ -479,15 +479,15 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="alamat-wali">Alamat</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="alamat-wali" name="alamat-wali" />
-                          </div>
-                        </div>
-                        <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="hub-wali">Hubungan keluarga dengan wali</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="hub-wali" name="hub-wali" />
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="alamat-wali">Alamat</label>
+                          <div class="col-sm-8">
+                            <textarea type="text" class="form-control" id="alamat-wali" name="alamat-wali"></textarea>
                           </div>
                         </div>
                     </div>
@@ -628,7 +628,7 @@
                         document.getElementById("ph-wali").value = myObj.data[0].ph_wali;
                         document.getElementById("notelp-wali").value = myObj.data[0].notelp_wali;
                         document.getElementById("hub-wali").value = myObj.data[0].hub_wali;
-                        document.getElementById("alamat-wali").value = myObj.data[0].alamat_wali;
+                        document.getElementById("alamat-wali").value = "Jl. "+myObj.data[0].jalan_wali+" RT "+myObj.data[0].rt_wali+" RW "+myObj.data[0].rw_wali+" Desa "+myObj.data[0].desa_wali+" Kec. "+myObj.data[0].kec_wali+" Kab/Kota "+myObj.data[0].kab_wali+" Prov. "+myObj.data[0].prov_wali;
                         document.getElementById("no-pend").value = myObj.data[0].no_pendaftaran;
                         document.getElementById("no-urut").value = myObj.data[0].no_urut;
                         document.getElementById("asal").value = myObj.data[0].asal;

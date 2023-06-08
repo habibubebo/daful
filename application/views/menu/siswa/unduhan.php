@@ -9,63 +9,41 @@
                 };
                 // echo var_dump($this->session->userdata());?>
               
-                <div class="row invoice-preview">
-  <!-- Invoice -->
-  <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
-    <div class="card invoice-preview-card">
-      <div class="card-body">
-        <?php $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
-        $this->load->view('cetak/hal1',$data); ?>
-      </div>
-      <hr class="my-0" />
-      <div class="card-body">
-        <?php $this->load->view('cetak/hal2',$data); ?>
-      </div>
-      <hr class="my-0" />
-      <div class="card-body">
-        <?php $this->load->view('cetak/hal3',$data); ?>
-      </div>
-      <hr class="my-0" />
-      <div class="card-body">
-        <?php $this->load->view('cetak/hal4',$data); ?>
-      </div>
-      <hr class="my-0" />
-      <div class="card-body">
-        <?php $this->load->view('cetak/hal5',$data); ?>
-      </div>
-      <hr class="my-0" />
-      <div class="card-body">
-        <?php $this->load->view('cetak/hal6',$data); ?>
-      </div>
-      
-      <div class="card-body">
-        
-      </div>
-    </div>
-  </div>
-  <!-- /Invoice -->
-
-  <!-- Invoice Actions -->
-  <div class="col-xl-3 col-md-4 col-12 invoice-actions">
-    <div class="card">
-      <div class="card-body d-flex flex-column">
-        <a class="btn btn-primary d-grid w-100 mb-3" href="<?= base_url("aksi/unduh")?>">
-        
-          Unduh
-        </a>
-        <a class="btn btn-label-secondary d-grid w-100 mb-3" href="<?= base_url("aksi/unduha")?>">
-          Unduh A
-        </a>
-        <a class="btn btn-label-secondary d-grid w-100 mb-3" href="<?= base_url("aksi/unduhb")?>">
-          Unduh B
-        </a>
-        <a href="#" class="btn btn-label-secondary d-grid w-100 mb-3">
-          Edit
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /Invoice Actions -->
+                <div class="row">
+                  <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
+                    <div class="card overflow-hidden mb-4" style="height: 1080px;">
+                      <div class="card-body" id="both-scrollbars">
+                        <?php 
+                        // var_dump($siswa);
+                        $this->load->view('cetak/1',$siswa); 
+                        ?>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-4 col-12 invoice-actions">
+                    <div class="card">
+                      <div class="card-body d-flex flex-column">
+                        <?php if ($tombol == 0){
+                          echo '<a class="btn btn-primary d-grid w-100 mb-3" href="'.base_url().'aksi/unduh/'.$this->session->userdata('no_pendaftaran').'/ayah">Unduh</a>';
+                        } else if ($tombol == 1){
+                          echo '<a class="btn btn-primary d-grid w-100 mb-3" href="'.base_url().'aksi/unduh/'.$this->session->userdata('no_pendaftaran').'/ibu">Unduh</a>';
+                        } else echo '<a class="btn btn-primary d-grid w-100 mb-3" href="'.base_url().'aksi/unduh/'.$this->session->userdata('no_pendaftaran').'/wali">Unduh</a>'; ?>
+                      <div class="p-1">
+                        <h6 class="text-center">Siapa yang akan tanda tangan?</h6>
+                        <a href="../unduhan/ayah" class="btn btn-label-secondary d-grid w-100 mb-3">Ayah</a>
+                        <a href="../unduhan/ibu" class="btn btn-label-secondary d-grid w-100 mb-3">Ibu</a>
+                        <a href="../unduhan/wali" class="btn btn-label-secondary d-grid w-100 mb-3">Wali</a>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
             <script type="text/javascript"> document.title = "Unduhan data <?= $this->session->userdata('nama')?>";
             document.getElementById("menu1").classList.add("active","open");
-            document.getElementById("m1-2").classList.add("active");</script>
+            document.getElementById("m1-2").classList.add("active");
+            document.addEventListener("DOMContentLoaded", function() {
+              var l;
+                  l = document.getElementById("both-scrollbars"), l && new PerfectScrollbar(l, {
+                wheelPropagation: !1
+              })
+            });
+            </script>

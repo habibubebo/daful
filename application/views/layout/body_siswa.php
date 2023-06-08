@@ -73,7 +73,7 @@
                 </div>
                 <!-- /step3 --> <?php } }?>
                 <!-- pengumuman -->
-                <div class="col-md-8 col-md-4 col-lg-4 order-lg-1 order-2 mb-4">
+                <div class="col-md-12 col-md-4 col-lg-4 order-lg-1 order-1 mb-4">
                 <?php foreach ($pengumuman as $tp) { ?>
                   <div class="card bg-primary text-white text-center p-1">
                     <figure class="mb-0">
@@ -87,6 +87,29 @@
                     </figure>
                   </div>
                   <?php } ?>
+                </div>
+                <div class="col-lg-8 order-2 mb-4">
+                  <div class="card">
+                    <h5 class="card-header">Informasi</h5>
+                    <div class="card-body">
+                      <ul class="timeline">
+                      <?php foreach ($infos as $tp) { ?>
+                        <li class="timeline-item timeline-item-transparent">
+                          <span class="timeline-point timeline-point-primary"></span>
+                          <div class="timeline-event">
+                            <div class="timeline-header mb-sm-0 mb-3">
+                              <h6 class="mb-0"><?= $tp->nama ?></h6>
+                            </div>
+                            <?= $tp->ket ?>
+                          </div>
+                        </li>
+                        <?php } ?>
+                        <li class="timeline-end-indicator">
+                          <i class="bx bx-check-circle text-success"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 
               </div>

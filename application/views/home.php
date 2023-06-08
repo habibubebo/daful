@@ -152,20 +152,6 @@
       <div class="w-100 p-1 p-lg-5 d-flex flex-column justify-content-center">
       <h3 class="text-center m-5 text-white">Daftar Ulang Peserta Didik</h3>
           <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
-            
-            <!-- <div class="accordion-item card active">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
-                  <i class="bx bx-data me-2"></i>
-                  1. Masuk dan lengkapi data
-                </button>
-              </h2>
-              <div id="accordionPopoutIcon-2" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                Login aplikasi dengan menggunakan No Pendaftaran dan NISN. Isi data dengan benar, dan upload berkas : abcdef
-                </div>
-              </div>
-            </div> -->
             <?php foreach ($infos as $tp) { ?>
             <div class="accordion-item card">
               <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIcon<?= $tp->id ?>">

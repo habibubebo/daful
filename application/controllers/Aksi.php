@@ -180,7 +180,7 @@ class Aksi extends CI_Controller
     
   }
 
-  function unduh()
+  function unduhbiasa()
   {
     $mpdf = new \Mpdf\Mpdf(['format' => 'Legal-P']);
     $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
@@ -191,108 +191,27 @@ class Aksi extends CI_Controller
 		$mpdf->Output('unduh biasa.pdf','I'); 
   }
 
-  function unduha()
-  {
-          $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
-          
-            // foreach ($data as $tp) {
-            //   $data = array(
-            //     'nama_lengkap' => $tp->nama_lengkap,
-            //     'nama_panggilan' => $tp->nama_panggilan,
-            //     'nisn' => $tp->nisn,
-            //     'nik' => $tp->nik,
-            //     'jk' => $tp->jk,
-            //     'tempat_lahir' => $tp->tempat_lahir,
-            //     'prov_lahir' => $tp->prov_lahir,
-            //     'tgl_lahir' => $tp->tgl_lahir,
-            //     'agama' => $tp->agama,
-            //     'kw' => $tp->kw,
-            //     'anak_ke' => $tp->anak_ke,
-            //     'status_anak' => $tp->status_anak,
-            //     'notelp' => $tp->notelp,
-            //     'goldar' => $tp->goldar,
-            //     'tinggi_badan' => $tp->tinggi_badan,
-            //     'berat_badan' => $tp->berat_badan,
-            //     'hobi_kes' => $tp->hobi_kes,
-            //     'tinggal' => $tp->tinggal,
-            //     'nama_ayah' => $tp->nama_ayah,
-            //     'ttl_ayah' => $tp->ttl_ayah,
-            //     'agama_ayah' => $tp->agama_ayah,
-            //     'kw_ayah' => $tp->kw_ayah,
-            //     'pdd_ayah' => $tp->pdd_ayah,
-            //     'pk_ayah' => $tp->pk_ayah,
-            //     'ph_ayah' => $tp->ph_ayah,
-            //     'notelp_ayah' => $tp->notelp_ayah,
-            //     'status_ayah' => $tp->status_ayah,
-            //     'alamat_ortu' => $tp->alamat_ortu,
-            //     'nama_ibu' => $tp->nama_ibu,
-            //     'ttl_ibu' => $tp->ttl_ibu,
-            //     'agama_ibu' => $tp->agama_ibu,
-            //     'kw_ibu' => $tp->kw_ibu,
-            //     'pdd_ibu' => $tp->pdd_ibu,
-            //     'pk_ibu' => $tp->pk_ibu,
-            //     'ph_ibu' => $tp->ph_ibu,
-            //     'notelp_ibu' => $tp->notelp_ibu,
-            //     'status_ibu' => $tp->status_ibu,
-            //     'nama_wali' => $tp->nama_wali,
-            //     'ttl_wali' => $tp->ttl_wali,
-            //     'agama_wali' => $tp->agama_wali,
-            //     'kw_wali' => $tp->kw_wali,
-            //     'pdd_wali' => $tp->pdd_wali,
-            //     'pk_wali' => $tp->pk_wali,
-            //     'ph_wali' => $tp->ph_wali,
-            //     'notelp_wali' => $tp->notelp_wali,
-            //     'hub_wali' => $tp->hub_wali,
-            //     'alamat_wali' => $tp->alamat_wali,
-            //     'no_pendaftaran' => $tp->no_pendaftaran,
-            //     'no_urut' => $tp->no_urut,
-            //     'asal' => $tp->asal,
-            //     'tgl_no_ijazah' => $tp->tgl_no_ijazah,
-            //     'tgl_no_skl' => $tp->tgl_no_skl,
-            //     'lama_belajar' => $tp->lama_belajar,
-            //     'nopeserta_un' => $tp->nopeserta_un,
-            //     'no_skhu' => $tp->no_skhu,
-            //     'masuk_kelas' => $tp->masuk_kelas,
-            //     'masuk_jalur' => $tp->masuk_jalur,
-            //     'masuk_tgl' => $tp->masuk_tgl,
-            //     'pindahan_asal' => $tp->pindahan_asal,
-            //     'pindahan_alasan' => $tp->pindahan_alasan,
-            //     'jml_saudara_kd' => $tp->jml_saudara_kd,
-            //     'jml_saudara_tr' => $tp->jml_saudara_tr,
-            //     'jml_saudara_ak' => $tp->jml_saudara_ak,
-            //     'jarak' => $tp->jarak,
-            //     'penyakit' => $tp->penyakit,
-            //     'kelainan' => $tp->kelainan,
-            //     'bahasa' => $tp->bahasa
-            //   );
-            // };
-        $this->load->view('cetak/1b',$data);
-  }
   // dompdf
-  function unduhb() {
-  $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
+  function unduh($id=null,$ttd=null) {
+    switch ($ttd) {
+      case "ayah" : $data['siswa'] = $this->db->query('SELECT *,nama_ayah AS ttdnama,ttl_ayah AS ttdttl,pk_ayah AS ttdpk,alamat_ortu as ttdalamat, notelp_ayah as ttdtelp, agama_ayah AS ttdagama FROM siswa WHERE no_pendaftaran='.$id)->result();
+        break;
+      case "ibu" : $data['siswa'] = $this->db->query('SELECT *,nama_ibu AS ttdnama,ttl_ibu AS ttdttl,pk_ibu AS ttdpk,alamat_ortu as ttdalamat, notelp_ibu as ttdtelp, agama_ibu AS ttdagama FROM siswa WHERE no_pendaftaran='.$id)->result();
+        break;
+      case "wali" : $data['siswa'] = $this->db->query('SELECT *,nama_wali AS ttdnama,ttl_wali AS ttdttl,pk_wali AS ttdpk,desa_wali as ttdalamat, notelp_wali as ttdtelp, agama_wali AS ttdagama FROM siswa WHERE no_pendaftaran='.$id)->result();
+        break;
+      default : 
+      
+  };
 
   $this->load->library('pdf');
   $this->pdf->setPaper('Legal', 'portrait');
-  $this->pdf->load_html($this->load->view('cetak/1b',$data,TRUE));
+  $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
+  $this->pdf->add_info('Bukti Daftar Ulang', 'SMA Negeri 1 Srengat');
   $this->pdf->render();
     // Output the generated PDF to Browser
-  $this->pdf->stream('unduh B.pdf', array("Attachment" => false));
+  $this->pdf->stream('bukti '.$id.'.pdf', array("Attachment" => false));
     
-  }
-
-  function view($jenis)
-  {
-    switch ($jenis) {
-      case '1' : $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
-                 $this->load->view('cetak/hal1',$data);
-        break;
-      case '2' :
-
-        break;
-      default:
-
-    }
   }
 }
 

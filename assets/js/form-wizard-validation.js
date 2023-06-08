@@ -288,6 +288,13 @@ function wali() {
                         document.getElementById("no-kks").value = myObj.data[0].no_kks;
                         document.getElementById("no-pkh").value = myObj.data[0].no_pkh;
                         document.getElementById("no-kip").value = myObj.data[0].no_kip;
+                        document.getElementById("jalan-wali").value = myObj.data[0].jalan_wali;
+                        document.getElementById("rt-wali").value = myObj.data[0].rt_wali;
+                        document.getElementById("rw-wali").value = myObj.data[0].rw_wali;
+                        document.getElementById("desa-wali").value = myObj.data[0].desa_wali;
+                        document.getElementById("kec-wali").value = myObj.data[0].kec_wali;
+                        document.getElementById("kab-wali").value = myObj.data[0].kab_wali;
+                        $('#prov-wali').selectpicker('val', myObj.data[0].prov_wali);
                         if (myObj.data[0].bahasa === "") {}
                         else { let bahasa = myObj.data[0].bahasa;
                         const bhsArray = bahasa.split(", ");

@@ -39,6 +39,7 @@ class Dashboard extends CI_Controller
 
   public function index()
   {
+    $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
     $data['pengumuman'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
     if($this->session->userdata('role') < "1"){
       // dashboard siswa
