@@ -12,8 +12,10 @@ $(function() {
         }, {
             data: "nama_lengkap"
         }, {
-            data: "no_pendaftaran"
+            data: "masuk_jalur"
         }, {
+            data: "no_urut"
+        },{
             data: ""
         }, {
             data: "tgl_siswa"
@@ -45,7 +47,7 @@ $(function() {
                 return t
             }
         }, {
-            targets: 4,
+            targets: 5,
             orderable: !1,
             searchable: !1,
             responsivePriority: 4,
@@ -55,6 +57,8 @@ $(function() {
             }
         }, {
             targets: -2,
+            orderable: !1,
+            searchable: !1,
             render: function(e, a, t, r) {
                 t = t.tgl_siswa;
                 return t

@@ -1,14 +1,95 @@
+<style>
+  video {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+</style>
 <!-- Content wrapper -->
 <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang /</span> Verifikasi</h4>
-              <?php if ($this->session->flashdata('alert') == !""){ 
+            <div class="d-flex justify-content-between">
+              <h4 class="fw-bold py-3 mb-4 my-auto"><span class="text-muted fw-light">Daftar Ulang /</span> Verifikasi</h4>
+              <main class="wrapper">
+                    <section class="card overflow-hidden" id="demo-content" width="220" height="80">
+                        <div class="d-flex justify-content-between" >
+                          <video id="video" width="100" height="80"></video>
+                          <div class="column m-auto">
+                            <div class="row m-1" id="sourceSelectPanel" style="display:none">
+                              <select class="form-control" id="sourceSelect" style="max-width:110px">
+                              </select>
+                            </div>
+                            <a class="btn m-auto" id="startButton"><i class='bx bx-play'></i></a>
+                            <a class="btn m-auto" id="resetButton"><i class='bx bx-stop'></i></a>
+                          </div>
+                      </div>
+                    </section>
+                    </main>
+            </div>
+                      <pre><code class="btn-label-danger" id="result"></code></pre>
+             <?php if ($this->session->flashdata('alert') == !""){ 
                 $data = $this->session->flashdata('alert');
                   echo '<div class="alert alert-'.$data['tipe'].' alert-dismissible" role="alert">'.$data['isi'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'; 
                 };
                 // echo var_dump($this->session->userdata());?>
+                <!-- qr reader -->
+                    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+                    <script type="text/javascript">
+                    window.addEventListener('load', function () {
+                      let selectedDeviceId;
+                      const codeReader = new ZXing.BrowserMultiFormatReader()
+                      codeReader.listVideoInputDevices()
+                        .then((videoInputDevices) => {
+                          const sourceSelect = document.getElementById('sourceSelect')
+                          selectedDeviceId = videoInputDevices[0].deviceId
+                          if (videoInputDevices.length >= 1) {
+                            videoInputDevices.forEach((element) => {
+                              const sourceOption = document.createElement('option')
+                              sourceOption.text = element.label
+                              sourceOption.value = element.deviceId
+                              sourceSelect.appendChild(sourceOption)
+                            })
+
+                            sourceSelect.onchange = () => {
+                              selectedDeviceId = sourceSelect.value;
+                            };
+
+                            const sourceSelectPanel = document.getElementById('sourceSelectPanel')
+                            sourceSelectPanel.style.display = 'block'
+                          }
+
+                          document.getElementById('startButton').addEventListener('click', () => {
+                            codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
+                              if (result) {
+                                console.log(result)
+                                document.getElementById('demo-content').classList.add('btn-label-success');
+                                open(result.text);
+                              }
+                              if (err && !(err instanceof ZXing.NotFoundException)) {
+                                console.error(err)
+                                document.getElementById('result').textContent = err
+                                document.getElementById('demo-content').classList.add('btn-label-danger');
+                              }
+                            })
+                            // console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
+                          })
+
+                          document.getElementById('resetButton').addEventListener('click', () => {
+                            codeReader.reset()
+                            document.getElementById('result').textContent = '';
+                          })
+
+                        })
+                        .catch((err) => {
+                          console.error(err)
+                        })
+                    });
+                    function open(data) {
+                      location.replace(appPath+"admin/verifikasi/lihat/"+data)
+                    }
+                    </script>
+                    <!-- /QR reader -->
               <!-- tabel responsive -->
               <div class="card mb-4">
                 <div class="card-datatable table-responsive">
@@ -18,8 +99,10 @@
                         <th></th>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>No. Pendaftaran</th>
+                        <th>Jalur / No. Urut</th>
+                        <th>NISN</th>
                         <th class="w-px-200">Status</th>
+                        <th>Tanggal Verifikasi</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -90,9 +173,14 @@
                         </div>
                 <!-- end modal -->
               <hr class="my-5" />
-            <script type="text/javascript"> document.title = "Verifikasi Data Siswa";</script>
-            <script type="text/javascript"> document.getElementById("menu1").classList.add("active","open");</script>
-            <script type="text/javascript"> document.getElementById("m1-3").classList.add("active");</script>
+            <script type="text/javascript"> document.title = "Verifikasi Data Siswa";
+            document.getElementById("menu1").classList.add("active","open");
+            document.getElementById("m1-3").classList.add("active");
+            setTimeout(()=> {
+              document.getElementById('startButton').click();
+              console.log('jalan');
+            },5000);
+            </script>
             <script src="<?php echo base_url("assets/js/datatables-verify.js") ?>"></script>
             <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>
+            <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>

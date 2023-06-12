@@ -6,12 +6,14 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
+            <?php foreach ($profil as $tp) { ?>
             <a href="<?= base_url()?>" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="<?= base_url("assets/img/logo_sma_srengat_low.png") ?>" width="40px">
+                <img src="<?= base_url("assets/img/")?><?= $tp->avatar ?>" width="40px">
               </span>
-              <span class="app-brand-text menu-text fw-bolder ms-2">SMAN 1 Srengat</span>
+              <span class="app-brand-text menu-text fw-bolder ms-2"><?= $tp->nama ?></span>
             </a>
+            <?php } ?>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
               <i class="bx bx-chevron-left bx-sm align-middle"></i>
@@ -59,14 +61,14 @@
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item" id="m1-1">
-                  <a href="<?= base_url("admin/akunsiswa")?>" class="menu-link">
-                    <div data-i18n="Without menu">Akun siswa</div>
-                  </a>
-                </li>
                 <li class="menu-item" id="m1-2">
                   <a href="<?= base_url("admin/master")?>" class="menu-link">
                     <div data-i18n="Without menu">Data Master</div>
+                  </a>
+                </li>
+                <li class="menu-item" id="m1-1">
+                  <a href="<?= base_url("admin/akunsiswa")?>" class="menu-link">
+                    <div data-i18n="Without menu">Akun siswa</div>
                   </a>
                 </li>
                 <li class="menu-item" id="m1-3">

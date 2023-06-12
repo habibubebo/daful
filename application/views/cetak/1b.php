@@ -4,11 +4,27 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Excel.Sheet>
-<meta name=Generator content="Microsoft Excel 15">
-<link rel=File-List href="template_files/filelist.xml">
 <style id="template_7205_Styles">
+* {
+    font-size: x-small;
+}
 
+.bordered td {
+    border-color: #959594;
+    border-style: solid;
+    border-width: 1px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: 40px;
+}
+
+.divTableCell,
+.divTableHead {
+    padding: 1px !important;
+    border: 1px !important;
+}
 	{mso-displayed-decimal-separator:"\,";
 	mso-displayed-thousand-separator:"\.";}
 .font57205
@@ -545,28 +561,17 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
 <body>
 
+<div class="divTable">
+    <div class="divTableBody">
+        <div class="divTableRow">
+            <div class="divTableCell">
 
-<div id="template_7205" align=center x:publishsource="Excel">
-
-<table border=0 cellpadding=0 cellspacing=0 width=610 class=xl657205
- style='border-collapse:collapse;table-layout:fixed;width:459pt'>
- <col class=xl657205 width=28 style='mso-width-source:userset;mso-width-alt:
- 1024;width:21pt'>
- <col class=xl657205 width=25 style='mso-width-source:userset;mso-width-alt:
- 914;width:19pt'>
- <col class=xl657205 width=233 style='mso-width-source:userset;mso-width-alt:
- 8521;width:175pt'>
- <col class=xl657205 width=14 style='mso-width-source:userset;mso-width-alt:
- 512;width:11pt'>
- <col class=xl657205 width=310 style='mso-width-source:userset;mso-width-alt:
- 11337;width:233pt'>
- <tr class=xl657205 height=6 style='mso-height-source:userset;height:4.5pt'>
-  <td height=6 class=xl657205 width=28 style='height:4.5pt;width:21pt'></td>
-  <td class=xl657205 width=25 style='width:19pt'></td>
-  <td class=xl657205 width=233 style='width:175pt'></td>
-  <td class=xl657205 width=14 style='width:11pt'></td>
-  <td class=xl657205 width=310 style='width:233pt'></td>
- </tr>
+<table border=0 cellpadding=0 cellspacing=0 class=xl657205>
+ <th style="width:10px"></th>
+ <th style="width:10px"></th>
+ <th style="width:250px"></th>
+ <th style="width:10px"></th>
+ <th style="width:400px"></th>
  <tr class=xl657205 height=27 style='height:20.25pt'>
   <td colspan=5 height=27 class=xl797205 style='height:20.25pt'>FORMULIR DAFTAR
   ULANG</td>
@@ -898,24 +903,17 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl657205>Srengat,</td>
+  <td class=xl657205 style="text-align: center;">Srengat,</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205 colspan=2>Mengetahui</td>
+  <td class=xl657205 colspan=2 style="text-align: center;">Mengetahui</td>
   <td class=xl657205></td>
-  <td class=xl657205>Calon Peserta Didik</td>
+  <td class=xl657205 style="text-align: center;">Calon Peserta Didik</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205 colspan=2>Orang Tua/ Wali *)</td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
- </tr>
- <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
-  <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
+  <td class=xl657205 colspan=2 style="text-align: center;">Orang Tua/ Wali *)</td>
   <td class=xl657205></td>
   <td class=xl657205></td>
  </tr>
@@ -928,9 +926,16 @@ xmlns="http://www.w3.org/TR/REC-html40">
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205 colspan=2>[ortu/wali]</td>
   <td class=xl657205></td>
-  <td class=xl657205>[nama siswa]</td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+ </tr>
+ <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl657205 style='height:15.75pt'></td>
+  <td class=xl657205 colspan=2 style="text-align: center;">[ortu/wali]</td>
+  <td class=xl657205></td>
+  <td class=xl657205 style="text-align: center;">[nama siswa]</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
@@ -967,13 +972,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl707205>1</td>
  </tr>
- <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
-  <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
- </tr>
+
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
   <td class=xl657205></td>
@@ -1296,6 +1295,13 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl777205>f. Nomor SKHUN</td>
   <td class=xl777205>:</td>
   <td class=xl777205>[no_skhu]</td>
+ </tr>
+ <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class=xl657205 style='height:18.0pt'></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
  </tr>
  <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl657205 style='height:18.0pt'></td>
@@ -1858,21 +1864,14 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl667205>Srengat,</td>
+  <td class=xl667205 style="text-align: center;">Srengat,</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl667205>Calon Peserta Didik</td>
- </tr>
- <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
-  <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
+  <td class=xl667205 style="text-align: center;">Calon Peserta Didik</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
@@ -1893,7 +1892,28 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl657205>nama_lengkap</td>
+  <td class=xl657205></td>
+ </tr>
+ <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl657205 style='height:15.75pt'></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205 style="text-align: center;">nama_lengkap</td>
+ </tr>
+ <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl657205 style='height:15.75pt'></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+ </tr>
+ <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl657205 style='height:15.75pt'></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
@@ -2295,40 +2315,40 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl657205>Srengat,</td>
+  <td class=xl657205 style="text-align: center;">Srengat,</td>
  </tr>
  <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl657205 style='height:18.0pt'></td>
   <td class=xl657205></td>
-  <td class=xl657205>Mengetahui</td>
+  <td class=xl657205 style="text-align: center;">Mengetahui</td>
   <td class=xl657205></td>
-  <td class=xl657205>Yang Membuat Pernyataan</td>
+  <td class=xl657205 style="text-align: center;">Yang Membuat Pernyataan</td>
  </tr>
  <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl657205 style='height:18.0pt'></td>
   <td class=xl657205></td>
-  <td class=xl657205>Orang Tua/ Wali *)</td>
+  <td class=xl657205 style="text-align: center;">Orang Tua/ Wali *)</td>
   <td class=xl657205></td>
   <td class=xl657205></td>
- </tr>
- <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
-  <td height=24 class=xl657205 style='height:18.0pt'></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl917205 colspan=2>Materai</td>
  </tr>
  <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl657205 style='height:18.0pt'></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td colspan=2 class=xl907205>Rp10.000</td>
+  <td class=xl917205 colspan=2>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Materai</td>
  </tr>
  <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl657205 style='height:18.0pt'></td>
   <td class=xl657205></td>
-  <td class=xl657205>[orangtua/wali]</td>
   <td class=xl657205></td>
-  <td class=xl657205>[nama-lengkap]</td>
+  <td colspan=2 class=xl907205>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Rp10.000</td>
+ </tr>
+ <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
+  <td height=24 class=xl657205 style='height:18.0pt'></td>
+  <td class=xl657205></td>
+  <td class=xl657205 style="text-align: center;">[orangtua/wali]</td>
+  <td class=xl657205></td>
+  <td class=xl657205 style="text-align: center;">[nama-lengkap]</td>
  </tr>
  <tr class=xl657205 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl657205 style='height:18.0pt'></td>
@@ -2552,28 +2572,21 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl667205>Srengat,</td>
+  <td class=xl667205 style="text-align: center;">Srengat,</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl667205>Yang Membuat Pernyataan</td>
+  <td class=xl667205 style="text-align: center;">Yang Membuat Pernyataan</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl667205>Orang Tua / Wali *)</td>
- </tr>
- <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
-  <td height=21 class=xl657205 style='height:15.75pt'></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl657205></td>
-  <td class=xl667205></td>
+  <td class=xl667205 style="text-align: center;">Orang Tua / Wali *)</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
@@ -2587,7 +2600,14 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl657205></td>
   <td class=xl657205></td>
   <td class=xl657205></td>
-  <td class=xl657205>nama ortu/wali]</td>
+  <td class=xl667205></td>
+ </tr>
+ <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl657205 style='height:15.75pt'></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205></td>
+  <td class=xl657205 style="text-align: center;">nama ortu/wali]</td>
  </tr>
  <tr class=xl657205 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl657205 style='height:15.75pt'></td>
@@ -2676,7 +2696,10 @@ xmlns="http://www.w3.org/TR/REC-html40">
  </tr>
  <![endif]>
 </table>
-
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 

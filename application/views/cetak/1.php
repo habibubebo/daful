@@ -1,12 +1,11 @@
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
-
+<?php foreach ($siswa as $tp) { ?>
+  <?php foreach ($profil as $pr) { ?>
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Excel.Sheet>
-<meta name=Generator content="Microsoft Excel 15">
-<link rel=File-List href="template_files/filelist.xml">
+<title>Bukti Daftar Ulang <?= $tp->nama_lengkap ?></title>
 <style id="template_23733_Styles">
 
 	{mso-displayed-decimal-separator:"\,";
@@ -835,7 +834,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 	vertical-align:bottom;
 	border-top:none;
 	border-right:none;
-	border-bottom:.5pt solid black;
+	border-bottom:none;
 	border-left:none;
 	mso-background-source:auto;
 	mso-pattern:auto;
@@ -857,7 +856,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 	vertical-align:middle;
 	border-top:none;
 	border-right:none;
-	border-bottom:.5pt solid black;
+	border-bottom:none;
 	border-left:none;
 	mso-background-source:auto;
 	mso-pattern:auto;
@@ -1026,66 +1025,46 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
 <body>
 
-<?php foreach ($siswa as $tp) { ?>
-<div id="template_23733" align=center x:publishsource="Excel">
 
-<table border=0 cellpadding=0 cellspacing=0 width=635 class=xl6523733
- style='border-collapse:collapse;table-layout:fixed;width:473pt'>
- <col class=xl6523733 width=6 style='mso-width-source:userset;mso-width-alt:
- 219;width:5pt'>
- <col class=xl6523733 width=25 style='mso-width-source:userset;mso-width-alt:
- 914;width:19pt'>
- <col class=xl6523733 width=21 style='mso-width-source:userset;mso-width-alt:
- 768;width:16pt'>
- <col class=xl6523733 width=64 span=2 style='mso-width-source:userset;
- mso-width-alt:2340;width:48pt'>
- <col class=xl6523733 width=81 style='mso-width-source:userset;mso-width-alt:
- 2962;width:61pt'>
- <col class=xl6523733 width=13 style='mso-width-source:userset;mso-width-alt:
- 475;width:10pt'>
- <col class=xl6523733 width=19 span=19 style='mso-width-source:userset;
- mso-width-alt:694;width:14pt'>
- <tr class=xl6523733 height=6 style='mso-height-source:userset;height:4.5pt'>
-  <td height=6 class=xl6523733 width=6 style='height:4.5pt;width:5pt'></td>
-  <td class=xl6623733 width=25 style='width:19pt'></td>
-  <td class=xl6723733 width=21 style='width:16pt'></td>
-  <td class=xl6523733 width=64 style='width:48pt'></td>
-  <td class=xl6523733 width=64 style='width:48pt'></td>
-  <td class=xl6523733 width=81 style='width:61pt'></td>
-  <td class=xl6523733 width=13 style='width:10pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
-  <td class=xl6523733 width=19 style='width:14pt'></td>
- </tr>
+<div id="template_23733" align=center x:publishsource="Excel">
+<?php ?>
+<table border=0 cellpadding=0 cellspacing=0>
+  <th class=xl6523733 width=6 style='width:5pt' colspan=2 rowspan=4><?= $imgpath['path'] ?></th>
+  <?php  ?>
+  <th class=xl6623733 width=25 style='width:19pt'></th>
+  <th style='width:10px'></th>
+  <th style='width:80px'></th>
+  <th style='width:80px'></th>
+  <th class=xl6523733 width=13 style='width:10pt'></th>
+  <th class=xl6523733 width=13 style='width:10pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+  <th class=xl6523733 width=19 style='width:14pt'></th>
+
  <tr class=xl6523733 height=27 style='height:20.25pt'>
-  <td height=27 class=xl6523733 style='height:20.25pt'></td>
-  <td colspan=24 class=xl10223733>FORMULIR DAFTAR ULANG</td>
+  <td colspan=23 class=xl10223733>FORMULIR DAFTAR ULANG</td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=25 style='height:18.75pt'>
-  <td height=25 class=xl6523733 style='height:18.75pt'></td>
-  <td colspan=24 class=xl6823733>PESERTA DIDIK BARU SMA NEGERI 1 SRENGAT</td>
+  <td colspan=23 class=xl6823733>PESERTA DIDIK BARU <?= strtoupper($pr->nama) ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=25 style='height:18.75pt'>
-  <td height=25 class=xl6523733 style='height:18.75pt'></td>
-  <td colspan=24 class=xl6823733>TAHUN PELAJARAN 2022/2023</td>
+  <td colspan=23 class=xl6823733>TAHUN PELAJARAN <?= date("Y")?>/<?= date("Y")+1 ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=21 style='height:15.75pt'>
@@ -1353,7 +1332,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7223733></td>
   <td class=xl7223733></td>
   <td class=xl7223733></td>
-  <td colspan=18 class=xl11223733 style='border-right:.5pt solid black'><?= $this->Model_APS->tgl_id($tp->tgl_lahir) ?></td>
+  <td colspan=18 class=xl10123733><?= $this->Model_APS->tgl_id($tp->tgl_lahir) ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=8 style='mso-height-source:userset;height:6.0pt'>
@@ -1502,10 +1481,10 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733 colspan=4>ALAMAT PESERTA DIDIK</td>
   <td class=xl7223733>:</td>
   <td class=xl7223733 colspan=2>RT</td>
-  <td colspan=3 class=xl10123733><?= $tp->rt ?></td>
+  <td colspan=3 class=xl10123733 style="text-align: center;"><?= $tp->rt ?></td>
   <td class=xl7223733></td>
   <td class=xl7223733 colspan=2>RW</td>
-  <td colspan=3 class=xl10123733><?= $tp->rw ?></td>
+  <td colspan=3 class=xl10123733 style="text-align: center;"><?= $tp->rw ?></td>
   <td class=xl7123733></td>
   <td class=xl7123733></td>
   <td class=xl6523733></td>
@@ -1702,7 +1681,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl6923733>11.</td>
   <td class=xl7023733 colspan=4>PENGHASILAN ORANG TUA</td>
   <td class=xl7223733>:</td>
-  <td colspan=18 class=xl10323733 style='border-right:.5pt solid black'><?= "Ayah $tp->ph_ayah / Ibu $tp->ph_ibu" ?></td>
+  <td colspan=18 class=xl10123733><?= "Ayah $tp->ph_ayah / Ibu $tp->ph_ibu" ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=13 style='mso-height-source:userset;height:9.75pt'>
@@ -1861,10 +1840,10 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7623733 colspan=4>ALAMAT WALI PESERTA DIDIK</td>
   <td class=xl7223733>:</td>
   <td class=xl7223733 colspan=2>RT</td>
-  <td colspan=3 class=xl10123733>[rt_wl]</td>
+  <td colspan=3 class=xl10123733 style="text-align: center;"><?= $tp->rt_wali ?></td>
   <td class=xl7223733></td>
   <td class=xl7223733 colspan=2>RW</td>
-  <td colspan=3 class=xl10123733>[rw_wl]</td>
+  <td colspan=3 class=xl10123733 style="text-align: center;"><?= $tp->rw_wali ?></td>
   <td class=xl7123733></td>
   <td class=xl7123733></td>
   <td class=xl6523733></td>
@@ -1886,7 +1865,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7223733></td>
   <td class=xl7223733></td>
   <td class=xl7223733></td>
-  <td colspan=12 class=xl10123733>[jl-wl]</td>
+  <td colspan=12 class=xl10123733><?= $tp->jalan_wali ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -1899,7 +1878,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7223733></td>
   <td class=xl7223733 colspan=5>DESA/KEL</td>
   <td class=xl7223733></td>
-  <td colspan=12 class=xl10123733>[desa-wl]</td>
+  <td colspan=12 class=xl10123733><?= $tp->desa_wali ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -1911,7 +1890,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7223733></td>
   <td class=xl7223733></td>
   <td class=xl7223733 colspan=6>KECAMATAN</td>
-  <td colspan=12 class=xl10123733>[kec-wl]</td>
+  <td colspan=12 class=xl10123733><?= $tp->kec_wali ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -1924,7 +1903,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7223733></td>
   <td class=xl7223733 colspan=5>KAB/KOTA<span style='mso-spacerun:yes'></span></td>
   <td class=xl7223733></td>
-  <td colspan=12 class=xl10123733>[kab-wl]</td>
+  <td colspan=12 class=xl10123733><?= $tp->kab_wali ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -2112,7 +2091,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl6523733 style='height:15.75pt'></td>
   <td class=xl6923733></td>
-  <td colspan=3 class=xl10723733>[ortu/wali]</td>
+  <td colspan=3 class=xl10723733><?= $tp->ttdnama ?></td>
   <td class=xl7223733></td>
   <td class=xl7223733></td>
   <td class=xl7223733></td>
@@ -2295,35 +2274,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl6523733></td>
   <td class=xl6523733></td>
  </tr>
- <tr class=xl6523733 height=21 style='page-break-before:always;mso-height-source:
-  userset;height:15.75pt'>
-  <td height=21 class=xl6523733 style='height:15.75pt'></td>
-  <td class=xl6623733></td>
-  <td class=xl6723733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
-  <td class=xl6523733></td>
- </tr>
+
  <tr class=xl6523733 height=27 style='mso-height-source:userset;height:20.25pt'>
   <td height=27 class=xl6523733 style='height:20.25pt'></td>
   <td colspan=24 class=xl6823733>DAFTAR ISIAN / IDENTITAS PESERTA DIDIK</td>
@@ -2432,7 +2383,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7823733></td>
   <td class=xl7823733></td>
   <td class=xl8523733>:</td>
-  <td colspan=10 class=xl10123733><?= $tp->nisn ?></td>
+  <td colspan=10 class=xl10123733  style="text-align: center;"><?= $tp->nisn ?></td>
   <td class=xl8223733></td>
   <td class=xl8223733></td>
   <td class=xl8223733></td>
@@ -2478,7 +2429,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7623733>3.<span style='mso-spacerun:yes'></span></td>
   <td class=xl7623733 colspan=3>Tempat Dan Tanggal Lahir</td>
   <td class=xl8223733>:</td>
-  <td colspan=18 class=xl7623733><?= "$tp->tempat_lahir, ".$this->Model_APS->tgl_id("$tp->tgl_lahir") ?></td>
+  <td colspan=18 class=xl7623733><?= "$tp->tempat_lahir, "?> <?= $this->Model_APS->tgl_id("$tp->tgl_lahir") ?></td>
   <td class=xl6523733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -2617,11 +2568,11 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733 colspan=3>Alamat Peserta Didik</td>
   <td class=xl7023733>:</td>
   <td class=xl7023733 colspan=2>RT</td>
-  <td colspan=3 class=xl10823733><?= $tp->rt ?></td>
+  <td colspan=3 class=xl10823733 style="text-align: center;"><?= $tp->rt ?></td>
   <td class=xl6923733></td>
   <td class=xl6923733>RW</td>
   <td class=xl6923733></td>
-  <td colspan=3 class=xl10823733><?= $tp->rw ?></td>
+  <td colspan=3 class=xl10823733 style="text-align: center;"><?= $tp->rw ?></td>
   <td class=xl6923733></td>
   <td class=xl6923733></td>
   <td class=xl8223733></td>
@@ -2766,9 +2717,9 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7623733>15.</td>
   <td class=xl7623733 colspan=3>Jarak Tempat Tinggal Ke Sekolah</td>
   <td class=xl7623733>:</td>
-  <td colspan=13 class=xl7623733><?= $tp->jarak ?></td>
+  <td colspan=13 class=xl7623733><?= $tp->jarak.' Kilometer' ?></td>
   <td class=xl7623733></td>
-  <td class=xl7623733 colspan=4>Kilometer</td>
+  <td class=xl7623733 colspan=4></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=14 style='mso-height-source:userset;height:10.5pt'>
@@ -2859,11 +2810,11 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7623733>19.</td>
   <td class=xl7623733 colspan=3>Tinggi Dan Berat Badan</td>
   <td class=xl7623733>:</td>
-  <td colspan=2 class=xl7623733><?= $tp->tinggi_badan ?></td>
-  <td class=xl7623733 colspan=2>cm</td>
+  <td colspan=2 class=xl7623733><?= $tp->tinggi_badan.' cm' ?></td>
+  <td class=xl7623733 colspan=2></td>
   <td class=xl7623733 colspan=2>dan<span style='mso-spacerun:yes'></span></td>
-  <td colspan=2 class=xl7623733><?= $tp->berat_badan ?></td>
-  <td class=xl7623733 colspan=2>Kg</td>
+  <td colspan=2 class=xl7623733><?= $tp->berat_badan.' Kg' ?></td>
+  <td class=xl7623733 colspan=2></td>
   <td class=xl7623733></td>
   <td class=xl7623733></td>
   <td class=xl7623733></td>
@@ -3633,7 +3584,18 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7623733 colspan=2>Alamat Rumah</td>
   <td class=xl7623733></td>
   <td class=xl7623733>:</td>
-  <td colspan=18 class=xl7623733><?= $tp->alamat_wali ?></td>
+  <td colspan=18 class=xl7623733><?= 'Jalan '.$tp->jalan_wali.' RT '.$tp->rt_wali.' RW '.$tp->rw_wali.' Desa '.$tp->desa_wali?></td>
+  <td class=xl6723733></td>
+ </tr>
+ <tr class=xl6523733 height=22 style='mso-height-source:userset;height:16.5pt'>
+  <td height=22 class=xl6523733 style='height:16.5pt'></td>
+  <td class=xl8223733></td>
+  <td class=xl7623733></td>
+  <td class=xl7623733></td>
+  <td class=xl7623733></td>
+  <td class=xl7623733></td>
+  <td class=xl7623733></td>
+  <td colspan=18 class=xl7623733><?= 'Kec. '.$tp->kec_wali.' Kab./Kota '.$tp->kab_wali ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=22 style='mso-height-source:userset;height:16.5pt'>
@@ -5157,7 +5119,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  </tr>
  <tr class=xl6523733 height=34 style='mso-height-source:userset;height:25.5pt'>
   <td height=34 class=xl6523733 style='height:25.5pt'></td>
-  <td colspan=24 class=xl10023733>SMA NEGERI 1 SRENGAT</td>
+  <td colspan=24 class=xl10023733><?= strtoupper($pr->nama) ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -5228,7 +5190,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733>2.<span style='mso-spacerun:yes'></span></td>
   <td class=xl7023733 colspan=3>Tempat dan Tanggal Lahir</td>
   <td class=xl7023733>:</td>
-  <td colspan=18 class=xl7023733><?= "$tp->tempat_lahir, ".$this->Model_APS->tgl_id($tp->tgl_lahir) ?></td>
+  <td colspan=18 class=xl7023733><?= "$tp->tempat_lahir, "?> <?= $this->Model_APS->tgl_id("$tp->tgl_lahir") ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5268,7 +5230,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733 colspan=2>Di Terima Di Kelas</td>
   <td class=xl7023733></td>
   <td class=xl7023733>:</td>
-  <td colspan=18 class=xl7023733><?= $tp->no_pendaftaran ?></td>
+  <td colspan=18 class=xl7023733><?= $tp->masuk_kelas ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5685,7 +5647,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl6523733 style='height:18.0pt'></td>
   <td class=xl6923733></td>
-  <td colspan=3 class=xl10723733>[orangtua/wali]</td>
+  <td colspan=3 class=xl10723733><?= $tp->ttdnama ?></td>
   <td class=xl7223733></td>
   <td class=xl7223733></td>
   <td class=xl7223733></td>
@@ -5821,7 +5783,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  </tr>
  <tr class=xl6523733 height=33 style='mso-height-source:userset;height:24.75pt'>
   <td height=33 class=xl6523733 style='height:24.75pt'></td>
-  <td colspan=24 class=xl10023733>CALON PESERTA DIDIK SMA NEGERI 1 SRENGAT</td>
+  <td colspan=24 class=xl10023733>CALON PESERTA DIDIK <?= strtoupper($pr->nama) ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5882,7 +5844,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733>1.</td>
   <td class=xl7023733 colspan=3>Nama Orang Tua / Wali *)</td>
   <td class=xl11523733>:</td>
-  <td colspan=18 class=xl7023733>[nama ortu/wali]</td>
+  <td colspan=18 class=xl7023733><?= $tp->ttdnama ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5891,7 +5853,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733>2.<span style='mso-spacerun:yes'></span></td>
   <td class=xl7023733 colspan=3>Tempat dan Tanggal Lahir</td>
   <td class=xl11523733>:</td>
-  <td colspan=18 class=xl7023733>[ttl ortu/wali]</td>
+  <td colspan=18 class=xl7023733><?= $tp->ttdttl ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5900,7 +5862,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733>3.</td>
   <td class=xl7023733 colspan=3>Pekerjaan Orang Tua / Wali</td>
   <td class=xl11523733>:</td>
-  <td colspan=18 class=xl7023733>[pk ortu/wl]</td>
+  <td colspan=18 class=xl7023733><?= $tp->ttdpk ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5909,7 +5871,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733>4.</td>
   <td class=xl7023733 colspan=3>Alamat Orang Tua/ Wali</td>
   <td class=xl11523733>:</td>
-  <td colspan=18 class=xl7023733>[alamat ortu/wwl]</td>
+  <td colspan=18 class=xl7023733><?= $tp->ttdalamat ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=24 style='mso-height-source:userset;height:18.0pt'>
@@ -5918,7 +5880,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733>5.</td>
   <td class=xl7123733 colspan=3>Nomor Telepon Orang Tua/ Wali</td>
   <td class=xl11523733>:</td>
-  <td colspan=18 class=xl7023733>[notelp o/w]</td>
+  <td colspan=18 class=xl7023733><?= $tp->ttdtelp ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -5929,7 +5891,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733></td>
   <td class=xl7023733></td>
   <td class=xl11523733>:</td>
-  <td colspan=18 class=xl7023733>[agama o/w]</td>
+  <td colspan=18 class=xl7023733><?= $tp->ttdagama ?></td>
   <td class=xl6723733></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
@@ -6014,9 +5976,9 @@ xmlns="http://www.w3.org/TR/REC-html40">
  <tr class=xl6523733 height=43 style='mso-height-source:userset;height:32.25pt'>
   <td height=43 class=xl6523733 style='height:32.25pt'></td>
   <td class=xl6923733></td>
-  <td class=xl7023733>1.</td>
+  <td class=xl9023733>1.</td>
   <td colspan=22 class=xl9823733 width=564 style='width:419pt'>Bersedia
-  menbimbing dan mengawasi calon peserta didik tersebut untuk mentaati dan
+  membimbing dan mengawasi calon peserta didik tersebut untuk mentaati dan
   mematuhi peraturan dan tata tertib yang berlaku di SMAN 1 Srengat;</td>
   <td class=xl6723733></td>
  </tr>
@@ -6352,7 +6314,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl7023733></td>
   <td class=xl7023733></td>
   <td class=xl7223733></td>
-  <td colspan=9 class=xl10723733>[o/w]</td>
+  <td colspan=9 class=xl10723733><?= $tp->ttdnama ?></td>
  </tr>
  <tr class=xl6523733 height=21 style='mso-height-source:userset;height:15.75pt'>
   <td height=21 class=xl6523733 style='height:15.75pt'></td>
@@ -6778,11 +6740,8 @@ xmlns="http://www.w3.org/TR/REC-html40">
 
 </div>
 
-
-<!----------------------------->
-<!--END OF OUTPUT FROM EXCEL PUBLISH AS WEB PAGE WIZARD-->
-<!----------------------------->
 </body>
 
 </html>
+<?php } ?>
 <?php } ?>

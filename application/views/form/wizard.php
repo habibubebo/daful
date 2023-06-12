@@ -4,9 +4,12 @@
 <!-- Default -->
 <div class="row">
   <div class="col-12">
+  <?php if ($this->session->flashdata('alert') == !""){ 
+                $data = $this->session->flashdata('alert');
+                  echo '<div class="alert alert-'.$data['tipe'].' alert-dismissible" role="alert">'.$data['isi'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'; 
+                }; // echo var_dump($this->session->userdata());?>
     <h5>Form Data Peserta Didik</h5>
   </div>
-
   <!-- Validation Wizard -->
   <div class="col-12 mb-4">
     <small class="text-light fw-semibold">Harap cek kembali data anda sebelum ke langkah berikutnya</small>
@@ -77,6 +80,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="nisn">NISN</label>
+                <small class="text-primary">Ingat! ini akan menjadi password baru di akun anda</small>
                 <input type="text" name="nisn" id="nisn" class="form-control" placeholder="NISN" />
               </div>
               <div class="col-sm-6">
@@ -86,7 +90,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="jk">Jenis Kelamin</label>
                 <select id="jk" name="jk" class="selectpicker form-control" data-style="btn-default">
-                  <option value="" disabled>Pilih</option>
+                  <option value="" >Pilih</option>
                   <option value="Laki-Laki">Laki-Laki</option>
                   <option value="Perempuan">Perempuan</option>
                 </select>
@@ -98,7 +102,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="prov-lahir">Provinsi Lahir</label>
                 <select class="selectpicker form-control" name="prov-lahir" id="prov-lahir" data-style="btn-default" data-live-search="true">
-                  <option value="" disabled>Pilih</option>
+                  <option value="" >Pilih</option>
                   <option value="Aceh">Aceh</option>
                   <option value="Bali">Bali</option>
                   <option value="Banten">Banten</option>
@@ -151,7 +155,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="agama">Agama</label>
                 <select class="selectpicker form-control" name="agama" id="agama" data-style="btn-default">
-                  <option value="" disabled>Pilih agama yang dianut</option>
+                  <option value="" >Pilih agama yang dianut</option>
                   <?php foreach($agamas as $ag) {?>
                     <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
                   <?php }?>
@@ -168,7 +172,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="stat-anak">Status Anak</label>
                 <select class="selectpicker form-control" name="stat-anak" id="stat-anak" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                     <option value="Yatim">Yatim</option>
                     <option value="Piatu">Piatu</option>
                     <option value="Yatim Piatu">Yatim Piatu</option>
@@ -182,7 +186,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="goldar">Golongan Darah</label>
                 <select class="selectpicker form-control" name="goldar" id="goldar" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                     <option value="O">O</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -192,7 +196,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="tinggal">Tinggal Dengan</label>
                 <select class="selectpicker form-control" name="tinggal" id="tinggal" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                     <option value="Orang Tua">Orang Tua</option>
                     <option value="Wali">Wali</option>
                     <option value="Saudara">Saudara</option>
@@ -201,32 +205,35 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="tb">Tinggi Badan</label>
-                <input type="text" name="tb" id="tb" class="form-control" placeholder="Tinggi Badan" />
+                <div class="input-group mt-1">
+                  <input type="text" name="tb" id="tb" class="form-control" placeholder="Tinggi Badan" />
+                  <span class="input-group-text">cm</span>
+                </div>
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="jalan">Alamat</label>
                 <div class="input-group">
-                  <span class="input-group-text">Jalan</span>
-                  <input type="text" class="form-control" name="jalan" id="jalan">
+                  <span class="input-group-text d-sm-block d-none">Jalan</span>
+                  <input type="text" class="form-control" name="jalan" id="jalan" placeholder="A Yani No. 12">
                 </div>
                 <div class="input-group mt-1">
                   <span class="input-group-text">RT</span>
-                  <input type="text" class="form-control" name="rt" id="rt">
+                  <input type="text" class="form-control" name="rt" id="rt" placeholder="RT">
                   <span class="input-group-text">RW</span>
-                  <input type="text" class="form-control" name="rw" id="rw">
+                  <input type="text" class="form-control" name="rw" id="rw" placeholder="RW">
                 </div>
                 <div class="input-group mt-1">
-                  <span class="input-group-text">Desa</span>
-                  <input type="text" class="form-control" name="desa" id="desa">
-                  <span class="input-group-text">Kec.</span>
-                  <input type="text" class="form-control" name="kec" id="kec">
+                  <span class="input-group-text d-sm-block d-none">Desa</span>
+                  <input type="text" class="form-control" name="desa" id="desa" placeholder="Desa">
+                  <span class="input-group-text d-sm-block d-none">Kec.</span>
+                  <input type="text" class="form-control" name="kec" id="kec" placeholder="Kecamatan">
                 </div>
                 <div class="input-group mt-1">
-                  <span class="input-group-text">Kab/Kota</span>
-                  <input type="text" class="form-control" name="kab" id="kab">
-                  <span class="input-group-text">Provinsi</span>
+                  <span class="input-group-text d-sm-block d-none">Kab/Kota</span>
+                  <input type="text" class="form-control" name="kab" id="kab" placeholder="Kab Blitar">
+                  <span class="input-group-text d-sm-block d-none">Provinsi</span>
                   <select class="selectpicker form-control" name="prov" id="prov" data-style="btn-default">
-                  <option value="" disabled>Pilih</option>
+                  <option value="" >Pilih</option>
                   <option value="Aceh">Aceh</option>
                   <option value="Bali">Bali</option>
                   <option value="Banten">Banten</option>
@@ -270,25 +277,28 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="bb">Berat Badan</label>
-                <input type="text" name="bb" id="bb" class="form-control" placeholder="Berat Badan" />
+                <div class="input-group mt-1">
+                  <input type="text" name="bb" id="bb" class="form-control" placeholder="Berat Badan" />
+                  <span class="input-group-text">Kg</span>
+                </div>
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="hobi-kes">Kegemaran / hobi</label>
                 <div class="input-group">
-                  <span class="input-group-text">Kesenian</span>
-                  <input type="text" class="form-control" name="hobi-kes" id="hobi-kes"/>
-                  <span class="input-group-text">Olahraga</span>
-                  <input type="text" class="form-control" name="hobi-or" id="hobi-or"/>
+                  <span class="input-group-text d-sm-block d-none">Kesenian</span>
+                  <input type="text" class="form-control" name="hobi-kes" id="hobi-kes" placeholder="Kesenian"/>
+                  <span class="input-group-text d-sm-block d-none">Olahraga</span>
+                  <input type="text" class="form-control" name="hobi-or" id="hobi-or" placeholder="Olahraga"/>
                 </div>
                 <div class="input-group mt-1">
-                  <span class="input-group-text">Kemasyarakatan</span>
-                  <input type="text" class="form-control" name="hobi-masy" id="hobi-masy"/>
-                  <span class="input-group-text">Lain-lain</span>
-                  <input type="text" class="form-control" name="hobi-lain" id="hobi-lain"/>
+                  <span class="input-group-text d-sm-block d-none">Kemasyarakatan</span>
+                  <input type="text" class="form-control" name="hobi-masy" id="hobi-masy" placeholder="Ormas"/>
+                  <span class="input-group-text d-sm-block d-none">Lain-lain</span>
+                  <input type="text" class="form-control" name="hobi-lain" id="hobi-lain" placeholder="Lain-lain"/>
                 </div>
               </div>
               <div class="col-12 d-flex justify-content-between">
-                <button class="btn btn-label-secondary btn-prev" disabled>
+                <button class="btn btn-label-secondary btn-prev" >
                   <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                   <span class="align-middle d-sm-inline-block d-none">Sebelumnya</span>
                 </button>
@@ -317,7 +327,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="agama-ayah">Agama</label>
                 <select class="selectpicker form-control" name="agama-ayah" id="agama-ayah" data-style="btn-default">
-                  <option value="" disabled>Pilih agama yang dianut</option>
+                  <option value="" >Pilih agama yang dianut</option>
                   <?php foreach($agamas as $ag) {?>
                     <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
                   <?php }?>
@@ -330,7 +340,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="pdd-ayah">Pendidikan Terakhir</label>
                 <select class="selectpicker form-control" name="pdd-ayah" id="pdd-ayah" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                   <?php foreach($pdds as $pdd) {?>
                     <option value="<?= $pdd->nama ?>"><?= $pdd->nama ?></option>
                   <?php }?>
@@ -339,7 +349,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="pk-ayah">Pekerjaan</label>
                 <select class="selectpicker form-control" name="pk-ayah" id="pk-ayah" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                   <?php foreach($pks as $pk) {?>
                     <option value="<?= $pk->nama ?>"><?= $pk->nama ?></option>
                   <?php }?>
@@ -348,7 +358,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="ph-ayah">Penghasilan</label>
                 <select class="selectpicker form-control" name="ph-ayah" id="ph-ayah" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                   <?php foreach($phs as $ph) {?>
                     <option value="<?= $ph->nama ?>"><?= $ph->nama ?></option>
                   <?php }?>
@@ -360,7 +370,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="stat-ayah">Status Ayah</label>
-                <input type="text" name="stat-ayah" id="stat-ayah" class="form-control" placeholder="Status" />
+                <input type="text" name="stat-ayah" id="stat-ayah" class="form-control" placeholder="Masih hidup/sudah meninggal tahun" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="alamat-ortu">Alamat</label>
@@ -385,7 +395,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="agama-ibu">Agama</label>
                 <select class="selectpicker form-control" name="agama-ibu" id="agama-ibu" data-style="btn-default">
-                  <option value="" disabled>Pilih agama yang dianut</option>
+                  <option value="" >Pilih agama yang dianut</option>
                   <?php foreach($agamas as $ag) {?>
                     <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
                   <?php }?>
@@ -398,7 +408,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="pdd-ibu">Pendidikan Terakhir</label>
                 <select class="selectpicker form-control" name="pdd-ibu" id="pdd-ibu" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                   <?php foreach($pdds as $pdd) {?>
                     <option value="<?= $pdd->nama ?>"><?= $pdd->nama ?></option>
                   <?php }?>
@@ -407,7 +417,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="pk-ibu">Pekerjaan</label>
                 <select class="selectpicker form-control" name="pk-ibu" id="pk-ibu" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                   <?php foreach($pks as $pk) {?>
                     <option value="<?= $pk->nama ?>"><?= $pk->nama ?></option>
                   <?php }?>
@@ -416,7 +426,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="ph-ibu">Penghasilan</label>
                 <select class="selectpicker form-control" name="ph-ibu" id="ph-ibu" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value=""  selected>Pilih</option>
                   <?php foreach($phs as $ph) {?>
                     <option value="<?= $ph->nama ?>"><?= $ph->nama ?></option>
                   <?php }?>
@@ -428,7 +438,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="stat-ibu">Status Ibu</label>
-                <input type="text" name="stat-ibu" id="stat-ibu" class="form-control" placeholder="Status" />
+                <input type="text" name="stat-ibu" id="stat-ibu" class="form-control" placeholder="Masih hidup/sudah meninggal tahun" />
               </div>
               </div>
               <hr class="my-4 mx-n4" />
@@ -458,7 +468,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="agama-wali">Agama</label>
                 <select class="selectpicker form-control" name="agama-wali" id="agama-wali" data-style="btn-default">
-                  <option value="" disabled selected>Pilih agama yang dianut</option>
+                  <option value="-"  selected>Pilih agama yang dianut</option>
                   <?php foreach($agamas as $ag) {?>
                     <option value="<?= $ag->nama ?>"><?= $ag->nama ?></option>
                   <?php }?>
@@ -471,7 +481,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="pdd-wali">Pendidikan Terakhir</label>
                 <select class="selectpicker form-control" name="pdd-wali" id="pdd-wali" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value="-"  selected>Pilih</option>
                   <?php foreach($pdds as $pdd) {?>
                     <option value="<?= $pdd->nama ?>"><?= $pdd->nama ?></option>
                   <?php }?>
@@ -480,7 +490,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="pk-wali">Pekerjaan</label>
                 <select class="selectpicker form-control" name="pk-wali" id="pk-wali" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value="-"  selected>Pilih</option>
                   <?php foreach($pks as $pk) {?>
                     <option value="<?= $pk->nama ?>"><?= $pk->nama ?></option>
                   <?php }?>
@@ -489,7 +499,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="ph-wali">Penghasilan</label>
                 <select class="selectpicker form-control" name="ph-wali" id="ph-wali" data-style="btn-default">
-                  <option value="" disabled selected>Pilih</option>
+                  <option value="-"  selected>Pilih</option>
                   <?php foreach($phs as $ph) {?>
                     <option value="<?= $ph->nama ?>"><?= $ph->nama ?></option>
                   <?php }?>
@@ -504,8 +514,69 @@
                 <input type="text" name="hub-wali" id="hub-wali" class="form-control" placeholder="" />
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="alamat-wali">Alamat</label>
-                <input type="text" name="alamat-wali" id="alamat-wali" class="form-control" placeholder="Alamat" />
+                <label class="form-label" for="jalan-wali">Alamat</label>
+                <div class="input-group">
+                  <span class="input-group-text d-sm-block d-none">Jalan</span>
+                  <input type="text" class="form-control" name="jalan-wali" id="jalan-wali" placeholder="Jalan A No. 12">
+                </div>
+                <div class="input-group mt-1">
+                  <span class="input-group-text">RT</span>
+                  <input type="text" class="form-control" name="rt-wali" id="rt-wali" placeholder="RT">
+                  <span class="input-group-text">RW</span>
+                  <input type="text" class="form-control" name="rw-wali" id="rw-wali" placeholder="RW">
+                </div>
+                <div class="input-group mt-1">
+                  <span class="input-group-text d-sm-block d-none">Desa</span>
+                  <input type="text" class="form-control" name="desa-wali" id="desa-wali" placeholder="Desa">
+                  <span class="input-group-text d-sm-block d-none">Kec.</span>
+                  <input type="text" class="form-control" name="kec-wali" id="kec-wali" placeholder="Kecamatan">
+                </div>
+                <div class="input-group mt-1">
+                  <span class="input-group-text d-sm-block d-none">Kab/Kota</span>
+                  <input type="text" class="form-control" name="kab-wali" id="kab-wali" placeholder="Kab Blitar">
+                  <span class="input-group-text d-sm-block d-none">Provinsi</span>
+                  <select class="selectpicker form-control" name="prov-wali" id="prov-wali" data-style="btn-default">
+                  <option value="-" >Pilih</option>
+                  <option value="Aceh">Aceh</option>
+                  <option value="Bali">Bali</option>
+                  <option value="Banten">Banten</option>
+                  <option value="Bengkulu">Bengkulu</option>
+                  <option value="Daerah Istimewa Yogyakarta">Daerah Istimewa Yogyakarta</option>
+                  <option value="Daerah Khusus Ibukota Jakarta">Daerah Khusus Ibukota Jakarta</option>
+                  <option value="Gorontalo">Gorontalo</option>
+                  <option value="Jambi">Jambi</option>
+                  <option value="Jawa Barat">Jawa Barat</option>
+                  <option value="Jawa Tengah">Jawa Tengah</option>
+                  <option value="Jawa Timur">Jawa Timur</option>
+                  <option value="Kalimantan Barat">Kalimantan Barat</option>
+                  <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                  <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                  <option value="Kalimantan Timur">Kalimantan Timur</option>
+                  <option value="Kalimantan Utara">Kalimantan Utara</option>
+                  <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                  <option value="Kepulauan Riau">Kepulauan Riau</option>
+                  <option value="Lampung">Lampung</option>
+                  <option value="Maluku">Maluku</option>
+                  <option value="Maluku Utara">Maluku Utara</option>
+                  <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                  <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                  <option value="Papua">Papua</option>
+                  <option value="Papua Barat">Papua Barat</option>
+                  <option value="Papua Barat Daya">Papua Barat Daya</option>
+                  <option value="Papua Pegunungan">Papua Pegunungan</option>
+                  <option value="Papua Selatan">Papua Selatan</option>
+                  <option value="Papua Tengah">Papua Tengah</option>
+                  <option value="Riau">Riau</option>
+                  <option value="Sulawesi Barat">Sulawesi Barat</option>
+                  <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                  <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                  <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                  <option value="Sulawesi Utara">Sulawesi Utara</option>
+                  <option value="Sumatra Barat">Sumatra Barat</option>
+                  <option value="Sumatra Selatan">Sumatra Selatan</option>
+                  <option value="Sumatra Utara">Sumatra Utara</option>
+                </select>
+                </div>
               </div>
               </div>
               </div>
@@ -535,7 +606,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="no-urut">Nomor urut ketika diterima</label>
-                <input type="text" id="no-urut" name="no-urut" class="form-control" placeholder="Nomor urut ketika diterima" />
+                <input type="text" id="no-urut" name="no-urut" class="form-control" readonly placeholder="Nomor urut ketika diterima" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="asal">Asal Sekolah</label>
@@ -571,7 +642,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="masuk-jalur">Diterima Lewat Jalur</label>
-                <input type="text" id="masuk-jalur" name="masuk-jalur" class="form-control" placeholder="Diterima Lewat Jalur" />
+                <input type="text" id="masuk-jalur" name="masuk-jalur" class="form-control" readonly placeholder="Diterima Lewat Jalur" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="masuk-tgl">Diterima Tanggal</label>
@@ -646,7 +717,7 @@
               </div>
               </div>
               <hr class="my-4 mx-n4" />
-              <!-- Jika Pindahan -->
+              <!-- Jika memiliki -->
               <div class="content-header mb-3">
               <h6 class="mb-0">Diisi Jika Memiliki</h6>
               </div>

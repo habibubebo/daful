@@ -12,9 +12,13 @@ $(function() {
         }, {
             data: "nama_lengkap"
         }, {
-            data: "no_pendaftaran"
+            data: "" //jalur no urut
+        }, {
+            data: "nisn"
         }, {
             data: "status_verifikasi"
+        }, {
+            data: "tgl_verif"
         }, {
             data: ""
         }],
@@ -43,7 +47,14 @@ $(function() {
                 return t
             }
         }, {
-            targets: -2,
+            targets: 3,
+            responsivePriority: 4,
+            render: function(e, a, t, r) {
+                t = t.masuk_jalur+' / '+t.no_urut;
+                return t
+            }
+        }, {
+            targets: -3,
             render: function(e, a, t, r) {
                 if (t.status_verifikasi == '0') { t = '<span class="badge rounded-pill  bg-label-info">belum</span>'} else if (t.status_verifikasi == '1') { t = '<span class="badge rounded-pill  bg-label-warning">proses</span>' } else { t = '<span class="badge rounded-pill  bg-label-success">sudah</span>' };
                 return t
@@ -55,11 +66,11 @@ $(function() {
             title: "Aksi",
             orderable: !1,
             render: function(e, a, t, r) {
-                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item"  href="././verifikasi/verif/'+t.id_siswa+'">Verifikasi</a><div class="dropdown-divider"></div><a href="././verifikasi/undo/'+t.id_siswa+'" class="dropdown-item text-danger delete-record">Batalkan</a><a href="././verifikasi/reset/'+t.id_siswa+'" class="dropdown-item text-danger">Reset</a></div></div>'
+                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item"  href="././verifikasi/verif/'+t.nisn+'">Verifikasi</a><div class="dropdown-divider"></div><a href="././verifikasi/undo/'+t.nisn+'" class="dropdown-item text-danger delete-record">Batalkan</a><a href="././verifikasi/reset/'+t.nisn+'" class="dropdown-item text-danger">Reset</a></div></div>'
             }
         }],
         order: [
-            [5, "desc"]
+            [6, "desc"]
         ],
         dom: '<"card-header p-1 m-0 d-flex justify-content-between"<"p-2"B><"head-label text-center"><"d-flex justify-content-md-end p-1"lf>>t<"d-flex justify-content-between"<"col-sm-4 col-md-4"i><"col-sm-5 col-md-5"p>>',
         language: {

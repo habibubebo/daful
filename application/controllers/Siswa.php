@@ -28,9 +28,8 @@ class Siswa extends CI_Controller
     $this->load->model('Model_APS');
     // Menambahkan tampilan dan memanggil tampilan
     $this->load->view('layout/header');
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
-    // $this->load->view('layout/sidebar_menu',$data);
-    $this->load->view('layout/sidebar_menu');
+    $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
+    $this->load->view('layout/sidebar_menu',$data);
     $this->load->view('layout/navbar');
     if($this->session->userdata('status') == ""){
         redirect(base_url());
@@ -106,7 +105,6 @@ class Siswa extends CI_Controller
     $phwali = $this->input->post('ph-wali');
     $notelpwali = $this->input->post('notelp-wali');
     $hubwali = $this->input->post('hub-wali');
-    $alamatwali = $this->input->post('alamat-wali');
     $np = $this->input->post('no-pend');
     $nourut = $this->input->post('no-urut');
     $asal = $this->input->post('asal');
@@ -185,7 +183,13 @@ class Siswa extends CI_Controller
         'ph_wali' => $phwali,
         'notelp_wali' => $notelpwali,
         'hub_wali' => $hubwali,
-        'alamat_wali' => $alamatwali,
+        'jalan_wali' => $this->input->post('jalan-wali'),
+        'rt_wali' => $this->input->post('rt-wali'),
+        'rw_wali' => $this->input->post('rw-wali'),
+        'desa_wali' => $this->input->post('desa-wali'),
+        'kec_wali' => $this->input->post('kec-wali'),
+        'kab_wali' => $this->input->post('kab-wali'),
+        'prov_wali' => $this->input->post('prov-wali'),
         'no_pendaftaran' => $np,
         'no_urut' => $nourut,
         'asal' => $asal,
@@ -212,25 +216,55 @@ class Siswa extends CI_Controller
         'no_kip' => $this->input->post('no-kip'),
         'status_verifikasi' => '1'
       );
+      // $cek = array('nisn' => $nisn);
+      // if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 0){
+      // $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Data $nisn gagal diinput, duplikasi"));
+      // redirect("siswa");    
+      // } else {
       $where = array('id_siswa' => $Id);
       $this->Model_APS->proses_update($where,$data,'siswa');
+      $this->session->set_userdata(['nama' => $namal, 'no_pendaftaran' => $np, 'nisn' => $nisn]);
+      $this->Model_APS->qr($nisn);
       $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data <strong>$namal</strong> berhasil diupdate"));
       redirect('siswa/data');
-    
+      // };
   }
 
   function data()
-  {
-    $this->load->view('menu/siswa/lihat');
-    $this->load->view('layout/footer');
+  { 
+    if (!$this->session->userdata('nisn')) {
+      redirect('siswa');
+    } else {
+      $id = $this->session->userdata('nisn');
+      $where = array('nisn' => $id);
+      $data['bio'] = $this->Model_APS->edit_data('siswa', $where)->result();
+      $this->load->view('menu/siswa/lihat', $data);
+      $this->load->view('layout/footer');
+    };
   }
 
-  function unduhan()
+  function unduhan($ttd=null)
   {
-    $this->load->view('menu/siswa/unduhan');
+	if (!$this->session->userdata('nisn')) {
+      redirect('siswa');
+    } else {
+    switch ($ttd) {
+      case "ayah" : $data['siswa'] = $this->db->query('SELECT *,nama_ayah AS ttdnama,ttl_ayah AS ttdttl,pk_ayah AS ttdpk,alamat_ortu as ttdalamat, notelp_ayah as ttdtelp, agama_ayah AS ttdagama FROM siswa WHERE id_siswa='.$this->session->userdata('id'))->result();
+                    $data['tombol'] = 0; 
+      break;
+      case "ibu" : $data['siswa'] = $this->db->query('SELECT *,nama_ibu AS ttdnama,ttl_ibu AS ttdttl,pk_ibu AS ttdpk,alamat_ortu as ttdalamat, notelp_ibu as ttdtelp, agama_ibu AS ttdagama FROM siswa WHERE id_siswa='.$this->session->userdata('id'))->result();
+                   $data['tombol'] = 1;   
+      break;
+      case "wali" : $data['siswa'] = $this->db->query('SELECT *,nama_wali AS ttdnama,ttl_wali AS ttdttl,pk_wali AS ttdpk,desa_wali as ttdalamat, notelp_wali as ttdtelp, agama_wali AS ttdagama FROM siswa WHERE id_siswa='.$this->session->userdata('id'))->result();
+                    $data['tombol'] = 2; 
+      break;
+      default : 
+      redirect('siswa/unduhan/ayah');
+  };
+    $this->load->view('menu/siswa/unduhan',$data);
     $this->load->view('layout/footer');
+  };
   }
-
   
 }
 

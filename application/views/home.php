@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Website Daftar Ulang SMA Negeri 1 Srengat</title>
+    <title>Daftar Ulang SMA Negeri 1 Srengat</title>
     
     <meta name="description" content="Web Daftar Ulang SMA Negeri 1 Srengat" />
     <meta name="keywords" content="smangat, sma srengat, sman 1 srengat, daftar ulang, srengat, blitar">
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/demo.css") ?>" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" />
+    <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" /> -->
     <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/typeahead-js/typeahead.css") ?>" /> -->
     
 
@@ -42,7 +42,7 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="<?= base_url("assets/vendor/js/template-customizer.js") ?>"></script>
+    <!-- <script src="<?= base_url("assets/vendor/js/template-customizer.js") ?>"></script> -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url("assets/js/config.js") ?>"></script>
     <style>
@@ -50,9 +50,27 @@
         background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>");
         background-size: cover;
         background-repeat: no-repeat;
-        
         min-height: 600px !important
       }
+      .wave {
+        animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s;        /* Change to speed up or slow down */
+        animation-iteration-count: infinite;  /* Never stop waving :) */
+        transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+        display: inline-block;
+      }
+
+      @keyframes wave-animation {
+          0% { transform: rotate( 0.0deg) }
+        10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+        20% { transform: rotate(-8.0deg) }
+        30% { transform: rotate(14.0deg) }
+        40% { transform: rotate(-4.0deg) }
+        50% { transform: rotate(10.0deg) }
+        60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+        100% { transform: rotate( 0.0deg) }
+      }
+
     </style>
 </head>
 
@@ -64,21 +82,12 @@
 
     <!-- Layout container -->
     <div class="layout-page">
-      
-      
-
-
-
 <!-- Navbar -->
-
-
-
-
 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
   
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-        <!-- Search -->
+        <!-- Brand -->
         <div class="navbar-nav align-items-center">
           <div class="nav-item navbar-search-wrapper mb-0">
 		  	<a href="<?= base_url()?>" class="app-brand-link">
@@ -89,12 +98,7 @@
             </a>
           </div>
         </div>
-        <!-- /Search -->
-        
-
-
-        
-
+        <!-- /Brand -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
           
           
@@ -152,51 +156,20 @@
       <div class="w-100 p-1 p-lg-5 d-flex flex-column justify-content-center">
       <h3 class="text-center m-5 text-white">Daftar Ulang Peserta Didik</h3>
           <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
-            
-            <div class="accordion-item card active">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconTwo">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-2" aria-controls="accordionPopoutIcon-2">
-                  <i class="bx bx-data me-2"></i>
-                  1. Masuk dan lengkapi data
-                </button>
-              </h2>
-              <div id="accordionPopoutIcon-2" class="accordion-collapse collapse show" data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                Login aplikasi dengan menggunakan No Pendaftaran dan NISN. Isi data dengan benar, dan upload berkas : abcdef
-                </div>
-              </div>
-            </div>
-
+            <?php foreach ($infos as $tp) { ?>
             <div class="accordion-item card">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconThree">
-                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-3" aria-expanded="true" aria-controls="accordionPopoutIcon-3">
-                  <i class="bx bx-file me-2"></i>
-                  2. Cetak Bukti Daftar Ulang
+              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIcon<?= $tp->id ?>">
+                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-<?= $tp->id ?>" aria-expanded="true" aria-controls="accordionPopoutIcon-<?= $tp->id ?>">
+                  <?= $tp->nama ?>
                 </button>
               </h2>
-              <div id="accordionPopoutIcon-3" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
+              <div id="accordionPopoutIcon-<?= $tp->id ?>" class="accordion-collapse collapse" data-bs-parent="#accordionPopoutIcon">
                 <div class="accordion-body">
-                  Cetak bukti daftar ulang.
+                <?= $tp->ket ?>
                 </div>
               </div>
             </div>
-
-            <div class="accordion-item card">
-              <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionPopoutIconOne">
-                <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionPopoutIcon-1" aria-controls="accordionPopoutIcon-1">
-                <i class='bx bx-street-view me-2'></i>
-                  3. Datang ke SMA Negeri 1 Srengat
-                </button>
-              </h2>
-
-              <div id="accordionPopoutIcon-1" class="accordion-collapse collapse " data-bs-parent="#accordionPopoutIcon">
-                <div class="accordion-body">
-                Datang Ke SMAN 1 Srengat Dengan membawa berkas abcdef, 
-                <br>dimasukkan ke dalam map : <br>a. <strong>warna merah</strong> untuk jalur xxxx; <br>b. <strong>warna kuning</strong> utk jalur xxx; <br>c. …  pada tanggal xxxxx pukul xxxxx
-
-                </div>
-              </div>
-            </div>
+              <?php } ?>
           </div>
       </div>
     </div>
@@ -205,29 +178,27 @@
 	<div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4" id="login">
       <div class="w-px-400 mx-auto">
 		
-			  <h4 class="mb-2 center">Sudah punya akun?</h4>
-              <p class="mb-4">Silahkan login disini.</p>
+			  <h4 class="mb-2 center">Halo Siswa SMANGAT <span class="wave">👋</span></h4>
+              <p class="mb-4">Silahkan Masuk disini</p>
 
               <form id="formAuthentication" class="mb-3" action="<?= base_url("auth/logins") ?>" method="POST">
                 <div class="mb-3">
-                  <label for="nopend" class="form-label">Nomor Pendaftaran</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nopend"
-                    name="nopend"
-                    placeholder="Masukkan Nomor Pendaftaran"
-                    autofocus
-                  />
+                  <label for="jalur" class="form-label">Jalur Masuk</label>
+                  <select class="selectpicker form-control" name="jalur" id="jalur" data-style="btn-default">
+                  <option value="" disabled selected>Pilih</option>
+                  <?php foreach ($jms as $jm) { ?>
+                    <option value="<?= $jm->nama ?>"><?= $jm->nama ?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="mb-3">
-                  <label for="pass" class="form-label">NISN</label>
+                  <label for="pass" class="form-label">Password</label>
                   <input
                     type="text"
                     class="form-control"
                     id="pass"
                     name="pass"
-                    placeholder="Masukkan NISN"
+                    placeholder="Masukkan Password"
                     autofocus
                   />
                 </div>
@@ -236,7 +207,7 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                 </div>
               </form>
-              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">No. Pendaftaran atau NISN salah! Jika belum membuat akun silahkan menghubungi panitia</div>'; }?>
+              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silahkan menghubungi panitia</div>'; }?>
               <p class="text-center">
                 <span>Ada Masalah?</span>
                 <a href="https://www.instagram.com/smangatofficial/">
@@ -251,7 +222,7 @@
   <!-- /test -->
   <div class="d-flex justify-content-center border-bottom border-light">
           <div class="col-lg-6 p-0">
-            <img src="assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="putra-putri-smangat">
+            <img src="<?= base_url()?>assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="putra-putri-smangat">
           </div>
   </div>
 
@@ -262,13 +233,12 @@
       <div class="row justify-content-center py-5 my-3">
         <div class="col-md-8 col-lg-6 text-center">
           <h4>KONTAK KAMI</h4>
-          <p class="mb-4"> SMA Negeri 1 Srengat <br>
-		  	Jl. Merdeka Bagelenan Srengat<br>
-			Telp. 0342 551094<br>
-			Kec. Srengat, Kab. Blitar, Prov. Jawa Timur
-            <br> Kode Pos 66152</p>
+          <p class="mb-4"><?= $profil[0]->nama.'<br>'
+          .$profil[0]->alamat.'<br>
+			Telp. '.$profil[0]->telepon.'<br>'?>
+            </p>
           <div class="d-flex justify-content-center flex-wrap gap-4">
-            <a href="#" class="btn btn-label-primary d-grid">smanrengat1n@gmail.com</a>
+            <a href="#" class="btn btn-label-primary d-grid"><?= $profil[0]->email ?></a>
           </div>
         </div>
       </div>
@@ -278,5 +248,11 @@
 </div>
          </div>
           <!-- / Content -->
+          <script type="text/javascript">
+            const col = document.getElementsByClassName("accordion-item card");
+            col[0].classList.add('active');
+            const body = document.getElementsByClassName("accordion-collapse collapse");
+            body[0].classList.add('show');
+          </script>
 
 <?php $this->load->view('layout/footer'); ?>

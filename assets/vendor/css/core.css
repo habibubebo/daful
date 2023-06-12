@@ -6781,16 +6781,6 @@ textarea.form-control-lg {
   border: 0 !important
 }
 
-.stretched-link::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  /* content:""; */
-}
-
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25956,4 +25946,14 @@ a.bg-vimeo:hover,a.bg-vimeo:focus {
 
 .footer.bg-lighter hr {
   border-color: rgba(105,122,141,.076604902)
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: ""
 }

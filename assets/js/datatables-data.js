@@ -44,11 +44,11 @@ $(function() {
         }, {
             data: "bahasa"
         }, {
-            data: "hobi_kes"
+            data: "" //hobi 19
         }, {
             data: "tinggal"
         }, {
-            data: "jalan"
+            data: "" //alamat 21
         }, {
             data: "jarak"
         }, {
@@ -126,7 +126,7 @@ $(function() {
         }, {
             data: "hub_wali"
         },{
-            data: "alamat_wali"
+            data: "" //alamat wali
         }, {
             data: "asal"
         }, {
@@ -158,13 +158,13 @@ $(function() {
         }, {
             data: "no_kip"
         }, {
-            data: "kk"
+            data: "" //kk
         }, {
-            data: "akta"
+            data: "" //akta
         }, {
-            data: "ijazah"
+            data: "" //ijazah
         }, {
-            data: "bukti"
+            data: "" //bukti
         }, {
             data: "" //status
         }, {
@@ -195,6 +195,119 @@ $(function() {
                 return t
             }
         }, {
+            targets: 19,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                t = 'Kesenian: '+t.hobi_kes+', Olahraga: '+t.hobi_or+', Kemasyarakatan: '+t.hobi_masy+', Lain: '+t.hobi_lain;
+                return t
+            }
+        }, {
+            targets: 21,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                t = 'Jalan '+t.jalan+' RT '+t.rt+' RW '+t.rw+' Desa '+t.desa+' Kec. '+t.kec+' Kab./Kota '+t.kab+' Provinsi '+t.provinsi;
+                return t
+            }
+        }, {
+            targets: -22,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                t = 'Jalan '+t.jalan_wali+' RT '+t.rt_wali+' RW '+t.rw_wali+' Desa '+t.desa_wali+' Kec. '+t.kec_wali+' Kab./Kota '+t.kab_wali+' Provinsi '+t.provinsi_wali;
+                return t
+            }
+        }, {
+            targets: -6,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                let base64String = "";
+                let reader = new FileReader();
+                var y = t.no_urut+t.kk;
+                var str = t.masuk_jalur;
+                var m = str.split(' ').join('-');   
+                var request = new XMLHttpRequest();
+                request.open('GET', appPath+'file/uploads/'+m+t.no_urut+'/'+t.kk, true);
+                request.responseType = 'blob';
+                request.send();
+                request.onload = function() {
+                    reader.readAsDataURL(request.response);
+                    reader.onload =  function(e){
+                        base64String = reader.result;
+                            document.getElementById(y).src = base64String;
+                        };
+                    };
+                    t = '<img id="'+y+'" src="" width="80px">';
+                    return t
+            }
+        }, {
+            targets: -5,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                let base64String = "";
+                let reader = new FileReader();
+                var y= t.no_urut+t.akta;
+                var str = t.masuk_jalur;
+                var m = str.split(' ').join('-');   
+                var request = new XMLHttpRequest();
+                request.open('GET', appPath+'file/uploads/'+m+t.no_urut+'/'+t.akta, true);
+                request.responseType = 'blob';
+                request.send();
+                request.onload = function() {
+                    reader.readAsDataURL(request.response);
+                    reader.onload =  function(e){
+                        base64String = reader.result;
+                            document.getElementById(y).src = base64String;
+                        };
+                    };
+                    t = '<img id="'+y+'" src="" width="80px">';
+                    return t
+            }
+        }, {
+            targets: -4,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                let base64String = "";
+                let reader = new FileReader();
+                var y = t.no_urut+t.ijazah;
+                var str = t.masuk_jalur;
+                var m = str.split(' ').join('-');   
+                var request = new XMLHttpRequest();
+                request.open('GET', appPath+'file/uploads/'+m+t.no_urut+'/'+t.ijazah, true);
+                request.responseType = 'blob';
+                request.send();
+                request.onload = function() {
+                    reader.readAsDataURL(request.response);
+                    reader.onload =  function(e){
+                        base64String = reader.result;
+                            document.getElementById(y).src = base64String;
+                        };
+                    };
+                    t = '<img id="'+y+'" src="" width="80px">';
+                    return t
+            }
+        }, {
+            targets: -3,
+            searchable: !1,
+            render: function(e, a, t, r) {
+                let base64String = "";
+                let reader = new FileReader();
+                var y = t.no_urut+t.bukti;
+                var str = t.masuk_jalur;
+                var m = str.split(' ').join('-');        
+                var request = new XMLHttpRequest();
+                request.open('GET', appPath+'file/uploads/'+m+t.no_urut+'/'+t.bukti, true);
+                request.responseType = 'blob';
+                request.send();
+                request.onload = function() {
+                    reader.readAsDataURL(request.response);
+                    reader.onload =  function(e){
+                        base64String = reader.result;
+                            document.getElementById(y).src = base64String;
+                        };
+                    };
+                    t = '<img id="'+y+'" src="" width="80px">';
+                    return t
+            }
+        }, {
             targets: -2,
             render: function(e, a, t, r) {
                 if (t.status_verifikasi == '0') { t = '<span class="badge rounded-pill  bg-label-info">belum</span>'} else if (t.status_verifikasi == '1') { t = '<span class="badge rounded-pill  bg-label-warning">proses</span>' } else { t = '<span class="badge rounded-pill  bg-label-success">sudah</span>' };
@@ -211,7 +324,7 @@ $(function() {
             }
         }],
         order: [
-            [5, "desc"]
+            [0, "asc"]
         ],
         dom: '<"card-header p-1 m-0 d-flex justify-content-between"<"p-2"B><"head-label text-center"><"d-flex justify-content-md-end p-1"lf>>t<"d-flex justify-content-between"<"col-sm-4 col-md-4"i><"col-sm-5 col-md-5"p>>',
         language: {

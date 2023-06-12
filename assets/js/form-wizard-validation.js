@@ -17,7 +17,175 @@
             }),
             d = FormValidation.formValidation(s, {
                 fields: {
-                    
+                    "nama-lengkap": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "nama-panggilan": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "nisn": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "nik": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "jk": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "tempat-lahir": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "prov-lahir": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "tanggal-lahir": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "agama": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "kw": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "anak-ke": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "stat-anak": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "notelp": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "goldar": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "tinggal": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "tb": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "jalan": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "rt": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "rw": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "desa": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "kec": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "kab": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "prov": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "bb": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "hobi-kes": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "hobi-or": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "hobi-masy": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "hobi-lain": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger,
@@ -37,7 +205,121 @@
             }),
             m = FormValidation.formValidation(o, {
                 fields: {
-                    
+                    "nama-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "ttl-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "agama-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "kw-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "pdd-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "pk-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "ph-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "notelp-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "stat-ayah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "alamat-ortu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "nama-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "ttl-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "agama-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "kw-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "pdd-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "pk-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "ph-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "notelp-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "stat-ibu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger,
@@ -64,7 +346,61 @@
                 })
             }), FormValidation.formValidation(n, {
                 fields: {
-                    
+                    "no-pend": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "asal": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "tgl-no-ijazah": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "tgl-no-skl": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "lama": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "nopeserta-un": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "no-skhu": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "masuk-kelas": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "masuk-tgl": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger,
@@ -83,7 +419,49 @@
                 })
             }), FormValidation.formValidation(p, {
                 fields: {
-                    
+                    "jml-kd": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "jml-tr": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "jml-ak": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "jarak": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "penyakit": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "kelainan": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "bahasa": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    },
                     sudah: {
                         validators: {
                             notEmpty: {
@@ -133,12 +511,8 @@
     }
 }();
 function wali() {
-   // Get the checkbox
   var checkBox = document.getElementById("walicheck");
-  // Get the output text
   var text = document.getElementById("wali");
-
-  // If the checkbox is checked, display the output text
   if (checkBox.checked == true){
     text.style.display = "block";
   } else {
@@ -164,11 +538,8 @@ function wali() {
   Dropzone.options.uKk = {
     url:"./aksi/unggah/kk",
     method:"post",
-    autoDiscover:false,
     paramName:"ukk",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -176,11 +547,8 @@ function wali() {
 };Dropzone.options.uAkta = {
     url:"./aksi/unggah/akta",
     method:"post",
-    autoDiscover:false,
     paramName:"akta",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -188,11 +556,8 @@ function wali() {
 };Dropzone.options.uIjazah = {
     url:"./aksi/unggah/ijazah",
     method:"post",
-    autoDiscover:false,
     paramName:"ijazah",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -200,11 +565,8 @@ function wali() {
 };Dropzone.options.uBukti = {
     url:"./aksi/unggah/bukti",
     method:"post",
-    autoDiscover:false,
     paramName:"bukti",
-    acceptedFiles:"image/*",
-    parallelUploads:1,
-    autoProcessQueue:true,
+    acceptedFiles:".jpeg,.jpg,.png",
     previewTemplate:a,
     maxFilesize:2,
     addRemoveLinks:!0,
@@ -222,6 +584,25 @@ function wali() {
                     var myObj = JSON.parse(this.responseText);
                     $.each(myObj, function(i) {
                         document.getElementById("nama-lengkap").value = myObj.data[0].nama_lengkap;
+                        document.getElementById("no-urut").value = myObj.data[0].no_urut;
+                        document.getElementById("masuk-jalur").value = myObj.data[0].masuk_jalur;
+                        document.getElementById("nama-wali").value = '-';
+                        document.getElementById("ttl-wali").value = '-';
+                        $('#agama-wali').selectpicker('val', '-');
+                        document.getElementById("kw-wali").value = '-';
+                        $('#pdd-wali').selectpicker('val', '-');
+                        $('#pk-wali').selectpicker('val', '-');
+                        $('#ph-wali').selectpicker('val', '-');
+                        document.getElementById("notelp-wali").value = '-';
+                        document.getElementById("jalan-wali").value = '-';
+                        document.getElementById("rt-wali").value = '-';
+                        document.getElementById("rw-wali").value = '-';
+                        document.getElementById("desa-wali").value = '-';
+                        document.getElementById("kec-wali").value = '-';
+                        document.getElementById("kab-wali").value = '-';
+                        document.getElementById("hub-wali").value = '-';
+                        if (myObj.data[0].bahasa == 0) {}
+                        else {
                         document.getElementById("nama-panggilan").value = myObj.data[0].nama_panggilan;
                         document.getElementById("nisn").value = myObj.data[0].nisn;
                         document.getElementById("nik").value = myObj.data[0].nik;
@@ -268,6 +649,10 @@ function wali() {
                         $('#ph-ibu').selectpicker('val', myObj.data[0].ph_ibu);
                         document.getElementById("notelp-ibu").value = myObj.data[0].notelp_ibu;
                         document.getElementById("stat-ibu").value = myObj.data[0].status_ibu;
+                        
+                        if (myObj.data[0].nama_wali=='-') {}
+                        else {
+                        setTimeout(()=> {document.getElementById("walicheck").checked = true;wali();},3e3);
                         document.getElementById("nama-wali").value = myObj.data[0].nama_wali;
                         document.getElementById("ttl-wali").value = myObj.data[0].ttl_wali;
                         $('#agama-wali').selectpicker('val', myObj.data[0].agama_wali);
@@ -276,10 +661,16 @@ function wali() {
                         $('#pk-wali').selectpicker('val', myObj.data[0].pk_wali);
                         $('#ph-wali').selectpicker('val', myObj.data[0].ph_wali);
                         document.getElementById("notelp-wali").value = myObj.data[0].notelp_wali;
+                        document.getElementById("jalan-wali").value = myObj.data[0].jalan_wali;
+                        document.getElementById("rt-wali").value = myObj.data[0].rt_wali;
+                        document.getElementById("rw-wali").value = myObj.data[0].rw_wali;
+                        document.getElementById("desa-wali").value = myObj.data[0].desa_wali;
+                        document.getElementById("kec-wali").value = myObj.data[0].kec_wali;
+                        document.getElementById("kab-wali").value = myObj.data[0].kab_wali;
+                        $('#prov-wali').selectpicker('val', myObj.data[0].prov_wali);
                         document.getElementById("hub-wali").value = myObj.data[0].hub_wali;
-                        document.getElementById("alamat-wali").value = myObj.data[0].alamat_wali;
+                        };
                         document.getElementById("no-pend").value = myObj.data[0].no_pendaftaran;
-                        document.getElementById("no-urut").value = myObj.data[0].no_urut;
                         document.getElementById("asal").value = myObj.data[0].asal;
                         document.getElementById("tgl-no-ijazah").value = myObj.data[0].tgl_no_ijazah;
                         document.getElementById("tgl-no-skl").value = myObj.data[0].tgl_no_skl;
@@ -287,7 +678,6 @@ function wali() {
                         document.getElementById("nopeserta-un").value = myObj.data[0].nopeserta_un;
                         document.getElementById("no-skhu").value = myObj.data[0].no_skhu;
                         $('#masuk-kelas').selectpicker('val', myObj.data[0].masuk_kelas);
-                        document.getElementById("masuk-jalur").value = myObj.data[0].masuk_jalur;
                         document.getElementById("masuk-tgl").value = myObj.data[0].masuk_tgl;
                         document.getElementById("pindahan-asal").value = myObj.data[0].pindahan_asal;
                         document.getElementById("pindahan-alasan").value = myObj.data[0].pindahan_alasan;
@@ -300,9 +690,11 @@ function wali() {
                         document.getElementById("no-kks").value = myObj.data[0].no_kks;
                         document.getElementById("no-pkh").value = myObj.data[0].no_pkh;
                         document.getElementById("no-kip").value = myObj.data[0].no_kip;
-                        let bahasa = myObj.data[0].bahasa;
+                        };
+                        if (myObj.data[0].bahasa == 0) {}
+                        else { let bahasa = myObj.data[0].bahasa;
                         const bhsArray = bahasa.split(", ");
-                        $('#bahasa').selectpicker('val', bhsArray);
+                        $('#bahasa').selectpicker('val', bhsArray); };
                     });
 
                 }

@@ -28,9 +28,11 @@ class Dashboard extends CI_Controller
         $this->load->model('Model_APS');
     // Menambahkan Helper URL
         $this->load->helper('url');
+    // mengambil data untuk tampilan
+        $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
     // Menambahkan tampilan dan memanggil tampilan
         $this->load->view('layout/header');
-        $this->load->view('layout/sidebar_menu');
+        $this->load->view('layout/sidebar_menu',$data);
         $this->load->view('layout/navbar');
         if($this->session->userdata('status') == ""){
             redirect(base_url("auth"));
@@ -39,6 +41,7 @@ class Dashboard extends CI_Controller
 
   public function index()
   {
+    $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
     $data['pengumuman'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
     if($this->session->userdata('role') < "1"){
       // dashboard siswa

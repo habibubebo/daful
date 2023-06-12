@@ -1,0 +1,1 @@
+define('FCPATH', rtrim(str_replace('\\', '/', realpath($FCPATH)), '/').'/');

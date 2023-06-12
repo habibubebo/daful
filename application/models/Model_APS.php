@@ -135,7 +135,21 @@ function tgl_id($tanggal){
     $pecahkan = explode('-', $tanggal);
 
     echo $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-}       
+}    
+
+public function qr($kodeqr)
+  {
+    if($kodeqr){
+        $filename = 'assets/qr/'.$kodeqr;
+        if (!file_exists($filename)) { 
+                $params['data'] = $kodeqr;
+                $params['level'] = 'H';
+                $params['size'] = 3;
+                $params['savename'] = FCPATH.'assets/qr/'.$kodeqr.".png";
+                return  $this->ciqrcode->generate($params);
+        }
+    }
+  }
 
 }
 /* End of file Model_APS_model.php */

@@ -28,9 +28,8 @@ class Admin extends CI_Controller
     $this->load->model('Model_APS');
     // Menambahkan tampilan dan memanggil tampilan
     $this->load->view('layout/header');
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
-    // $this->load->view('layout/sidebar_menu',$data);
-    $this->load->view('layout/sidebar_menu');
+    $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
+    $this->load->view('layout/sidebar_menu',$data);
     $this->load->view('layout/navbar');
     if($this->session->userdata('status') == ""){
         redirect(base_url("auth"));
@@ -45,7 +44,8 @@ class Admin extends CI_Controller
   }
 
   function akunsiswa(){
-    $this->load->view('menu/admin/lihat');
+    $data['jms'] = $this->Model_APS->tampil_data('tbl_jalur','id','ASC')->result();
+    $this->load->view('menu/admin/lihat',$data);
     $this->load->view('layout/footer');
   }
 
@@ -55,6 +55,8 @@ class Admin extends CI_Controller
     $data['phs'] = $this->Model_APS->tampil_data('tbl_penghasilan','id','ASC')->result();
     $data['pks'] = $this->Model_APS->tampil_data('tbl_pekerjaan','id','ASC')->result();
     $data['pengumumans'] = $this->Model_APS->tampil_data('tbl_pengumuman','id','ASC')->result();
+    $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
+    $data['jms'] = $this->Model_APS->tampil_data('tbl_jalur','id','ASC')->result();
     $this->load->view('menu/admin/master',$data);
     $this->load->view('layout/footer');
   }
@@ -82,6 +84,14 @@ class Admin extends CI_Controller
                  $this->Model_APS->simpan_data($data,'tbl_pengumuman');
                  redirect(base_url('admin/master'));
         break;
+      case 'info': $data = array('nama' => "baru",'ket' => "baru");
+                 $this->Model_APS->simpan_data($data,'tbl_info');
+                 redirect(base_url('admin/master'));
+        break;
+      case 'jm': $data = array('nama' => "baru");
+                 $this->Model_APS->simpan_data($data,'tbl_jalur');
+                 redirect(base_url('admin/master'));
+        break;
       default:
         //
     };
@@ -107,10 +117,15 @@ class Admin extends CI_Controller
       case 'pn': $tabel = 'tbl_pengumuman';
                  $this->Model_APS->update_master($tabel,$id,$field,$value);
         break;
+      case 'info': $tabel = 'tbl_info';
+                 $this->Model_APS->update_master($tabel,$id,$field,$value);
+        break;
+      case 'jm': $tabel = 'tbl_jalur';
+                 $this->Model_APS->update_master($tabel,$id,$field,$value);
+        break;
       default:
         //
     };
-	    echo 1;
 	    exit;
 	}
 
@@ -141,6 +156,16 @@ class Admin extends CI_Controller
                 $this->Model_APS->hapus_data($where,$tabel);
                 redirect(base_url('admin/master'));
       break;
+    case 'info':  $tabel = 'tbl_info';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
+    case 'jm':  $tabel = 'tbl_jalur';
+                $where = ['id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/master'));
+      break;
     default:
       //
   };
@@ -149,22 +174,27 @@ class Admin extends CI_Controller
 
   function verifikasi($aksi = null,$id = null){
     switch ($aksi) {
+      case 'lihat' : $where = array('nisn' => $id);
+                     $data['bio'] = $this->Model_APS->edit_data('siswa',$where)->result();
+                     $this->load->view('menu/siswa/lihat',$data);
+                     $this->load->view('layout/footer');
+        break;
       case 'verif' : $data = ['status_verifikasi' => '2','tgl_verif' => date('Y-m-d H:i:s')];
-                     $where = ['id_siswa' => $id ];
+                     $where = ['nisn' => $id ];
                      $this->Model_APS->proses_update($where,$data,'siswa');
-                     $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil diverifikasi"));
+                     $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $id berhasil diverifikasi"));
                      redirect(base_url('admin/verifikasi'));
         break;
       case 'undo' : $data = ['status_verifikasi' => '1','tgl_verif' => ''];
-                    $where = ['id_siswa' => $id ];
+                    $where = ['nisn' => $id ];
                     $this->Model_APS->proses_update($where,$data,'siswa');
-                    $this->session->set_flashdata('alert',array('tipe' => 'info', 'isi' => "Data berhasil diupdate"));
+                    $this->session->set_flashdata('alert',array('tipe' => 'info', 'isi' => "Data $id berhasil diupdate"));
                     redirect(base_url('admin/verifikasi'));
         break;
       case 'reset' : $data = ['status_verifikasi' => '0','tgl_verif' => ''];
-                    $where = ['id_siswa' => $id ];
+                    $where = ['nisn' => $id ];
                     $this->Model_APS->proses_update($where,$data,'siswa');
-                    $this->session->set_flashdata('alert',array('tipe' => 'info', 'isi' => "Data berhasil direset"));
+                    $this->session->set_flashdata('alert',array('tipe' => 'info', 'isi' => "Data $id berhasil direset"));
                     redirect(base_url('admin/verifikasi'));
         break;
       default : $this->load->view('menu/admin/verifikasi');
@@ -205,9 +235,9 @@ class Admin extends CI_Controller
   }
 
   function akun(){
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
+    $data['akuns'] = $this->Model_APS->tampil_data('akun','id','ASC')->result();
     // $this->load->view('menu/profil',$data);
-    $this->load->view('menu/akun');
+    $this->load->view('menu/akun',$data);
     $this->load->view('layout/footer');
   }
 }

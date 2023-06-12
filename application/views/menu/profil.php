@@ -29,14 +29,14 @@
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
                         <img
-                          src="../<?= $tp->avatar ?>"
+                          src="<?= base_url("assets/img/")?><?= $tp->avatar ?>"
                           alt="user-avatar"
                           class="d-block rounded"
                           height="100"
                           width="100"
                           id="uploadedAvatar"
                         />
-                        <div class="button-wrapper">
+                        <!-- <div class="button-wrapper">
                           <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                             <span class="d-none d-sm-block">Upload baru</span>
                             <i class="bx bx-upload d-block d-sm-none"></i>
@@ -54,7 +54,7 @@
                           </button>
 
                           <p class="text-muted mb-0">*hanya .JPG/.PNG</p>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                     <hr class="my-0" />
