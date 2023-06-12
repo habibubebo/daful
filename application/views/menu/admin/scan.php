@@ -1,0 +1,1 @@
+c:\laragon\www\daful\application\views\menu\admin\scan.php

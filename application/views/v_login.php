@@ -50,6 +50,27 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url("assets/js/config.js")?>"></script>
+    <style>
+      .wave {
+        animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+        animation-duration: 2.5s;        /* Change to speed up or slow down */
+        animation-iteration-count: infinite;  /* Never stop waving :) */
+        transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+        display: inline-block;
+      }
+
+      @keyframes wave-animation {
+          0% { transform: rotate( 0.0deg) }
+        10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+        20% { transform: rotate(-8.0deg) }
+        30% { transform: rotate(14.0deg) }
+        40% { transform: rotate(-4.0deg) }
+        50% { transform: rotate(10.0deg) }
+        60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+        100% { transform: rotate( 0.0deg) }
+      }
+
+    </style>
   </head>
 
   <body>
@@ -70,7 +91,7 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2 center">Halo Admin! 👋</h4>
+              <h4 class="mb-2 center">Halo Admin! <span class="wave">👋</span></h4>
               <p class="mb-4">untuk login peserta didik silahkan <a href="<?= base_url() ?>">klik disini</a></p>
 
               <form id="formAuthentication" class="mb-3" action="<?= base_url("auth/login") ?>" method="POST">

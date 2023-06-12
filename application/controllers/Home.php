@@ -33,6 +33,9 @@ class Home extends CI_Controller
   public function index()
   {
     $data['alert'] = 0;
+    $data['infos'] = $this->Model_APS->tampil_data('tbl_info','id','ASC')->result();
+    $data['jms'] = $this->Model_APS->tampil_data('tbl_jalur','id','ASC')->result();
+    $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
     $this->load->view('home',$data);
   }
 

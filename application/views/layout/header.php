@@ -45,17 +45,27 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/bs-stepper/bs-stepper.css") ?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.css") ?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/apex-charts/apex-charts.css") ?>" />
-    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/select2/select2.css") ?>" />
+    <!-- <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/select2/select2.css") ?>" /> -->
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/formvalidation/dist/css/formValidation.min.css") ?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css") ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/responsive.bootstrap5.css") ?>">
     <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables.checkboxes.css") ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.bootstrap5.css") ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/dropzone/dropzone.css") ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.min.css") ?>" />
     <!-- Page CSS -->
     <script src="<?php echo base_url("assets/vendor/libs/jquery/jquery.js") ?>"></script>
+    <script src="<?php echo base_url("assets/vendor/js/bootstrap.js") ?>"></script>
     <!-- Helpers -->
     <script src="<?php echo base_url("assets/vendor/js/helpers.js") ?>"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?php echo base_url("assets/js/config.js") ?>"></script>
+    <style type="text/css">
+    .txtedit{
+      display: none;
+      width: 98%;
+    }
+   </style>
   </head>

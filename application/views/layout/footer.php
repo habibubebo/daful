@@ -1,4 +1,4 @@
-            <!-- Footer -->
+            <!-- Footer --><?php foreach ($profil as $tp) { ?>
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex justify-content-center py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
@@ -7,8 +7,9 @@
                     document.write(new Date().getFullYear());
                   </script>
                    by
-                  <a href="https://sman1srengat.sch.id/v3" target="_blank" class="footer-link fw-bolder">SMA Negeri 1 Srengat</a>
+                  <a href="<?= $tp->website ?>" target="_blank" class="footer-link fw-bolder"><?= $tp->nama ?></a>
                 </div>
+                <?php } ?>
               </div>
             </footer>
             <!-- / Footer -->
@@ -31,33 +32,21 @@
 
     <!-- build:js assets/vendor/js/core.js -->
     <script src="<?php echo base_url("assets/vendor/libs/popper/popper.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/js/bootstrap.js") ?>"></script>
     <script src="<?php echo base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/i18n/i18n.js") ?>"></script>
+    <!-- <script src="<?php echo base_url("assets/vendor/libs/i18n/i18n.js") ?>"></script> -->
     <script src="<?php echo base_url("assets/vendor/js/menu.js") ?>"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="<?php echo base_url("assets/vendor/libs/hammer/hammer.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/bs-stepper/bs-stepper.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/apex-charts/apexcharts.js") ?>"></script>
+    <!-- <script src="<?php echo base_url("assets/vendor/libs/hammer/hammer.js") ?>"></script> -->
+    <!-- <script src="<?php echo base_url("assets/vendor/libs/apex-charts/apexcharts.js") ?>"></script> -->
     <!-- Main JS -->
     <script src="<?php echo base_url("assets/js/main.js") ?>"></script>
-
+    
     <!-- Page JS -->
     <script src="<?php echo base_url("assets/js/dashboards-analytics.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
-    <script src="<?php echo base_url("assets/js/datatables.js") ?>"></script>
-    <!-- Wizard JS -->
-    <script src="<?php echo base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/select2/select2.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js") ?>"></script>
-
     
-    <!-- <script src="<?php echo base_url("assets/js/form-wizard-numbered.js") ?>"></script> -->
-    <script src="<?php echo base_url("assets/js/form-wizard-validation.js") ?>"></script>
+    
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>

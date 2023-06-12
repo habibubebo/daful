@@ -3,7 +3,7 @@ $(function() {
     var e = $(".datatables-projects");
     e.length && (e.DataTable({
         ajax: {
-            url: 'http://localhost/daful/aksi/all',
+            url: '/daful/aksi/all',
         },
         columns: [{
             data: ""
@@ -12,8 +12,10 @@ $(function() {
         }, {
             data: "nama_lengkap"
         }, {
-            data: "no_pendaftaran"
+            data: "masuk_jalur"
         }, {
+            data: "no_urut"
+        },{
             data: ""
         }, {
             data: "tgl_siswa"
@@ -30,11 +32,12 @@ $(function() {
                 return ""
             }
         }, {
+            className: "noExport",
             targets: 1,
             orderable: !1,
             searchable: !1,
             render: function(data, type, row, meta) {
-                return meta.row+meta.settings._iDisplayStart+1;
+                return meta.row+1;
             }
         }, {
             targets: 2,
@@ -44,7 +47,7 @@ $(function() {
                 return t
             }
         }, {
-            targets: 4,
+            targets: 5,
             orderable: !1,
             searchable: !1,
             responsivePriority: 4,
@@ -54,11 +57,14 @@ $(function() {
             }
         }, {
             targets: -2,
+            orderable: !1,
+            searchable: !1,
             render: function(e, a, t, r) {
                 t = t.tgl_siswa;
                 return t
             }
         }, {
+            className: "noExport",
             targets: -1,
             searchable: !1,
             title: "Aksi",
@@ -70,13 +76,112 @@ $(function() {
         order: [
             [5, "desc"]
         ],
-        dom: '<"card-header p-1 m-0 d-flex justify-content-between"<"head-label text-center p-2"><"d-flex justify-content-md-end"f>>t<"row mx-2"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+        dom: '<"card-header p-1 m-0 d-flex justify-content-between"<"p-2"B><"head-label text-center"><"d-flex justify-content-md-end p-1"lf>>t<"d-flex justify-content-between"<"col-sm-4 col-md-4"i><"col-sm-5 col-md-5"p>>',
         language: {
             searchPlaceholder: "Pencarian",
             search: "",
+            "lengthMenu": '<span class="d-sm-inline-block d-none">Tampilkan</span> <select class="form-select form-select-sm">'+
+                            '<option value="10">10</option>'+
+                            '<option value="25">25</option>'+
+                            '<option value="30">30</option>'+
+                            '<option value="40">40</option>'+
+                            '<option value="50">50</option>'+
+                            '<option value="-1">All</option>'+
+                            '</select>'
           },
-        displayLength: 7,
-        lengthMenu: [7, 10, 25, 50, 75, 100],
+        displayLength: 25,
+        lengthMenu: [10, 25, 30, 45, 50, -1],
+        buttons: [{
+            extend: "collection",
+            className: "btn btn-label-primary dropdown-toggle me-2",
+            text: '<i class="bx bx-export me-sm-1"></i> <span class="d-none d-sm-inline-block">Export</span>',
+            buttons: [{
+                extend: "print",
+                text: '<i class="bx bx-printer me-1" ></i>Print',
+                className: "dropdown-item",
+                exportOptions: {
+                    columns: ':visible:not(.noExport)',
+                    format: {
+                        body: function(e, t, a) {
+                            var s;
+                            return e.length <= 0 ? e : (e = $.parseHTML(e), s = "", $.each(e, function(e, t) {
+                                void 0 !== t.classList && t.classList.contains("user-name") ? s += t.lastChild.firstChild.textContent : void 0 === t.innerText ? s += t.textContent : s += t.innerText
+                            }), s)
+                        }
+                    }
+                },
+                customize: function(e) {
+                    $(e.document.body).css("color", config.colors.headingColor).css("border-color", config.colors.borderColor).css("background-color", config.colors.bodyBg), $(e.document.body).find("table").addClass("compact").css("color", "inherit").css("border-color", "inherit").css("background-color", "inherit")
+                }
+            }, {
+                extend: "csv",
+                text: '<i class="bx bx-file me-1" ></i>Csv',
+                className: "dropdown-item",
+                exportOptions: {
+                    columns: ':visible:not(.noExport)',
+                    format: {
+                        body: function(e, t, a) {
+                            var s;
+                            return e.length <= 0 ? e : (e = $.parseHTML(e), s = "", $.each(e, function(e, t) {
+                                void 0 !== t.classList && t.classList.contains("user-name") ? s += t.lastChild.firstChild.textContent : void 0 === t.innerText ? s += t.textContent : s += t.innerText
+                            }), s)
+                        }
+                    }
+                }
+            }, {
+                extend: "excel",
+                text: '<i class="bx bxs-file-export me-1"></i>Excel',
+                className: "dropdown-item",
+                exportOptions: {
+                    columns: ':visible:not(.noExport)',
+                    format: {
+                        body: function(e, t, a) {
+                            var s;
+                            return e.length <= 0 ? e : (e = $.parseHTML(e), s = "", $.each(e, function(e, t) {
+                                void 0 !== t.classList && t.classList.contains("user-name") ? s += t.lastChild.firstChild.textContent : void 0 === t.innerText ? s += t.textContent : s += t.innerText
+                            }), s)
+                        }
+                    }
+                }
+            }, {
+                extend: "pdf",
+                text: '<i class="bx bxs-file-pdf me-1"></i>Pdf',
+                className: "dropdown-item",
+                exportOptions: {
+                    columns: ':visible:not(.noExport)',
+                    format: {
+                        body: function(e, t, a) {
+                            var s;
+                            return e.length <= 0 ? e : (e = $.parseHTML(e), s = "", $.each(e, function(e, t) {
+                                void 0 !== t.classList && t.classList.contains("user-name") ? s += t.lastChild.firstChild.textContent : void 0 === t.innerText ? s += t.textContent : s += t.innerText
+                            }), s)
+                        }
+                    }
+                }
+            }, {
+                extend: "copy",
+                text: '<i class="bx bx-copy me-1" ></i>Copy',
+                className: "dropdown-item",
+                exportOptions: {
+                    columns: ':visible:not(.noExport)',
+                    format: {
+                        body: function(e, t, a) {
+                            var s;
+                            return e.length <= 0 ? e : (e = $.parseHTML(e), s = "", $.each(e, function(e, t) {
+                                void 0 !== t.classList && t.classList.contains("user-name") ? s += t.lastChild.firstChild.textContent : void 0 === t.innerText ? s += t.textContent : s += t.innerText
+                            }), s)
+                        }
+                    }
+                }
+            }, {
+                extend: "colvis",
+                text: '<i class="bx bx-columns me-1" ></i>Kolom',
+                className: "dropdown-item"
+            }]
+        }, {
+            text: '<i class="bx bx-plus me-sm-1" data-bs-toggle="modal" data-bs-target="#modalTambah"></i> <span class="d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modalTambah">Tambah</span>',
+            className: "create-new btn btn-primary"
+        }],
         responsive: {
             details: {
                 display: $.fn.dataTable.Responsive.display.modal({
@@ -93,7 +198,8 @@ $(function() {
                 }
             }
         }
-    }), $("div.head-label").html('<button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalTambah">Tambah</button>')), setTimeout(() => {
-        $(".dataTables_filter .form-control").removeClass("form-control-sm"), $(".dataTables_length .form-select").removeClass("form-select-sm")
+    }), 
+    $("div.head-label").html('')), setTimeout(() => {
+    $(".dataTables_filter .form-control").removeClass("form-control-sm"), $(".dataTables_length .form-select").removeClass("form-select-sm")
     }, 300)
 });

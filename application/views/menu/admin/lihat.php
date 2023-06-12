@@ -18,9 +18,10 @@
                         <th></th>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>No. Pendaftaran</th>
+                        <th>Jalur Masuk</th>
+                        <th>No. Urut</th>
                         <th>NISN</th>
-                        <th class="w-px-200">Timestamp</th>
+                        <th class="w-px-200">Dibuat</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -42,29 +43,28 @@
                                   aria-label="Close"
                                 ></button>
                               </div>
-                              <form action="<?php echo base_url() . 'aksi/tambahakun'; ?>" method="POST">
+                              <form action="<?= base_url() . 'aksi/tambahakun'; ?>" method="POST">
                               <div class="modal-body">
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="nopend" class="form-label">No. Pendaftaran</label>
-                                    <input
-                                      type="text"
-                                      id="nopend"
-                                      name="nopend"
-                                      class="form-control"
-                                      placeholder="Masukkan No. Pendaftaran"
-                                    />
+                                    <label for="masuk-jalur" class="form-label">Jalur Masuk</label>
+                                    <select class="form-control" name="masuk-jalur" id="masuk-jalur" data-style="btn-default">
+                                    <option value="" disabled selected>Pilih</option>
+                                    <?php foreach ($jms as $jm) { ?>
+                                      <option value="<?= $jm->nama ?>"><?= $jm->nama ?></option>
+                                      <?php } ?>
+                                    </select>
                                   </div>
                                 </div>
                                 <div class="row g-2">
                                   <div class="col mb-0">
-                                    <label for="nisn" class="form-label">NISN</label>
+                                    <label for="no-urut" class="form-label">No. Urut</label>
                                     <input
                                       type="text"
-                                      id="nisn"
-                                      name="nisn"
+                                      id="no-urut"
+                                      name="no-urut"
                                       class="form-control"
-                                      placeholder="NISN disini"
+                                      placeholder="no. urut disini"
                                     />
                                   </div>
                                   <div class="col mb-0">
@@ -79,13 +79,22 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="modal-footer">
+                              <div class="modal-footer pb-0">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                   Batal
                                 </button>
                                 <button type="submit" class="btn btn-primary">Tambah</button>
                               </div>
                               </form>
+                              <div class="d-flex justify-content-start m-3 border-top">
+                              <?php echo form_open_multipart(site_url('aksi/import')); ?>
+                                <small>*.csv ; delimiter => No. ; Jalur Masuk ; No. urut ; Nama</small>
+                                <div class="d-flex d-inline-block">
+                                  <input type="file" name="file" accept="text/csv" class="form-control me-2">
+                                  <button type="submit" name="import" class="btn btn-primary">Import</button>
+                                </div>
+                              <?php echo form_close(); ?>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -164,10 +173,11 @@
                         </div>
                 <!-- end modal -->
               <hr class="my-5" />
-            <script type="text/javascript"> document.title = "Daftar Akun Siswa";</script>
-            <script type="text/javascript"> document.getElementById("menu1").classList.add("active","open");</script>
-            <script type="text/javascript"> document.getElementById("m1-1").classList.add("active");</script>
+            <script src="<?php echo base_url("assets/js/datatables.js") ?>"></script>
+            <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
+            <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>
             <script>
+              document.title = "Daftar Akun Siswa";document.getElementById("menu1").classList.add("active","open");document.getElementById("m1-1").classList.add("active");
               function get(nomor) {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
