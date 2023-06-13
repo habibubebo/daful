@@ -3,7 +3,7 @@ $(function() {
     var e = $(".data");
     e.length && (e.DataTable({
         ajax: {
-            url: appPath+'/aksi/details',
+            url: appPath+'/aksi/data/detail',
         },
         columns: [{
             data: ""
