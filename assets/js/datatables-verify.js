@@ -3,7 +3,7 @@ $(function() {
     var e = $(".verifikasi");
     e.length && (e.DataTable({
         ajax: {
-            url: '/daful/aksi/details',
+            url: appPath+'/aksi/details',
         },
         columns: [{
             data: ""

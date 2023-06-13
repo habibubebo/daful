@@ -122,31 +122,29 @@
                                       id="id-siswa"
                                       name="id-siswa"
                                       class="form-control"
-                                      placeholder="Masukkan No. Pendaftaran"
                                     />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="nopendEdit" class="form-label">No. Pendaftaran</label>
-                                    <input
-                                      type="text"
-                                      id="nopendEdit"
-                                      name="nopendEdit"
-                                      class="form-control"
-                                      placeholder="Masukkan No. Pendaftaran"
-                                    />
+                                    <label for="masuk-jalurEdit" class="form-label">Jalur Masuk</label>
+                                    <select class="form-control" name="masuk-jalurEdit" id="masuk-jalurEdit" data-style="btn-default">
+                                    <option value="" disabled selected>Pilih</option>
+                                    <?php foreach ($jms as $jm) { ?>
+                                      <option value="<?= $jm->nama ?>"><?= $jm->nama ?></option>
+                                      <?php } ?>
+                                    </select>
                                   </div>
                                 </div>
                                 <div class="row g-2">
                                   <div class="col mb-0">
-                                    <label for="nisnEdit" class="form-label">NISN</label>
+                                    <label for="no-urutEdit" class="form-label">NISN</label>
                                     <input
                                       type="text"
-                                      id="nisnEdit"
-                                      name="nisnEdit"
+                                      id="no-urutEdit"
+                                      name="no-urutEdit"
                                       class="form-control"
-                                      placeholder="NISN disini"
+                                      placeholder="no urut disini"
                                     />
                                   </div>
                                   <div class="col mb-0">
@@ -187,8 +185,8 @@
                     var myObj = JSON.parse(this.responseText);
                     $.each(myObj, function(i) {
                         document.getElementById("id-siswa").value = myObj.data[0].id_siswa;
-                        document.getElementById("nopendEdit").value = myObj.data[0].no_pendaftaran;
-                        document.getElementById("nisnEdit").value = myObj.data[0].nisn;
+                        document.getElementById("masuk-jalurEdit").value = myObj.data[0].masuk_jalur;
+                        document.getElementById("no-urutEdit").value = myObj.data[0].no_urut;
                         document.getElementById("namaEdit").value = myObj.data[0].nama_lengkap;
                     });
 

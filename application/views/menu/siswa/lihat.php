@@ -545,25 +545,25 @@
               <div class="col-sm-3">
                 <div class="card mt-2">
                   <p class="text-center m-auto">KK</p>
-                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.$tp->masuk_jalur.$tp->no_urut.'/'.$tp->kk ?>">
+                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.str_replace(' ','-',$tp->masuk_jalur).$tp->no_urut.'/'.$tp->kk ?>">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="card mt-2">
                 <p class="text-center m-auto">Akta Kelahiran</p>
-                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.$tp->masuk_jalur.$tp->no_urut.'/'.$tp->akta ?>">
+                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.str_replace(' ','-',$tp->masuk_jalur).$tp->no_urut.'/'.$tp->akta ?>">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="card mt-2">
                 <p class="text-center m-auto">Ijazah SMP</p>
-                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.$tp->masuk_jalur.$tp->no_urut.'/'.$tp->ijazah ?>">
+                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.str_replace(' ','-',$tp->masuk_jalur).$tp->no_urut.'/'.$tp->ijazah ?>">
                 </div>
               </div>
               <div class="col-sm-3">
                 <div class="card mt-2">
                 <p class="text-center m-auto">Bukti diterima</p>
-                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.$tp->masuk_jalur.$tp->no_urut.'/'.$tp->bukti ?>">
+                  <img class="img-fluid" src="<?= base_url().'file/uploads/'.str_replace(' ','-',$tp->masuk_jalur).$tp->no_urut.'/'.$tp->bukti ?>">
                 </div>
               </div>
             </div>         
