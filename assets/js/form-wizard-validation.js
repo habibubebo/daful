@@ -536,7 +536,7 @@ function wali() {
   </div>
   </div>`;
   Dropzone.options.uKk = {
-    url:"./aksi/unggah/kk",
+    url: appPath+"/aksi/unggah/kk",
     method:"post",
     paramName:"ukk",
     acceptedFiles:".jpeg,.jpg,.png",
@@ -545,7 +545,7 @@ function wali() {
     addRemoveLinks:!0,
     maxFiles:1
 };Dropzone.options.uAkta = {
-    url:"./aksi/unggah/akta",
+    url: appPath+"/aksi/unggah/akta",
     method:"post",
     paramName:"akta",
     acceptedFiles:".jpeg,.jpg,.png",
@@ -554,7 +554,7 @@ function wali() {
     addRemoveLinks:!0,
     maxFiles:1
 };Dropzone.options.uIjazah = {
-    url:"./aksi/unggah/ijazah",
+    url: appPath+"/aksi/unggah/ijazah",
     method:"post",
     paramName:"ijazah",
     acceptedFiles:".jpeg,.jpg,.png",
@@ -563,7 +563,7 @@ function wali() {
     addRemoveLinks:!0,
     maxFiles:1
 };Dropzone.options.uBukti = {
-    url:"./aksi/unggah/bukti",
+    url: appPath+"/aksi/unggah/bukti",
     method:"post",
     paramName:"bukti",
     acceptedFiles:".jpeg,.jpg,.png",
@@ -700,7 +700,7 @@ function wali() {
                 }
             };
 
-            xmlhttp.open("GET", appPath+"aksi/datasendiri", true);
+            xmlhttp.open("GET", appPath+"aksi/data/sendiri", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send();
         },1000);

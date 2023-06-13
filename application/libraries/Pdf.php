@@ -42,6 +42,7 @@ class Pdf extends Dompdf{
      * @param    array    $data The view data
      * @return    void
      */
+    
     public function load_view($view, $data = array()){
         $html = $this->ci()->load->view($view, $data, TRUE);
         $this->load_html($html);

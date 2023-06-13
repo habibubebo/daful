@@ -7,43 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>Daftar Ulang SMA Negeri 1 Srengat</title>
-    
     <meta name="description" content="Web Daftar Ulang SMA Negeri 1 Srengat" />
     <meta name="keywords" content="smangat, sma srengat, sman 1 srengat, daftar ulang, srengat, blitar">
- 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/favicon/favicon.ico") ?>" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
     <link rel="stylesheet" href="<?= base_url("assets/vendor/fonts/boxicons.css") ?>" />
     <link rel="stylesheet" href="<?= base_url("assets/vendor/fonts/fontawesome.css") ?>" />
-
-    <!-- Core CSS -->
     <link rel="stylesheet" href="<?= base_url("assets/vendor/css/core.css") ?>" class="template-customizer-core-css" />
     <link rel="stylesheet" href="<?= base_url("assets/vendor/css/theme-default.css") ?>" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url("assets/css/demo.css") ?>" />
-
-    <!-- Vendors CSS -->
-    <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" /> -->
-    <!-- <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/typeahead-js/typeahead.css") ?>" /> -->
-    
-
-    <!-- Page CSS -->
     <link rel="stylesheet" href="<?= base_url("assets/vendor/css/pages/page-home.css") ?>" />
-    
     <script src="<?php echo base_url("assets/vendor/js/bootstrap.js") ?>"></script>
-    <!-- Helpers -->
     <script src="<?= base_url("assets/vendor/js/helpers.js") ?>"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <!-- <script src="<?= base_url("assets/vendor/js/template-customizer.js") ?>"></script> -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url("assets/js/config.js") ?>"></script>
     <style>
       .header {
@@ -115,7 +92,7 @@
               </div>
               <div class="dropdown-shortcuts-list scrollable-container">
                 <div class="row row-bordered overflow-visible g-0">
-				  <div class="dropdown-shortcuts-item col">
+				          <div class="dropdown-shortcuts-item col">
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bx-pie-chart-alt-2 fs-4"></i>
                     </span>

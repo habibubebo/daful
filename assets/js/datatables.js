@@ -3,7 +3,7 @@ $(function() {
     var e = $(".datatables-projects");
     e.length && (e.DataTable({
         ajax: {
-            url: appPath+'/aksi/all',
+            url: appPath+'/aksi/data/semua',
         },
         columns: [{
             data: ""
@@ -70,7 +70,7 @@ $(function() {
             title: "Aksi",
             orderable: !1,
             render: function(e, a, t, r) {
-                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item"  onclick="get('+t.id_siswa+')" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a><div class="dropdown-divider"></div><a href="'+appPath+'aksi/hapusakun/'+t.id_siswa+'" class="dropdown-item text-danger delete-record">Hapus</a></div></div>'
+                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item"  onclick="get('+t.id_siswa+')" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</a><div class="dropdown-divider"></div><a href="'+appPath+'aksi/akun/hapus/'+t.id_siswa+'" class="dropdown-item text-danger delete-record">Hapus</a></div></div>'
             }
         }],
         order: [

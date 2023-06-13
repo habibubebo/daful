@@ -24,7 +24,7 @@ class Aksi extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    // Menambahkan Model-------------------------------------------------------------------------------------
+    // Menambahkan Model
     $this->load->model('Model_APS');
     if($this->session->userdata('status') == ""){
       redirect(base_url());
@@ -36,135 +36,132 @@ class Aksi extends CI_Controller
     // 
   }
 
-  function all(){
-		$data['data'] = $this->Model_APS->tampil_data_seleksi('id_siswa,nama_lengkap,masuk_jalur,no_urut,nisn,tgl_siswa','siswa','tgl_siswa','DESC')->result_array();
-		echo json_encode($data);
-  }
-
-  function details(){
-		$data['data'] = $this->Model_APS->tampil_data_seleksi('*','siswa','tgl_verif','DESC')->result_array();
-		echo json_encode($data);
-  }
-
-  function datasiswa($Id){
-    $where = array('id_siswa' => $Id);
-		$data['data'] = $this->Model_APS->edit_data('siswa',$where)->result_array();
-		echo json_encode($data);
-  }
-
-  function datasendiri(){
-    $where = array('id_siswa' => $this->session->userdata('id'));
-		$data['data'] = $this->Model_APS->edit_data('siswa',$where)->result_array();
-		echo json_encode($data);
-  }
-  
-  function tambahakun(){
-    if($this->session->userdata('role') < "1"){
-      redirect(base_url("auth"));
-    } else {
-    $jalur = $this->input->post('masuk-jalur');
-    $no_urut = $this->input->post('no-urut');
-    $nama = $this->input->post('nama');
-    $cek = array('masuk_jalur' => $jalur,'no_urut' => $no_urut);
-    if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 0){
-      $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Data $jalur dengan No. Urut $no_urut gagal diinput, duplikasi"));
-      redirect("admin/akunsiswa");    
-    } else {
-      $data = array(
-        'admin' => $this->session->userdata('id'),
-        'masuk_jalur' => $jalur,
-        'password' => $no_urut,
-        'no_urut' => $no_urut,
-        'nama_lengkap' => $nama,
-        'bahasa' => '0',
-        'tgl_siswa' => date('Y-m-d H:i:s')
-      );
-      $this->Model_APS->simpan_data($data,'siswa');
-      $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $jalur dengan No. Urut $no_urut berhasil diinput"));
-      redirect('admin/akunsiswa');
+  function data($jenis=null,$id=null)
+  {
+    switch ($jenis) {
+      case 'semua' :
+            $data['data'] = $this->Model_APS->tampil_data_seleksi('id_siswa,nama_lengkap,masuk_jalur,no_urut,nisn,tgl_siswa','siswa','tgl_siswa','DESC')->result_array();
+            echo json_encode($data);
+        break;
+      case 'detail' :
+            $data['data'] = $this->Model_APS->tampil_data_seleksi('*','siswa','tgl_verif','DESC')->result_array();
+		        echo json_encode($data);
+        break;
+      case 'siswa' :
+            $where = array('id_siswa' => $id);
+            $data['data'] = $this->Model_APS->edit_data('siswa',$where)->result_array();
+            echo json_encode($data);
+        break;
+      case 'sendiri' :
+            $where = array('id_siswa' => $this->session->userdata('id'));
+            $data['data'] = $this->Model_APS->edit_data('siswa',$where)->result_array();
+            echo json_encode($data);
+        break;
+      default :
     };
-  };
   }
 
-  function import(){
-    if($this->session->userdata('role') < "1"){
-      redirect(base_url("auth"));
-    } else {
-      if ( isset($_POST['import'])) {
-
-        $file = $_FILES['file']['tmp_name'];
-
-        // Medapatkan ekstensi file csv yang akan diimport.
-        $ekstensi  = explode('.', $_FILES['file']['name']);
-
-        // Tampilkan peringatan jika submit tanpa memilih menambahkan file.
-        if (empty($file)) {
-          echo 'File tidak boleh kosong!';
-        } else {
-          // Validasi apakah file yang diupload benar-benar file csv.
-          if (strtolower(end($ekstensi)) === 'csv' && $_FILES["file"]["size"] > 0) {
-
-              $i = 0;
-              $handle = fopen($file, "r");
-              while (($row = fgetcsv($handle, 2048,';'))) {
-                $i++;
-                if ($i == 1) continue;
-
-              // Data yang akan disimpan ke dalam databse
+  function akun($id=null)
+  {
+    switch ($id) {
+      case 'tambah' : 
+          if($this->session->userdata('role') < "1"){
+              redirect(base_url("auth"));
+            } else {
+            $jalur = $this->input->post('masuk-jalur');
+            $no_urut = $this->input->post('no-urut');
+            $nama = $this->input->post('nama');
+            $cek = array('masuk_jalur' => $jalur,'no_urut' => $no_urut);
+            if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 0){
+              $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Data $jalur dengan No. Urut $no_urut gagal diinput, duplikasi"));
+              redirect("admin/akunsiswa");    
+            } else {
               $data = array(
-                'masuk_jalur' => $row[1],
-                'no_urut' => $row[2],
-                'nama_lengkap' => $row[3],
-                'password' => $row[2],
+                'admin' => $this->session->userdata('id'),
+                'masuk_jalur' => $jalur,
+                'password' => $no_urut,
+                'no_urut' => $no_urut,
+                'nama_lengkap' => $nama,
+                'bahasa' => '0',
                 'tgl_siswa' => date('Y-m-d H:i:s')
               );
-
-              // Simpan data ke database.
               $this->Model_APS->simpan_data($data,'siswa');
+              $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $jalur dengan No. Urut $no_urut berhasil diinput"));
+              redirect('admin/akunsiswa');
             };
+          };
+        break;
+      case 'import' :
+          if($this->session->userdata('role') < "1"){
+              redirect(base_url("auth"));
+            } else {
+            if ( isset($_POST['import'])) {
+              $file = $_FILES['file']['tmp_name'];
+              // Medapatkan ekstensi file csv yang akan diimport.
+              $ekstensi  = explode('.', $_FILES['file']['name']);
+              // Tampilkan peringatan jika submit tanpa memilih menambahkan file.
+              if (empty($file)) {
+                echo 'File tidak boleh kosong!';
+              } else {
+                // Validasi apakah file yang diupload benar-benar file csv.
+                if (strtolower(end($ekstensi)) === 'csv' && $_FILES["file"]["size"] > 0) {
+                    $i = 0;
+                    $handle = fopen($file, "r");
+                    while (($row = fgetcsv($handle, 2048,';'))) {
+                      $i++;
+                      if ($i == 1) continue;
+                    // Data yang akan disimpan ke dalam databse
+                    $data = array(
+                      'masuk_jalur' => $row[1],
+                      'no_urut' => $row[2],
+                      'nama_lengkap' => $row[3],
+                      'password' => $row[2],
+                      'tgl_siswa' => date('Y-m-d H:i:s')
+                    );
+                    // Simpan data ke database.
+                    $this->Model_APS->simpan_data($data,'siswa');
+                  };
+                  fclose($handle);
+                  redirect('admin/akunsiswa');
+                } else {
+                  echo 'Format file tidak valid!';
+                }
+              }
+            }
+          };
+        break;
+      case 'update' :
+          if($this->session->userdata('role') < "1"){
+              redirect(base_url("auth"));
+            } else {
+            $Id = $this->input->post('id-siswa');
+            $jalur = $this->input->post('masuk-jalurEdit');
+            $no_urut = $this->input->post('no-urutEdit');
+            $nama = $this->input->post('namaEdit');
 
-            fclose($handle);
-            redirect('admin/akunsiswa');
-
+            $data = array(
+                'masuk_jalur' => $jalur,
+                'password' => $no_urut,
+                'no_urut' => $no_urut,
+                'nama_lengkap' => $nama
+            );
+            $where = array('id_siswa' => $Id);
+            $this->Model_APS->proses_update($where,$data,'siswa');
+            $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $np dengan NISN $nisn berhasil diedit"));
+              redirect('admin/akunsiswa');
+          };
+        break;
+      case 'hapus' :
+          if($this->session->userdata('role') < "1"){
+            redirect(base_url("auth"));
           } else {
-            echo 'Format file tidak valid!';
-          }
-        }
-          }
-      };
-    }
-  
-  // ubah
-  function updateakun($Id=null){
-    if($this->session->userdata('role') < "1"){
-      redirect(base_url("auth"));
-    } else {
-    $Id = $this->input->post('id-siswa');
-    $jalur = $this->input->post('masuk-jalurEdit');
-    $no_urut = $this->input->post('no-urutEdit');
-    $nama = $this->input->post('namaEdit');
-
-    $data = array(
-        'masuk_jalur' => $jalur,
-        'password' => $no_urut,
-        'no_urut' => $no_urut,
-        'nama_lengkap' => $nama
-    );
-    $where = array('id_siswa' => $Id);
-    $this->Model_APS->proses_update($where,$data,'siswa');
-    $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data $np dengan NISN $nisn berhasil diedit"));
-      redirect('admin/akunsiswa');
-  };
-  }
-  // hapus
-  function hapusakun($Id){
-    if($this->session->userdata('role') < "1"){
-      redirect(base_url("auth"));
-    } else {
-    $where = array('id_siswa' => $Id);
-    $this->Model_APS->hapus_data($where,'siswa');
-    $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil dihapus"));
-      redirect('admin/akunsiswa');
+            $where = array('id_siswa' => $Id);
+            $this->Model_APS->hapus_data($where,'siswa');
+            $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data berhasil dihapus"));
+            redirect('admin/akunsiswa');
+          };
+        break;
+      default :
     };
   }
 
@@ -258,24 +255,20 @@ class Aksi extends CI_Controller
       
     };
     $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
-    // foreach ($data as $tp){
     $image=file_get_contents(base_url().'assets/qr/'.$data['siswa'][0]->nisn.'.png');
     $imagedata=base64_encode($image);
     $pathtoimage='<img src="data:image/png;base64, '.$imagedata.'">';
     $data['imgpath']=array('path'=>$pathtoimage);
-    // };
     $this->load->library('pdf');
     $this->pdf->setPaper('Legal', 'portrait');
     $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
     $this->pdf->add_info('Bukti Daftar Ulang', 'SMA Negeri 1 Srengat');
     $this->pdf->render();
-      // Output the generated PDF to Browser
     $this->pdf->stream('bukti '.$id.'.pdf', array("Attachment" => false));
-      
   }
 
 }
 
 
-/* End of file Cetak.php */
-/* Location: ./application/controllers/Cetak.php */
+/* End of file Aksi.php */
+/* Location: ./application/controllers/Aksi.php */

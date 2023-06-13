@@ -43,7 +43,7 @@
                                   aria-label="Close"
                                 ></button>
                               </div>
-                              <form action="<?= base_url() . 'aksi/tambahakun'; ?>" method="POST">
+                              <form action="<?= base_url() . 'aksi/akun/tambah'; ?>" method="POST">
                               <div class="modal-body">
                                 <div class="row">
                                   <div class="col mb-3">
@@ -87,7 +87,7 @@
                               </div>
                               </form>
                               <div class="d-flex justify-content-start m-3 border-top">
-                              <?php echo form_open_multipart(site_url('aksi/import')); ?>
+                              <?php echo form_open_multipart(site_url('aksi/akun/import')); ?>
                                 <small>*.csv ; delimiter => No. ; Jalur Masuk ; No. urut ; Nama</small>
                                 <div class="d-flex d-inline-block">
                                   <input type="file" name="file" accept="text/csv" class="form-control me-2">
@@ -112,7 +112,7 @@
                                   aria-label="Close"
                                 ></button>
                               </div>
-                              <form action="<?php echo base_url() . 'aksi/updateakun'; ?>" method="POST">
+                              <form action="<?php echo base_url() . 'aksi/akun/update'; ?>" method="POST">
                               <div class="modal-body">
                               <div class="row" hidden>
                                   <div class="col mb-3">
@@ -179,7 +179,6 @@
               function get(nomor) {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
-
                 if (this.readyState == 4 &&
                     this.status == 200) {
                     var myObj = JSON.parse(this.responseText);
@@ -188,12 +187,8 @@
                         document.getElementById("masuk-jalurEdit").value = myObj.data[0].masuk_jalur;
                         document.getElementById("no-urutEdit").value = myObj.data[0].no_urut;
                         document.getElementById("namaEdit").value = myObj.data[0].nama_lengkap;
-                    });
-
-                }
-            };
-
-            xmlhttp.open("GET", "<?= base_url("aksi/datasiswa/") ?>"+ nomor, true);
+                    });}};
+            xmlhttp.open("GET", "<?= base_url("aksi/data/siswa/") ?>"+ nomor, true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send();
               }
