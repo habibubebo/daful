@@ -18,7 +18,12 @@
                     </li>
                   </ul>
                   <div class="card mb-4">
-                    <h5 class="card-header">Daftar akun admin</h5>
+                  <div class="card-header d-flex justify-content-between">
+                    <h5 class="my-auto">Daftar akun admin</h5>
+                    <a class="btn rounded-pill btn-icon btn-outline-secondary" href="<?= base_url() ?>admin/tambahmaster/ad">
+                        <span class="tf-icons bx bx-plus"></span>
+                    </a>
+                </div>
                     <!-- Account -->
                     <div class="card-body">
                     <div class="table-responsive text-nowrap">
@@ -30,7 +35,6 @@
                         <th>Username</th>
                         <th>Password</th>
                         <th>Nama</th>
-                        <th>role</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -53,10 +57,6 @@
                             <span class='edit' ><?= $tp->nama ?></span>
                             <input type='text' class='txtedit ad' data-id='<?= $tp->Id ?>' data-field='nama' id='namatxt_<?= $tp->Id ?>' value='<?= $tp->nama ?>'>
                         </td>
-                        <td>
-                            <span class='edit' ><?= $tp->role ?></span>
-                            <input type='text' class='txtedit ad' data-id='<?= $tp->Id ?>' data-field='role' id='roletxt_<?= $tp->Id ?>' value='<?= $tp->role ?>'>
-                        </td>
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -67,7 +67,7 @@
                     <hr class="my-0" />
                    
                   </div>
-                  <div class="card">
+                  <div class="card" hidden>
                     <h5 class="card-header">Delete Account</h5>
                     <div class="card-body">
                       <div class="mb-3 col-12 mb-0">

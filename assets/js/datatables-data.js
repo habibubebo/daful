@@ -3,7 +3,7 @@ $(function() {
     var e = $(".data");
     e.length && (e.DataTable({
         ajax: {
-            url: '/daful/aksi/details',
+            url: appPath+'/aksi/details',
         },
         columns: [{
             data: ""
@@ -324,7 +324,7 @@ $(function() {
             }
         }],
         order: [
-            [0, "asc"]
+            [1, "asc"]
         ],
         dom: '<"card-header p-1 m-0 d-flex justify-content-between"<"p-2"B><"head-label text-center"><"d-flex justify-content-md-end p-1"lf>>t<"d-flex justify-content-between"<"col-sm-4 col-md-4"i><"col-sm-5 col-md-5"p>>',
         language: {

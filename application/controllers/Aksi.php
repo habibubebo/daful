@@ -76,6 +76,7 @@ class Aksi extends CI_Controller
         'password' => $no_urut,
         'no_urut' => $no_urut,
         'nama_lengkap' => $nama,
+        'bahasa' => '0',
         'tgl_siswa' => date('Y-m-d H:i:s')
       );
       $this->Model_APS->simpan_data($data,'siswa');
@@ -139,15 +140,15 @@ class Aksi extends CI_Controller
       redirect(base_url("auth"));
     } else {
     $Id = $this->input->post('id-siswa');
-    $np = $this->input->post('nopendEdit');
-    $nisn = $this->input->post('nisnEdit');
+    $jalur = $this->input->post('masuk-jalurEdit');
+    $no_urut = $this->input->post('no-urutEdit');
     $nama = $this->input->post('namaEdit');
 
     $data = array(
-      'no_pendaftaran' => $np,
-      'password' => $nisn,
-      'nisn' => $nisn,
-      'nama_lengkap' => $nama
+        'masuk_jalur' => $jalur,
+        'password' => $no_urut,
+        'no_urut' => $no_urut,
+        'nama_lengkap' => $nama
     );
     $where = array('id_siswa' => $Id);
     $this->Model_APS->proses_update($where,$data,'siswa');

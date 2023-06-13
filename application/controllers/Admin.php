@@ -92,6 +92,10 @@ class Admin extends CI_Controller
                  $this->Model_APS->simpan_data($data,'tbl_jalur');
                  redirect(base_url('admin/master'));
         break;
+      case 'ad': $data = array('username'=>'baru','password'=>'baru','nama' => "baru",'role'=>'1');
+                 $this->Model_APS->simpan_data($data,'akun');
+                 redirect(base_url('admin/akun'));
+        break;
       default:
         //
     };
@@ -121,6 +125,9 @@ class Admin extends CI_Controller
                  $this->Model_APS->update_master($tabel,$id,$field,$value);
         break;
       case 'jm': $tabel = 'tbl_jalur';
+                 $this->Model_APS->update_master($tabel,$id,$field,$value);
+        break;
+      case 'ad': $tabel = 'akun';
                  $this->Model_APS->update_master($tabel,$id,$field,$value);
         break;
       default:
@@ -165,6 +172,11 @@ class Admin extends CI_Controller
                 $where = ['id' => $id];
                 $this->Model_APS->hapus_data($where,$tabel);
                 redirect(base_url('admin/master'));
+      break;
+    case 'ad':  $tabel = 'akun';
+                $where = ['Id' => $id];
+                $this->Model_APS->hapus_data($where,$tabel);
+                redirect(base_url('admin/akun'));
       break;
     default:
       //
