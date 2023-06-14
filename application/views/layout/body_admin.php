@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <?php foreach ($pengumuman as $tp) { ?>
-                  <div class="card bg-primary text-white text-center p-3">
+                  <div class="card bg-primary text-white text-center p-3 mt-1">
                     <figure class="mb-0">
                       <blockquote class="blockquote">
                         <small><?php $tp->tgl ?></small>

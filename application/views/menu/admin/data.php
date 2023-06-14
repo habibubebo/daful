@@ -7,8 +7,7 @@
               <?php if ($this->session->flashdata('alert') == !""){ 
                 $data = $this->session->flashdata('alert');
                   echo '<div class="alert alert-'.$data['tipe'].' alert-dismissible" role="alert">'.$data['isi'].'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'; 
-                };
-                // echo var_dump($this->session->userdata());?>
+                };?>
               <!-- tabel responsive -->
               <div class="card mb-4">
                 <div class="card-datatable table-responsive">
@@ -104,67 +103,28 @@
               </div>
               <!-- /tabel responsive -->
               
-              <!-- Modal tambah -->
-              <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="modalCenterTitle">Tambah Akun Siswa</h5>
-                                <button
-                                  type="button"
-                                  class="btn-close"
-                                  data-bs-dismiss="modal"
-                                  aria-label="Close"
-                                ></button>
-                              </div>
-                              <form action="<?php echo base_url() . 'akun/tambah'; ?>" method="POST">
-                              <div class="modal-body">
-                                <div class="row">
-                                  <div class="col mb-3">
-                                    <label for="nopend" class="form-label">No. Pendaftaran</label>
-                                    <input
-                                      type="text"
-                                      id="nopend"
-                                      name="nopend"
-                                      class="form-control"
-                                      placeholder="Masukkan No. Pendaftaran"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="row g-2">
-                                  <div class="col mb-0">
-                                    <label for="nisn" class="form-label">NISN</label>
-                                    <input
-                                      type="text"
-                                      id="nisn"
-                                      name="nisn"
-                                      class="form-control"
-                                      placeholder="NISN disini"
-                                    />
-                                  </div>
-                                  <div class="col mb-0">
-                                    <label for="nama" class="form-label">Nama</label>
-                                    <input
-                                      type="text"
-                                      id="nama"
-                                      name="nama"
-                                      class="form-control"
-                                      placeholder="Nama Siswa"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                  Batal
-                                </button>
-                                <button type="submit" class="btn btn-primary">Tambah</button>
-                              </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                <!-- end modal -->
+          <div class="modal modal-top fade" id="modalTop" tabindex="-1">
+            <div class="modal-dialog">
+            <form class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalTopTitle">Hapus Semua Data</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col mb-3">
+                      <p>Anda yakin akan menghapus semua data siswa?</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Batal</button>
+                  <a href="<?php echo base_url() . 'aksi/akun/hapus_semua'; ?>" class="btn btn-danger">Hapus</a>
+                </div>
+                </form>
+            </div>
+          </div>
+              
               <hr class="my-5" />
             <script type="text/javascript"> document.title = "Semua Data Siswa";document.getElementById("menu1").classList.add("active","open");document.getElementById("m1-4").classList.add("active");</script>
             <script src="<?php echo base_url("assets/js/datatables-data.js") ?>"></script>

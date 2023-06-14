@@ -240,15 +240,12 @@ class Admin extends CI_Controller
   }
 
   function data(){
-    // $data['profil'] = $this->Model_APS->tampil_data('profil','npsn','ASC')->result();
-    // $this->load->view('menu/profil',$data);
     $this->load->view('menu/admin/data');
     $this->load->view('layout/footer');
   }
 
   function akun(){
     $data['akuns'] = $this->Model_APS->tampil_data('akun','id','ASC')->result();
-    // $this->load->view('menu/profil',$data);
     $this->load->view('menu/akun',$data);
     $this->load->view('layout/footer');
   }

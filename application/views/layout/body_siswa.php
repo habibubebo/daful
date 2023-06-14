@@ -61,7 +61,7 @@
                           <h6 class="card-title mb-3 text-nowrap">Terima kasih!✨</h6>
                           
                           <h5 class="card-title text-primary mb-1"><?php echo $this->session->userdata('nama') ?></h5>
-                          <small class="d-block mb-3 text-nowrap">Anda telah daftar ulang sebagai siswa di SMA Negeri 1 Srengat</small>
+                          <small class="d-block mb-3">Anda telah daftar ulang sebagai siswa di SMA Negeri 1 Srengat</small>
                           <small class="d-block mb-3 text-muted">Pada tanggal <?= $tp->tgl_verif ?></small>
                         </div>
                       </div>
@@ -75,7 +75,7 @@
                 <!-- pengumuman -->
                 <div class="col-md-12 col-md-4 col-lg-4 order-lg-1 order-1 mb-4">
                 <?php foreach ($pengumuman as $tp) { ?>
-                  <div class="card bg-primary text-white text-center p-1">
+                  <div class="card bg-primary text-white text-center p-1 mt-1">
                     <figure class="mb-0">
                       <blockquote class="blockquote">
                         <small><?php $tp->tgl ?></small>

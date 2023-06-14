@@ -156,7 +156,7 @@
       <div class="w-px-400 mx-auto">
 		
 			  <h4 class="mb-2 center">Halo Siswa SMANGAT <span class="wave">👋</span></h4>
-              <p class="mb-4">Silahkan Masuk disini</p>
+              <p class="mb-4">Silakan Masuk disini</p>
 
               <form id="formAuthentication" class="mb-3" action="<?= base_url("auth/logins") ?>" method="POST">
                 <div class="mb-3">
@@ -184,13 +184,16 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                 </div>
               </form>
-              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silahkan menghubungi panitia</div>'; }?>
+              <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silakan menghubungi panitia</div>'; }?>
               <p class="text-center">
                 <span>Ada Masalah?</span>
                 <a href="https://www.instagram.com/smangatofficial/">
                   <span>Hubungi Panitia</span>
                 </a>
               </p>
+              <div class="d-flex justify-content-center">
+              <a class="btn btn-label-secondary" href="<?= base_url('home/list') ?>">Lihat Daftar Siswa</a>
+              </div>
       </div>
     </div>
   </div>  
@@ -212,7 +215,7 @@
           <h4>KONTAK KAMI</h4>
           <p class="mb-4"><?= $profil[0]->nama.'<br>'
           .$profil[0]->alamat.'<br>
-			Telp. '.$profil[0]->telepon.'<br>'?>
+		    	Telp. '.$profil[0]->telepon.'<br>'?>
             </p>
           <div class="d-flex justify-content-center flex-wrap gap-4">
             <a href="#" class="btn btn-label-primary d-grid"><?= $profil[0]->email ?></a>

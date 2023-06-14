@@ -39,6 +39,13 @@ class Home extends CI_Controller
     $this->load->view('home',$data);
   }
 
+  function list()
+  {
+    $data['akuns'] = $this->Model_APS->tampil_data_seleksi('masuk_jalur, no_urut, nama_lengkap','siswa','masuk_jalur, no_urut','ASC')->result();
+    $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
+    $this->load->view('list',$data);
+  }
+
 }
 
 
