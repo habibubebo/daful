@@ -61,9 +61,9 @@ class Aksi extends CI_Controller
     };
   }
 
-  function akun($id=null)
+  function akun($jenis=null,$Id=null)
   {
-    switch ($id) {
+    switch ($jenis) {
       case 'tambah' : 
           if($this->session->userdata('role') < "1"){
               redirect(base_url("auth"));
@@ -161,6 +161,11 @@ class Aksi extends CI_Controller
             redirect('admin/akunsiswa');
           };
         break;
+        case 'hapus_semua' :
+          $this->db->empty_table('siswa'); 
+          $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data siswa berhasil dihapus seluruhnya"));
+          redirect('admin/data');
+          break;
       default :
     };
   }

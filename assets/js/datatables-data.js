@@ -411,7 +411,7 @@ $(function() {
             }, {
                 extend: "copy",
                 text: '<i class="bx bx-copy me-1" ></i>Copy',
-                className: "dropdown-item",
+                className: "dropdown-item me-1",
                 exportOptions: {
                     columns: ':visible:not(.noExport)',
                     format: {
@@ -427,7 +427,10 @@ $(function() {
         }, {
             extend: "colvis",
             text: '<i class="bx bx-columns m-1" ></i>Tampilan Kolom',
-            className: "dropdown-item"
+            className: "btn btn-secondary buttons-collection dropdown-toggle btn-label-primary me-2"
+        },{
+            text: '<i class="bx bx-trash me-1" data-bs-toggle="modal" data-bs-target="#modalTop" ></i><span data-bs-toggle="modal" data-bs-target="#modalTop">Hapus Seluruh Data</span>',
+            className: "btn btn-danger text-white ms-2"
         }]
     }), 
     $("div.head-label").html('')), setTimeout(() => {

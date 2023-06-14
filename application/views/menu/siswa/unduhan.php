@@ -9,10 +9,21 @@
     };
     // echo var_dump($this->session->userdata());
     ?>
-
+    <style>
+      @media (min-width: 300px) {
+        .preview {
+          height: 20vh;
+        }
+      }
+      @media (min-width: 700px) {
+        .preview {
+          height: 100vh;
+        }
+      }
+    </style>
     <div class="row">
-      <div class="col-xl-9 col-md-8 col-12 mb-md-0 mb-4">
-        <div class="card overflow-hidden mb-4" style="height: 768px;">
+      <div class="col-xl-9 col-md-8 col-12 mb-md-0">
+        <div class="card overflow-hidden mb-4 preview">
           <div class="card-body m-0 p-0 d-flex align-content-center" id="both-scrollbars">
           <div class="spinner-grow text-primary m-auto" style="position: relative;" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -36,9 +47,9 @@
             } else echo '<a class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/wali">Unduh</a>'; ?>
             <div class="p-1">
               <h6 class="text-center">Siapa yang akan tanda tangan?</h6>
-              <a href="../unduhan/ayah" class="btn btn-label-secondary d-grid w-100 mb-3">Ayah</a>
-              <a href="../unduhan/ibu" class="btn btn-label-secondary d-grid w-100 mb-3">Ibu</a>
-              <a href="../unduhan/wali" class="btn btn-label-secondary d-grid w-100 mb-3">Wali</a>
+              <a href="../unduhan/ayah" class="btn btn-label-primary d-grid w-100 mb-3">Ayah</a>
+              <a href="../unduhan/ibu" class="btn btn-label-primary d-grid w-100 mb-3">Ibu</a>
+              <a href="../unduhan/wali" class="btn btn-label-primary d-grid w-100 mb-3">Wali</a>
             </div>
           </div>
         </div>
