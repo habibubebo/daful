@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="row g-2">
                                   <div class="col mb-0">
-                                    <label for="no-urutEdit" class="form-label">NISN</label>
+                                    <label for="no-urutEdit" class="form-label">Nomor Urut</label>
                                     <input
                                       type="text"
                                       id="no-urutEdit"
