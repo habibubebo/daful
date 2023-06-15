@@ -21,7 +21,7 @@
                         <th>Jalur Masuk</th>
                         <th>No. Urut</th>
                         <th>NISN</th>
-                        <th class="w-px-200">Dibuat</th>
+                        <th>Dibuat</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -88,8 +88,9 @@
                               </form>
                               <div class="d-flex justify-content-start m-3 border-top">
                               <?php echo form_open_multipart(site_url('aksi/akun/import')); ?>
-                                <small>*.csv ; delimiter => No. ; Jalur Masuk ; No. urut ; Nama</small>
+                                <small>*.csv ; delimiter => Nomor ; Jalur Masuk ; Nomor urut ; Nama Siswa ; NISN ; password</small>
                                 <div class="d-flex d-inline-block">
+                                  <a class="btn btn-label-primary me-2" data-bs-toggle="modal" data-bs-target="#modalI" ><i class='bx bx-table'></i></a>
                                   <input type="file" name="file" accept="text/csv" class="form-control me-2">
                                   <button type="submit" name="import" class="btn btn-primary">Import</button>
                                 </div>
@@ -99,6 +100,7 @@
                           </div>
                         </div>
                 <!-- end modal -->
+                <?php $this->load->view('form/import')?>
                 <!-- Modal edit -->
                 <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">

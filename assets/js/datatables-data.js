@@ -342,6 +342,9 @@ $(function() {
         displayLength: 45,
         lengthMenu: [10, 25, 30, 45, 50, -1],
         buttons: [{
+            text: '<i class="bx bx-trash me-1" data-bs-toggle="modal" data-bs-target="#modalTop" ></i><span class="d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modalTop">Hapus Data</span>',
+            className: "btn btn-danger text-white me-2"
+        },{
             extend: "collection",
             className: "btn btn-label-primary dropdown-toggle me-2",
             text: '<i class="bx bx-export me-sm-1"></i> <span class="d-none d-sm-inline-block">Export</span>',
@@ -426,11 +429,8 @@ $(function() {
             }]
         }, {
             extend: "colvis",
-            text: '<i class="bx bx-columns m-1" ></i>Tampilan Kolom',
+            text: '<i class="bx bx-columns m-1"></i><span class="d-none d-sm-inline-block">Tampilan Kolom</span>',
             className: "btn btn-secondary buttons-collection dropdown-toggle btn-label-primary me-2"
-        },{
-            text: '<i class="bx bx-trash me-1" data-bs-toggle="modal" data-bs-target="#modalTop" ></i><span data-bs-toggle="modal" data-bs-target="#modalTop">Hapus Seluruh Data</span>',
-            className: "btn btn-danger text-white ms-2"
         }]
     }), 
     $("div.head-label").html('')), setTimeout(() => {
