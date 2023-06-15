@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/sman1srengat/public_html/
+    - export DEPLOYPATH=/home/sman1srengat/public_html/daftar-ulang
     - /bin/cp -R * $DEPLOYPATH
     
