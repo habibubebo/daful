@@ -84,7 +84,7 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="<?= base_url() ?>" class="app-brand-link gap-2">
                 <span class="app-brand-logo demo">
                 <img src="<?= base_url("assets/img/logo_sma_srengat_low.png") ?>" width="60px">
                 </span>

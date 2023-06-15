@@ -101,7 +101,7 @@
                         <th>Nama</th>
                         <th>Jalur / No. Urut</th>
                         <th>NISN</th>
-                        <th class="w-px-200">Status</th>
+                        <th>Status</th>
                         <th>Tanggal Verifikasi</th>
                         <th>Aksi</th>
                       </tr>

@@ -48,6 +48,7 @@ $(function() {
             }
         }, {
             targets: 3,
+            orderable: !1,
             responsivePriority: 4,
             render: function(e, a, t, r) {
                 t = t.masuk_jalur+' / '+t.no_urut;
@@ -55,6 +56,7 @@ $(function() {
             }
         }, {
             targets: -3,
+            orderable: !1,
             render: function(e, a, t, r) {
                 if (t.status_verifikasi == '0') { t = '<span class="badge rounded-pill  bg-label-info">belum</span>'} else if (t.status_verifikasi == '1') { t = '<span class="badge rounded-pill  bg-label-warning">proses</span>' } else { t = '<span class="badge rounded-pill  bg-label-success">sudah</span>' };
                 return t

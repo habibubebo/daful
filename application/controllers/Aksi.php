@@ -115,10 +115,12 @@ class Aksi extends CI_Controller
                       'masuk_jalur' => $row[1],
                       'no_urut' => $row[2],
                       'nama_lengkap' => $row[3],
-                      'password' => $row[2],
+                      'nisn'=> $row[4],
+                      'password' => $row[5],
+                      'bahasa' => '0',
+                      'admin' => $this->session->userdata('id'),
                       'tgl_siswa' => date('Y-m-d H:i:s')
                     );
-                    // Simpan data ke database.
                     $this->Model_APS->simpan_data($data,'siswa');
                   };
                   fclose($handle);
