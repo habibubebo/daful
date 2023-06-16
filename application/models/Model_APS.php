@@ -139,6 +139,9 @@ function tgl_id($tanggal){
 
 public function qr($kodeqr)
   {
+    if (!file_exists('assets/qr/')) {
+        mkdir('assets/qr/', 0755, true);
+      };
     if($kodeqr){
         $filename = 'assets/qr/'.$kodeqr;
         if (!file_exists($filename)) { 

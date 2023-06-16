@@ -267,9 +267,15 @@
                       </div>
                       <div class="card-body">
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="jarak">Jarak tempat tinggal ke sekolah</label>
+                          <label class="col-sm-4 col-form-label" for="jarak">Jarak tempat tinggal ke Sekolah</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="jarak" name="jarak" value="<?= $tp->jarak.' km' ?>"/>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="transport">Transportasi ke Sekolah</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="transport" name="transport" value="<?= $tp->transport ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -527,8 +533,15 @@
                             <input type="text" class="form-control" id="kip" name="kip" value="<?= $tp->no_kip ?>"/>
                           </div>
                         </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="kis">No. KIS</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kis" name="kis" value="<?= $tp->no_kis ?>"/>
+                          </div>
                         </div>
-                        <div class="col-6 d-flex">
+                        </div>
+                        <div class="col-6 d-grid align-content-center">
+                          <small class="text-center text-primary">Mohon lakukan edit data jika gambar ini kosong</small>
                           <img src="<?= base_url().'assets/qr/'.$tp->nisn ?>.png" class="img-fluid m-auto" width="100px">
                         </div>
                     </div>
@@ -537,11 +550,11 @@
             </div>
             <!-- / Content -->
             <!-- upload -->
-            <div class="content-header mb-1">
+            <div class="content-header mb-1" hidden>
               <h6 class="mb-0">Upload Berkas</h6>
               <small>Mohon cek sekali lagi</small>
             </div>
-            <div class="row">
+            <div class="row" hidden>
               <div class="col-sm-3">
                 <div class="card mt-2">
                   <p class="text-center m-auto">KK</p>

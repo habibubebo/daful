@@ -214,6 +214,11 @@ class Siswa extends CI_Controller
         'no_kks' => $this->input->post('no-kks'),
         'no_pkh' => $this->input->post('no-pkh'),
         'no_kip' => $this->input->post('no-kip'),
+        'no_kis' => $this->input->post('no-kis'),
+        'no_akta' => $this->input->post('no-akta'),
+        'no_kk' => $this->input->post('no-kk'),
+        'transport' => $this->input->post('transport'),
+        'email' => $this->input->post('email'),
         'status_verifikasi' => '1'
       );
       // $cek = array('nisn' => $nisn);
@@ -232,7 +237,7 @@ class Siswa extends CI_Controller
 
   function data()
   { 
-    if (!$this->session->userdata('nisn')) {
+    if (!$this->session->userdata('no_pendaftaran')) {
       redirect('siswa');
     } else {
       $id = $this->session->userdata('nisn');
@@ -245,7 +250,7 @@ class Siswa extends CI_Controller
 
   function unduhan($ttd=null)
   {
-	if (!$this->session->userdata('nisn')) {
+	if (!$this->session->userdata('no_pendaftaran')) {
       redirect('siswa');
     } else {
     switch ($ttd) {
