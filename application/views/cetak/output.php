@@ -1455,7 +1455,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl718599>d. Tanggal Ijazah / SKL</td>
   <td class=xl718599></td>
   <td class=xl718599>:</td>
-  <td class=xl958599><?= $tp->smp_tgl ?></td>
+  <td class=xl958599><?= $this->Model_APS->tgl_id($tp->smp_tgl) ?></td>
  </tr>
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1495,7 +1495,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl718599>d. Tanggal Ijazah / SKL</td>
   <td class=xl718599></td>
   <td class=xl718599>:</td>
-  <td class=xl958599><?= $tp->sd_tgl ?></td>
+  <td class=xl958599><?= $this->Model_APS->tgl_id($tp->sd_tgl) ?></td>
  </tr>
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1534,7 +1534,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl718599>23.</td>
   <td class=xl718599>Diterima Di Sekolah Ini</td>
   <td class=xl718599></td>
-  <td class=xl718599>:</td>
+  <td class=xl718599></td>
   <td class=xl718599></td>
  </tr>
  <tr height=24 style='mso-height-source:userset;
@@ -1560,7 +1560,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl718599>c. Tanggal diterima</td>
   <td class=xl718599></td>
   <td class=xl718599>:</td>
-  <td class=xl958599><?= $tp->masuk_tgl ?></td>
+  <td class=xl958599><?= $this->Model_APS->tgl_id($tp->masuk_tgl) ?></td>
  </tr>
  <tr style='mso-height-source:userset;height:6pt'>
   <td class=xl758599></td>
@@ -1652,7 +1652,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td class=xl718599>33.</td>
   <td class=xl798599>Masih Hidup/Meninggal Dunia Tahun</td>
   <td class=xl718599></td>
-  <td class=xl718599></td>
+  <td class=xl718599>:</td>
   <td class=xl958599><?= $tp->status_ayah ?></td>
  </tr>
  <tr style='mso-height-source:userset;height:6pt'>

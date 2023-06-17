@@ -22,7 +22,11 @@
                 };
                 // echo var_dump($this->session->userdata());?>
               <!-- Basic Layout & Basic with Icons -->
-              
+              <div class="alert alert-danger alert-dismissible"  id="qr" role="alert" style="display:none">
+                Mohon lakukan <b>Edit data dan Submit ulang</b>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+              </div>
               <div class="row">
                 <!-- Basic Layout -->
                 <div class="col-xxl">
@@ -76,7 +80,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="tanggal-lahir">tanggal lahir</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tanggal-lahir" name="tgl-lahir" value="<?= $tp->tgl_lahir ?>" />
+                            <input type="text" class="form-control" id="tanggal-lahir" name="tgl-lahir" value="<?= $this->Model_APS->tgl_id($tp->tgl_lahir) ?>" />
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -118,13 +122,23 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="stat-anak">Status anak</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="stat-anak" name="stat-anak" value="<?= $tp->status_anak ?>" />
+                          <div class="form-control" id="stat-anak" name="stat-anak"><?= $tp->status_anak ?></div>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="notelp">No. Telepon / HP</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="notelp" name="notelp" value="<?= $tp->notelp ?>"/>
+                          <div class="input-group mt-1">
+                            <input type="text" id="notelp" name="notelp" value="<?= $tp->notelp ?>" class="form-control"  />
+                            <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp;
+                              if( $p[0] == '0' ) { $p = "62" . substr($p,1);} echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                          </div>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="email">Email</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" name="email" value="<?= $tp->email ?>" />
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -148,7 +162,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="hobi">Kegemaran / hobi</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="hobi" name="hobi" value="<?= 'Kesenian: '.$tp->hobi_kes.', Olahraga: '.$tp->hobi_or.', Kemasyarakatan: '.$tp->hobi_masy.', Lain: '.$tp->hobi_lain ?>"/>
+                            <textarea type="text" class="form-control" id="hobi" name="hobi"><?= 'Kesenian: '.$tp->hobi_kes.', Olahraga: '.$tp->hobi_or.', Kemasyarakatan: '.$tp->hobi_masy.', Lain: '.$tp->hobi_lain ?></textarea>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -160,7 +174,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="alamat">Alamat</label>
                           <div class="col-sm-8">
-                            <textarea type="text" class="form-control" id="alamat" name="alamat"><?= 'Jalan: '.$tp->jalan.', RT: '.$tp->rt.', RW: '.$tp->rw.', Desa: '.$tp->desa.', Kec: '.$tp->kec.', Kab/Kota: '.$tp->kab.', Provinsi '.$tp->prov ?></textarea>
+                            <textarea type="text" class="form-control" id="alamat" name="alamat"><?= 'Jalan: '.$tp->jalan.', RT: '.$tp->rt.', RW: '.$tp->rw.', Desa: '.$tp->desa.', Kec: '.$tp->kec.', Kab/Kota: '.$tp->kab ?></textarea>
                           </div>
                         </div>
                     </div>
@@ -185,39 +199,51 @@
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="asal">asal sekolah</label>
+                          <label class="col-sm-4 col-form-label" for="asal">Asal SMP/MTs</label>
                           <div class="col-sm-8">
                             <input type="text" class="form-control" id="asal" name="asal" value="<?= $tp->asal ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="tgl-no-ijazah">Tanggal dan No. Ijazah SMP</label>
+                          <label class="col-sm-4 col-form-label" for="smp-npsn">NPSN SMP/MTs</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tgl-no-ijazah" name="tgl-no-ijazah" value="<?= $tp->tgl_no_ijazah ?>"/>
+                            <input type="text" class="form-control" id="smp-npsn" name="smp-npsn" value="<?= $tp->smp_npsn ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="tgl-no-skl">Tanggal dan No. SKL</label>
+                          <label class="col-sm-4 col-form-label" for="smp-no">Nomor Ijazah/SKL SMP/MTs</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tgl-no-skl" name="tgl-no-skl" value="<?= $tp->tgl_no_skl ?>"/>
+                            <input type="text" class="form-control" id="smp-no" name="smp-no" value="<?= $tp->smp_no ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="lama">lama belajar</label>
+                          <label class="col-sm-4 col-form-label" for="smp-tgl">Tanggal Ijazah/SKL SMP/MTs</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="lama" name="lama" value="<?= $tp->lama_belajar ?>"/>
+                            <input type="text" class="form-control" id="smp-tgl" name="smp-tgl" value="<?= $this->Model_APS->tgl_id($tp->smp_tgl) ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="nopeserta-un">No. Peserta UNAS/UNBK</label>
+                          <label class="col-sm-4 col-form-label" for="sd-asal">Asal SD/MI</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nopeserta-un" name="nopeserta-un" value="<?= $tp->nopeserta_un ?>"/>
+                            <input type="text" class="form-control" id="sd-asal" name="sd-asal" value="<?= $tp->sd_asal ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="no-skhu">No. SKHUN</label>
+                          <label class="col-sm-4 col-form-label" for="sd-npsn">NPSN SD/MI</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="no-skhu" name="no-skhu" value="<?= $tp->no_skhu ?>"/>
+                            <input type="text" class="form-control" id="sd-npsn" name="sd-npsn" value="<?= $tp->sd_npsn ?>"/>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="sd-no">Nomor Ijazah/SKL SD/MI</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="sd-no" name="sd-no" value="<?= $tp->sd_no ?>"/>
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-4 col-form-label" for="sd-tgl">Tanggal Ijazah/SKL SD/MI</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="sd-tgl" name="sd-tgl" value="<?= $this->Model_APS->tgl_id($tp->sd_tgl) ?>"/>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -235,7 +261,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="masuk-tgl">diterima tanggal</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="masuk-tgl" name="masuk-tgl" value="<?= $tp->masuk_tgl ?>"/>
+                            <input type="text" class="form-control" id="masuk-tgl" name="masuk-tgl" value="<?= $this->Model_APS->tgl_id($tp->masuk_tgl) ?>"/>
                           </div>
                         </div>
                     </div>
@@ -353,7 +379,11 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="notelp-ayah">nomor telepon / HP</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="notelp-ayah" name="notelp-ayah" value="<?= $tp->notelp_ayah ?>"/>
+                          <div class="input-group mt-1">
+                            <input type="text" id="notelp-ayah" name="notelp-ayah" value="<?= $tp->notelp_ayah ?>" class="form-control"  />
+                            <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp_ayah;
+                              if( $p[0] == '0' ) { $p = "62" . substr($p,1);} echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                          </div>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -423,7 +453,11 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="notelp-ibu">nomor telepon / HP</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="notelp-ibu" name="notelp-ibu" value="<?= $tp->notelp_ibu ?>"/>
+                          <div class="input-group mt-1">
+                            <input type="text" id="notelp-ibu" name="notelp-ibu" value="<?= $tp->notelp_ibu ?>" class="form-control"  />
+                            <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp_ibu;
+                              if( $p[0] == '0' ) { $p = "62" . substr($p,1);} echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                          </div>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -487,7 +521,11 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="notelp-wali">nomor telepon / HP</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="notelp-wali" name="notelp-wali" value="<?= $tp->notelp_wali ?>"/>
+                          <div class="input-group mt-1">
+                            <input type="text" id="notelp-wali" name="notelp-wali" value="<?= $tp->notelp_wali ?>" class="form-control"  />
+                            <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp_wali;
+                              if( $p[0] == '0' ) { $p = "62" . substr($p,1);} echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                          </div>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -499,7 +537,7 @@
                         <div class="row mb-3">
                           <label class="col-sm-4 col-form-label" for="alamat-wali">Alamat</label>
                           <div class="col-sm-8">
-                            <textarea type="text" class="form-control" id="alamat-wali" name="alamat-wali"><?= 'Jalan: '.$tp->jalan_wali.', RT: '.$tp->rt_wali.', RW: '.$tp->rw_wali.', Desa: '.$tp->desa_wali.', Kec: '.$tp->kec_wali.', Kab/Kota: '.$tp->kab_wali.', Provinsi '.$tp->prov_wali ?></textarea>
+                            <textarea type="text" class="form-control" id="alamat-wali" name="alamat-wali"><?= 'Jalan: '.$tp->jalan_wali.', RT: '.$tp->rt_wali.', RW: '.$tp->rw_wali.', Desa: '.$tp->desa_wali.', Kec: '.$tp->kec_wali.', Kab/Kota: '.$tp->kab_wali ?></textarea>
                           </div>
                         </div>
                     </div>
@@ -513,37 +551,55 @@
                     <div class="card-header d-flex align-items-center justify-content-between">
                       <h5 class="mb-0">Data </h5>
                     </div>
-                    <div class="card-body d-flex align-content-between">
-                        <div class="col-6">
+                    <div class="card-body d-sm-flex align-items-center justify-content-between">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row mb-3">
+                            <label class="col-sm-4 col-form-label" for="kks">No. KKS</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="kks" name="kks" value="<?= $tp->no_kks ?>"/>
+                            </div>
+                          </div>
                           <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="kks">No. KKS</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kks" name="kks" value="<?= $tp->no_kks ?>"/>
+                            <label class="col-sm-4 col-form-label" for="pkh">No. PKH</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="pkh" name="pkh" value="<?= $tp->no_pkh ?>"/>
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label class="col-sm-4 col-form-label" for="kip">No. KIP</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="kip" name="kip" value="<?= $tp->no_kip ?>"/>
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label class="col-sm-4 col-form-label" for="kis">No. KIS</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="kis" name="kis" value="<?= $tp->no_kis ?>"/>
+                            </div>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="pkh">No. PKH</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="pkh" name="pkh" value="<?= $tp->no_pkh ?>"/>
+                    </div>
+                    <div class="row align-self-start">
+                        <div class="col ms-md-5">
+                            <div class="row mb-3">
+                            <label class="col-sm-4 col-form-label" for="no-akta">No. Akta Kelahiran</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="no-akta" name="no-akta" value="<?= $tp->no_akta ?>"/>
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label class="col-sm-4 col-form-label" for="kk">No. Kartu Keluarga</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" id="kk" name="kk" value="<?= $tp->no_kk ?>"/>
+                            </div>
                           </div>
                         </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="kip">No. KIP</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kip" name="kip" value="<?= $tp->no_kip ?>"/>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <label class="col-sm-4 col-form-label" for="kis">No. KIS</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kis" name="kis" value="<?= $tp->no_kis ?>"/>
-                          </div>
-                        </div>
-                        </div>
-                        <div class="col-6 d-grid align-content-center">
-                          <small class="text-center text-primary">Mohon lakukan edit data jika gambar ini kosong</small>
-                          <img src="<?= base_url().'assets/qr/'.$tp->nisn ?>.png" class="img-fluid m-auto" width="100px">
-                        </div>
+                    </div>
+                    <div class="col d-flex align-content-center">
+                          <img id="qrImage" src="<?= base_url().'assets/qr/'.$tp->nisn ?>.png" class="img-fluid m-auto" width="100px">
+                        
+                    </div>
                     </div>
                   </div>
               </div>
@@ -554,7 +610,7 @@
               <h6 class="mb-0">Upload Berkas</h6>
               <small>Mohon cek sekali lagi</small>
             </div>
-            <div class="row" hidden>
+            <!-- <div class="row" hidden>
               <div class="col-sm-3">
                 <div class="card mt-2">
                   <p class="text-center m-auto">KK</p>
@@ -579,7 +635,7 @@
                   <img class="img-fluid" src="<?= base_url().'file/uploads/'.str_replace(' ','-',$tp->masuk_jalur).$tp->no_urut.'/'.$tp->bukti ?>">
                 </div>
               </div>
-            </div>         
+            </div>          -->
             <?php } ?>   
               <!-- /upload  -->
             <script type="text/javascript"> 
@@ -590,96 +646,9 @@
               for (let img of imgs){
                 img.addEventListener('error', function handleError() {
                   img.src = '../assets/img/default.webp';
+                  document.getElementById("qr").style.display = "block";
                 });
               };
-            //   setTimeout(()=> {
-            //     var xmlhttp = new XMLHttpRequest();
-            //     xmlhttp.onreadystatechange = function() {
-
-            //     if (this.readyState == 4 &&
-            //         this.status == 200) {
-            //         var myObj = JSON.parse(this.responseText);
-            //         $.each(myObj, function(i) {
-            //             document.getElementById("nama-lengkap").value = myObj.data[0].nama_lengkap;
-            //             document.getElementById("nama-panggilan").value = myObj.data[0].nama_panggilan;
-            //             document.getElementById("nisn").value = myObj.data[0].nisn;
-            //             document.getElementById("nik").value = myObj.data[0].nik;
-            //             document.getElementById("jk").value = myObj.data[0].jk;
-            //             document.getElementById("tempat-lahir").value = myObj.data[0].tempat_lahir;
-            //             document.getElementById("prov-lahir").value = myObj.data[0].prov_lahir;
-            //             document.getElementById("tanggal-lahir").value = myObj.data[0].tgl_lahir;
-            //             document.getElementById("agama").value = myObj.data[0].agama;
-            //             document.getElementById("kw").value = myObj.data[0].kw;
-            //             document.getElementById("anak-ke").value = myObj.data[0].anak_ke;
-            //             document.getElementById("stat-anak").value = myObj.data[0].status_anak;
-            //             document.getElementById("alamat").value = "Jl. "+myObj.data[0].jalan+" RT "+myObj.data[0].rt+" RW "+myObj.data[0].rw+" Desa "+myObj.data[0].desa+" Kec. "+myObj.data[0].kec+" Kab/Kota "+myObj.data[0].kab+" Prov. "+myObj.data[0].prov;
-            //             document.getElementById("notelp").value = myObj.data[0].notelp;
-            //             document.getElementById("goldar").value = myObj.data[0].goldar;
-            //             document.getElementById("tb").value = myObj.data[0].tinggi_badan+" cm";
-            //             document.getElementById("bb").value = myObj.data[0].berat_badan+" Kg";
-            //             document.getElementById("hobi").value = myObj.data[0].hobi_kes;
-            //             document.getElementById("tinggal").value = myObj.data[0].tinggal;
-            //             document.getElementById("nama-ayah").value = myObj.data[0].nama_ayah;
-            //             document.getElementById("ttl-ayah").value = myObj.data[0].ttl_ayah;
-            //             document.getElementById("agama-ayah").value = myObj.data[0].agama_ayah;
-            //             document.getElementById("kw-ayah").value = myObj.data[0].kw_ayah;
-            //             document.getElementById("pdd-ayah").value = myObj.data[0].pdd_ayah;
-            //             document.getElementById("pk-ayah").value = myObj.data[0].pk_ayah;
-            //             document.getElementById("ph-ayah").value = myObj.data[0].ph_ayah;
-            //             document.getElementById("notelp-ayah").value = myObj.data[0].notelp_ayah;
-            //             document.getElementById("stat-ayah").value = myObj.data[0].status_ayah;
-            //             document.getElementById("alamat-ortu").value = myObj.data[0].alamat_ortu;
-            //             document.getElementById("nama-ibu").value = myObj.data[0].nama_ibu;
-            //             document.getElementById("ttl-ibu").value = myObj.data[0].ttl_ibu;
-            //             document.getElementById("agama-ibu").value = myObj.data[0].agama_ibu;
-            //             document.getElementById("kw-ibu").value = myObj.data[0].kw_ibu;
-            //             document.getElementById("pdd-ibu").value = myObj.data[0].pdd_ibu;
-            //             document.getElementById("pk-ibu").value = myObj.data[0].pk_ibu;
-            //             document.getElementById("ph-ibu").value = myObj.data[0].ph_ibu;
-            //             document.getElementById("notelp-ibu").value = myObj.data[0].notelp_ibu;
-            //             document.getElementById("stat-ibu").value = myObj.data[0].status_ibu;
-            //             document.getElementById("nama-wali").value = myObj.data[0].nama_wali;
-            //             document.getElementById("ttl-wali").value = myObj.data[0].ttl_wali;
-            //             document.getElementById("agama-wali").value = myObj.data[0].agama_wali;
-            //             document.getElementById("kw-wali").value = myObj.data[0].kw_wali;
-            //             document.getElementById("pdd-wali").value = myObj.data[0].pdd_wali;
-            //             document.getElementById("pk-wali").value = myObj.data[0].pk_wali;
-            //             document.getElementById("ph-wali").value = myObj.data[0].ph_wali;
-            //             document.getElementById("notelp-wali").value = myObj.data[0].notelp_wali;
-            //             document.getElementById("hub-wali").value = myObj.data[0].hub_wali;
-            //             document.getElementById("alamat-wali").value = "Jl. "+myObj.data[0].jalan_wali+" RT "+myObj.data[0].rt_wali+" RW "+myObj.data[0].rw_wali+" Desa "+myObj.data[0].desa_wali+" Kec. "+myObj.data[0].kec_wali+" Kab/Kota "+myObj.data[0].kab_wali+" Prov. "+myObj.data[0].prov_wali;
-            //             document.getElementById("no-pend").value = myObj.data[0].no_pendaftaran;
-            //             document.getElementById("no-urut").value = myObj.data[0].no_urut;
-            //             document.getElementById("asal").value = myObj.data[0].asal;
-            //             document.getElementById("tgl-no-ijazah").value = myObj.data[0].tgl_no_ijazah;
-            //             document.getElementById("tgl-no-skl").value = myObj.data[0].tgl_no_skl;
-            //             document.getElementById("lama").value = myObj.data[0].lama_belajar;
-            //             document.getElementById("nopeserta-un").value = myObj.data[0].nopeserta_un;
-            //             document.getElementById("no-skhu").value = myObj.data[0].no_skhu;
-            //             document.getElementById("masuk-kelas").value = myObj.data[0].masuk_kelas;
-            //             document.getElementById("masuk-jalur").value = myObj.data[0].masuk_jalur;
-            //             document.getElementById("masuk-tgl").value = myObj.data[0].masuk_tgl;
-            //             document.getElementById("pindahan-asal").value = myObj.data[0].pindahan_asal;
-            //             document.getElementById("pindahan-alasan").value = myObj.data[0].pindahan_alasan;
-            //             document.getElementById("jml-kd").value = myObj.data[0].jml_saudara_kd;
-            //             document.getElementById("jml-tr").value = myObj.data[0].jml_saudara_tr;
-            //             document.getElementById("jml-ak").value = myObj.data[0].jml_saudara_ak;
-            //             document.getElementById("jarak").value = myObj.data[0].jarak;
-            //             document.getElementById("penyakit").value = myObj.data[0].penyakit;
-            //             document.getElementById("kelainan").value = myObj.data[0].kelainan;
-            //             document.getElementById("bahasa").value = myObj.data[0].bahasa;
-            //             document.getElementById("kks").value = myObj.data[0].no_kks;
-            //             document.getElementById("pkh").value = myObj.data[0].no_pkh;
-            //             document.getElementById("kip").value = myObj.data[0].no_kip;
-            //           });
-
-            //     }
-            // };
-
-            // xmlhttp.open("GET", appPath+"aksi/datasendiri", true);
-            // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            // xmlhttp.send();
-            // },1000);
             for (let isian of document.getElementsByTagName("input")) {
             isian.readOnly = true
             };

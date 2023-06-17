@@ -148,7 +148,7 @@
                 <div class="form-group col-md-12" id="simple-date2">
                     <div class="input-group date">
                       <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
-                      <input type="text" class="form-control" name="tanggal-lahir" id="tanggal-lahir">
+                      <input type="text" class="form-control" name="tanggal-lahir" id="tanggal-lahir" placeholder="YYYY-MM-DD">
                     </div>
                 </div>
               </div>
@@ -176,7 +176,7 @@
                     <option value="Yatim">Yatim</option>
                     <option value="Piatu">Piatu</option>
                     <option value="Yatim Piatu">Yatim Piatu</option>
-                    <option value="Tidak Semuanya">Tidak Semuanya</option>
+                    <option value="<s>Yatim / Piatu / Yatim Piatu</s>">Tidak Semuanya</option>
                 </select>
               </div>
               <div class="col-sm-6">
@@ -212,6 +212,17 @@
                 </div>
               </div>
               <div class="col-sm-6">
+                <label class="form-label" for="email">E-mail</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="email.anda@gmail.com" />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="bb">Berat Badan</label>
+                <div class="input-group mt-1">
+                  <input type="text" name="bb" id="bb" class="form-control" placeholder="Berat Badan" />
+                  <span class="input-group-text">Kg</span>
+                </div>
+              </div>
+              <div class="col-sm-6">
                 <label class="form-label" for="jalan">Alamat</label>
                 <div class="input-group">
                   <span class="input-group-text d-sm-block d-none">Jalan</span>
@@ -235,13 +246,6 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="bb">Berat Badan</label>
-                <div class="input-group mt-1">
-                  <input type="text" name="bb" id="bb" class="form-control" placeholder="Berat Badan" />
-                  <span class="input-group-text">Kg</span>
-                </div>
-              </div>
-              <div class="col-sm-6">
                 <label class="form-label" for="hobi-kes">Kegemaran / hobi</label>
                 <div class="input-group">
                   <span class="input-group-text d-sm-block d-none">Kesenian</span>
@@ -255,10 +259,6 @@
                   <span class="input-group-text d-sm-block d-none">Lain-lain</span>
                   <input type="text" class="form-control" name="hobi-lain" id="hobi-lain" placeholder="Lain-lain"/>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="email">E-mail</label>
-                <input type="text" name="email" id="email" class="form-control" placeholder="email.anda@gmail.com" />
               </div>
               <div class="col-12 d-flex justify-content-between">
                 <button class="btn btn-label-secondary btn-prev" >
@@ -285,7 +285,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="ttl-ayah">Tempat, Tanggal lahir</label>
-                <input type="text" name="ttl-ayah" id="ttl-ayah" class="form-control" placeholder="Tempat, Tanggal lahir" />
+                <input type="text" name="ttl-ayah" id="ttl-ayah" class="form-control" placeholder="Tempat, 17 Agustus 1945" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="agama-ayah">Agama</label>
@@ -337,6 +337,10 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="alamat-ortu">Alamat</label>
+                  <div id="chk" class="form-check form-check-primary form-check-inline ms-2">
+                    <input class="form-check-input" type="checkbox" name="alamatcheck" id="alamatcheck" onclick="alamat()">
+                    <label class="form-check-label" for="alamatcheck">Sama dengan alamat siswa</label>
+                  </div>
                 <input type="text" name="alamat-ortu" id="alamat-ortu" class="form-control" placeholder="Alamat" />
               </div>
             </div>
@@ -353,7 +357,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="ttl-ibu">Tempat, Tanggal lahir</label>
-                <input type="text" name="ttl-ibu" id="ttl-ibu" class="form-control" placeholder="Tempat, Tanggal lahir" />
+                <input type="text" name="ttl-ibu" id="ttl-ibu" class="form-control" placeholder="Tempat, 17 Agustus 1945" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="agama-ibu">Agama</label>
@@ -426,7 +430,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="ttl-wali">Tempat, Tanggal lahir</label>
-                <input type="text" name="ttl-wali" id="ttl-wali" class="form-control" placeholder="Tempat, Tanggal lahir" />
+                <input type="text" name="ttl-wali" id="ttl-wali" class="form-control" placeholder="Tempat, 17 Agustus 1945" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="agama-wali">Agama</label>
@@ -535,22 +539,30 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="smp-npsn">NPSN SMP/MTs</label>
+                <small class="text-primary"><a href="https://dapo.kemdikbud.go.id/pencarian" target="_blank">dicari disini</a></small>
                 <input type="text" id="smp-npsn" name="smp-npsn" class="form-control" placeholder="npsn SMP/MTs" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="smp-no">No. Ijazah SMP/MTs</label>
+                <small class="text-primary">diisi dengan nomor SKL jika belum memiliki ijazah</small>
                 <input type="text" id="smp-no" name="smp-no" class="form-control" placeholder="No. Ijazah SMP/MTs" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="smp-tgl">Tanggal Ijazah SMP/MTs</label>
-                <input type="text" id="smp-tgl" name="smp-tgl" class="form-control" placeholder="Tanggal Ijazah SMP/MTs" />
+                <div class="form-group col-md-12" id="simple-date2">
+                    <div class="input-group date">
+                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
+                      <input type="text" class="form-control" name="smp-tgl" id="smp-tgl" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="asal-sd">Asal SD/MI</label>
-                <input type="text" id="asal" name="asal-sd" class="form-control" placeholder="Asal SD/MI" />
+                <label class="form-label" for="sd-asal">Asal SD/MI</label>
+                <input type="text" id="sd-asal" name="sd-asal" class="form-control" placeholder="Asal SD/MI" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="sd-npsn">NPSN SD/MI</label>
+                <small class="text-primary"><a href="https://dapo.kemdikbud.go.id/pencarian" target="_blank">dicari disini</a></small>
                 <input type="text" id="sd-npsn" name="sd-npsn" class="form-control" placeholder="npsn SD/MI" />
               </div>
               <div class="col-sm-6">
@@ -559,34 +571,19 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="sd-tgl">Tanggal Ijazah SD/MI</label>
-                <input type="text" id="sd-tgl" name="sd-tgl" class="form-control" placeholder="Tanggal Ijazah SD/MI" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="tgl-no-ijazah">Tanggal dan Nomor Ijazah</label>
-                <input type="text" id="tgl-no-ijazah" name="tgl-no-ijazah" class="form-control" placeholder="Tanggal dan Nomor Ijazah" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="tgl-no-skl">Tanggal dan Nomor SKL</label>
-                <input type="text" id="tgl-no-skl" name="tgl-no-skl" class="form-control" placeholder="Tanggal dan Nomor SKL" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="lama">Lama Belajar</label>
-                <input type="text" id="lama" name="lama" class="form-control" placeholder="Lama Belajar" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="nopeserta-un">No. Peserta UNAS/UNBK</label>
-                <input type="text" id="nopeserta-un" name="nopeserta-un" class="form-control" placeholder="No. Peserta UNAS/UNBK" />
-              </div>
-              <div class="col-sm-6">
-                <label class="form-label" for="no-skhu">No. SKHUN</label>
-                <input type="text" id="no-skhu" name="no-skhu" class="form-control" placeholder="No. Surat Keterangan Hasil Ujian Nasional" />
+                <div class="form-group col-md-12" id="simple-date2">
+                    <div class="input-group date">
+                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
+                      <input type="text" class="form-control" name="sd-tgl" id="sd-tgl" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="no-akta">No. Akta Kelahiran</label>
                 <input type="text" id="no-akta" name="no-akta" class="form-control" placeholder="No. Akta Kelahiran" />
               </div>
               <div class="col-sm-6">
-                <label class="form-label" for="no-skhu">No. Kartu Keluarga</label>
+                <label class="form-label" for="no-kk">No. Kartu Keluarga</label>
                 <input type="text" id="no-kk" name="no-kk" class="form-control" placeholder="No. Kartu Keluarga" />
               </div>
               <div class="col-sm-6">
@@ -603,7 +600,12 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="masuk-tgl">Diterima Tanggal</label>
-                <input type="text" id="masuk-tgl" name="masuk-tgl" class="form-control" placeholder="Diterima Tanggal" />
+                <div class="form-group col-md-12" id="simple-date2">
+                    <div class="input-group date">
+                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
+                      <input type="text" class="form-control" name="masuk-tgl" id="masuk-tgl" placeholder="YYYY-MM-DD">
+                    </div>
+                </div>
               </div>
               </div>
               <hr class="my-4 mx-n4" />
@@ -701,7 +703,7 @@
                 <input type="text" id="no-kis" name="no-kis" class="form-control" placeholder="Kartu Indonesia Sehat" />
               </div>
             </div>
-            <hr class="my-4 mx-n4" />
+            <hr class="my-4 mx-n4" hidden />
             <!-- upload -->
             <div class="content-header mb-3" hidden>
               <h6 class="mb-0">Upload Berkas</h6>
