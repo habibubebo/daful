@@ -61,6 +61,7 @@
                         }
                     }, "tanggal-lahir": {
                         validators: {
+                            format: 'YYYY-MM-DD',
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
@@ -82,6 +83,10 @@
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
+                        }, stringLength: {
+                            min: 1,
+                            max: 2,
+                            message: "Maksimal 99"
                         }
                     }, "stat-anak": {
                         validators: {
@@ -112,6 +117,10 @@
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
+                        }, stringLength: {
+                            min: 1,
+                            max: 3,
+                            message: "Maksimal 999"
                         }
                     }, "jalan": {
                         validators: {
@@ -174,6 +183,12 @@
                             }
                         }
                     }, "hobi-lain": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "email": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
@@ -346,31 +361,55 @@
                                 message: "Data isian tidak boleh kosong"
                             }
                         }
-                    }, "tgl-no-ijazah": {
+                    }, "smp-npsn": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
                         }
-                    }, "tgl-no-skl": {
+                    }, "smp-no": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
                         }
-                    }, "lama": {
+                    }, "smp-tgl": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
                         }
-                    }, "nopeserta-un": {
+                    }, "sd-asal": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }
                         }
-                    }, "no-skhu": {
+                    }, "sd-npsn": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "sd-no": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "sd-tgl": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "no-akta": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "no-kk": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
@@ -426,6 +465,12 @@
                             }
                         }
                     }, "jarak": {
+                        validators: {
+                            notEmpty: {
+                                message: "Data isian tidak boleh kosong"
+                            }
+                        }
+                    }, "transport": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
