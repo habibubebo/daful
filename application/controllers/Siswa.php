@@ -64,10 +64,9 @@ class Siswa extends CI_Controller
     $jalan = $this->input->post('jalan');
     $rt = $this->input->post('rt');
     $rw = $this->input->post('rw');
-    $desa = $this->input->post('desa');
-    $kec = $this->input->post('kec');
-    $kab = $this->input->post('kab');
-    $prov = $this->input->post('prov');
+    $desa = ucwords(strtolower($this->input->post('desa')));
+    $kec = ucwords(strtolower($this->input->post('kec')));
+    $kab = ucwords(strtolower($this->input->post('kab')));
     $notelp = $this->input->post('notelp');
     $goldar = $this->input->post('goldar');
     $tb = $this->input->post('tb');
@@ -86,7 +85,6 @@ class Siswa extends CI_Controller
     $phayah = $this->input->post('ph-ayah');
     $notelpayah = $this->input->post('notelp-ayah');
     $statayah = $this->input->post('stat-ayah');
-    $alamatortu = $this->input->post('alamat-ortu');
     $namaibu = $this->input->post('nama-ibu');
     $ttlibu = $this->input->post('ttl-ibu');
     $agamaibu = $this->input->post('agama-ibu');
@@ -108,11 +106,6 @@ class Siswa extends CI_Controller
     $np = $this->input->post('no-pend');
     $nourut = $this->input->post('no-urut');
     $asal = $this->input->post('asal');
-    $tglnoijazah = $this->input->post('tgl-no-ijazah');
-    $tglnoskl = $this->input->post('tgl-no-skl');
-    $lama = $this->input->post('lama');
-    $nopesertaun = $this->input->post('nopeserta-un');
-    $noskhu = $this->input->post('no-skhu');
     $masukkelas = $this->input->post('masuk-kelas');
     $masukjalur = $this->input->post('masuk-jalur');
     $masuktgl = $this->input->post('masuk-tgl');
@@ -125,10 +118,15 @@ class Siswa extends CI_Controller
     $penyakit = $this->input->post('penyakit');
     $kelainan = $this->input->post('kelainan');
     $bahasa = implode(", ",$this->input->post('bahasa'));
+    if (empty($_POST['alamatcheck'])) {
+      $alamatortu = $this->input->post('alamat-ortu');
+    } else {
+      $alamatortu = "Jalan $jalan RT $rt/RW $rw $desa - $kec - $kab";
+    };
 
     $data = array(
-        'nama_lengkap' => $namal,
-        'nama_panggilan' => $namap,
+        'nama_lengkap' => ucwords(strtolower($namal)),
+        'nama_panggilan' => ucwords(strtolower($namap)),
         'nisn' => $nisn,
         'nik' => $nik,
         'jk' => $jk,
@@ -145,7 +143,6 @@ class Siswa extends CI_Controller
         'desa' => $desa,
         'kec' => $kec,
         'kab' => $kab,
-        'prov' => $prov,
         'notelp' => $notelp,
         'goldar' => $goldar,
         'tinggi_badan' => $tb,
@@ -155,8 +152,8 @@ class Siswa extends CI_Controller
         'hobi_masy' => $hobim,
         'hobi_lain' => $hobil,
         'tinggal' => $tinggal,
-        'nama_ayah' => $namaayah,
-        'ttl_ayah' => $ttlayah,
+        'nama_ayah' => ucwords(strtolower($namaayah)),
+        'ttl_ayah' => ucwords(strtolower($ttlayah)),
         'agama_ayah' => $agamaayah,
         'kw_ayah' => $kwayah,
         'pdd_ayah' => $pddayah,
@@ -165,8 +162,8 @@ class Siswa extends CI_Controller
         'notelp_ayah' => $notelpayah,
         'status_ayah' => $statayah,
         'alamat_ortu' => $alamatortu,
-        'nama_ibu' => $namaibu,
-        'ttl_ibu' => $ttlibu,
+        'nama_ibu' => ucwords(strtolower($namaibu)),
+        'ttl_ibu' => ucwords(strtolower($ttlibu)),
         'agama_ibu' => $agamaibu,
         'kw_ibu' => $kwibu,
         'pdd_ibu' => $pddibu,
@@ -174,8 +171,8 @@ class Siswa extends CI_Controller
         'ph_ibu' => $phibu,
         'notelp_ibu' => $notelpibu,
         'status_ibu' => $statibu,
-        'nama_wali' => $namawali,
-        'ttl_wali' => $ttlwali,
+        'nama_wali' => ucwords(strtolower($namawali)),
+        'ttl_wali' => ucwords(strtolower($ttlwali)),
         'agama_wali' => $agamawali,
         'kw_wali' => $kwwali,
         'pdd_wali' => $pddwali,
@@ -189,15 +186,8 @@ class Siswa extends CI_Controller
         'desa_wali' => $this->input->post('desa-wali'),
         'kec_wali' => $this->input->post('kec-wali'),
         'kab_wali' => $this->input->post('kab-wali'),
-        'prov_wali' => $this->input->post('prov-wali'),
         'no_pendaftaran' => $np,
         'no_urut' => $nourut,
-        'asal' => $asal,
-        'tgl_no_ijazah' => $tglnoijazah,
-        'tgl_no_skl' => $tglnoskl,
-        'lama_belajar' => $lama,
-        'nopeserta_un' => $nopesertaun,
-        'no_skhu' => $noskhu,
         'masuk_kelas' => $masukkelas,
         'masuk_jalur' => $masukjalur,
         'masuk_tgl' => $masuktgl,
@@ -214,6 +204,19 @@ class Siswa extends CI_Controller
         'no_kks' => $this->input->post('no-kks'),
         'no_pkh' => $this->input->post('no-pkh'),
         'no_kip' => $this->input->post('no-kip'),
+        'no_kis' => $this->input->post('no-kis'),
+        'no_akta' => $this->input->post('no-akta'),
+        'no_kk' => $this->input->post('no-kk'),
+        'transport' => $this->input->post('transport'),
+        'email' => $this->input->post('email'),
+        'asal' => $asal,
+        'smp_npsn' => $this->input->post('smp-npsn'),
+        'smp_no' => $this->input->post('smp-no'),
+        'smp_tgl' => $this->input->post('smp-tgl'),
+        'sd_asal' => $this->input->post('sd-asal'),
+        'sd_npsn' => $this->input->post('sd-npsn'),
+        'sd_no' => $this->input->post('sd-no'),
+        'sd_tgl' => $this->input->post('sd-tgl'),
         'status_verifikasi' => '1'
       );
       // $cek = array('nisn' => $nisn);
@@ -232,7 +235,7 @@ class Siswa extends CI_Controller
 
   function data()
   { 
-    if (!$this->session->userdata('nisn')) {
+    if (!$this->session->userdata('no_pendaftaran')) {
       redirect('siswa');
     } else {
       $id = $this->session->userdata('nisn');
@@ -245,7 +248,7 @@ class Siswa extends CI_Controller
 
   function unduhan($ttd=null)
   {
-	if (!$this->session->userdata('nisn')) {
+	if (!$this->session->userdata('no_pendaftaran')) {
       redirect('siswa');
     } else {
     switch ($ttd) {

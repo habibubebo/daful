@@ -239,9 +239,9 @@ class Aksi extends CI_Controller
   {
     // $mpdf = new \Mpdf\Mpdf(['format' => 'Legal-P']);
     $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
-    $data['siswa'] = $this->Model_APS->edit_data('siswa',array('id_siswa' => $this->session->userdata('id')))->result();
-    echo base_url().'assets/qr/'.$data['siswa'][0]->masuk_jalur.$data['siswa'][0]->no_urut.'.png';
-    // $this->load->view('cetak/1',$data);
+    $data['siswa'] = $this->db->query('SELECT *,nama_ayah AS ttdnama,ttl_ayah AS ttdttl,pk_ayah AS ttdpk,alamat_ortu as ttdalamat, notelp_ayah as ttdtelp, agama_ayah AS ttdagama FROM siswa WHERE nisn=3')->result();
+    // echo base_url().'assets/qr/'.$data['siswa'][0]->masuk_jalur.$data['siswa'][0]->no_urut.'.png';
+    $this->load->view('cetak/output',$data);
     // $mpdf->AddPage('Legal-L');
     // $teks = $this->load->view('cetak/1b.php',$data,TRUE);
     // $mpdf->WriteHTML($teks);
@@ -264,11 +264,14 @@ class Aksi extends CI_Controller
     $data['profil'] = $this->Model_APS->tampil_data('profil','id','ASC')->result();
     $image=file_get_contents(base_url().'assets/qr/'.$data['siswa'][0]->nisn.'.png');
     $imagedata=base64_encode($image);
-    $pathtoimage='<img src="data:image/png;base64, '.$imagedata.'">';
-    $data['imgpath']=array('path'=>$pathtoimage);
+    $pathtoimage='<img width="70px" src="data:image/png;base64, '.$imagedata.'">';
+    $logo=file_get_contents(base_url().'assets/img/logo_sma_srengat_low.png');
+    $logodata=base64_encode($logo);
+    $pathtologo='<img width="70px" src="data:image/png;base64, '.$logodata.'">';
+    $data['imgpath']=array('path'=>$pathtoimage,'logo'=>$pathtologo);
     $this->load->library('pdf');
     $this->pdf->setPaper('Legal', 'portrait');
-    $this->pdf->load_html($this->load->view('cetak/1',$data,TRUE));
+    $this->pdf->load_html($this->load->view('cetak/output',$data,TRUE));
     $this->pdf->add_info('Bukti Daftar Ulang', 'SMA Negeri 1 Srengat');
     $this->pdf->render();
     $this->pdf->stream('bukti '.$id.'.pdf', array("Attachment" => false));

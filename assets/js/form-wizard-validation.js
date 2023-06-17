@@ -149,12 +149,6 @@
                                 message: "Data isian tidak boleh kosong"
                             }
                         }
-                    }, "prov": {
-                        validators: {
-                            notEmpty: {
-                                message: "Data isian tidak boleh kosong"
-                            }
-                        }
                     }, "bb": {
                         validators: {
                             notEmpty: {
@@ -254,12 +248,6 @@
                             }
                         }
                     }, "stat-ayah": {
-                        validators: {
-                            notEmpty: {
-                                message: "Data isian tidak boleh kosong"
-                            }
-                        }
-                    }, "alamat-ortu": {
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
@@ -510,6 +498,17 @@
         })
     }
 }();
+function alamat() {
+    var checkBox = document.getElementById("alamatcheck");
+    var text = document.getElementById("alamat-ortu");
+    if (checkBox.checked == true){
+      text.style.display = "none";
+      document.getElementById("chk").classList.remove("form-check-inline");
+    } else {
+      text.style.display = "block";
+      document.getElementById("chk").classList.add("form-check-inline");
+    }
+   };
 function wali() {
   var checkBox = document.getElementById("walicheck");
   var text = document.getElementById("wali");
@@ -517,6 +516,21 @@ function wali() {
     text.style.display = "block";
   } else {
     text.style.display = "none";
+    document.getElementById("nama-wali").value = '-';
+    document.getElementById("ttl-wali").value = '-';
+    $('#agama-wali').selectpicker('val', '-');
+    document.getElementById("kw-wali").value = '-';
+    $('#pdd-wali').selectpicker('val', '-');
+    $('#pk-wali').selectpicker('val', '-');
+    $('#ph-wali').selectpicker('val', '-');
+    document.getElementById("notelp-wali").value = '-';
+    document.getElementById("jalan-wali").value = '-';
+    document.getElementById("rt-wali").value = '-';
+    document.getElementById("rw-wali").value = '-';
+    document.getElementById("desa-wali").value = '-';
+    document.getElementById("kec-wali").value = '-';
+    document.getElementById("kab-wali").value = '-';
+    document.getElementById("hub-wali").value = '-';
   }
   };
 !function(){var a=`<div class="dz-preview dz-file-preview m-0">
@@ -586,6 +600,7 @@ function wali() {
                         document.getElementById("nama-lengkap").value = myObj.data[0].nama_lengkap;
                         document.getElementById("no-urut").value = myObj.data[0].no_urut;
                         document.getElementById("masuk-jalur").value = myObj.data[0].masuk_jalur;
+                        document.getElementById("nisn").value = myObj.data[0].nisn;
                         document.getElementById("nama-wali").value = '-';
                         document.getElementById("ttl-wali").value = '-';
                         $('#agama-wali').selectpicker('val', '-');
@@ -604,7 +619,6 @@ function wali() {
                         if (myObj.data[0].bahasa == 0) {}
                         else {
                         document.getElementById("nama-panggilan").value = myObj.data[0].nama_panggilan;
-                        document.getElementById("nisn").value = myObj.data[0].nisn;
                         document.getElementById("nik").value = myObj.data[0].nik;
                         $('#jk').selectpicker('val', myObj.data[0].jk);
                         document.getElementById("tempat-lahir").value = myObj.data[0].tempat_lahir;
@@ -620,7 +634,6 @@ function wali() {
                         document.getElementById("desa").value = myObj.data[0].desa;
                         document.getElementById("kec").value = myObj.data[0].kec;
                         document.getElementById("kab").value = myObj.data[0].kab;
-                        $('#prov').selectpicker('val', myObj.data[0].prov);
                         document.getElementById("notelp").value = myObj.data[0].notelp;
                         $('#goldar').selectpicker('val', myObj.data[0].goldar);
                         document.getElementById("tb").value = myObj.data[0].tinggi_badan;
@@ -667,16 +680,10 @@ function wali() {
                         document.getElementById("desa-wali").value = myObj.data[0].desa_wali;
                         document.getElementById("kec-wali").value = myObj.data[0].kec_wali;
                         document.getElementById("kab-wali").value = myObj.data[0].kab_wali;
-                        $('#prov-wali').selectpicker('val', myObj.data[0].prov_wali);
                         document.getElementById("hub-wali").value = myObj.data[0].hub_wali;
                         };
                         document.getElementById("no-pend").value = myObj.data[0].no_pendaftaran;
                         document.getElementById("asal").value = myObj.data[0].asal;
-                        document.getElementById("tgl-no-ijazah").value = myObj.data[0].tgl_no_ijazah;
-                        document.getElementById("tgl-no-skl").value = myObj.data[0].tgl_no_skl;
-                        document.getElementById("lama").value = myObj.data[0].lama_belajar;
-                        document.getElementById("nopeserta-un").value = myObj.data[0].nopeserta_un;
-                        document.getElementById("no-skhu").value = myObj.data[0].no_skhu;
                         $('#masuk-kelas').selectpicker('val', myObj.data[0].masuk_kelas);
                         document.getElementById("masuk-tgl").value = myObj.data[0].masuk_tgl;
                         document.getElementById("pindahan-asal").value = myObj.data[0].pindahan_asal;
@@ -690,6 +697,18 @@ function wali() {
                         document.getElementById("no-kks").value = myObj.data[0].no_kks;
                         document.getElementById("no-pkh").value = myObj.data[0].no_pkh;
                         document.getElementById("no-kip").value = myObj.data[0].no_kip;
+                        document.getElementById("no-kis").value = myObj.data[0].no_kis;
+                        document.getElementById("no-akta").value = myObj.data[0].no_akta;
+                        document.getElementById("no-kk").value = myObj.data[0].no_kk;
+                        document.getElementById("transport").value = myObj.data[0].transport;
+                        document.getElementById("email").value = myObj.data[0].email;
+                        document.getElementById("smp-npsn").value = myObj.data[0].smp_npsn;
+                        document.getElementById("smp-no").value = myObj.data[0].smp_no;
+                        document.getElementById("smp-tgl").value = myObj.data[0].smp_tgl;
+                        document.getElementById("sd-asal").value = myObj.data[0].sd_asal;
+                        document.getElementById("sd-npsn").value = myObj.data[0].sd_npsn;
+                        document.getElementById("sd-no").value = myObj.data[0].sd_no;
+                        document.getElementById("sd-tgl").value = myObj.data[0].sd_tgl;
                         };
                         if (myObj.data[0].bahasa == 0) {}
                         else { let bahasa = myObj.data[0].bahasa;
