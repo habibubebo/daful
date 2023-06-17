@@ -81,11 +81,11 @@
               <div class="col-sm-6">
                 <label class="form-label" for="nisn">NISN</label>
                 <small class="text-primary">Ingat! ini akan menjadi password baru di akun anda</small>
-                <input type="text" name="nisn" id="nisn" class="form-control" placeholder="NISN" />
+                <input type="number" name="nisn" id="nisn" class="form-control" placeholder="NISN" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="nik">NIK</label>
-                <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" />
+                <input type="number" name="nik" id="nik" class="form-control" placeholder="NIK" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="jk">Jenis Kelamin</label>
@@ -167,7 +167,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="anak-ke">Anak ke</label>
-                <input type="text" name="anak-ke" id="anak-ke" class="form-control" placeholder="Anak ke" />
+                <input type="number" name="anak-ke" id="anak-ke" class="form-control" placeholder="Anak ke" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="stat-anak">Status Anak</label>
@@ -181,7 +181,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="notelp">No. Telepon / HP</label>
-                <input type="text" name="notelp" id="notelp" class="form-control" placeholder="No. Telepon / HP" />
+                <input type="number" name="notelp" id="notelp" class="form-control" placeholder="No. Telepon / HP" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="goldar">Golongan Darah</label>
@@ -207,18 +207,18 @@
               <div class="col-sm-6">
                 <label class="form-label" for="tb">Tinggi Badan</label>
                 <div class="input-group mt-1">
-                  <input type="text" name="tb" id="tb" class="form-control" placeholder="Tinggi Badan" />
+                  <input type="number" name="tb" id="tb" class="form-control" placeholder="Tinggi Badan" />
                   <span class="input-group-text">cm</span>
                 </div>
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="email">E-mail</label>
-                <input type="text" name="email" id="email" class="form-control" placeholder="email.anda@gmail.com" />
+                <input type="email" name="email" id="email" class="form-control" placeholder="email.anda@gmail.com" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="bb">Berat Badan</label>
                 <div class="input-group mt-1">
-                  <input type="text" name="bb" id="bb" class="form-control" placeholder="Berat Badan" />
+                  <input type="number" name="bb" id="bb" class="form-control" placeholder="Berat Badan" />
                   <span class="input-group-text">Kg</span>
                 </div>
               </div>
@@ -230,9 +230,9 @@
                 </div>
                 <div class="input-group mt-1">
                   <span class="input-group-text">RT</span>
-                  <input type="text" class="form-control" name="rt" id="rt" placeholder="RT">
+                  <input type="number" class="form-control" name="rt" id="rt" placeholder="RT">
                   <span class="input-group-text">RW</span>
-                  <input type="text" class="form-control" name="rw" id="rw" placeholder="RW">
+                  <input type="number" class="form-control" name="rw" id="rw" placeholder="RW">
                 </div>
                 <div class="input-group mt-1">
                   <span class="input-group-text d-sm-block d-none">Desa</span>
@@ -329,7 +329,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="notelp-ayah">No. Telepon / HP</label>
-                <input type="text" name="notelp-ayah" id="notelp-ayah" class="form-control" placeholder="No. Telepon / HP" />
+                <input type="number" name="notelp-ayah" id="notelp-ayah" class="form-control" placeholder="No. Telepon / HP" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="stat-ayah">Status Ayah</label>
@@ -401,7 +401,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="notelp-ibu">No. Telepon / HP</label>
-                <input type="text" name="notelp-ibu" id="notelp-ibu" class="form-control" placeholder="No. Telepon / HP" />
+                <input type="number" name="notelp-ibu" id="notelp-ibu" class="form-control" placeholder="No. Telepon / HP" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="stat-ibu">Status Ibu</label>
@@ -531,7 +531,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="no-urut">Nomor urut ketika diterima</label>
-                <input type="text" id="no-urut" name="no-urut" class="form-control" readonly placeholder="Nomor urut ketika diterima" />
+                <input type="number" id="no-urut" name="no-urut" class="form-control" readonly placeholder="Nomor urut ketika diterima" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="asal">Asal SMP/MTs</label>
@@ -540,7 +540,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="smp-npsn">NPSN SMP/MTs</label>
                 <small class="text-primary"><a href="https://dapo.kemdikbud.go.id/pencarian" target="_blank">dicari disini</a></small>
-                <input type="text" id="smp-npsn" name="smp-npsn" class="form-control" placeholder="npsn SMP/MTs" />
+                <input type="number" id="smp-npsn" name="smp-npsn" class="form-control" placeholder="npsn SMP/MTs" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="smp-no">No. Ijazah SMP/MTs</label>
@@ -563,7 +563,7 @@
               <div class="col-sm-6">
                 <label class="form-label" for="sd-npsn">NPSN SD/MI</label>
                 <small class="text-primary"><a href="https://dapo.kemdikbud.go.id/pencarian" target="_blank">dicari disini</a></small>
-                <input type="text" id="sd-npsn" name="sd-npsn" class="form-control" placeholder="npsn SD/MI" />
+                <input type="number" id="sd-npsn" name="sd-npsn" class="form-control" placeholder="npsn SD/MI" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="smp-no">No. Ijazah SD/MI</label>
@@ -643,19 +643,19 @@
             <div class="row g-3">
               <div class="col-sm-6">
                 <label class="form-label" for="jml-kd">Jumlah Saudara Kandung</label>
-                <input type="text" name="jml-kd" id="jml-kd" class="form-control" placeholder="Jumlah Saudara Kandung" />
+                <input type="number" name="jml-kd" id="jml-kd" class="form-control" placeholder="Jumlah Saudara Kandung" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="jml-tr">Jumlah Saudara Tiri</label>
-                <input type="text" name="jml-tr" id="jml-tr" class="form-control" placeholder="Jumlah Saudara Tiri" />
+                <input type="number" name="jml-tr" id="jml-tr" class="form-control" placeholder="Jumlah Saudara Tiri" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="jml-ak">Jumlah Saudara Angkat</label>
-                <input type="text" name="jml-ak" id="jml-ak" class="form-control" placeholder="Jumlah Saudara Angkat" />
+                <input type="number" name="jml-ak" id="jml-ak" class="form-control" placeholder="Jumlah Saudara Angkat" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="jarak">Jarak Tempat Tinggal ke Sekolah</label>
-                <input type="text" id="jarak" name="jarak" class="form-control" placeholder="10 km" />
+                <input type="number" id="jarak" name="jarak" class="form-control" placeholder="10" />
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="transport">Transportasi ke Sekolah</label>
