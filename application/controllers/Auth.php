@@ -146,6 +146,9 @@ function logins(){
                 'no_urut'=> $data->no_urut,
                 'password'=> $data->password,
                 'role'=> $data->role,
+                'ayah'=> $data->nama_ayah,
+                'ibu'=> $data->nama_ibu,
+                'wali'=> $data->nama_wali,
                 'status' => "masuk"
             );
         // Membuat Session untuk mengatur data user yang login---------------------------------------------

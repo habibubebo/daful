@@ -6,9 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Daftar Ulang SMA Negeri 1 Srengat</title>
-    <meta name="description" content="Web Daftar Ulang SMA Negeri 1 Srengat" />
-    <meta name="keywords" content="smangat, sma srengat, sman 1 srengat, daftar ulang, srengat, blitar">
+    <title>Daftar Ulang <?= $profil[0]->nama ?></title>
+    <meta name="description" content="Web Daftar Ulang <?= $profil[0]->nama ?>" />
+    <meta name="keywords" content="smangat, sma srengat, <?= $profil[0]->nama ?>, daftar ulang, srengat, blitar">
     <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/favicon/favicon.ico") ?>" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,9 +69,9 @@
           <div class="nav-item navbar-search-wrapper mb-0">
 		  	<a href="<?= base_url()?>" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="<?= base_url("assets/img/logo_sma_srengat_low.png") ?>" width="40px">
+                <img src="<?= base_url("assets/img/").$profil[0]->avatar ?>" width="40px">
               </span>
-              <span class="app-brand-text text-dark fw-bold ms-2">SMA Negeri 1 Srengat</span>
+              <span class="app-brand-text text-dark fw-bold ms-2"><?= $profil[0]->nama ?></span>
             </a>
           </div>
         </div>
@@ -103,7 +103,7 @@
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bxl-instagram fs-4"></i>
                     </span>
-                    <a href="https://www.instagram.com/smangatofficial/" target="_blank" class="stretched-link">@smangatofficial</a>
+                    <a href="https://www.instagram.com/<?= $profil[0]->instagram?>" target="_blank" class="stretched-link">@<?= $profil[0]->instagram ?></a>
                     <small class="text-muted mb-0"></small>
                   </div>
                 </div>
@@ -155,7 +155,7 @@
 	<div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4" id="login">
       <div class="w-px-400 mx-auto">
 		
-			  <h4 class="mb-2 center">Halo Siswa SMANGAT <span class="wave">👋</span></h4>
+			  <h4 class="mb-2 center">Halo Siswa <?= $profil[0]->nama ?> <span class="wave">👋</span></h4>
               <p class="mb-4">Silakan Masuk disini</p>
 
               <form id="formAuthentication" class="mb-3" action="<?= base_url("auth/logins") ?>" method="POST">
@@ -187,7 +187,7 @@
               <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silakan menghubungi panitia</div>'; }?>
               <p class="text-center">
                 <span>Ada Masalah?</span>
-                <a href="https://www.instagram.com/smangatofficial/">
+                <a href="<?= $profil[0]->panitia ?>">
                   <span>Hubungi Panitia</span>
                 </a>
               </p>
@@ -218,7 +218,7 @@
 		    	Telp. '.$profil[0]->telepon.'<br>'?>
             </p>
           <div class="d-flex justify-content-center flex-wrap gap-4">
-            <a href="#" class="btn btn-label-primary d-grid"><?= $profil[0]->email ?></a>
+            <a href="mailto:<?= $profil[0]->email?>" class="btn btn-label-primary d-grid"><?= $profil[0]->email ?></a>
           </div>
         </div>
       </div>

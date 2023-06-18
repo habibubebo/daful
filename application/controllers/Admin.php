@@ -224,8 +224,9 @@ class Admin extends CI_Controller
                           'website' => $this->input->post('website'),
                           'telepon' => $this->input->post('telepon'),
                           'th_ajaran' => $this->input->post('th-ajaran'),
-                          'kepsek' => $this->input->post('kepsek'),
-                          'nip_kepsek' => $this->input->post('nip-kepsek'),
+                          'panitia' => $this->input->post('panitia'),
+                          'instagram' => $this->input->post('instagram'),
+                          'avatar' => $this->input->post('avatar'),
                           'tgl_daftar' => date('Y-m-d H:i:s')
                       ];
                       $where = array('id' => '1');

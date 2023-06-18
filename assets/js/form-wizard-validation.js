@@ -61,7 +61,6 @@
                         }
                     }, "tanggal-lahir": {
                         validators: {
-                            format: 'YYYY-MM-DD',
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
                             }

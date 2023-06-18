@@ -37,6 +37,8 @@
                         <th>Tinggal</th>
                         <th>Alamat</th>
                         <th>Jarak</th>
+                        <th>Transportasi ke Sekolah</th>
+                        <th>Email</th>
                         <th>No. HP</th>
                         <th>Golongan Darah</th>
                         <th>Penyakit</th>
@@ -75,13 +77,15 @@
                         <th>No. HP Wali</th>
                         <th>Hub. Kel. dg. Wali</th>
                         <th>Alamat Wali</th>
-                        <th>Asal Sekolah</th>
+                        <th>Asal SMP</th>
+                        <th>NPSN SMP</th>
+                        <th>No. Ijazah SMP</th>
+                        <th>Tanggal Ijazah SMP</th>
+                        <th>Asal SD</th>
+                        <th>NPSN SD</th>
+                        <th>No. Ijazah SD</th>
+                        <th>Tanggal Ijazah SD</th>
                         <th>No. Urut</th>
-                        <th>Tgl dan No. Ijazah</th>
-                        <th>Tgl dan No. SKL</th>
-                        <th>Lama Belajar</th>
-                        <th>No. Peserta UN</th>
-                        <th>No. SKHU</th>
                         <th>Pindahan Asal</th>
                         <th>Alasan Pindah</th>
                         <th>Masuk Kelas</th>
@@ -90,6 +94,9 @@
                         <th>No KKS</th>
                         <th>No PKH</th>
                         <th>No KIP</th>
+                        <th>No KIS</th>
+                        <th>No KK</th>
+                        <th>No Akta Kelahiran</th>
                         <th>Kartu Keluarga</th>
                         <th>Akta Kelahiran</th>
                         <th>Ijazah</th>

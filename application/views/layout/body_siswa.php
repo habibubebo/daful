@@ -100,7 +100,9 @@
                             <div class="timeline-header mb-sm-0 mb-3">
                               <h6 class="mb-0"><?= $tp->nama ?></h6>
                             </div>
-                            <?= $tp->ket ?>
+                            <div class="mt-2">
+                              <?= $tp->ket ?>
+                            </div>
                           </div>
                         </li>
                         <?php } ?>

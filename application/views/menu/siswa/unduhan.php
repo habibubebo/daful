@@ -46,10 +46,8 @@
               echo '<a class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ibu">Unduh</a>';
             } else echo '<a class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/wali">Unduh</a>'; ?>
             <div class="p-1">
-              <h6 class="text-center">Siapa yang akan tanda tangan?</h6>
-              <a href="../unduhan/ayah" class="btn btn-label-primary d-grid w-100 mb-3">Ayah</a>
-              <a href="../unduhan/ibu" class="btn btn-label-primary d-grid w-100 mb-3">Ibu</a>
-              <a href="../unduhan/wali" class="btn btn-label-primary d-grid w-100 mb-3">Wali</a>
+              <a href="../formunduhan" class="btn btn-label-primary d-grid w-100 mb-3">Ubah</a>
+              <a href="../" class="btn btn-label-secondary d-grid w-100 mb-3">Edit Data Diri</a>
             </div>
           </div>
         </div>
