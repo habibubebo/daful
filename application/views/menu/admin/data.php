@@ -35,7 +35,7 @@
                         <th>Bahasa</th>
                         <th>Hobi</th>
                         <th>Tinggal</th>
-                        <th>Alamat</th>
+                        <th>Alamat Siswa</th>
                         <th>Jarak</th>
                         <th>Transportasi ke Sekolah</th>
                         <th>Email</th>

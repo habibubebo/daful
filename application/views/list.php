@@ -6,9 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Daftar Ulang SMA Negeri 1 Srengat</title>
-    <meta name="description" content="Web Daftar Ulang SMA Negeri 1 Srengat" />
-    <meta name="keywords" content="smangat, sma srengat, sman 1 srengat, daftar ulang, srengat, blitar">
+    <title>Daftar Ulang <?= $profil[0]->nama ?></title>
+    <meta name="description" content="Web Daftar Ulang <?= $profil[0]->nama ?>" />
+    <meta name="keywords" content="smangat, sma srengat, <?= $profil[0]->nama ?>, daftar ulang, srengat, blitar">
     <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/favicon/favicon.ico") ?>" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,9 +50,9 @@
           <div class="nav-item navbar-search-wrapper mb-0">
 		  	<a href="<?= base_url()?>" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="<?= base_url("assets/img/logo_sma_srengat_low.png") ?>" width="40px">
+                <img src="<?= base_url("assets/img/").$profil[0]->avatar ?>" width="40px">
               </span>
-              <span class="app-brand-text text-dark fw-bold ms-2">SMA Negeri 1 Srengat</span>
+              <span class="app-brand-text text-dark fw-bold ms-2"><?= $profil[0]->nama ?></span>
             </a>
           </div>
         </div>
@@ -84,8 +84,8 @@
                     <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                       <i class="bx bxl-instagram fs-4"></i>
                     </span>
-                    <a href="https://www.instagram.com/smangatofficial/" target="_blank" class="stretched-link">@smangatofficial</a>
-                    <small class="text-muted mb-0"></small>
+                    <a href="https://www.instagram.com/<?= $profil[0]->instagram?>" target="_blank" class="stretched-link">@<?= $profil[0]->instagram ?></a>
+                    <small class="text-muted mb-0">instagram</small>
                   </div>
                 </div>
               </div>

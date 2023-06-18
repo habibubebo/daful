@@ -13,7 +13,7 @@
                         <div class="card-body">
                           <h5 class="card-title text-primary">Selamat <?php echo $this->session->userdata('nama') ?>! 🎉</h5>
                           <p class="mb-4">
-                            Kamu telah diterima sebagai siswa di <span class="fw-bold">SMA Negeri 1 Srengat</span>, lengkapi data dirimu untuk melakukan daftar ulang!
+                            Kamu telah diterima sebagai siswa di <span class="fw-bold"><?= $profil[0]->nama ?></span>, lengkapi data dirimu untuk melakukan daftar ulang!
                           </p>
         
                           <a href="<?= base_url("siswa")?>" class="btn btn-sm btn-outline-primary">Isi data diri</a>
@@ -61,7 +61,7 @@
                           <h6 class="card-title mb-3 text-nowrap">Terima kasih!✨</h6>
                           
                           <h5 class="card-title text-primary mb-1"><?php echo $this->session->userdata('nama') ?></h5>
-                          <small class="d-block mb-3">Anda telah daftar ulang sebagai siswa di SMA Negeri 1 Srengat</small>
+                          <small class="d-block mb-3">Anda telah daftar ulang sebagai siswa di <?= $profil[0]->nama ?></small>
                           <small class="d-block mb-3 text-muted">Pada tanggal <?= $tp->tgl_verif ?></small>
                         </div>
                       </div>
@@ -82,7 +82,7 @@
                         <p><?php if ($tp->ket == "") { echo 'Tidak ada pengumuman untuk saat ini'; } else echo $tp->ket; ?></p>
                       </blockquote>
                       <figcaption class="blockquote-footer mb-0 text-white">
-                        Panitia <cite title="Source Title">PPDB SMA Negeri 1 Srengat</cite>
+                        Panitia <cite title="Source Title">PPDB <?= $profil[0]->nama ?></cite>
                       </figcaption>
                     </figure>
                   </div>

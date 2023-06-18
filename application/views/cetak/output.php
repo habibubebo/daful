@@ -2136,7 +2136,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
  </tr>
  <tr height=24 style='mso-height-source:userset;height:18.0pt'>
   <td colspan=6 height=24 class=xl678599 style='height:18.0pt'>Bahwa selama
-  menjadi peserta didik di SMAN 1 Srengat, Saya :</td>
+  menjadi peserta didik di <?= $pr->nama ?>, Saya :</td>
  </tr>
  <tr height=26 style='mso-height-source:userset;height:19.5pt'>
   <td height=26 class=xl668599 style='height:19.5pt'></td>
@@ -2158,13 +2158,13 @@ xmlns="http://www.w3.org/TR/REC-html40">
   <td height=26 class=xl668599 style='height:19.5pt'></td>
   <td class=xl858599>4.</td>
   <td colspan=4 class=xl808599>Sanggup mentaati dan mematuhi peraturan dan tata
-  tertib yang berlaku di SMAN 1 Srengat;</td>
+  tertib yang berlaku di <?= $pr->nama ?>;</td>
  </tr>
  <tr height=26 style='mso-height-source:userset;height:19.5pt'>
   <td height=26 class=xl668599 style='height:19.5pt'></td>
   <td class=xl858599>5.</td>
   <td colspan=4 class=xl808599>Tidak menikah selama menjadi peserta didik di
-  SMAN 1 Srengat</td>
+  <?= $pr->nama ?></td>
  </tr>
  <tr height=43 style='mso-height-source:userset;height:32.25pt'>
   <td height=43 class=xl668599 style='height:32.25pt'></td>
