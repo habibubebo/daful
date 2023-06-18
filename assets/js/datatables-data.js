@@ -350,7 +350,7 @@ $(function() {
             title: "Aksi",
             orderable: !1,
             render: function(e, a, t, r) {
-                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item"  href="../aksi/unduh/'+t.id_siswa+'">Unduh Bukti</a><div class="dropdown-divider"></div><a href="././verifikasi/undo/'+t.id_siswa+'" class="dropdown-item text-danger delete-record">Batalkan</a></div></div>'
+                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item" target="_blank" href="../aksi/unduh/'+t.nisn+'/ayah">Unduh Bukti</a><div class="dropdown-divider"></div><a href="../aksi/akun/hapus/'+t.id_siswa+'" class="dropdown-item text-danger delete-record">Hapus</a></div></div>'
             }
         }],
         order: [

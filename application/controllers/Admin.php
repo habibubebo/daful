@@ -186,7 +186,7 @@ class Admin extends CI_Controller
 
   function verifikasi($aksi = null,$id = null){
     switch ($aksi) {
-      case 'lihat' : $where = array('nisn' => $id);
+      case 'lihat' : $where = array('id_siswa' => $id);
                      $data['bio'] = $this->Model_APS->edit_data('siswa',$where)->result();
                      $this->load->view('menu/siswa/lihat',$data);
                      $this->load->view('layout/footer');
@@ -248,6 +248,16 @@ class Admin extends CI_Controller
   function akun(){
     $data['akuns'] = $this->Model_APS->tampil_data('akun','id','ASC')->result();
     $this->load->view('menu/akun',$data);
+    $this->load->view('layout/footer');
+  }
+
+  function edit()
+  {
+    $data['pdds'] = $this->Model_APS->tampil_data('tbl_pdd','id','ASC')->result();
+    $data['agamas'] = $this->Model_APS->tampil_data('tbl_agama','id','ASC')->result();
+    $data['phs'] = $this->Model_APS->tampil_data('tbl_penghasilan','id','ASC')->result();
+    $data['pks'] = $this->Model_APS->tampil_data('tbl_pekerjaan','id','ASC')->result();
+    $this->load->view('form/wizard',$data);
     $this->load->view('layout/footer');
   }
 }
