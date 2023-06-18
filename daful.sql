@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS `profil` (
   `nama` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `alamat` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `email` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `panitia` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `instagram` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `website` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `telepon` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `th_ajaran` varchar(100) COLLATE utf8_bin DEFAULT NULL,
@@ -46,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `profil` (
 
 -- Dumping data for table daful.profil: ~1 rows (approximately)
 /*!40000 ALTER TABLE `profil` DISABLE KEYS */;
-INSERT IGNORE INTO `profil` (`id`, `nama`, `alamat`, `email`, `website`, `telepon`, `th_ajaran`, `kepsek`, `nip_kepsek`, `avatar`, `tgl_daftar`) VALUES
-	(1, 'SMAN 1 Srengat', 'Jalan Merdeka Bagelenan Srengat, Kec. Srengat,<br> Kab. Blitar, Prov. Jawa Timur', 'info@sman1srengat.sch.id', 'https://www.sman1srengat.sch.id/v3', '0342-551094', '2023/2024', '-', '-', 'logo_sma_srengat_low.png', '2023-06-12 15:40:08');
+INSERT IGNORE INTO `profil` (`id`, `nama`, `alamat`, `email`, `panitia`, `instagram`, `website`, `telepon`, `th_ajaran`, `kepsek`, `nip_kepsek`, `avatar`, `tgl_daftar`) VALUES
+	(1, 'SMAN 1 Srengat', 'Jalan Merdeka Bagelenan Srengat, Kec. Srengat,<br> Kab. Blitar, Prov. Jawa Timur', 'info@sman1srengat.sch.id', 'https://wa.me/', 'smangatofficial', 'https://www.sman1srengat.sch.id/v3', '0342-551094', '2023/2024', NULL, NULL, 'logo_sma_srengat_low.png', '2023-06-18 17:03:59');
 /*!40000 ALTER TABLE `profil` ENABLE KEYS */;
 
 -- Dumping structure for table daful.siswa
@@ -316,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `tbl_pengumuman` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table daful.tbl_pengumuman: ~2 rows (approximately)
+-- Dumping data for table daful.tbl_pengumuman: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tbl_pengumuman` DISABLE KEYS */;
 INSERT IGNORE INTO `tbl_pengumuman` (`id`, `ket`, `tgl`) VALUES
 	(1, 'PENGUMUMAN<br>Harap mengisi data dengan teliti!', '2021-04-14 00:00:00'),

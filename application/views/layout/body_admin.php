@@ -14,7 +14,7 @@
                             di halaman dashboard daftar ulang peserta didik SMA Negeri 1 Srengat.<br>Tetap semangat, <span class="fw-bold">ingat keluarga dirumah 🥰</span>
                           </p>
 
-                          <a href="<?= base_url("pages/akunsiswa")?>" class="btn btn-sm btn-outline-primary">Buat akun siswa</a>
+                          <a href="<?= base_url("admin/akunsiswa")?>" class="btn btn-sm btn-outline-primary">Buat akun siswa</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
@@ -56,7 +56,7 @@
                                 <h4 class="card-title text-primary mb-1 me-2"><?= $akuns ?></h4>
                                 <small class="text-success">☕</small>
                               </div>
-                              <small>hari ini</small>
+                              <a href="<?= base_url("admin/akunsiswa")?>" class="text-muted">Lihat</a>
                             </div>
                             <div class="card-icon">
                               <span class="badge bg-label-primary rounded p-2">
@@ -77,7 +77,7 @@
                                 <h4 class="card-title text-primary mb-1 me-2"><?= $verifs ?></h4>
                                 <small class="text-success">🌻</small>
                               </div>
-                              <small>hari ini</small>
+                              <a href="<?= base_url("admin/verifikasi")?>" class="text-muted">Lihat</a>
                             </div>
                             <div class="card-icon">
                               <span class="badge bg-label-primary rounded p-2">
@@ -102,7 +102,9 @@
                             <div class="timeline-header mb-sm-0 mb-3">
                               <h6 class="mb-0"><?= $tp->nama ?></h6>
                             </div>
-                            <?= $tp->ket ?>
+                            <div class="mt-2">
+                              <?= $tp->ket ?>
+                            </div>
                           </div>
                         </li>
                         <?php } ?>

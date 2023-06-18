@@ -86,12 +86,19 @@
                             <input class="form-control" type="text" name="th-ajaran" id="th-ajaran" value="<?= $tp->th_ajaran ?>"/>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="kepsek" class="form-label">Kepala Sekolah</label>
-                            <input class="form-control" type="text" name="kepsek" id="kepsek" value="<?= $tp->kepsek ?>"/>
+                            <label for="panitia" class="form-label">Link Kontak Panitia</label>
+                            <input class="form-control" type="text" name="panitia" id="panitia" value="<?= $tp->panitia ?>"/>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="nip-kepsek" class="form-label">NIP Kepala Sekolah</label>
-                            <input class="form-control" type="text" name="nip-kepsek" id="nip-kepsek" value="<?= $tp->nip_kepsek ?>"/>
+                            <label for="instagram" class="form-label">Akun instagram</label>
+                            <div class="input-group mt-1">
+                            <span class="input-group-text">https://instagram.com/</span>
+                            <input class="form-control" type="text" name="instagram" id="instagram" value="<?= $tp->instagram ?>"/>
+                            </div>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="avatar" class="form-label">Nama file logo</label>
+                            <input class="form-control" type="text" name="avatar" id="avatar" value="<?= $tp->avatar ?>"/>
                           </div>
                         </div>
                         <div class="mt-2">

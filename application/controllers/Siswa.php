@@ -226,7 +226,7 @@ class Siswa extends CI_Controller
       // } else {
       $where = array('id_siswa' => $Id);
       $this->Model_APS->proses_update($where,$data,'siswa');
-      $this->session->set_userdata(['nama' => $namal, 'no_pendaftaran' => $np, 'nisn' => $nisn]);
+      $this->session->set_userdata(['nama' => $namal, 'no_pendaftaran' => $np, 'nisn' => $nisn, 'ayah' => $namaayah, 'ibu' => $namaibu, 'wali' => $namawali]);
       $this->Model_APS->qr($nisn);
       $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data <strong>$namal</strong> berhasil diupdate"));
       redirect('siswa/data');
@@ -262,13 +262,28 @@ class Siswa extends CI_Controller
                     $data['tombol'] = 2; 
       break;
       default : 
-      redirect('siswa/unduhan/ayah');
+      redirect('siswa/formunduhan');
   };
     $this->load->view('menu/siswa/unduhan',$data);
     $this->load->view('layout/footer');
   };
   }
   
+  function formunduhan($tujuan=null)
+  {
+    if (!$this->session->userdata('no_pendaftaran')) {
+      redirect('siswa');
+    } else {
+      switch ($tujuan) {
+        case 'submit' : $ke = $this->input->post('customRadioTemp');
+                         redirect('siswa/unduhan/'.$ke);
+          break;
+        default :
+        $this->load->view('form/unduhan');
+        $this->load->view('layout/footer');
+      }
+    };
+  }
 }
 
 

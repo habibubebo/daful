@@ -26,7 +26,7 @@ $(function() {
         }, {
             data: "prov_lahir"
         }, {
-            data: "tgl_lahir"
+            data: "tgl_lahir" //10
         }, {
             data: "agama"
         }, {
@@ -52,6 +52,10 @@ $(function() {
         }, {
             data: "jarak"
         }, {
+            data: "transport"
+        }, {
+            data: "email"
+        }, {
             data: "notelp"
         }, {
             data: "goldar"
@@ -62,7 +66,7 @@ $(function() {
         }, {
             data: "tinggi_badan"
         }, {
-            data: "berat_badan"
+            data: "berat_badan" //30
         }, {
             data: "alamat_ortu"
         }, {
@@ -82,7 +86,7 @@ $(function() {
         }, {
             data: "ph_ayah"
         }, {
-            data: "notelp_ayah"
+            data: "notelp_ayah" //40
         }, {
             data: "status_ayah"
         }, {
@@ -102,7 +106,7 @@ $(function() {
         }, {
             data: "ph_ibu"
         }, {
-            data: "notelp_ibu"
+            data: "notelp_ibu" //50
         }, {
             data: "status_ibu"
         }, {
@@ -122,25 +126,29 @@ $(function() {
         }, {
             data: "ph_wali"
         }, {
-            data: "notelp_wali"
+            data: "notelp_wali" //60
         }, {
             data: "hub_wali"
         },{
-            data: "" //alamat wali
+            data: "" //alamat wali 62
         }, {
             data: "asal"
         }, {
+            data: "smp_npsn"
+        }, {
+            data: "smp_no"
+        }, {
+            data: "smp_tgl"
+        }, {
+            data: "sd_asal"
+        }, {
+            data: "sd_npsn"
+        }, {
+            data: "sd_no"
+        }, {
+            data: "sd_tgl" //70
+        }, {
             data: "no_urut"
-        }, {
-            data: "tgl_no_ijazah"
-        }, {
-            data: "tgl_no_skl"
-        }, {
-            data: "lama_belajar"
-        }, {
-            data: "nopeserta_un"
-        }, {
-            data: "no_skhu"
         }, {
             data: "pindahan_asal"
         }, {
@@ -157,6 +165,12 @@ $(function() {
             data: "no_pkh"
         }, {
             data: "no_kip"
+        }, {
+            data: "no_kis" //70
+        }, {
+            data: "no_kk"
+        }, {
+            data: "no_akta"
         }, {
             data: "" //kk
         }, {
@@ -209,7 +223,7 @@ $(function() {
                 return t
             }
         }, {
-            targets: -22,
+            targets: 62,
             searchable: !1,
             render: function(e, a, t, r) {
                 t = 'Jalan '+t.jalan_wali+' RT '+t.rt_wali+' RW '+t.rw_wali+' Desa '+t.desa_wali+' Kec. '+t.kec_wali+' Kab./Kota '+t.kab_wali+' Provinsi '+t.provinsi_wali;
