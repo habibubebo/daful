@@ -48,17 +48,17 @@ class Siswa extends CI_Controller
 
   function proses()
   { 
-    $Id = $this->session->userdata('id');
+    $Id = $this->input->post('id');
     $namal = $this->input->post('nama-lengkap');
     $namap = $this->input->post('nama-panggilan');
     $nisn = $this->input->post('nisn');
     $nik = $this->input->post('nik');
     $jk = $this->input->post('jk');
-    $tl = $this->input->post('tempat-lahir');
+    $tl = ucwords(strtolower($this->input->post('tempat-lahir')));
     $provl = $this->input->post('prov-lahir');
     $tgl = $this->input->post('tanggal-lahir');
     $agm = $this->input->post('agama');
-    $kw = $this->input->post('kw');
+    $kw = ucwords(strtolower($this->input->post('kw')));
     $anakke = $this->input->post('anak-ke');
     $stat = $this->input->post('stat-anak');
     $jalan = $this->input->post('jalan');
@@ -79,7 +79,7 @@ class Siswa extends CI_Controller
     $namaayah = $this->input->post('nama-ayah');
     $ttlayah = $this->input->post('ttl-ayah');
     $agamaayah = $this->input->post('agama-ayah');
-    $kwayah = $this->input->post('kw-ayah');
+    $kwayah = ucwords(strtolower($this->input->post('kw-ayah')));
     $pddayah = $this->input->post('pdd-ayah');
     $pkayah = $this->input->post('pk-ayah');
     $phayah = $this->input->post('ph-ayah');
@@ -88,7 +88,7 @@ class Siswa extends CI_Controller
     $namaibu = $this->input->post('nama-ibu');
     $ttlibu = $this->input->post('ttl-ibu');
     $agamaibu = $this->input->post('agama-ibu');
-    $kwibu = $this->input->post('kw-ibu');
+    $kwibu = ucwords(strtolower($this->input->post('kw-ibu')));
     $pddibu = $this->input->post('pdd-ibu');
     $pkibu = $this->input->post('pk-ibu');
     $phibu = $this->input->post('ph-ibu');
@@ -97,7 +97,7 @@ class Siswa extends CI_Controller
     $namawali = $this->input->post('nama-wali');
     $ttlwali = $this->input->post('ttl-wali');
     $agamawali = $this->input->post('agama-wali');
-    $kwwali = $this->input->post('kw-wali');
+    $kwwali = ucwords(strtolower($this->input->post('kw-wali')));
     $pddwali = $this->input->post('pdd-wali');
     $pkwali = $this->input->post('pk-wali');
     $phwali = $this->input->post('ph-wali');

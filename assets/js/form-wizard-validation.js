@@ -641,6 +641,7 @@ function wali() {
                     this.status == 200) {
                     var myObj = JSON.parse(this.responseText);
                     $.each(myObj, function(i) {
+                        document.getElementById("id").value = myObj.data[0].id_siswa;
                         document.getElementById("nama-lengkap").value = myObj.data[0].nama_lengkap;
                         document.getElementById("no-urut").value = myObj.data[0].no_urut;
                         document.getElementById("masuk-jalur").value = myObj.data[0].masuk_jalur;

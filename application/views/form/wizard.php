@@ -70,6 +70,9 @@
               <small>Isi sesuai keadaan sekarang.</small>
             </div>
             <div class="row g-3">
+              <div class="col-sm-6" hidden>
+                <input type="text" name="id" id="id" class="form-control"/>
+              </div>
               <div class="col-sm-6">
                 <label class="form-label" for="nama-lengkap">Nama Lengkap</label>
                 <input type="text" name="nama-lengkap" id="nama-lengkap" class="form-control" placeholder="Nama lengkap" />

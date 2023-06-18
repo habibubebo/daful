@@ -33,7 +33,7 @@ class Aksi extends CI_Controller
 
   public function index()
   {
-    // 
+    redirect(base_url());
   }
 
   function data($jenis=null,$id=null)
@@ -44,8 +44,12 @@ class Aksi extends CI_Controller
             echo json_encode($data);
         break;
       case 'detail' :
+          if($this->session->userdata('role') < "1"){
+            redirect(base_url("auth"));
+          } else {
             $data['data'] = $this->Model_APS->tampil_data_seleksi('*','siswa','tgl_verif','DESC')->result_array();
 		        echo json_encode($data);
+          };
         break;
       case 'siswa' :
             $where = array('id_siswa' => $id);
@@ -53,7 +57,9 @@ class Aksi extends CI_Controller
             echo json_encode($data);
         break;
       case 'sendiri' :
-            $where = array('id_siswa' => $this->session->userdata('id'));
+            if ($this->session->userdata('role') > '0') {
+            $where = array('id_siswa' => $id); 
+            } else $where = array('id_siswa' => $this->session->userdata('id'));
             $data['data'] = $this->Model_APS->edit_data('siswa',$where)->result_array();
             echo json_encode($data);
         break;
