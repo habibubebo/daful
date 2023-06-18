@@ -31,6 +31,7 @@
                         <?php } ?>
                       </tbody>
                     </table>
+                    <small>*.csv ; delimiter => Nomor ; Jalur Masuk ; Nomor urut ; Nama Siswa ; NISN ; password</small>
                   </div>
                 </div>
                 <div class="modal-footer">

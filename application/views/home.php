@@ -104,7 +104,7 @@
                       <i class="bx bxl-instagram fs-4"></i>
                     </span>
                     <a href="https://www.instagram.com/<?= $profil[0]->instagram?>" target="_blank" class="stretched-link">@<?= $profil[0]->instagram ?></a>
-                    <small class="text-muted mb-0"></small>
+                    <small class="text-muted mb-0">instagram</small>
                   </div>
                 </div>
               </div>
@@ -187,7 +187,7 @@
               <?php if ($alert == 1){ echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silakan menghubungi panitia</div>'; }?>
               <p class="text-center">
                 <span>Ada Masalah?</span>
-                <a href="<?= $profil[0]->panitia ?>">
+                <a href="<?= $profil[0]->panitia ?>" target="_blank" >
                   <span>Hubungi Panitia</span>
                 </a>
               </p>

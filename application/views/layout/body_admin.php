@@ -38,7 +38,7 @@
                         <p><?php if ($tp->ket == "") { echo 'Tidak ada pengumuman untuk saat ini'; } else echo $tp->ket; ?></p>
                       </blockquote>
                       <figcaption class="blockquote-footer mb-0 text-white">
-                        Panitia <cite title="Source Title">PPDB SMA Negeri 1 Srengat</cite>
+                        Panitia <cite title="Source Title">PPDB <?= $profil[0]->nama ?></cite>
                       </figcaption>
                     </figure>
                   </div>

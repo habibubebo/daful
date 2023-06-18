@@ -48,7 +48,7 @@ $(function() {
         }, {
             data: "tinggal"
         }, {
-            data: "" //alamat 21
+            "width": '200px', data: "" //alamat 21
         }, {
             data: "jarak"
         }, {
@@ -219,20 +219,23 @@ $(function() {
             targets: 21,
             searchable: !1,
             render: function(e, a, t, r) {
-                t = 'Jalan '+t.jalan+' RT '+t.rt+' RW '+t.rw+' Desa '+t.desa+' Kec. '+t.kec+' Kab./Kota '+t.kab+' Provinsi '+t.provinsi;
+                t = 'Jalan '+t.jalan+' RT '+t.rt+' RW '+t.rw+' Desa '+t.desa+' Kec. '+t.kec+' Kab./Kota '+t.kab;
                 return t
             }
         }, {
             targets: 62,
             searchable: !1,
             render: function(e, a, t, r) {
-                t = 'Jalan '+t.jalan_wali+' RT '+t.rt_wali+' RW '+t.rw_wali+' Desa '+t.desa_wali+' Kec. '+t.kec_wali+' Kab./Kota '+t.kab_wali+' Provinsi '+t.provinsi_wali;
+                t = 'Jalan '+t.jalan_wali+' RT '+t.rt_wali+' RW '+t.rw_wali+' Desa '+t.desa_wali+' Kec. '+t.kec_wali+' Kab./Kota '+t.kab_wali;
                 return t
             }
         }, {
             targets: -6,
             searchable: !1,
             render: function(e, a, t, r) {
+                if (t.kk == 0) {
+                    t = '-';
+                } else {
                 let base64String = "";
                 let reader = new FileReader();
                 var y = t.no_urut+t.kk;
@@ -250,35 +253,43 @@ $(function() {
                         };
                     };
                     t = '<img id="'+y+'" src="" width="80px">';
-                    return t
+                };
+                return t
             }
         }, {
             targets: -5,
             searchable: !1,
             render: function(e, a, t, r) {
-                let base64String = "";
-                let reader = new FileReader();
-                var y= t.no_urut+t.akta;
-                var str = t.masuk_jalur;
-                var m = str.split(' ').join('-');   
-                var request = new XMLHttpRequest();
-                request.open('GET', appPath+'file/uploads/'+m+t.no_urut+'/'+t.akta, true);
-                request.responseType = 'blob';
-                request.send();
-                request.onload = function() {
-                    reader.readAsDataURL(request.response);
-                    reader.onload =  function(e){
-                        base64String = reader.result;
+                if (t.akta == 0) {
+                    t = '-';
+                } else {
+                    let base64String = "";
+                    let reader = new FileReader();
+                    var y= t.no_urut+t.akta;
+                    var str = t.masuk_jalur;
+                    var m = str.split(' ').join('-');   
+                    var request = new XMLHttpRequest();
+                    request.open('GET', appPath+'file/uploads/'+m+t.no_urut+'/'+t.akta, true);
+                    request.responseType = 'blob';
+                    request.send();
+                    request.onload = function() {
+                        reader.readAsDataURL(request.response);
+                        reader.onload =  function(e){
+                            base64String = reader.result;
                             document.getElementById(y).src = base64String;
                         };
                     };
                     t = '<img id="'+y+'" src="" width="80px">';
+                };
                     return t
             }
         }, {
             targets: -4,
             searchable: !1,
             render: function(e, a, t, r) {
+                if (t.ijazah == 0) {
+                    t = '-';
+                } else {
                 let base64String = "";
                 let reader = new FileReader();
                 var y = t.no_urut+t.ijazah;
@@ -296,12 +307,16 @@ $(function() {
                         };
                     };
                     t = '<img id="'+y+'" src="" width="80px">';
+                };    
                     return t
             }
         }, {
             targets: -3,
             searchable: !1,
             render: function(e, a, t, r) {
+                if (t.bukti == 0) {
+                    t = '-';
+                } else {
                 let base64String = "";
                 let reader = new FileReader();
                 var y = t.no_urut+t.bukti;
@@ -319,6 +334,7 @@ $(function() {
                         };
                     };
                     t = '<img id="'+y+'" src="" width="80px">';
+                };
                     return t
             }
         }, {
