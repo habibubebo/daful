@@ -3,7 +3,7 @@ $(function() {
     var e = $(".datatables-projects");
     e.length && (e.DataTable({
         ajax: {
-            url: appPath+'/aksi/data/semua',
+            url: appPath+'aksi/data/semua',
         },
         columns: [{
             data: ""

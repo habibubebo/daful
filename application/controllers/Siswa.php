@@ -50,74 +50,17 @@ class Siswa extends CI_Controller
   { 
     $Id = $this->input->post('id');
     $namal = $this->input->post('nama-lengkap');
-    $namap = $this->input->post('nama-panggilan');
     $nisn = $this->input->post('nisn');
-    $nik = $this->input->post('nik');
-    $jk = $this->input->post('jk');
-    $tl = ucwords(strtolower($this->input->post('tempat-lahir')));
-    $provl = $this->input->post('prov-lahir');
-    $tgl = $this->input->post('tanggal-lahir');
-    $agm = $this->input->post('agama');
-    $kw = ucwords(strtolower($this->input->post('kw')));
-    $anakke = $this->input->post('anak-ke');
-    $stat = $this->input->post('stat-anak');
     $jalan = $this->input->post('jalan');
     $rt = $this->input->post('rt');
     $rw = $this->input->post('rw');
     $desa = ucwords(strtolower($this->input->post('desa')));
     $kec = ucwords(strtolower($this->input->post('kec')));
     $kab = ucwords(strtolower($this->input->post('kab')));
-    $notelp = $this->input->post('notelp');
-    $goldar = $this->input->post('goldar');
-    $tb = $this->input->post('tb');
-    $bb = $this->input->post('bb');
-    $hobik = $this->input->post('hobi-kes');
-    $hobio = $this->input->post('hobi-or');
-    $hobim = $this->input->post('hobi-masy');
-    $hobil = $this->input->post('hobi-lain');
-    $tinggal = $this->input->post('tinggal');
     $namaayah = $this->input->post('nama-ayah');
-    $ttlayah = $this->input->post('ttl-ayah');
-    $agamaayah = $this->input->post('agama-ayah');
-    $kwayah = ucwords(strtolower($this->input->post('kw-ayah')));
-    $pddayah = $this->input->post('pdd-ayah');
-    $pkayah = $this->input->post('pk-ayah');
-    $phayah = $this->input->post('ph-ayah');
-    $notelpayah = $this->input->post('notelp-ayah');
-    $statayah = $this->input->post('stat-ayah');
     $namaibu = $this->input->post('nama-ibu');
-    $ttlibu = $this->input->post('ttl-ibu');
-    $agamaibu = $this->input->post('agama-ibu');
-    $kwibu = ucwords(strtolower($this->input->post('kw-ibu')));
-    $pddibu = $this->input->post('pdd-ibu');
-    $pkibu = $this->input->post('pk-ibu');
-    $phibu = $this->input->post('ph-ibu');
-    $notelpibu = $this->input->post('notelp-ibu');
-    $statibu = $this->input->post('stat-ibu');
     $namawali = $this->input->post('nama-wali');
-    $ttlwali = $this->input->post('ttl-wali');
-    $agamawali = $this->input->post('agama-wali');
-    $kwwali = ucwords(strtolower($this->input->post('kw-wali')));
-    $pddwali = $this->input->post('pdd-wali');
-    $pkwali = $this->input->post('pk-wali');
-    $phwali = $this->input->post('ph-wali');
-    $notelpwali = $this->input->post('notelp-wali');
-    $hubwali = $this->input->post('hub-wali');
     $np = $this->input->post('no-pend');
-    $nourut = $this->input->post('no-urut');
-    $asal = $this->input->post('asal');
-    $masukkelas = $this->input->post('masuk-kelas');
-    $masukjalur = $this->input->post('masuk-jalur');
-    $masuktgl = $this->input->post('masuk-tgl');
-    $pindahanasal = $this->input->post('pindahan-asal');
-    $pindahanalasan = $this->input->post('pindahan-alasan');
-    $jmlkd = $this->input->post('jml-kd');
-    $jmltr = $this->input->post('jml-tr');
-    $jmlak = $this->input->post('jml-ak');
-    $jarak = $this->input->post('jarak');
-    $penyakit = $this->input->post('penyakit');
-    $kelainan = $this->input->post('kelainan');
-    $bahasa = implode(", ",$this->input->post('bahasa'));
     if (empty($_POST['alamatcheck'])) {
       $alamatortu = $this->input->post('alamat-ortu');
     } else {
@@ -126,60 +69,60 @@ class Siswa extends CI_Controller
 
     $data = array(
         'nama_lengkap' => ucwords(strtolower($namal)),
-        'nama_panggilan' => ucwords(strtolower($namap)),
+        'nama_panggilan' => ucwords(strtolower($this->input->post('nama-panggilan'))),
         'nisn' => $nisn,
-        'nik' => $nik,
-        'jk' => $jk,
-        'tempat_lahir' => $tl,
-        'prov_lahir' => $provl,
-        'tgl_lahir' => $tgl,
-        'agama' => $agm,
-        'kw' => $kw,
-        'anak_ke' => $anakke,
-        'status_anak' => $stat,
+        'nik' => $this->input->post('nik'),
+        'jk' => $this->input->post('jk'),
+        'tempat_lahir' => ucwords(strtolower($this->input->post('tempat-lahir'))),
+        'prov_lahir' => $this->input->post('prov-lahir'),
+        'tgl_lahir' => $this->input->post('tanggal-lahir'),
+        'agama' => $this->input->post('agama'),
+        'kw' => ucwords(strtolower($this->input->post('kw'))),
+        'anak_ke' => $this->input->post('anak-ke'),
+        'status_anak' => $this->input->post('stat-anak'),
         'jalan' => $jalan,
         'rt' => $rt,
         'rw' => $rw,
         'desa' => $desa,
         'kec' => $kec,
         'kab' => $kab,
-        'notelp' => $notelp,
-        'goldar' => $goldar,
-        'tinggi_badan' => $tb,
-        'berat_badan' => $bb,
-        'hobi_kes' => $hobik,
-        'hobi_or' => $hobio,
-        'hobi_masy' => $hobim,
-        'hobi_lain' => $hobil,
-        'tinggal' => $tinggal,
+        'notelp' => $this->input->post('notelp'),
+        'goldar' => $this->input->post('goldar'),
+        'tinggi_badan' => $this->input->post('tb'),
+        'berat_badan' => $this->input->post('bb'),
+        'hobi_kes' => $this->input->post('hobi-kes'),
+        'hobi_or' => $this->input->post('hobi-or'),
+        'hobi_masy' => $this->input->post('hobi-masy'),
+        'hobi_lain' => $this->input->post('hobi-lain'),
+        'tinggal' => $this->input->post('tinggal'),
         'nama_ayah' => ucwords(strtolower($namaayah)),
-        'ttl_ayah' => ucwords(strtolower($ttlayah)),
-        'agama_ayah' => $agamaayah,
-        'kw_ayah' => $kwayah,
-        'pdd_ayah' => $pddayah,
-        'pk_ayah' => $pkayah,
-        'ph_ayah' => $phayah,
-        'notelp_ayah' => $notelpayah,
-        'status_ayah' => $statayah,
+        'ttl_ayah' => ucwords(strtolower($this->input->post('ttl-ayah'))),
+        'agama_ayah' => $this->input->post('agama-ayah'),
+        'kw_ayah' => ucwords(strtolower($this->input->post('kw-ayah'))),
+        'pdd_ayah' => $this->input->post('pdd-ayah'),
+        'pk_ayah' => $this->input->post('pk-ayah'),
+        'ph_ayah' => $this->input->post('ph-ayah'),
+        'notelp_ayah' => $this->input->post('notelp-ayah'),
+        'status_ayah' => $this->input->post('stat-ayah'),
         'alamat_ortu' => $alamatortu,
         'nama_ibu' => ucwords(strtolower($namaibu)),
-        'ttl_ibu' => ucwords(strtolower($ttlibu)),
-        'agama_ibu' => $agamaibu,
-        'kw_ibu' => $kwibu,
-        'pdd_ibu' => $pddibu,
-        'pk_ibu' => $pkibu,
-        'ph_ibu' => $phibu,
-        'notelp_ibu' => $notelpibu,
-        'status_ibu' => $statibu,
+        'ttl_ibu' => ucwords(strtolower($this->input->post('ttl-ibu'))),
+        'agama_ibu' => $this->input->post('agama-ibu'),
+        'kw_ibu' => ucwords(strtolower($this->input->post('kw-ibu'))),
+        'pdd_ibu' => $this->input->post('pdd-ibu'),
+        'pk_ibu' => $this->input->post('pk-ibu'),
+        'ph_ibu' => $this->input->post('ph-ibu'),
+        'notelp_ibu' => $this->input->post('notelp-ibu'),
+        'status_ibu' => $this->input->post('stat-ibu'),
         'nama_wali' => ucwords(strtolower($namawali)),
-        'ttl_wali' => ucwords(strtolower($ttlwali)),
-        'agama_wali' => $agamawali,
-        'kw_wali' => $kwwali,
-        'pdd_wali' => $pddwali,
-        'pk_wali' => $pkwali,
-        'ph_wali' => $phwali,
-        'notelp_wali' => $notelpwali,
-        'hub_wali' => $hubwali,
+        'ttl_wali' => ucwords(strtolower($this->input->post('ttl-wali'))),
+        'agama_wali' => $this->input->post('agama-wali'),
+        'kw_wali' => ucwords(strtolower($this->input->post('kw-wali'))),
+        'pdd_wali' => $this->input->post('pdd-wali'),
+        'pk_wali' => $this->input->post('pk-wali'),
+        'ph_wali' => $this->input->post('ph-wali'),
+        'notelp_wali' => $this->input->post('notelp-wali'),
+        'hub_wali' => $this->input->post('hub-wali'),
         'jalan_wali' => $this->input->post('jalan-wali'),
         'rt_wali' => $this->input->post('rt-wali'),
         'rw_wali' => $this->input->post('rw-wali'),
@@ -187,20 +130,19 @@ class Siswa extends CI_Controller
         'kec_wali' => $this->input->post('kec-wali'),
         'kab_wali' => $this->input->post('kab-wali'),
         'no_pendaftaran' => $np,
-        'no_urut' => $nourut,
-        'masuk_kelas' => $masukkelas,
-        'masuk_jalur' => $masukjalur,
-        'masuk_tgl' => $masuktgl,
-        'pindahan_asal' => $pindahanasal,
-        'pindahan_alasan' => $pindahanalasan,
-        'jml_saudara_kd' => $jmlkd,
-        'jml_saudara_tr' => $jmltr,
-        'jml_saudara_ak' => $jmlak,
-        'jarak' => $jarak,
-        'penyakit' => $penyakit,
-        'kelainan' => $kelainan,
-        'bahasa' => $bahasa,
-        'password' => $nisn,
+        'no_urut' => $this->input->post('no-urut'),
+        'masuk_kelas' => $this->input->post('masuk-kelas'),
+        'masuk_jalur' => $this->input->post('masuk-jalur'),
+        'masuk_tgl' => $this->input->post('masuk-tgl'),
+        'pindahan_asal' => $this->input->post('pindahan-asal'),
+        'pindahan_alasan' => $this->input->post('pindahan-alasan'),
+        'jml_saudara_kd' => $this->input->post('jml-kd'),
+        'jml_saudara_tr' => $this->input->post('jml-tr'),
+        'jml_saudara_ak' => $this->input->post('jml-ak'),
+        'jarak' => $this->input->post('jarak'),
+        'penyakit' => $this->input->post('penyakit'),
+        'kelainan' => $this->input->post('kelainan'),
+        'bahasa' => implode(", ",$this->input->post('bahasa')),
         'no_kks' => $this->input->post('no-kks'),
         'no_pkh' => $this->input->post('no-pkh'),
         'no_kip' => $this->input->post('no-kip'),
@@ -209,7 +151,7 @@ class Siswa extends CI_Controller
         'no_kk' => $this->input->post('no-kk'),
         'transport' => $this->input->post('transport'),
         'email' => $this->input->post('email'),
-        'asal' => $asal,
+        'asal' => $this->input->post('asal'),
         'smp_npsn' => $this->input->post('smp-npsn'),
         'smp_no' => $this->input->post('smp-no'),
         'smp_tgl' => $this->input->post('smp-tgl'),
@@ -217,20 +159,20 @@ class Siswa extends CI_Controller
         'sd_npsn' => $this->input->post('sd-npsn'),
         'sd_no' => $this->input->post('sd-no'),
         'sd_tgl' => $this->input->post('sd-tgl'),
+        'password' => $nisn,
         'status_verifikasi' => '1'
       );
-      // $cek = array('nisn' => $nisn);
-      // if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 0){
-      // $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Data $nisn gagal diinput, duplikasi"));
-      // redirect("siswa");    
-      // } else {
+      $cek = array('nisn' => $nisn);
+      if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 1){
+        $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Mohon cek kembali data <b>NISN $nisn</b>, terdapat duplikasi di sistem"));  
+      } else {
+        $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data <strong>$namal</strong> berhasil diupdate"));
+      };
       $where = array('id_siswa' => $Id);
       $this->Model_APS->proses_update($where,$data,'siswa');
       $this->session->set_userdata(['nama' => $namal, 'no_pendaftaran' => $np, 'nisn' => $nisn, 'ayah' => $namaayah, 'ibu' => $namaibu, 'wali' => $namawali]);
       $this->Model_APS->qr($nisn);
-      $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data <strong>$namal</strong> berhasil diupdate"));
       redirect('siswa/data');
-      // };
   }
 
   function data()

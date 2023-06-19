@@ -12,7 +12,7 @@
   </div>
   <!-- Validation Wizard -->
   <div class="col-12 mb-4">
-    <small class="text-light fw-semibold">Harap cek kembali data anda sebelum ke langkah berikutnya</small>
+    <small class="text-light fw-semibold">Harap cek kembali data anda sebelum ke langkah berikutnya, isi dengan '-' jika data kosong</small>
     <div id="wizard-validation" class="bs-stepper wizard-modern mt-2">
       <div class="flex-row bs-stepper-header">
         <div class="step" data-target="#data1">
@@ -148,12 +148,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="tanggal-lahir">Tanggal Lahir</label>
-                <div class="form-group col-md-12" id="simple-date2">
-                    <div class="input-group date">
-                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
-                      <input type="text" class="form-control" name="tanggal-lahir" id="tanggal-lahir" placeholder="YYYY-MM-DD">
-                    </div>
-                </div>
+                  <input type="date" class="form-control simple-date2" name="tanggal-lahir" id="tanggal-lahir">
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="agama">Agama</label>
@@ -552,12 +547,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="smp-tgl">Tanggal Ijazah SMP/MTs</label>
-                <div class="form-group col-md-12" id="simple-date2">
-                    <div class="input-group date">
-                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
-                      <input type="text" class="form-control" name="smp-tgl" id="smp-tgl" placeholder="YYYY-MM-DD">
-                    </div>
-                </div>
+                <input type="date" class="form-control simple-date2" name="smp-tgl" id="smp-tgl">
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="sd-asal">Asal SD/MI</label>
@@ -574,12 +564,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="sd-tgl">Tanggal Ijazah SD/MI</label>
-                <div class="form-group col-md-12" id="simple-date2">
-                    <div class="input-group date">
-                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
-                      <input type="text" class="form-control" name="sd-tgl" id="sd-tgl" placeholder="YYYY-MM-DD">
-                    </div>
-                </div>
+                <input type="date" class="form-control simple-date2" name="sd-tgl" id="sd-tgl">
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="no-akta">No. Akta Kelahiran</label>
@@ -603,12 +588,7 @@
               </div>
               <div class="col-sm-6">
                 <label class="form-label" for="masuk-tgl">Diterima Tanggal</label>
-                <div class="form-group col-md-12" id="simple-date2">
-                    <div class="input-group date">
-                      <button class="btn btn-outline-primary" type="button"><i class="bx bx-calendar"></i></button>
-                      <input type="text" class="form-control" name="masuk-tgl" id="masuk-tgl" placeholder="YYYY-MM-DD">
-                    </div>
-                </div>
+                <input type="date" class="form-control simple-date2" name="masuk-tgl" id="masuk-tgl">
               </div>
               </div>
               <hr class="my-4 mx-n4" />
