@@ -6,15 +6,18 @@
               <div class="d-flex justify-content-between">
                 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang/</span> Data diri</h4> 
                 <div class="flex-column my-auto">
-                <a href="<?= base_url("siswa")?>" class="btn btn-outline-primary">
-                <i class="bx bx-edit me-sm-1"></i> <span class="d-none d-sm-inline-block" >Edit</span>
-                </a>
-                <?php if ($this->session->userdata('role') > 0){
-                  echo '<a href="'.base_url("admin/verifikasi/verif/".$tp->nisn).'" class="btn btn-outline-primary"><i class="bx bxs-user-check" ></i> <span class="d-none d-sm-inline-block" >Verifikasi</span></a>';
-                }
-                ?>
+                  <?php if ($this->session->userdata('role') > 0){
+                  echo '<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                  <a href="'.base_url("admin/verifikasi/verif/".$tp->nisn).'" class="btn btn-outline-primary"><i class="bx bxs-user-check" ></i> Verifikasi</a>
+                  <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bx bxs-file-pdf"></i><span class="d-none d-sm-inline-block"> Unduh</span></button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                    <a href="'.base_url("aksi/unduh/".$tp->nisn).'/ayah" class="dropdown-item">Ayah</a>
+                    <a href="'.base_url("aksi/unduh/".$tp->nisn).'/ibu" class="dropdown-item">Ibu</a>
+                    <a href="'.base_url("aksi/unduh/".$tp->nisn).'/wali" class="dropdown-item">Wali</a>
+                    </div></div></div>';
+                } else { echo '<a href="'.base_url("siswa").'" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> <span class="d-none d-sm-inline-block">Edit</span></a>'; } ?>
                 </div>
-
               </div>
               <?php if ($this->session->flashdata('alert') == !""){ 
                 $data = $this->session->flashdata('alert');

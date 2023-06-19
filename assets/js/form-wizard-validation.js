@@ -63,7 +63,7 @@
                         validators: {
                             notEmpty: {
                                 message: "Data isian tidak boleh kosong"
-                            }
+                            },
                         }
                     }, "agama": {
                         validators: {
@@ -631,12 +631,10 @@ function wali() {
     maxFiles:1
 };
 }();
-
 !function(){
     setTimeout(()=> {
     var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
-
                 if (this.readyState == 4 &&
                     this.status == 200) {
                     var myObj = JSON.parse(this.responseText);
@@ -707,10 +705,9 @@ function wali() {
                         $('#ph-ibu').selectpicker('val', myObj.data[0].ph_ibu);
                         document.getElementById("notelp-ibu").value = myObj.data[0].notelp_ibu;
                         document.getElementById("stat-ibu").value = myObj.data[0].status_ibu;
-                        
                         if (myObj.data[0].nama_wali=='-') {}
                         else {
-                        setTimeout(()=> {document.getElementById("walicheck").checked = true;wali();},3e3);
+                        setTimeout(()=> {document.getElementById("walicheck").checked = true;wali();},2e3);
                         document.getElementById("nama-wali").value = myObj.data[0].nama_wali;
                         document.getElementById("ttl-wali").value = myObj.data[0].ttl_wali;
                         $('#agama-wali').selectpicker('val', myObj.data[0].agama_wali);
@@ -760,15 +757,13 @@ function wali() {
                         const bhsArray = bahasa.split(", ");
                         $('#bahasa').selectpicker('val', bhsArray); };
                     });
-
                 }
             };
-
             xmlhttp.open("GET", appPath+"aksi/data/sendiri", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send();
         },1000);
-        $('#simple-date2 .input-group.date').datepicker({
+        $('.simple-date2g').datepicker({
             startView: 2,
             format: 'yyyy-mm-dd',
             autoclose: true,
