@@ -162,16 +162,11 @@ class Siswa extends CI_Controller
         'password' => $nisn,
         'status_verifikasi' => '1'
       );
-      $cek = array('nisn' => $nisn);
-      if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 1){
-        $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Mohon cek kembali data <b>NISN $nisn</b>, terdapat duplikasi di sistem"));  
-      } else {
-        $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data <strong>$namal</strong> berhasil diupdate"));
-      };
       $where = array('id_siswa' => $Id);
       $this->Model_APS->proses_update($where,$data,'siswa');
       $this->session->set_userdata(['nama' => $namal, 'no_pendaftaran' => $np, 'nisn' => $nisn, 'ayah' => $namaayah, 'ibu' => $namaibu, 'wali' => $namawali]);
       $this->Model_APS->qr($nisn);
+      $this->session->set_flashdata('alert',array('tipe' => 'success', 'isi' => "Data <strong>$namal</strong> berhasil diupdate"));
       redirect('siswa/data');
   }
 
@@ -180,12 +175,17 @@ class Siswa extends CI_Controller
     if (!$this->session->userdata('no_pendaftaran')) {
       redirect('siswa');
     } else {
+    $cek = array('nisn' => $this->session->userdata('nisn'));
+    if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 1){
+      $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Mohon cek kembali data <b>NISN ".$this->session->userdata('nisn')."</b>, terdapat duplikasi di sistem"));  
+      redirect('siswa');
+    } else {
       $id = $this->session->userdata('nisn');
       $where = array('nisn' => $id);
       $data['bio'] = $this->Model_APS->edit_data('siswa', $where)->result();
       $this->load->view('menu/siswa/lihat', $data);
       $this->load->view('layout/footer');
-    };
+    };};
   }
 
   function unduhan($ttd=null)
@@ -193,6 +193,11 @@ class Siswa extends CI_Controller
 	if (!$this->session->userdata('no_pendaftaran')) {
       redirect('siswa');
     } else {
+      $cek = array('nisn' => $this->session->userdata('nisn'));
+      if($this->Model_APS->cek_akun('siswa',$cek)->num_rows() > 1){
+        $this->session->set_flashdata('alert',array('tipe' => 'danger', 'isi' => "Mohon cek kembali data <b>NISN ".$this->session->userdata('nisn')."</b>, terdapat duplikasi di sistem"));  
+        redirect('siswa');
+      } else {
     switch ($ttd) {
       case "ayah" : $data['siswa'] = $this->db->query('SELECT *,nama_ayah AS ttdnama,ttl_ayah AS ttdttl,pk_ayah AS ttdpk,alamat_ortu as ttdalamat, notelp_ayah as ttdtelp, agama_ayah AS ttdagama FROM siswa WHERE id_siswa='.$this->session->userdata('id'))->result();
                     $data['tombol'] = 0; 
@@ -208,7 +213,7 @@ class Siswa extends CI_Controller
   };
     $this->load->view('menu/siswa/unduhan',$data);
     $this->load->view('layout/footer');
-  };
+  };};
   }
   
   function formunduhan($tujuan=null)
