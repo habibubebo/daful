@@ -16,7 +16,7 @@
                     <a href="'.base_url("aksi/unduh/".$tp->nisn).'/ibu" class="dropdown-item">Ibu</a>
                     <a href="'.base_url("aksi/unduh/".$tp->nisn).'/wali" class="dropdown-item">Wali</a>
                     </div></div></div>';
-                } else { echo '<a href="'.base_url("siswa").'" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> <span class="d-none d-sm-inline-block">Edit</span></a>'; } ?>
+                } else { echo '<a href="'.base_url("siswa").'" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> Edit</a>'; } ?>
                 </div>
               </div>
               <?php if ($this->session->flashdata('alert') == !""){ 
@@ -641,6 +641,10 @@
             </div>          -->
             <?php } ?>   
               <!-- /upload  -->
+              <div class="fixed-bottom">
+              <a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="<?= base_url('siswa/unduhan') ?>">Unduh Bukti</a>
+              </div>
+
             <script type="text/javascript"> 
               document.title = "Biodata <?= $this->session->userdata('nama')?>";
               document.getElementById("menu1").classList.add("active","open");
