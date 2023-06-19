@@ -115,6 +115,7 @@
                               </div>
                               <form action="<?php echo base_url() . 'aksi/akun/update'; ?>" method="POST">
                               <div class="modal-body">
+                              <small class="text-primary">Akun siswa login kembali menggunakan jalur masuk dan nomor urut</small>
                               <div class="row" hidden>
                                   <div class="col mb-3">
                                     <label for="id-siswa" class="form-label">Id</label>
