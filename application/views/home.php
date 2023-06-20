@@ -192,7 +192,8 @@
                 </a>
               </p>
               <div class="d-flex justify-content-center">
-              <a class="btn btn-label-secondary" href="<?= base_url('home/list') ?>">Lihat Daftar Siswa</a>
+              <a class="btn btn-label-secondary" href="<?= $profil[0]->panitia ?>">Lihat Daftar Siswa</a>
+              <!-- <a class="btn btn-label-secondary" href="<?= base_url('home/list') ?>">Lihat Daftar Siswa</a> -->
               </div>
       </div>
     </div>
