@@ -12,7 +12,7 @@
 - [X] Clone/Download repository `git clone https://github.com/habibubebo/daful.git` dan pindah ke folder `daful`
 - [X] Jalankan [Composer](https://getcomposer.org/download) Install/Update `composer update --prefer-dist -vvv`
 - [X] Setup koneksi database pada `.env`
-- [X] Atur environment pada index.php sesuai dengan kebutuhan, terdapat 3 pilihan yaitu developmpent, testing, production
+- [X] Atur environment pada index.php sesuai dengan kebutuhan, terdapat 3 pilihan yaitu development, testing, production
 
 ## buat file .env di dalam folder Application yang berisi :
 ```lang=bash
