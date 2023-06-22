@@ -77,6 +77,7 @@ class Aksi extends CI_Controller
           $jalur = $this->input->post('masuk-jalur');
           $no_urut = $this->input->post('no-urut');
           $nama = $this->input->post('nama');
+          $nisn = $this->input->post('nisn');
           $cek = array('masuk_jalur' => $jalur, 'no_urut' => $no_urut);
           if ($this->Model_APS->cek_akun('siswa', $cek)->num_rows() > 0) {
             $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data $jalur dengan No. Urut $no_urut gagal diinput, duplikasi"));
@@ -85,8 +86,9 @@ class Aksi extends CI_Controller
             $data = array(
               'admin' => $this->session->userdata('id'),
               'masuk_jalur' => $jalur,
-              'password' => $no_urut,
+              'password' => $nisn,
               'no_urut' => $no_urut,
+              'nisn' => $nisn,
               'nama_lengkap' => $nama,
               'bahasa' => '0',
               'tgl_siswa' => date('Y-m-d H:i:s')
@@ -146,11 +148,12 @@ class Aksi extends CI_Controller
           $jalur = $this->input->post('masuk-jalurEdit');
           $no_urut = $this->input->post('no-urutEdit');
           $nama = $this->input->post('namaEdit');
-
+          $nisn = $this->input->post('nisnEdit');
           $data = array(
             'masuk_jalur' => $jalur,
-            'password' => $no_urut,
+            'password' => $nisn,
             'no_urut' => $no_urut,
+            'nisn' => $nisn,
             'nama_lengkap' => $nama
           );
           $where = array('id_siswa' => $Id);
