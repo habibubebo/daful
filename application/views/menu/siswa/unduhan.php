@@ -3,6 +3,9 @@
 
   <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang/</span> Unduhan</h4>
+    <div class="alert alert-info" role="alert">
+      Dicetak di kertas ukuran Folio / F4
+    </div>
     <?php if ($this->session->flashdata('alert') == !"") {
       $data = $this->session->flashdata('alert');
       echo '<div class="alert alert-' . $data['tipe'] . ' alert-dismissible" role="alert">' . $data['isi'] . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';

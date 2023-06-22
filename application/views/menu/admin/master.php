@@ -422,6 +422,34 @@
                         }
                     });
                 });
+                $('.txtedit.jm').focusout(function() {
+                    // Get edit id, field name and value
+                    var edit_id = $(this).data('id');
+                    var fieldname = $(this).data('field');
+                    var value = $(this).val();
+
+                    // Hide Input element
+                    $(this).hide();
+
+                    // Update viewing value and display it
+                    $(this).prev('.edit').show();
+                    $(this).prev('.edit').text(value);
+
+                    // Send AJAX request
+                    $.ajax({
+                        url: '<?= base_url() ?>admin/updatemaster/jm',
+                        type: 'post',
+                        data: {
+                            field: fieldname,
+                            value: value,
+                            id: edit_id
+                        },
+                        success: function(response) {
+                            console.log(response);
+
+                        }
+                    });
+                });
                 $('.txtedit.info').focusout(function() {
                     // Get edit id, field name and value
                     var edit_id = $(this).data('id');

@@ -84,7 +84,6 @@
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="nisn">NISN</label>
-                  <small class="text-primary">Ingat! ini akan menjadi password baru di akun anda</small>
                   <input type="number" name="nisn" id="nisn" class="form-control" placeholder="NISN" />
                 </div>
                 <div class="col-sm-6">
@@ -525,8 +524,9 @@
               </div>
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <label class="form-label" for="no-pend">No. Pendaftaran / PIN</label>
-                  <input type="text" id="no-pend" name="no-pend" class="form-control" placeholder="No. pendaftaran" />
+                  <label class="form-label" for="no-pend">PIN Pendaftaran</label>
+                  <small class="text-primary">Ingat! ini akan menjadi password baru di akun anda</small>
+                  <input type="text" id="no-pend" name="no-pend" class="form-control" placeholder="PIN pendaftaran" />
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="no-urut">Nomor urut ketika diterima</label>

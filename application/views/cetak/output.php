@@ -637,7 +637,7 @@
           padding-left: 1px;
           mso-ignore: padding;
           color: black;
-          font-size: 11.0pt;
+          font-size: 10.0pt;
           font-weight: 400;
           font-style: normal;
           text-decoration: none;
@@ -645,7 +645,6 @@
           mso-font-charset: 0;
           mso-number-format: General;
           text-align: left;
-          vertical-align: bottom;
           mso-background-source: auto;
           mso-pattern: auto;
           white-space: nowrap;
@@ -958,7 +957,7 @@
             <td class=xl698599>JALAN</td>
             <td class=xl698599></td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->jalan ?></td>
+            <td class=xl918599><?= $tp->jalan ?></td>
           </tr>
           <tr height=18 style='mso-height-source:userset;height:13.5pt'>
             <td height=18 class=xl668599 style='height:13.5pt'></td>
@@ -966,7 +965,7 @@
             <td class=xl698599>DESA/KEL</td>
             <td class=xl698599></td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->desa ?></td>
+            <td class=xl918599><?= $tp->desa ?></td>
           </tr>
           <tr height=18 style='mso-height-source:userset;height:13.5pt'>
             <td height=18 class=xl668599 style='height:13.5pt'></td>
@@ -989,7 +988,7 @@
             <td colspan=2 class=xl678599>NAMA ORANG TUA</td>
             <td class=xl698599>AYAH<span style='mso-spacerun:yes'> </span></td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->nama_ayah ?></td>
+            <td class=xl918599><?= $tp->nama_ayah ?></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl668599 style='height:15.75pt'></td>
@@ -997,14 +996,14 @@
             <td class=xl698599></td>
             <td class=xl698599>IBU</td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->nama_ibu ?></td>
+            <td class=xl918599><?= $tp->nama_ibu ?></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl668599 style='height:15.75pt'>12.</td>
             <td colspan=2 class=xl678599>PEKERJAAN ORANG TUA</td>
             <td class=xl698599>AYAH<span style='mso-spacerun:yes'> </span></td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->pk_ayah ?></td>
+            <td class=xl918599><?= $tp->pk_ayah ?></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl668599 style='height:15.75pt'></td>
@@ -1012,14 +1011,14 @@
             <td class=xl698599></td>
             <td class=xl698599>IBU</td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->pk_ibu ?></td>
+            <td class=xl918599><?= $tp->pk_ibu ?></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl668599 style='height:15.75pt'>13.</td>
             <td colspan=2 class=xl678599>PENGHASILAN ORANG TUA</td>
             <td class=xl698599>AYAH<span style='mso-spacerun:yes'> </span></td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->ph_ayah ?></td>
+            <td class=xl918599><?= $tp->ph_ayah ?></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl668599 style='height:15.75pt'></td>
@@ -1027,7 +1026,7 @@
             <td class=xl718599></td>
             <td class=xl698599>IBU</td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->ph_ibu ?></td>
+            <td class=xl918599><?= $tp->ph_ibu ?></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl668599 style='height:15.75pt'>14.</td>
@@ -1372,7 +1371,7 @@
             <td class=xl678599>RT / RW</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl928599><?= $tp->rt ?> / <?= $tp->rw ?></td>
+            <td class=xl918599><?= $tp->rt ?> / <?= $tp->rw ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1380,7 +1379,7 @@
             <td class=xl678599>Jalan</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl928599><?= $tp->jalan ?></td>
+            <td class=xl918599><?= $tp->jalan ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1388,7 +1387,7 @@
             <td class=xl678599>Desa/Kelurahan</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl928599><?= $tp->desa ?></td>
+            <td class=xl918599><?= $tp->desa ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1722,7 +1721,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class=xl958599><?= $tp->alamat_ortu ?></td>
+            <td class=xl928599><?= $tp->alamat_ortu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1817,7 +1816,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class=xl958599><?= $tp->alamat_ortu ?></td>
+            <td class=xl928599><?= $tp->alamat_ortu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1978,51 +1977,64 @@
             <td class=xl958599><?= $tp->hobi_lain ?></td>
           </tr>
           <tr height=22 style='mso-height-source:userset;height:13pt'>
+            <td height=22 class=xl778599 style='height:13pt'></td>
+            <td colspan=2 class=xl768599></td>
+            <td class=xl768599></td>
+            <td class=xl768599></td>
+            <td class=xl768599></td>
+          </tr>
+          <tr height=22 style='mso-height-source:userset;height:13pt'>
             <td height=22 class=xl778599 style='height:13pt'>I.</td>
             <td colspan=2 class=xl768599>DATA TAMBAHAN (Jika Ada)</td>
             <td class=xl768599></td>
             <td class=xl768599></td>
             <td class=xl768599></td>
           </tr>
-          <tr height=18 style='mso-height-source:userset;height:10pt'>
-            <td class=xl758599></td>
+          <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+            <td height=22 class=xl758599 style='height:16.5pt'></td>
             <td class=xl718599>55.</td>
             <td class=xl718599>Nomor KKS</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
             <td class=xl958599><?= $tp->no_kks ?></td>
           </tr>
-          <tr height=18 style='mso-height-source:userset;height:10pt'>
-            <td class=xl758599></td>
+          <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+            <td height=22 class=xl758599 style='height:16.5pt'></td>
             <td class=xl718599>56.</td>
             <td class=xl718599>Nomor PKH</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
             <td class=xl958599><?= $tp->no_pkh ?></td>
           </tr>
-          <tr height=18 style='mso-height-source:userset;height:10pt'>
-            <td class=xl758599></td>
+          <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+            <td height=22 class=xl758599 style='height:16.5pt'></td>
             <td class=xl718599>57.</td>
             <td class=xl718599>Nomor KIP</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
             <td class=xl958599><?= $tp->no_kip ?></td>
           </tr>
-          <tr height=18 style='mso-height-source:userset;height:10pt'>
-            <td class=xl758599></td>
+          <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+            <td height=22 class=xl758599 style='height:16.5pt'></td>
             <td class=xl718599>58.</td>
             <td class=xl718599>Nomor KIS</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
             <td class=xl958599><?= $tp->no_kis ?></td>
           </tr>
-          <tr height=20 style='mso-height-source:userset;height:20pt'>
-            <td class=xl758599></td>
-            <td class=xl718599></td>
-            <td class=xl718599></td>
-            <td class=xl718599></td>
-            <td class=xl718599></td>
-            <td class=xl718599></td>
+          <tr height=22 style='mso-height-source:userset;height:13pt'>
+            <td height=22 class=xl778599 style='height:13pt'></td>
+            <td colspan=2 class=xl768599></td>
+            <td class=xl768599></td>
+            <td class=xl768599></td>
+            <td class=xl768599></td>
+          </tr>
+          <tr height=22 style='mso-height-source:userset;height:13pt'>
+            <td height=22 class=xl778599 style='height:13pt'></td>
+            <td colspan=2 class=xl768599></td>
+            <td class=xl768599></td>
+            <td class=xl768599></td>
+            <td class=xl768599></td>
           </tr>
           <tr height=21 style='mso-height-source:userset;height:15.75pt'>
             <td height=21 class=xl758599 style='height:15.75pt'></td>
@@ -2187,7 +2199,7 @@
             <td class=xl678599>Alamat Orang Tua/ Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->alamat_ortu ?></td>
+            <td class=xl928599><?= $tp->alamat_ortu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2415,7 +2427,7 @@
             <td class=xl678599>Alamat Orang Tua/ Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->ttdalamat ?></td>
+            <td class=xl928599><?= $tp->ttdalamat ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
