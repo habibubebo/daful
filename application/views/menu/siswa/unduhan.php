@@ -15,6 +15,7 @@
           height: 20vh;
         }
       }
+
       @media (min-width: 700px) {
         .preview {
           height: 100vh;
@@ -25,14 +26,14 @@
       <div class="col-xl-9 col-md-8 col-12 mb-md-0">
         <div class="card overflow-hidden mb-4 preview">
           <div class="card-body m-0 p-0 d-flex align-content-center" id="both-scrollbars">
-          <div class="spinner-grow text-primary m-auto" style="position: relative;" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <?php if ($tombol == 0) {
-              echo '<object style="position: absolute;" data="'.base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ayah#navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%"></object>';
-          } else if ($tombol == 1) {
-            echo '<object style="position: absolute;" data="'.base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ibu#navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%"></object>';
-          } else echo '<object style="position: absolute;" data="'.base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/wali#navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%"></object>';  
+            <div class="spinner-grow text-primary m-auto" style="position: relative;" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <?php if ($tombol == 0) {
+              echo '<object style="position: absolute;" data="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ayah#navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%"></object>';
+            } else if ($tombol == 1) {
+              echo '<object style="position: absolute;" data="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ibu#navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%"></object>';
+            } else echo '<object style="position: absolute;" data="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/wali#navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%"></object>';
             ?>
           </div>
         </div>

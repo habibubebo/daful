@@ -22,7 +22,7 @@
               </div>
               <div class="form-check custom-option custom-option-basic mb-3">
                 <label class="form-check-label custom-option-content" for="customRadioIbu">
-                  <input class="form-check-input" type="radio" name="customRadioTemp" value="ibu" id="customRadioIbu"/>
+                  <input class="form-check-input" type="radio" name="customRadioTemp" value="ibu" id="customRadioIbu" />
                   <span class="custom-option-header pb-0">
                     <span class="fw-semibold">Ibu</span>
                     <span><?= $this->session->userdata('ibu') ?></span>
@@ -31,7 +31,7 @@
               </div>
               <div class="form-check custom-option custom-option-basic mb-3">
                 <label class="form-check-label custom-option-content" for="customRadioWali">
-                <input class="form-check-input" type="radio" name="customRadioTemp" value="wali" id="customRadioWali"/>
+                  <input class="form-check-input" type="radio" name="customRadioTemp" value="wali" id="customRadioWali" />
                   <span class="custom-option-header pb-0">
                     <span class="fw-semibold">Wali</span>
                     <span><?= $this->session->userdata('wali') ?></span>
