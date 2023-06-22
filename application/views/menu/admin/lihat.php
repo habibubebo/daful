@@ -58,6 +58,13 @@
                   <input type="text" id="no-urut" name="no-urut" class="form-control" placeholder="no. urut disini" />
                 </div>
                 <div class="col mb-0">
+                  <label for="nisn" class="form-label">NISN</label>
+                  <small class="text-primary">*Password default</small>
+                  <input type="text" id="nisn" name="nisn" class="form-control" placeholder="NISN Siswa" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-0">
                   <label for="nama" class="form-label">Nama</label>
                   <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Siswa" />
                 </div>
@@ -94,7 +101,6 @@
           </div>
           <form action="<?php echo base_url() . 'aksi/akun/update'; ?>" method="POST">
             <div class="modal-body">
-              <small class="text-primary">Akun siswa login kembali menggunakan jalur masuk dan nomor urut</small>
               <div class="row" hidden>
                 <div class="col mb-3">
                   <label for="id-siswa" class="form-label">Id</label>
@@ -117,6 +123,13 @@
                   <label for="no-urutEdit" class="form-label">Nomor Urut</label>
                   <input type="text" id="no-urutEdit" name="no-urutEdit" class="form-control" placeholder="no urut disini" />
                 </div>
+                <div class="col mb-0">
+                  <label for="nisnEdit" class="form-label">NISN</label>
+                  <small class="text-primary">*Password default</small>
+                  <input type="text" id="nisnEdit" name="nisnEdit" class="form-control" placeholder="NISN Siswa" />
+                </div>
+              </div>
+              <div class="row">
                 <div class="col mb-0">
                   <label for="namaEdit" class="form-label">Nama</label>
                   <input type="text" id="namaEdit" name="namaEdit" class="form-control" placeholder="Nama Siswa" />
@@ -154,6 +167,7 @@
               document.getElementById("masuk-jalurEdit").value = myObj.data[0].masuk_jalur;
               document.getElementById("no-urutEdit").value = myObj.data[0].no_urut;
               document.getElementById("namaEdit").value = myObj.data[0].nama_lengkap;
+              document.getElementById("nisnEdit").value = myObj.data[0].nisn;
             });
           }
         };

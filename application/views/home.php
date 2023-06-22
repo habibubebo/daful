@@ -210,12 +210,9 @@
                       } ?>
                       <p class="text-center">
                         <span>Ada Masalah?</span>
-                        <a href="<?= $profil[0]->panitia ?>" target="_blank">
-                          <span>Hubungi Panitia</span>
-                        </a>
                       </p>
                       <div class="d-flex justify-content-center">
-                        <a class="btn btn-label-secondary" href="<?= $profil[0]->panitia ?>">Lihat Daftar Siswa</a>
+                        <a class="btn btn-label-primary" href="<?= $profil[0]->panitia ?>">Hubungi Panitia</a>
                         <!-- <a class="btn btn-label-secondary" href="<?= base_url('home/list') ?>">Lihat Daftar Siswa</a> -->
                       </div>
                     </div>
