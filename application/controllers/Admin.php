@@ -186,7 +186,7 @@ class Admin extends CI_Controller
 
   function verifikasi($aksi = null,$id = null){
     switch ($aksi) {
-      case 'lihat' : $where = array('id_siswa' => $id);
+      case 'lihat' : $where = array('nisn' => $id);
                      $data['bio'] = $this->Model_APS->edit_data('siswa',$where)->result();
                      $this->load->view('menu/siswa/lihat',$data);
                      $this->load->view('layout/footer');

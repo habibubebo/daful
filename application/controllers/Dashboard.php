@@ -51,7 +51,7 @@ class Dashboard extends CI_Controller
     } else {
       // dashboard admin
       $data['akuns'] = $this->Model_APS->tampil_data('siswa','id_siswa','ASC')->num_rows();
-      $data['verifs'] = $this->Model_APS->cek_akun('siswa',['status_verifikasi' => '0' ])->num_rows();
+      $data['verifs'] = $this->Model_APS->cek_akun('siswa',"status_verifikasi = 0 or status_verifikasi = 1")->num_rows();
       $this->load->view('layout/body_admin',$data);
     }
     
