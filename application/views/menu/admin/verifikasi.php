@@ -12,16 +12,23 @@
     <div class="d-flex">
       <h4 class="fw-bold py-3 me-auto"><span class="text-muted fw-light">Daftar Ulang /</span> Verifikasi</h4>
       <div class="card me-2">
-        <div class="row g-2 m-auto">
+        <div class="row m-auto">
+          <div class="col card-separator">
+            <div class="mt-1">
+              <p class="card-text text-center mb-0">Total</p>
+              <h4 class="text-primary text-center mb-0"><?= $sudahverif + $belumverif ?></h4>
+
+            </div>
+          </div>
           <div class="col card-separator">
             <div class="d-flex justify-content-between m-auto">
               <div class="card-icon p-1">
                 <span class="badge bg-label-success rounded p-2">
-                  <i class="bx bx-trending-up bx-sm"></i>
+                  <i class='bx bxs-user-check bx-md'></i>
                 </span>
               </div>
               <div class="card-info p-1">
-                <p class="card-text mb-0">Sudah Verifikasi</p>
+                <p class="card-text mb-0">Sudah</p>
                 <div class="d-flex align-items-end mb-0">
                   <h4 class="text-success mb-0"><?= $sudahverif ?></h4>
                 </div>
@@ -32,11 +39,11 @@
             <div class="d-flex justify-content-between m-auto">
               <div class="card-icon p-1">
                 <span class="badge bg-label-info rounded p-2">
-                  <i class="bx bx-trending-up bx-sm"></i>
+                  <i class='bx bxs-user-x bx-md'></i>
                 </span>
               </div>
               <div class="card-info p-1">
-                <p class="card-text mb-0">Belum Verifikasi</p>
+                <p class="card-text mb-0">Belum</p>
                 <div class="d-flex align-items-end mb-0">
                   <h4 class="text-info mb-0"><?= $belumverif ?></h4>
                 </div>
