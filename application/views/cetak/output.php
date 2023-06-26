@@ -811,6 +811,10 @@
           mso-pattern: auto;
           white-space: nowrap;
         }
+
+        .bab {
+          max-width: 10px;
+        }
       </style>
     </head>
 
@@ -949,7 +953,7 @@
             <td class=xl698599>RT / RW</td>
             <td class=xl698599></td>
             <td class=xl698599>:</td>
-            <td class=xl928599><?= $tp->rt ?> / <?= $tp->rw ?></td>
+            <td class=xl918599><?= $tp->rt ?> / <?= $tp->rw ?></td>
           </tr>
           <tr height=18 style='mso-height-source:userset;height:13.5pt'>
             <td height=18 class=xl668599 style='height:13.5pt'></td>
@@ -957,7 +961,7 @@
             <td class=xl698599>JALAN</td>
             <td class=xl698599></td>
             <td class=xl698599>:</td>
-            <td class=xl918599><?= $tp->jalan ?></td>
+            <td class="xl918599 bab" NOWRAP><?= $tp->jalan ?></td>
           </tr>
           <tr height=18 style='mso-height-source:userset;height:13.5pt'>
             <td height=18 class=xl668599 style='height:13.5pt'></td>
@@ -1379,7 +1383,7 @@
             <td class=xl678599>Jalan</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl918599><?= $tp->jalan ?></td>
+            <td class="xl918599 bab" NOWRAP><?= $tp->jalan ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1721,7 +1725,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class=xl928599><?= $tp->alamat_ortu ?></td>
+            <td class="xl928599 bab" NOWRAP><?= $tp->alamat_ortu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1816,7 +1820,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class=xl928599><?= $tp->alamat_ortu ?></td>
+            <td class="xl928599 bab" NOWRAP><?= $tp->alamat_ortu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1911,7 +1915,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class=xl958599><?= 'Jalan ' . $tp->jalan_wali . ' RT ' . $tp->rt_wali . ' RW ' . $tp->rw_wali . ' Desa ' . $tp->desa_wali ?></td>
+            <td class="xl958599 bab" NOWRAP><?= 'Jalan ' . $tp->jalan_wali . ' RT ' . $tp->rt_wali . ' RW ' . $tp->rw_wali . ' Desa ' . $tp->desa_wali ?></td>
           </tr>
           <tr class=xl158599 height=22 style='mso-height-source:userset;height:16.5pt'>
             <td height=22 class=xl758599 style='height:16.5pt'></td>
@@ -2199,7 +2203,7 @@
             <td class=xl678599>Alamat Orang Tua/ Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl928599><?= $tp->alamat_ortu ?></td>
+            <td class="xl928599 bab" NOWRAP><?= $tp->alamat_ortu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2427,7 +2431,7 @@
             <td class=xl678599>Alamat Orang Tua/ Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl928599><?= $tp->ttdalamat ?></td>
+            <td class="xl928599 bab" NOWRAP><?= $tp->ttdalamat ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
