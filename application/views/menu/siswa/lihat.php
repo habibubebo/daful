@@ -654,24 +654,24 @@
                 </div>
               </div>
             </div>          -->
-    <?php } ?>
-    <!-- /upload  -->
-    <div class="fixed-bottom">
-      <a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="<?= base_url('siswa/unduhan') ?>">Unduh Bukti</a>
-    </div>
+      <!-- /upload  -->
+      <div class="fixed-bottom">
+        <a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="<?= base_url('siswa/unduhan') ?>">Unduh Bukti</a>
+      </div>
 
-    <script type="text/javascript">
-      document.title = "Biodata <?= $this->session->userdata('nama') ?>";
-      document.getElementById("menu1").classList.add("active", "open");
-      document.getElementById("m1-1").classList.add("active");
-      const imgs = document.getElementsByTagName('img');
-      for (let img of imgs) {
-        img.addEventListener('error', function handleError() {
-          img.src = '../assets/img/default.webp';
-          document.getElementById("qr").style.display = "block";
-        });
-      };
-      for (let isian of document.getElementsByTagName("input")) {
-        isian.readOnly = true
-      };
-    </script>
+      <script type="text/javascript">
+        document.title = "Biodata <?= $tp->nama_lengkap ?>";
+        document.getElementById("menu1").classList.add("active", "open");
+        document.getElementById("m1-1").classList.add("active");
+        const imgs = document.getElementsByTagName('img');
+        for (let img of imgs) {
+          img.addEventListener('error', function handleError() {
+            img.src = '../assets/img/default.webp';
+            document.getElementById("qr").style.display = "block";
+          });
+        };
+        for (let isian of document.getElementsByTagName("input")) {
+          isian.readOnly = true
+        };
+      </script>
+    <?php } ?>
