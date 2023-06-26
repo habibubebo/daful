@@ -243,8 +243,8 @@ class Admin extends CI_Controller
         redirect(base_url('admin/verifikasi'));
         break;
       default:
-        $data['akuns'] = $this->Model_APS->tampil_data('siswa', 'id_siswa', 'ASC')->num_rows();
-        $data['verifs'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 0 or status_verifikasi = 1")->num_rows();
+        $data['sudahverif'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 2")->num_rows();
+        $data['belumverif'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 0 or status_verifikasi = 1")->num_rows();
         $this->load->view('menu/admin/verifikasi', $data);
         $this->load->view('layout/footer');
     };

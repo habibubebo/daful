@@ -23,7 +23,7 @@
               <div class="card-info p-1">
                 <p class="card-text mb-0">Sudah Verifikasi</p>
                 <div class="d-flex align-items-end mb-0">
-                  <h4 class="text-success mb-0"><?= $verifs ?></h4>
+                  <h4 class="text-success mb-0"><?= $sudahverif ?></h4>
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@
               <div class="card-info p-1">
                 <p class="card-text mb-0">Belum Verifikasi</p>
                 <div class="d-flex align-items-end mb-0">
-                  <h4 class="text-info mb-0"><?= $akuns ?></h4>
+                  <h4 class="text-info mb-0"><?= $belumverif ?></h4>
                 </div>
               </div>
             </div>
