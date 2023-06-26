@@ -24,7 +24,7 @@
             <div class="d-flex justify-content-between m-auto">
               <div class="card-icon p-1">
                 <span class="badge bg-label-success rounded p-2">
-                  <i class='bx bxs-user-check bx-md'></i>
+                  <i class='bx bxs-user-check bx-md bx-tada-hover'></i>
                 </span>
               </div>
               <div class="card-info p-1">
@@ -39,7 +39,7 @@
             <div class="d-flex justify-content-between m-auto">
               <div class="card-icon p-1">
                 <span class="badge bg-label-info rounded p-2">
-                  <i class='bx bxs-user-x bx-md'></i>
+                  <i class='bx bxs-user-x bx-md bx-tada-hover'></i>
                 </span>
               </div>
               <div class="card-info p-1">
