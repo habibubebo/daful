@@ -78,7 +78,7 @@ class Aksi extends CI_Controller
           $no_urut = $this->input->post('no-urut');
           $nama = $this->input->post('nama');
           $nisn = $this->input->post('nisn');
-          $cek = array('masuk_jalur' => $jalur, 'no_urut' => $no_urut);
+          $cek = array('masuk_jalur' => $jalur, 'no_urut' => $no_urut, 'nisn' => $nisn);
           if ($this->Model_APS->cek_akun('siswa', $cek)->num_rows() > 0) {
             $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data $jalur dengan No. Urut $no_urut gagal diinput, duplikasi"));
             redirect("admin/akunsiswa");
