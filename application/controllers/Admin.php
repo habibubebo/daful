@@ -218,6 +218,10 @@ class Admin extends CI_Controller
       case 'lihat':
         $where = array('nisn' => $id);
         $data['bio'] = $this->Model_APS->edit_data('siswa', $where)->result();
+        if (!$data['bio']) {
+          $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data $id  tidak ditemukan"));
+          redirect(base_url('admin/verifikasi'));
+        };
         $this->load->view('menu/siswa/lihat', $data);
         $this->load->view('layout/footer');
         break;
