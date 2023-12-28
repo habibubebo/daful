@@ -811,9 +811,8 @@
           mso-pattern: auto;
           white-space: nowrap;
         }
-
         .bab {
-          max-width: 10px;
+        max-width: 10px;
         }
       </style>
     </head>
@@ -2164,7 +2163,7 @@
             <td class=xl678599>Pekerjaan Orang Tua</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->pk_ayah . ' / ' . $tp->pk_ibu ?></td>
+            <td class="xl958599 bab"><?= $tp->pk_ayah . ' / ' . $tp->pk_ibu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2423,7 +2422,7 @@
             <td class=xl678599>Pekerjaan Orang Tua / Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->ttdpk ?></td>
+            <td class="xl958599 bab"><?= $tp->ttdpk ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>

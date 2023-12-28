@@ -17,7 +17,7 @@
           <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/wali" class="dropdown-item">Wali</a>
           </div></div></div>';
           } else {
-            echo '<a href="' . base_url("siswa") . '" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> Edit</a>';
+            echo '<a href="' . base_url("siswa") . '" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> Edit</a><div class="fixed-bottom"><a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="'.base_url("siswa/unduhan") .'">Unduh Bukti</a></div>';
           } ?>
       </div>
     </div>
@@ -655,9 +655,7 @@
               </div>
             </div>          -->
       <!-- /upload  -->
-      <div class="fixed-bottom">
-        <a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="<?= base_url('siswa/unduhan') ?>">Unduh Bukti</a>
-      </div>
+      
 
       <script type="text/javascript">
         document.title = "Biodata <?= $tp->nama_lengkap ?>";
