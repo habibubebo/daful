@@ -589,6 +589,7 @@
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="masuk-tgl">Diterima Tanggal</label>
+                  <small class="text-primary"><br>14 Juni 2024 - untuk Tahap I<br>20 Juni 2024 - untuk Tahap II (Nilai akademik)<br>29 Juni 2024 - untuk Tahap IV (Zonasi)</small>
                   <input type="date" class="form-control simple-date2" name="masuk-tgl" id="masuk-tgl">
                 </div>
               </div>
@@ -639,7 +640,8 @@
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="jarak">Jarak Tempat Tinggal ke Sekolah</label>
-                  <input type="number" id="jarak" name="jarak" class="form-control" placeholder="10" />
+                  <small>ditulis dalam satuan kilometer. Contoh : 3 atau 0.5 jika kurang dari 1km</small>
+                  <input type="number" id="jarak" name="jarak" class="form-control" placeholder="3" />
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="transport">Transportasi ke Sekolah</label>

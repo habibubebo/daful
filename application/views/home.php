@@ -159,7 +159,7 @@
                   <!-- /Left Text -->
                   <div class="header d-lg-flex col-lg-7 col-xl-8 align-items-center p-0">
                     <div class="w-100 p-1 p-lg-5 d-flex flex-column justify-content-center">
-                      <h3 class="text-center m-5 text-white">Daftar Ulang Peserta Didik</h3>
+                      <h3 class="text-center m-5 text-white">Tata Cara Daftar Ulang PPDB 2024</h3>
                       <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
                         <?php foreach ($infos as $tp) { ?>
                           <div class="accordion-item card">
@@ -222,8 +222,8 @@
               </div>
               <!-- /test -->
               <div class="d-flex justify-content-center border-bottom border-light">
-                <div class="col-lg-6 p-0">
-                  <img src="<?= base_url() ?>assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="putra-putri-smangat">
+                <div class="col-lg-10 p-0" style="width: 100%;">
+                  <img src="<?= base_url() ?>assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" style="width: 100%;" alt="putra-putri-smangat">
                 </div>
               </div>
 

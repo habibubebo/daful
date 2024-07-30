@@ -279,12 +279,15 @@ class Aksi extends CI_Controller
     $logo = file_get_contents(base_url() . 'assets/img/' . $data['profil'][0]->avatar);
     $logodata = base64_encode($logo);
     $pathtologo = '<img width="70px" src="data:image/png;base64, ' . $logodata . '">';
-    $data['imgpath'] = array('path' => $pathtoimage, 'logo' => $pathtologo);
+	$foto = file_get_contents(base_url() . 'assets/foto/' . $data['siswa'][0]->nisn . '.png');
+    $fotodata = base64_encode($foto);
+    $pathtofoto = '<img width="70px" src="data:image/png;base64, ' . $fotodata . '">';
+    $data['imgpath'] = array('path' => $pathtoimage, 'logo' => $pathtologo, 'foto' => $pathtofoto);
     $this->load->library('pdf');
     $this->pdf->setPaper('Folio', 'portrait');
     $this->pdf->load_html($this->load->view('cetak/output', $data, TRUE));
     $this->pdf->render();
-    $this->pdf->stream('bukti ' . $id . '.pdf', array("Attachment" => false));
+    $this->pdf->stream('bukti daftar ulang ' . $id . '.pdf', array("Attachment" => false));
   }
 }
 
