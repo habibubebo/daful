@@ -648,7 +648,6 @@
             </div>          -->
       <!-- /upload  -->
 
-
       <script type="text/javascript">
         document.title = "Biodata <?= $tp->nama_lengkap ?>";
         document.getElementById("menu1").classList.add("active", "open");
