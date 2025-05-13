@@ -13,7 +13,7 @@
     </div>
     <!-- Validation Wizard -->
     <div class="col-12 mb-4">
-      <small class="text-light fw-semibold">Harap cek kembali data anda sebelum ke langkah berikutnya, isi dengan '-' jika data kosong</small>
+      <small class="text-light fw-semibold">Harap cek kembali data anda sebelum ke langkah berikutnya, isi dengan (-) jika data kosong</small>
       <div id="wizard-validation" class="bs-stepper wizard-modern mt-2">
         <div class="flex-row bs-stepper-header">
           <div class="step" data-target="#data1">
@@ -62,12 +62,12 @@
             </button>
           </div>
         </div>
-        <div class="bs-stepper-content">
-          <form id="wizard-validation-form" onSubmit="return false" action="<?php echo base_url() . 'siswa/proses'; ?>" method="POST">
+        <div class="card bs-stepper-content">
+          <form id="wizard-validation-form" onSubmit="return false" action="<?= base_url() . 'siswa/proses'; ?>" method="POST">
             <!-- Biodata -->
             <div id="data1" class="content">
               <div class="content-header mb-3">
-                <h6 class="mb-0">Biodata</h6>
+                <h6 class="text-primary mb-0">Biodata</h6>
                 <small>Isi sesuai keadaan sekarang.</small>
               </div>
               <div class="row g-3">
@@ -223,38 +223,43 @@
                 <div class="col-sm-6">
                   <label class="form-label" for="jalan">Alamat</label>
                   <div class="input-group">
-                    <span class="input-group-text d-sm-block d-none">Jalan</span>
-                    <input type="text" class="form-control" name="jalan" id="jalan" placeholder="A Yani No. 12">
+                    <span class="input-group-text">Jalan</span>
+                    <input type="text" class="form-control" name="jalan" id="jalan" placeholder="Merdeka No. 17">
                   </div>
                   <div class="input-group mt-1">
-                    <span class="input-group-text">RT</span>
+                    <span class="input-group-text">RT / RW</span>
                     <input type="number" class="form-control" name="rt" id="rt" placeholder="RT">
-                    <span class="input-group-text">RW</span>
                     <input type="number" class="form-control" name="rw" id="rw" placeholder="RW">
                   </div>
                   <div class="input-group mt-1">
-                    <span class="input-group-text d-sm-block d-none">Desa</span>
+                    <span class="input-group-text">Desa</span>
                     <input type="text" class="form-control" name="desa" id="desa" placeholder="Desa">
-                    <span class="input-group-text d-sm-block d-none">Kec.</span>
+                  </div>
+                  <div class="input-group mt-1">
+                    <span class="input-group-text">Kecamatan</span>
                     <input type="text" class="form-control" name="kec" id="kec" placeholder="Kecamatan">
                   </div>
                   <div class="input-group mt-1">
-                    <span class="input-group-text d-sm-block d-none">Kab/Kota</span>
-                    <input type="text" class="form-control" name="kab" id="kab" placeholder="Kab Blitar">
+                    <span class="input-group-text">Kab/Kota</span>
+                    <input type="text" class="form-control" name="kab" id="kab" placeholder="Kab. Blitar">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="hobi-kes">Kegemaran / hobi</label>
-                  <div class="input-group">
-                    <span class="input-group-text d-sm-block d-none">Kesenian</span>
+                  <div class="input-group mt-1">
+                    <span class="input-group-text">Kesenian</span>
                     <input type="text" class="form-control" name="hobi-kes" id="hobi-kes" placeholder="Kesenian" />
-                    <span class="input-group-text d-sm-block d-none">Olahraga</span>
+                  </div>
+                  <div class="input-group mt-1">
+                    <span class="input-group-text">Olahraga</span>
                     <input type="text" class="form-control" name="hobi-or" id="hobi-or" placeholder="Olahraga" />
                   </div>
                   <div class="input-group mt-1">
-                    <span class="input-group-text d-sm-block d-none">Kemasyarakatan</span>
+                    <span class="input-group-text">Kemasyarakatan</span>
                     <input type="text" class="form-control" name="hobi-masy" id="hobi-masy" placeholder="Ormas" />
-                    <span class="input-group-text d-sm-block d-none">Lain-lain</span>
+                  </div>
+                  <div class="input-group mt-1">
+                    <span class="input-group-text">Lain-lain</span>
                     <input type="text" class="form-control" name="hobi-lain" id="hobi-lain" placeholder="Lain-lain" />
                   </div>
                 </div>
@@ -273,7 +278,7 @@
             <!-- data2 -->
             <div id="data2" class="content">
               <div class="content-header mb-3">
-                <h6 class="mb-0">Data Ayah</h6>
+                <h6 class="text-primary mb-0">Data Ayah</h6>
                 <small>Isi sesuai kondisi sekarang.</small>
               </div>
               <div class="row g-3">
@@ -345,7 +350,7 @@
               <hr class="my-4 mx-n4" />
               <!-- ibu -->
               <div class="content-header mb-3">
-                <h6 class="mb-0">Data Ibu</h6>
+                <h6 class="text-primary mb-0">Data Ibu</h6>
                 <small>Isi sesuai kondisi sekarang.</small>
               </div>
               <div class="row g-3">
@@ -411,14 +416,14 @@
                 <div class="col-sm-6">
                   <div class="form-check form-check-primary mt-3">
                     <input class="form-check-input" type="checkbox" name="walicheck" id="walicheck" onclick="wali()">
-                    <label class="form-check-label" for="walicheck">Saya memiliki wali</label>
+                    <label class="form-check-label" for="walicheck">Saya Memiliki Wali Selain Ayah dan Ibu</label>
                   </div>
                 </div>
               </div>
               <!-- wali -->
               <div id="wali" style="display:none">
                 <div class="content-header mb-3">
-                  <h6 class="mb-0">Data Wali</h6>
+                  <h6 class="text-primary mb-0">Data Wali</h6>
                   <small>Isi sesuai kondisi sekarang.</small>
                 </div>
                 <div class="row g-3">
@@ -481,23 +486,27 @@
                   <div class="col-sm-6">
                     <label class="form-label" for="jalan-wali">Alamat</label>
                     <div class="input-group">
-                      <span class="input-group-text d-sm-block d-none">Jalan</span>
+                      <span class="input-group-text">Jalan</span>
                       <input type="text" class="form-control" name="jalan-wali" id="jalan-wali" placeholder="Jalan A No. 12">
                     </div>
                     <div class="input-group mt-1">
                       <span class="input-group-text">RT</span>
                       <input type="text" class="form-control" name="rt-wali" id="rt-wali" placeholder="RT">
+                    </div>
+                    <div class="input-group mt-1">
                       <span class="input-group-text">RW</span>
                       <input type="text" class="form-control" name="rw-wali" id="rw-wali" placeholder="RW">
                     </div>
                     <div class="input-group mt-1">
-                      <span class="input-group-text d-sm-block d-none">Desa</span>
+                      <span class="input-group-text">Desa</span>
                       <input type="text" class="form-control" name="desa-wali" id="desa-wali" placeholder="Desa">
-                      <span class="input-group-text d-sm-block d-none">Kec.</span>
+                    </div>
+                    <div class="input-group mt-1">
+                      <span class="input-group-text">Kec.</span>
                       <input type="text" class="form-control" name="kec-wali" id="kec-wali" placeholder="Kecamatan">
                     </div>
                     <div class="input-group mt-1">
-                      <span class="input-group-text d-sm-block d-none">Kab/Kota</span>
+                      <span class="input-group-text">Kab/Kota</span>
                       <input type="text" class="form-control" name="kab-wali" id="kab-wali" placeholder="Kab Blitar">
                     </div>
                   </div>
@@ -519,12 +528,12 @@
             <!-- Data3 -->
             <div id="data3" class="content">
               <div class="content-header mb-3">
-                <h6 class="mb-0">Data Peserta Didik</h6>
+                <h6 class="text-primary mb-0">Data Peserta Didik</h6>
                 <small>Harap diisi dengan teliti.</small>
               </div>
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <label class="form-label" for="no-pend">PIN Pendaftaran</label>
+                  <label class="form-label" for="no-pend">PIN Pendaftaran</label><br>
                   <small class="text-primary">Ingat! ini akan menjadi password baru di akun anda</small>
                   <input type="text" id="no-pend" name="no-pend" class="form-control" placeholder="PIN pendaftaran" />
                 </div>
@@ -542,7 +551,7 @@
                   <input type="number" id="smp-npsn" name="smp-npsn" class="form-control" placeholder="npsn SMP/MTs" />
                 </div>
                 <div class="col-sm-6">
-                  <label class="form-label" for="smp-no">No. Ijazah SMP/MTs</label>
+                  <label class="form-label" for="smp-no">No. Ijazah SMP/MTs</label><br>
                   <small class="text-primary">diisi dengan nomor SKL jika belum memiliki ijazah</small>
                   <input type="text" id="smp-no" name="smp-no" class="form-control" placeholder="No. Ijazah SMP/MTs" />
                 </div>
@@ -596,7 +605,7 @@
               <hr class="my-4 mx-n4" />
               <!-- Jika Pindahan -->
               <div class="content-header mb-3">
-                <h6 class="mb-0">Diisi Jika Pindahan</h6>
+                <h6 class="text-primary mb-0">Diisi Jika Pindahan</h6>
               </div>
               <div class="row g-3">
                 <div class="col-sm-6">
@@ -622,7 +631,7 @@
             <!-- data4 -->
             <div id="data4" class="content">
               <div class="content-header mb-3">
-                <h6 class="mb-0">Data Tambahan</h6>
+                <h6 class="text-primary mb-0">Data Tambahan</h6>
                 <small>Isi sesuai kondisi sekarang.</small>
               </div>
               <div class="row g-3">
@@ -640,8 +649,10 @@
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="jarak">Jarak Tempat Tinggal ke Sekolah</label>
-                  <small>ditulis dalam satuan kilometer. Contoh : 3 atau 0.5 jika kurang dari 1km</small>
-                  <input type="number" id="jarak" name="jarak" class="form-control" placeholder="3" />
+                  <div class="input-group">
+                    <input type="number" step="any" id="jarak" name="jarak" class="form-control" placeholder="10" />
+                    <span class="input-group-text">km</span>
+                  </div>
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="transport">Transportasi ke Sekolah</label>
@@ -656,10 +667,12 @@
                   <input type="text" id="kelainan" name="kelainan" class="form-control" placeholder="Kelainan jasmani" />
                 </div>
                 <div class="col-sm-6">
-                  <label class="form-label" for="bahasa">Bahasa Sehari-hari</label>
+                  <label class="form-label" for="bahasa">Bahasa Sehari-hari</label><br>
+                  <small class="text-primary">dapat memilih lebih dari satu</small>
                   <select id="bahasa" name="bahasa[]" class="selectpicker w-100" data-style="btn-default" multiple data-icon-base="bx" data-tick-icon="bx-check text-primary">
                     <option>Indonesia</option>
                     <option>Jawa</option>
+                    <option>Sunda</option>
                     <option>Inggris</option>
                     <option>Mandarin</option>
                     <option>Arab</option>
@@ -669,23 +682,23 @@
               <hr class="my-4 mx-n4" />
               <!-- Jika memiliki -->
               <div class="content-header mb-3">
-                <h6 class="mb-0">Diisi Jika Memiliki</h6>
+                <h6 class="text-primary mb-0">Diisi Jika Memiliki</h6>
               </div>
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <label class="form-label" for="no-kks">Nomor KKS</label>
+                  <label class="form-label" for="no-kks">Nomor KKS (Kartu Keluarga Sejahtera)</label>
                   <input type="text" id="no-kks" name="no-kks" class="form-control" placeholder="Kartu Keluarga Sejahtera" />
                 </div>
                 <div class="col-sm-6">
-                  <label class="form-label" for="no-pkh">Nomor PKH</label>
+                  <label class="form-label" for="no-pkh">Nomor PKH (Program Keluarga Harapan)</label>
                   <input type="text" id="no-pkh" name="no-pkh" class="form-control" placeholder="Program Keluarga Harapan" />
                 </div>
                 <div class="col-sm-6">
-                  <label class="form-label" for="no-kip">Nomor KIP</label>
+                  <label class="form-label" for="no-kip">Nomor KIP (Kartu Indonesia Pintar)</label>
                   <input type="text" id="no-kip" name="no-kip" class="form-control" placeholder="Kartu Indonesia Pintar" />
                 </div>
                 <div class="col-sm-6">
-                  <label class="form-label" for="no-kip">Nomor KIS</label>
+                  <label class="form-label" for="no-kip">Nomor KIS (Kartu Indonesia Sehat)</label>
                   <input type="text" id="no-kis" name="no-kis" class="form-control" placeholder="Kartu Indonesia Sehat" />
                 </div>
               </div>
@@ -765,12 +778,12 @@
     </div>
     <!-- /Validation Wizard -->
     <!-- Wizard JS -->
-    <script src="<?php echo base_url("assets/vendor/libs/bs-stepper/bs-stepper.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/select2/select2.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/dropzone/dropzone.js") ?>"></script>
-    <script src="<?php echo base_url("assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.min.js") ?>"></script>
-    <script src="<?php echo base_url("assets/js/form-wizard-validation.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/bs-stepper/bs-stepper.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/bootstrap-select/bootstrap-select.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/select2/select2.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/dropzone/dropzone.js") ?>"></script>
+    <script src="<?= base_url("assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.min.js") ?>"></script>
+    <script src="<?= base_url("assets/js/form-wizard-validation.js") ?>"></script>

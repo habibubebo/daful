@@ -1,3 +1,9 @@
+<style>
+  /* Sembunyikan card secara default */
+  #deleteCard {
+    display: none;
+  }
+</style>
 <!-- Content wrapper -->
 <div class="content-wrapper">
   <!-- Content -->
@@ -38,7 +44,7 @@
                 <tbody class="table-border-bottom-0">
                   <?php foreach ($akuns as $tp) { ?>
                     <tr>
-                      <td><a class="text-danger" href="<?= base_url('admin/deletemaster/ad/' . $tp->Id) ?>"><i class='bx bx-trash'></i></a></td>
+                      <td><a href="javascript:void(0)" class="text-danger deleteButton" data-id="<?= $tp->Id ?>"><i class='bx bx-trash'></i></a></td>
                       <td><strong>
                           <span class='edit'><?= $tp->Id ?></span>
                           <input type='text' class='txtedit ad' data-id='<?= $tp->Id ?>' data-field='Id' id='idtxt_<?= $tp->Id ?>' value='<?= $tp->Id ?>'></strong>
@@ -65,21 +71,23 @@
           <hr class="my-0" />
 
         </div>
-        <div class="card" hidden>
+        <!-- Card Konfirmasi -->
+        <div id="deleteCard" class="card mt-3">
           <h5 class="card-header">Delete Account</h5>
           <div class="card-body">
             <div class="mb-3 col-12 mb-0">
               <div class="alert alert-warning">
-                <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete your account?</h6>
-                <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete this account?</h6>
+                <p class="mb-0">Once you delete this account, there is no going back. Please be certain.</p>
               </div>
             </div>
-            <form id="formAccountDeactivation" onsubmit="return false">
+            <form id="formAccountDeactivation">
               <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation" />
                 <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
               </div>
               <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+              <button type="button" id="cancelButton" class="btn btn-secondary ms-2">Cancel</button>
             </form>
           </div>
         </div>
@@ -137,5 +145,60 @@
           }
         });
       });
+    });
+  </script>
+  <script>
+    // Ambil semua tombol hapus
+    const deleteButtons = document.querySelectorAll('.deleteButton');
+    const deleteCard = document.getElementById('deleteCard');
+    const cancelButton = document.getElementById('cancelButton');
+    const deactivateButton = document.querySelector('.deactivate-account');
+    const checkbox = document.getElementById('accountActivation');
+
+    // Variabel untuk menyimpan ID akun yang akan dihapus
+    let accountIdToDelete = null;
+
+    // Tambahkan event listener untuk setiap tombol hapus
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Ambil ID dari atribut data-id
+        accountIdToDelete = button.getAttribute('data-id');
+        // Tampilkan card konfirmasi
+        deleteCard.style.display = 'block';
+        // Reset checkbox
+        checkbox.checked = false;
+      });
+    });
+
+    // Sembunyikan card saat tombol batal diklik
+    cancelButton.addEventListener('click', () => {
+      deleteCard.style.display = 'none';
+      accountIdToDelete = null; // Reset ID
+    });
+
+    // Logika saat tombol Deactivate Account diklik
+    deactivateButton.addEventListener('click', () => {
+      if (checkbox.checked && accountIdToDelete) {
+        // Lakukan penghapusan akun (misalnya, kirim ke server)
+        console.log(`Menghapus akun dengan ID: ${accountIdToDelete}`);
+        // Contoh: Kirim permintaan ke server
+        
+        fetch(appPath+`admin/deletemaster/ad/${accountIdToDelete}`, {
+          method: 'DELETE'
+        }).then(response => {
+          if (response.ok) {
+            alert('Akun berhasil dihapus');
+            // deleteCard.style.display = 'none';
+            location.reload();
+            // Refresh halaman atau hapus item dari DOM
+          }
+        });
+        
+        // Sembunyikan card setelah konfirmasi
+        deleteCard.style.display = 'none';
+        accountIdToDelete = null;
+      } else {
+        alert('Harap centang kotak konfirmasi.');
+      }
     });
   </script>

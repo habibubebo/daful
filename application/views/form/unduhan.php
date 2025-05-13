@@ -40,7 +40,7 @@
               </div>
               <hr>
               <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary w-100 d-grid">Lanjutkan</button>
+                <button type="submit" class="btn btn-primary w-100">Lanjutkan</button>
               </div>
             </form>
           </div>

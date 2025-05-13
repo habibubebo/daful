@@ -58,7 +58,7 @@ $(function() {
             targets: -3,
             orderable: !1,
             render: function(e, a, t, r) {
-                if (t.status_verifikasi == '0') { t = '<span class="badge rounded-pill  bg-label-info">belum</span>'} else if (t.status_verifikasi == '1') { t = '<span class="badge rounded-pill  bg-label-warning">proses</span>' } else { t = '<span class="badge rounded-pill  bg-label-success">sudah</span>' };
+                if (t.status_verifikasi == '0') { t = '<span class="badge rounded-pill  bg-label-info">BELUM</span>'} else if (t.status_verifikasi == '1') { t = '<span class="badge rounded-pill  bg-label-warning">PROSES</span>' } else { t = '<span class="badge rounded-pill  bg-label-success">SUDAH</span>' };
                 return t
             }
         }, {
@@ -68,7 +68,7 @@ $(function() {
             title: "Aksi",
             orderable: !1,
             render: function(e, a, t, r) {
-                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item"  href="././verifikasi/verif/'+t.nisn+'">Verifikasi</a><a class="dropdown-item"  href="././verifikasi/lihat/'+t.nisn+'">Lihat data</a><div class="dropdown-divider"></div><a href="././verifikasi/undo/'+t.nisn+'" class="dropdown-item text-danger delete-record">Batalkan</a><a href="././verifikasi/reset/'+t.nisn+'" class="dropdown-item text-danger">Reset</a></div></div>'
+                return '<div class="d-inline-block"><a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></a><div class="dropdown-menu dropdown-menu-end m-0"><a class="dropdown-item" href="././verifikasi/verif/'+t.nisn+'">Verifikasi</a><a class="dropdown-item" target="_blank" href="././verifikasi/lihat/'+t.nisn+'">Lihat data</a><div class="dropdown-divider"></div><a href="././verifikasi/undo/'+t.nisn+'" class="dropdown-item text-danger delete-record">Batalkan</a><a href="././verifikasi/reset/'+t.nisn+'" class="dropdown-item text-danger">Reset</a></div></div>'
             }
         }],
         order: [
@@ -197,4 +197,20 @@ $(function() {
     $("div.head-label").html('')), setTimeout(() => {
     $(".dataTables_filter .form-control").removeClass("form-control-sm"), $(".dataTables_length .form-select").removeClass("form-select-sm")
     }, 300)
+    $(document).ready(function() {
+        const table = $('.verifikasi').DataTable();
+        
+        $('#filter-sudah').on('click', function() {
+            table.search('SUDAH').draw();
+          });
+          $('#filter-proses').on('click', function() {
+            table.search('PROSES').draw();
+          });
+          $('#filter-belum').on('click', function() {
+            table.search('BELUM').draw();
+          });
+          $('#clear-filter').on('click', function() {
+            table.search('').draw();
+          });
+      });
 });

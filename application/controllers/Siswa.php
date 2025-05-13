@@ -1,23 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
-/**
- *
- * Controller Siswa
- *
- * This controller for ...
- *
- * @package   CodeIgniter
- * @category  Controller CI
- * @author    Setiawan Jodi <jodisetiawan@fisip-untirta.ac.id>
- * @author    Raul Guerrero <r.g.c@me.com>
- * @link      https://github.com/setdjod/myci-extension/
- * @param     ...
- * @return    ...
- *
- */
-
 class Siswa extends CI_Controller
 {
 
@@ -26,9 +9,8 @@ class Siswa extends CI_Controller
     parent::__construct();
     // Menambahkan Model
     $this->load->model('Model_APS');
-    // Menambahkan tampilan dan memanggil tampilan
-    $this->load->view('layout/header');
     $data['profil'] = $this->Model_APS->tampil_data('profil', 'id', 'ASC')->result();
+    $this->load->view('layout/header', $data);
     $this->load->view('layout/sidebar_menu', $data);
     $this->load->view('layout/navbar');
     if ($this->session->userdata('status') == "") {
@@ -66,6 +48,14 @@ class Siswa extends CI_Controller
     } else {
       $alamatortu = "Jalan $jalan RT $rt/RW $rw $desa - $kec - $kab";
     };
+    $cek = array('nisn' => $this->session->userdata('nisn'));
+    $query = $this->Model_APS->cek_akun('siswa', $cek)->result_array();
+      if ($query[0]['status_verifikasi'] == "2") {
+        $status = "2";
+      } else {
+        $status = "1";
+      };
+    
 
     $data = array(
       'nama_lengkap' => ucwords(strtolower($namal)),
@@ -160,7 +150,7 @@ class Siswa extends CI_Controller
       'sd_no' => $this->input->post('sd-no'),
       'sd_tgl' => $this->input->post('sd-tgl'),
       'password' => $np,
-      'status_verifikasi' => '1'
+      'status_verifikasi' => $status
     );
     $where = array('id_siswa' => $Id);
     $this->Model_APS->proses_update($where, $data, 'siswa');
@@ -196,7 +186,7 @@ class Siswa extends CI_Controller
     } else {
       $cek = array('nisn' => $this->session->userdata('nisn'));
       if ($this->Model_APS->cek_akun('siswa', $cek)->num_rows() > 1) {
-        $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Mohon cek kembali data <b>NISN " . $this->session->userdata('nisn') . "</b>, terdapat duplikasi di sistem"));
+        $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Mohon cek kembali data <b>NISN " . $this->session->userdata('nisn') . "</b>, terdapat duplikasi"));
         redirect('siswa');
       } else {
         switch ($ttd) {

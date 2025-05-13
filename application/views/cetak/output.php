@@ -122,7 +122,7 @@
           mso-font-charset: 0;
           mso-number-format: General;
           text-align: left;
-          vertical-align: middle;
+          vertical-align: top;
           mso-background-source: auto;
           mso-pattern: auto;
           white-space: nowrap;
@@ -1375,7 +1375,7 @@
             <td class=xl678599>RT / RW</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl918599><?= $tp->rt ?> / <?= $tp->rw ?></td>
+            <td class=xl958599><?= $tp->rt ?> / <?= $tp->rw ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1383,7 +1383,7 @@
             <td class=xl678599>Jalan</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class="xl918599 bab" NOWRAP><?= $tp->jalan ?></td>
+            <td class="xl958599 bab" NOWRAP><?= $tp->jalan ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1391,7 +1391,7 @@
             <td class=xl678599>Desa/Kelurahan</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl918599><?= $tp->desa ?></td>
+            <td class=xl958599><?= $tp->desa ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1399,7 +1399,7 @@
             <td class=xl678599>Kecamatan</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl918599><?= $tp->kec ?></td>
+            <td class=xl958599><?= $tp->kec ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1407,7 +1407,7 @@
             <td class=xl678599>Kab / Kota *)</td>
             <td class=xl758599></td>
             <td class=xl678599>:</td>
-            <td class=xl918599><?= $tp->kab ?></td>
+            <td class=xl958599><?= $tp->kab ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1725,7 +1725,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class="xl928599 bab" NOWRAP><?= $tp->alamat_ortu ?></td>
+            <td class="xl928599 bab"><?= wordwrap($tp->alamat_ortu, 50, "<br>"); ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -1820,7 +1820,7 @@
             <td class=xl718599>Alamat Rumah</td>
             <td class=xl718599></td>
             <td class=xl718599>:</td>
-            <td class="xl928599 bab" NOWRAP><?= $tp->alamat_ortu ?></td>
+            <td class="xl928599 bab"><?= wordwrap($tp->alamat_ortu, 50, "<br>"); ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl758599 style='height:18.0pt'></td>
@@ -2156,7 +2156,7 @@
             <td class=xl678599>Nama Orang Tua</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->nama_ayah . ' / ' . $tp->nama_ibu ?></td>
+            <td class=xl958599><?= 'Ayah: '.$tp->nama_ayah . '<br>Ibu: ' . $tp->nama_ibu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2164,7 +2164,7 @@
             <td class=xl678599>Pekerjaan Orang Tua</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->pk_ayah . ' / ' . $tp->pk_ibu ?></td>
+            <td class="xl958599 bab"><?= 'Ayah: '.$tp->pk_ayah . '<br>Ibu: ' . $tp->pk_ibu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2172,7 +2172,7 @@
             <td class=xl678599>Agama Orang Tua</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class=xl958599><?= $tp->agama_ayah . ' / ' . $tp->agama_ibu ?></td>
+            <td class=xl958599><?= 'Ayah: '.$tp->agama_ayah . '<br>Ibu: ' . $tp->agama_ibu ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2203,7 +2203,7 @@
             <td class=xl678599>Alamat Orang Tua/ Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class="xl928599 bab" NOWRAP><?= $tp->alamat_ortu ?></td>
+            <td class="xl928599 bab"><?= wordwrap($tp->alamat_ortu, 50, "<br>"); ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
@@ -2323,14 +2323,6 @@
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>
-            <td class=xl678599></td>
-            <td class=xl698599></td>
-            <td class=xl698599></td>
-            <td class=xl698599></td>
-            <td class=xl698599></td>
-          </tr>
-          <tr height=24 style='mso-height-source:userset;height:18.0pt'>
-            <td height=24 class=xl668599 style='height:18.0pt'></td>
             <td colspan=2 class=xl678599 style="text-align: center;">Mengetahui</td>
             <td class=xl698599></td>
             <td class=xl698599></td>
@@ -2431,7 +2423,7 @@
             <td class=xl678599>Alamat Orang Tua/ Wali</td>
             <td class=xl678599></td>
             <td class=xl678599>:</td>
-            <td class="xl928599 bab" NOWRAP><?= $tp->ttdalamat ?></td>
+            <td class="xl928599 bab"><?= wordwrap($tp->ttdalamat, 50, "<br>"); ?></td>
           </tr>
           <tr height=24 style='mso-height-source:userset;height:18.0pt'>
             <td height=24 class=xl668599 style='height:18.0pt'></td>

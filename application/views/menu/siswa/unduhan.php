@@ -45,7 +45,7 @@
         <div class="card">
           <div class="card-body d-flex flex-column">
             <?php if ($tombol == 0) {
-              echo '<a class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ayah">Unduh</a>';
+              echo '<a onClick="showLoading()" class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ayah">Unduh</a>';
             } else if ($tombol == 1) {
               echo '<a class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/ibu">Unduh</a>';
             } else echo '<a class="btn btn-primary btn-page-block-custom d-grid w-100 mb-3" href="' . base_url() . 'aksi/unduh/' . $this->session->userdata('nisn') . '/wali">Unduh</a>'; ?>
@@ -63,4 +63,3 @@
       </script>
       <link rel="stylesheet" href="../../assets/vendor/libs/spinkit/spinkit.css" />
       <script src="../../assets/vendor/libs/block-ui/block-ui.js"></script>
-      <script src="../../assets/js/extended-ui-blockui.js"></script>

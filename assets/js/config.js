@@ -1,42 +1,54 @@
-"use strict";
-let config = {
-        colors: {
-            primary: "#696cff",
-            secondary: "#8592a3",
-            success: "#71dd37",
-            info: "#03c3ec",
-            warning: "#ffab00",
-            danger: "#ff3e1d",
-            dark: "#233446",
-            black: "#000",
-            white: "#fff",
-            cardColor: "#fff",
-            bodyBg: "#f5f5f9",
-            bodyColor: "#697a8d",
-            headingColor: "#566a7f",
-            textMuted: "#a1acb8",
-            borderColor: "#eceef1"
-        },
-        colors_label: {
-            primary: "#666ee81a",
-            secondary: "#8897aa1a",
-            success: "#28d0941a",
-            info: "#1e9ff21a",
-            warning: "#ff91491a",
-            danger: "#ff49611a",
-            dark: "#181c211a"
-        },
-        colors_dark: {
-            cardColor: "#2b2c40",
-            bodyBg: "#232333",
-            bodyColor: "#a3a4cc",
-            headingColor: "#cbcbe2",
-            textMuted: "#7071a4",
-            borderColor: "#444564"
-        },
-        enableMenuLocalStorage: !0
-    },
-    appPath = document.documentElement.getAttribute("data-app-path"),
-    assetsPath = document.documentElement.getAttribute("data-assets-path"),
-    templateName = document.documentElement.getAttribute("data-template")
-    ;
+(window.config = {
+	colors: {
+		primary: window.Helpers.getCssVar("primary"),
+		secondary: window.Helpers.getCssVar("secondary"),
+		success: window.Helpers.getCssVar("success"),
+		info: window.Helpers.getCssVar("info"),
+		warning: window.Helpers.getCssVar("warning"),
+		danger: window.Helpers.getCssVar("danger"),
+		dark: window.Helpers.getCssVar("dark"),
+		black: window.Helpers.getCssVar("pure-black"),
+		white: window.Helpers.getCssVar("white"),
+		cardColor: window.Helpers.getCssVar("paper-bg"),
+		bodyBg: window.Helpers.getCssVar("body-bg"),
+		bodyColor: window.Helpers.getCssVar("body-color"),
+		headingColor: window.Helpers.getCssVar("heading-color"),
+		textMuted: window.Helpers.getCssVar("secondary-color"),
+		borderColor: window.Helpers.getCssVar("border-color"),
+	},
+	colors_label: {
+		primary: window.Helpers.getCssVar("primary-bg-subtle"),
+		secondary: window.Helpers.getCssVar("secondary-bg-subtle"),
+		success: window.Helpers.getCssVar("success-bg-subtle"),
+		info: window.Helpers.getCssVar("info-bg-subtle"),
+		warning: window.Helpers.getCssVar("warning-bg-subtle"),
+		danger: window.Helpers.getCssVar("danger-bg-subtle"),
+		dark: window.Helpers.getCssVar("dark-bg-subtle"),
+	},
+	fontFamily: window.Helpers.getCssVar("font-family-base"),
+	enableMenuLocalStorage: !0,
+}),
+	(window.appPath =
+		document.documentElement.getAttribute("data-app-path")),
+	(window.assetsPath =
+		document.documentElement.getAttribute("data-assets-path")),
+	(window.templateName =
+		document.documentElement.getAttribute("data-template")),
+	"undefined" != typeof TemplateCustomizer &&
+		(window.templateCustomizer = new TemplateCustomizer({
+			displayCustomizer: !0,
+			lang:
+				localStorage.getItem("templateCustomizer-" + templateName + "--Lang") ||
+				"en",
+			controls: [
+				"color",
+				"theme",
+				"skins",
+				"semiDark",
+				"layoutCollapsed",
+				"layoutNavbarOptions",
+				"headerType",
+				"contentLayout",
+				"rtl",
+			],
+		}));

@@ -2,29 +2,13 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-/**
- *
- * Controller Cetak
- *
- * This controller for ...
- *
- * @package   CodeIgniter
- * @category  Controller CI
- * @author    Setiawan Jodi <jodisetiawan@fisip-untirta.ac.id>
- * @author    Raul Guerrero <r.g.c@me.com>
- * @link      https://github.com/setdjod/myci-extension/
- * @param     ...
- * @return    ...
- *
- */
-
 class Aksi extends CI_Controller
 {
 
   public function __construct()
   {
     parent::__construct();
-    // Menambahkan Model
+    $this->load->library('form_validation');
     $this->load->model('Model_APS');
     if ($this->session->userdata('status') == "") {
       redirect(base_url());
@@ -79,7 +63,10 @@ class Aksi extends CI_Controller
           $nama = $this->input->post('nama');
           $nisn = $this->input->post('nisn');
           $cek = array('masuk_jalur' => $jalur, 'no_urut' => $no_urut, 'nisn' => $nisn);
-          if ($this->Model_APS->cek_akun('siswa', $cek)->num_rows() > 0) {
+          if (empty($nisn) || empty($jalur) || empty($no_urut) || empty($nama)) {
+            $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data tidak boleh kosong!"));
+            redirect('admin/akunsiswa');
+          } else if ($this->Model_APS->cek_akun('siswa', $cek)->num_rows() > 0) {
             $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data $jalur dengan No. Urut $no_urut gagal diinput, duplikasi"));
             redirect("admin/akunsiswa");
           } else {
@@ -105,13 +92,11 @@ class Aksi extends CI_Controller
         } else {
           if (isset($_POST['import'])) {
             $file = $_FILES['file']['tmp_name'];
-            // Medapatkan ekstensi file csv yang akan diimport.
             $ekstensi  = explode('.', $_FILES['file']['name']);
-            // Tampilkan peringatan jika submit tanpa memilih menambahkan file.
             if (empty($file)) {
-              echo 'File tidak boleh kosong!';
+              $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "File tidak boleh kosong!"));
+              redirect('admin/akunsiswa');
             } else {
-              // Validasi apakah file yang diupload benar-benar file csv.
               if (strtolower(end($ekstensi)) === 'csv' && $_FILES["file"]["size"] > 0) {
                 $i = 0;
                 $handle = fopen($file, "r");
@@ -257,6 +242,21 @@ class Aksi extends CI_Controller
     // $mpdf->Output('unduh biasa.pdf','I'); 
   }
 
+  function wunduh()
+  {
+    //$this->load->library('word');
+    //$data['profil'] = $this->Model_APS->tampil_data('profil', 'id', 'ASC')->result();
+    //$data['siswa'] = $this->db->query('SELECT *,nama_ayah AS ttdnama,ttl_ayah AS ttdttl,pk_ayah AS ttdpk,alamat_ortu as ttdalamat, notelp_ayah as ttdtelp, agama_ayah AS ttdagama FROM siswa WHERE nisn=3')->result();
+    $phpWord = new \PhpOffice\PhpWord\PhpWord();
+    $section = $phpWord->addSection();
+    $section->addText('Hello World !');
+    $writer = new \PhpOffice\PhpWord\Writer\Word2007($phpWord);
+    $filename = 'simple';
+    header('Content-Disposition: attachment;filename="' . $filename . '.pdf"');
+    header('Cache-Control: max-age=0');
+    $writer->save('php://output');
+  }
+
   // dompdf
   function unduh($id = null, $ttd = null)
   {
@@ -276,7 +276,7 @@ class Aksi extends CI_Controller
     $image = file_get_contents(base_url() . 'assets/qr/' . $data['siswa'][0]->nisn . '.png');
     $imagedata = base64_encode($image);
     $pathtoimage = '<img width="70px" src="data:image/png;base64, ' . $imagedata . '">';
-    $logo = file_get_contents(base_url() . 'assets/img/' . $data['profil'][0]->avatar);
+    $logo = file_get_contents(base_url() . 'assets/img/logo/' . $data['profil'][0]->avatar);
     $logodata = base64_encode($logo);
     $pathtologo = '<img width="70px" src="data:image/png;base64, ' . $logodata . '">';
 	$foto = file_get_contents(base_url() . 'assets/foto/' . $data['siswa'][0]->nisn . '.png');
@@ -287,7 +287,127 @@ class Aksi extends CI_Controller
     $this->pdf->setPaper('Folio', 'portrait');
     $this->pdf->load_html($this->load->view('cetak/output', $data, TRUE));
     $this->pdf->render();
-    $this->pdf->stream('bukti daftar ulang ' . $id . '.pdf', array("Attachment" => false));
+    $this->pdf->stream('Bukti Daftar Ulang ' . $data['siswa'][0]->nama_lengkap . '.pdf', array("Attachment" => false));
+  }
+
+  public function upload()
+  {
+    $description = $this->input->post('description');
+
+    // Validasi deskripsi
+    if (empty($description)) {
+      $response = array(
+        'status' => 'error',
+        'message' => 'Description is required.'
+      );
+      echo json_encode($response);
+      return;
+    }
+
+    // Konfigurasi upload
+    $config['upload_path'] = './assets/img/' . $description . '/';
+    $config['allowed_types'] = 'jpg|jpeg|png|webp|ico|JPG|JPEG|PNG|WEBP|ICO';
+    $config['max_size'] = 2048; // Maksimal ukuran file dalam KB
+    $config['overwrite'] = true;
+
+    // Buat folder jika belum ada
+    if (!is_dir($config['upload_path'])) {
+      mkdir($config['upload_path'], 0755, true);
+    }
+
+    $this->upload->initialize($config);
+
+    // Cek apakah file diupload
+    if (empty($_FILES['file']['name'])) {
+      $response = array(
+        'status' => 'error',
+        'message' => 'You did not select a file to upload.'
+      );
+      echo json_encode($response);
+      return;
+    }
+
+    if ($this->upload->do_upload('file')) {
+      // Jika upload berhasil
+      $upload_data = $this->upload->data();
+      $response = array(
+        'status' => 'success',
+        'message' => 'File uploaded successfully.',
+        'file_name' => $upload_data['file_name'],
+        'description' => $description
+      );
+      if ($description == 'logo') {
+        $this->Model_APS->proses_update(array('id' => 1), array('avatar' => $upload_data['file_name']), 'profil');
+      } else if ($description == 'favicon') {
+        $this->Model_APS->proses_update(array('id' => 1), array('icon' => $upload_data['file_name']), 'profil');
+      } else if ($description == 'banner') {
+        $this->Model_APS->proses_update(array('id' => 1), array('banner' => $upload_data['file_name']), 'profil');
+      } 
+      else if ($description == 'background') {
+        $this->Model_APS->proses_update(array('id' => 1), array('background' => $upload_data['file_name']), 'profil');
+      };
+    } else {
+      // Jika upload gagal
+      $response = array(
+        'status' => 'error',
+        'message' => $this->upload->display_errors()
+      );
+    }
+    echo json_encode($response);
+  }
+
+  public function review_form()
+  {
+    $id_siswa = $this->session->userdata('id');
+    $data['review'] = $this->Model_APS->get_review_siswa($id_siswa);
+    $this->load->view('menu/review',$data);
+  }
+
+  public function simpan_review()
+  {
+    $this->form_validation->set_rules('rating', 'Rating', 'required|numeric|greater_than_equal_to[0.5]|less_than_equal_to[5]');
+    $this->form_validation->set_rules('review_text', 'Review Text', 'required|max_length[500]');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->session->set_flashdata('error', validation_errors());
+      redirect('dashboard');
+    } else {
+      $data = array(
+        'id_siswa' => $this->session->userdata('id'), 
+        'rating' => $this->input->post('rating'),
+        'review_text' => $this->input->post('review_text')
+      );
+
+      $result = $this->Model_APS->simpan_feedback_review($data);
+      // echo $result;
+      if ($result) {
+        $this->session->set_flashdata('success', 'Terima kasih! Review Anda berhasil disimpan.');
+        redirect('dashboard'); 
+      } else {
+        $this->session->set_flashdata('error', "Maaf, terjadi kesalahan saat menyimpan review Anda.");
+        redirect('dashboard');
+      }
+    }
+  }
+
+  public function review()
+  {
+    $id_siswa = $this->session->userdata('id');
+    $data['review'] = $this->Model_APS->get_review_siswa($id_siswa);
+    $this->load->view('menu/lihat_review', $data);
+  }
+
+  public function hapus_review()
+  {
+    $id_siswa = $this->session->userdata('id');
+    $result = $this->Model_APS->hapus_feedback_review($id_siswa);
+    if ($result) {
+      $this->session->set_flashdata('success', 'Review Anda berhasil dihapus.');
+      redirect('dashboard');
+    } else {
+      $this->session->set_flashdata('error', "Maaf, terjadi kesalahan saat menghapus review Anda.");
+      redirect('dashboard');
+    }
   }
 }
 

@@ -26,13 +26,10 @@ class Model_APS extends CI_Model
 
     function cek_akun($tabel, $kondisi)
     {
-        // Mendapatkan nilai dari hasil pemeriksaan 
         return $this->db->get_where($tabel, $kondisi);
     }
-    // Membuat fungsi tampil_data($nm_tabel) untuk menampilkan data dari nama tabel yang dikirim
     function tampil_data($nm_table, $field, $order)
     {
-        // Mendapatkan nilai dari pengambilan data dari nama tabel yang dikirim 
         $this->db->select('*');
         $this->db->from($nm_table);
         $this->db->order_by($field, $order);
@@ -55,24 +52,17 @@ class Model_APS extends CI_Model
         $this->db->order_by($field, $order);
         return $query = $this->db->get();
     }
-    // Membuat fungsi simpan_data($data,$nm_tabel)
     function simpan_data($data, $nm_table)
     {
-        // Memanggil fungsi insert($nm_tabel,$data)
         $this->db->insert($nm_table, $data);
     }
-    // Membuat fungsi hapus_data($kondisi,$nm_tabel)
     function hapus_data($kondisi, $nm_table)
     {
-        // Memanggil fungsi where($kondisi)
         $this->db->where($kondisi);
-        // Memanggil fungsi delete($nm_tabel)
         $this->db->delete($nm_table);
     }
-    // Membuat fungsi edit_data($kondisi,$nm_tabel)
     function edit_data($nm_table, $kondisi)
     {
-        // Mendapatkan nilai dari pengambilan data dari nama tabel dan kondisi yang dikirim 
         return $this->db->get_where($nm_table, $kondisi);
     }
     function sel_edit_data_join($sel, $nm_tabel, $nm_tabel_join, $on, $kondisi)
@@ -93,7 +83,6 @@ class Model_APS extends CI_Model
         $this->db->where($kondisi);
         return $query = $this->db->get();
     }
-    // Membuat fungsi proses_update($kondisi,$data,$nm_table)
     function proses_update($kondisi, $data, $nm_table)
     {
         $this->db->where($kondisi);
@@ -105,13 +94,11 @@ class Model_APS extends CI_Model
     }
     function tampil_data_seleksi($sel, $nm_table, $field, $order)
     {
-        // Mendapatkan nilai dari pengambilan data dari nama tabel yang dikirim 
         $this->db->select($sel);
         $this->db->from($nm_table);
         $this->db->order_by($field, $order);
         return $this->db->get();
     }
-    //update data master
     function update_master($tabel, $id, $field, $value)
     {
         $data = array($field => $value);
@@ -120,36 +107,44 @@ class Model_APS extends CI_Model
     }
     //mon maaf males bikin library
     function tgl_id($tanggal)
-    {
-        $day = date('D', strtotime($tanggal));
-        $dayList = array(
-            'Sun' => 'Minggu',
-            'Mon' => 'Senin',
-            'Tue' => 'Selasa',
-            'Wed' => 'Rabu',
-            'Thu' => 'Kamis',
-            'Fri' => 'Jumat',
-            'Sat' => 'Sabtu'
-        );
-        $bulan = array(
-            1 =>   'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember'
-        );
-        $pecahkan = explode('-', $tanggal);
-
-        echo $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+{
+    if (empty($tanggal)) {
+        return 'Tanggal tidak valid';
     }
 
+    // Try to parse date as d-m-Y
+    $dateTime = DateTime::createFromFormat('d-m-Y', $tanggal);
+    $errors = DateTime::getLastErrors();
+    if ($dateTime === false || $errors['warning_count'] > 0 || $errors['error_count'] > 0) {
+        // If failed, try Y-m-d
+        $dateTime = DateTime::createFromFormat('Y-m-d', $tanggal);
+        $errors = DateTime::getLastErrors();
+        if ($dateTime === false || $errors['warning_count'] > 0 || $errors['error_count'] > 0) {
+            return 'Tanggal tidak valid';
+        }
+    }
+
+    $bulan = array(
+        1 => 'Januari',
+        2 => 'Februari',
+        3 => 'Maret',
+        4 => 'April',
+        5 => 'Mei',
+        6 => 'Juni',
+        7 => 'Juli',
+        8 => 'Agustus',
+        9 => 'September',
+        10 => 'Oktober',
+        11 => 'November',
+        12 => 'Desember'
+    );
+
+    $hari = $dateTime->format('d');
+    $bulanIndex = (int)$dateTime->format('m');
+    $tahun = $dateTime->format('Y');
+
+    return $hari . ' ' . $bulan[$bulanIndex] . ' ' . $tahun;
+}
     public function qr($kodeqr)
     {
         if (!file_exists('assets/qr/')) {
@@ -165,6 +160,91 @@ class Model_APS extends CI_Model
                 return  $this->ciqrcode->generate($params);
             }
         }
+    }
+
+    public function get_review_siswa($id_siswa) {
+        $this->db->select('feedbackReview');
+        $this->db->where('id_siswa', $id_siswa);
+        $query = $this->db->get('siswa');
+        
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            if (!empty($row->feedbackReview)) {
+                return json_decode($row->feedbackReview, true);
+            }
+        }
+        
+        return null;
+    }
+    
+    public function get_review_all() {
+        $this->db->select('nama_lengkap,nisn,notelp,status_verifikasi,masuk_jalur,feedbackReview');
+        $query = $this->db->get('siswa');
+        
+        $result = array();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                if (!empty($row->feedbackReview)) {
+                    $result[] = array(
+                        'nama_lengkap' => $row->nama_lengkap,
+                        'nisn' => $row->nisn,
+                        'jalur' => $row->masuk_jalur,
+                        'notelp' => $row->notelp,
+                        'verif' => $row->status_verifikasi,
+                        'feedback' => json_decode($row->feedbackReview, true)
+                    );
+                }
+            }
+        }
+        
+        return $result;
+    }
+
+    public function simpan_feedback_review($data) {
+        $this->db->where('id_siswa', $data['id_siswa']);
+        $query = $this->db->get('siswa');
+        
+        if ($query->num_rows() > 0) {
+            $review_data = array(
+                'rating' => $data['rating'],
+                'review_text' => $data['review_text'],
+                'tanggal' => date('Y-m-d H:i:s')
+            );
+            
+            $update_data = array(
+                'feedbackReview' => json_encode($review_data)
+            );
+            
+            $this->db->where('id_siswa', $data['id_siswa']);
+            return $this->db->update('siswa', $update_data);
+        } else {
+            return false;
+        }
+    }
+
+    public function hapus_feedback_review($id_siswa) {
+        $this->db->where('id_siswa', $id_siswa);
+        $query = $this->db->get('siswa');
+        
+        if ($query->num_rows() > 0) {
+            $update_data = array(
+                'feedbackReview' => null
+            );
+            
+            $this->db->where('id_siswa', $id_siswa);
+            return $this->db->update('siswa', $update_data);
+        } else {
+            return false;
+        }
+    }
+
+    public function get_siswa_valid() {
+        $this->db->select('nama_lengkap');
+        $this->db->from('siswa');
+        $this->db->where('status_verifikasi', 2);
+        $query = $this->db->get();
+        
+        return $query->result_array();
     }
 }
 /* End of file Model_APS_model.php */

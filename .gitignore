@@ -32,3 +32,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 .vscode
 application/.env
+disini.bat
+/assets/qr
+assets/js/configo.js
+assets/img/Thumbs.db
+*.db
