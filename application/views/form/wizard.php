@@ -598,6 +598,7 @@
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="masuk-tgl">Diterima Tanggal</label>
+                  <small class="text-primary"><br>14 Juni 2024 - untuk Tahap I<br>20 Juni 2024 - untuk Tahap II (Nilai akademik)<br>29 Juni 2024 - untuk Tahap IV (Zonasi)</small>
                   <input type="date" class="form-control simple-date2" name="masuk-tgl" id="masuk-tgl">
                 </div>
               </div>

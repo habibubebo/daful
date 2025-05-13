@@ -12,9 +12,9 @@
           <div class="btn-group" role="group">
           <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bx bxs-file-pdf"></i><span class="d-none d-sm-inline-block"> Unduh</span></button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
-          <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/ayah" class="dropdown-item">Ayah</a>
-          <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/ibu" class="dropdown-item">Ibu</a>
-          <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/wali" class="dropdown-item">Wali</a>
+          <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/ayah" target="_blank" class="dropdown-item">Ayah</a>
+          <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/ibu" target="_blank" class="dropdown-item">Ibu</a>
+          <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/wali" target="_blank" class="dropdown-item">Wali</a>
           </div></div></div>';
           } else {
             echo '<a href="' . base_url("siswa") . '" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> Edit</a><div class="fixed-bottom mx-3"><a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="' . base_url("siswa/unduhan") . '">Unduh Bukti</a></div>';

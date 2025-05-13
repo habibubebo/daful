@@ -77,7 +77,7 @@
                   <!-- /Left Text -->
                   <div class="header d-lg-flex col-lg-7 col-xl-8 align-items-center p-0">
                     <div class="w-100 p-1 p-lg-5 d-flex flex-column justify-content-center">
-                      <h3 class="text-center m-5 text-white">Daftar Ulang Peserta Didik</h3>
+                      <h3 class="text-center m-5 text-white">Tata Cara Daftar Ulang PPDB 2024</h3>
                       <div id="accordionPopoutIcon" class="accordion mt-3 mx-3 accordion-popout accordion-header-primary">
                         <?php foreach ($infos as $tp) { ?>
                           <div class="accordion-item card">

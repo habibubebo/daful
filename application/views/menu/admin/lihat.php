@@ -102,7 +102,7 @@
           <div class="d-flex justify-content-start m-3 border-top">
             <?php echo form_open_multipart(site_url('aksi/akun/import'), 'class="mt-3"'); ?>
             <div class="d-flex d-inline-block">
-              <a class="btn btn-label-primary me-2" data-bs-toggle="modal" data-bs-target="#modalI"><i class='bx bx-table'></i></a>
+              <a class="btn btn-label-primary me-2" data-bs-toggle="modal" data-bs-target="#modalI" data-toggle="tooltip" title="Lihat template import banyak akun"><i class='bx bx-table'></i></a>
               <input type="file" name="file" accept="text/csv" class="form-control me-2">
               <button type="submit" name="import" class="btn btn-primary">Import</button>
             </div>
