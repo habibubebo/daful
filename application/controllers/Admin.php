@@ -2,22 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-/**
- *
- * Controller Pages
- *
- * This controller for ...
- *
- * @package   CodeIgniter
- * @category  Controller CI
- * @author    Setiawan Jodi <jodisetiawan@fisip-untirta.ac.id>
- * @author    Raul Guerrero <r.g.c@me.com>
- * @link      https://github.com/setdjod/myci-extension/
- * @param     ...
- * @return    ...
- *
- */
-
 class Admin extends CI_Controller
 {
 
@@ -27,10 +11,10 @@ class Admin extends CI_Controller
     // Menambahkan Model
     $this->load->model('Model_APS');
     // Menambahkan tampilan dan memanggil tampilan
-    $this->load->view('layout/header');
     $data['profil'] = $this->Model_APS->tampil_data('profil', 'id', 'ASC')->result();
+    $this->load->view('layout/header', $data);
     $this->load->view('layout/sidebar_menu', $data);
-    $this->load->view('layout/navbar');
+    $this->load->view('layout/navbar', $data );
     if ($this->session->userdata('status') == "") {
       redirect(base_url("auth"));
     } elseif ($this->session->userdata('role') < "1") {
@@ -218,8 +202,14 @@ class Admin extends CI_Controller
       case 'lihat':
         $where = array('nisn' => $id);
         $data['bio'] = $this->Model_APS->edit_data('siswa', $where)->result();
-        if (!$data['bio']) {
-          $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data $id  tidak ditemukan"));
+        $pin = $data['bio'][0]->no_pendaftaran;
+        $nama = $data['bio'][0]->nama_lengkap;
+
+        if (empty($data['bio'])) {
+          $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data <b>$id</b> tidak ditemukan"));
+          redirect(base_url('admin/verifikasi'));
+        } else if (empty($pin)) {
+          $this->session->set_flashdata('alert', array('tipe' => 'danger', 'isi' => "Data <b>$nama</b> belum diisi"));
           redirect(base_url('admin/verifikasi'));
         };
         $this->load->view('menu/siswa/lihat', $data);
@@ -248,7 +238,8 @@ class Admin extends CI_Controller
         break;
       default:
         $data['sudahverif'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 2")->num_rows();
-        $data['belumverif'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 0 or status_verifikasi = 1")->num_rows();
+        $data['prosesverif'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 1")->num_rows();
+        $data['belumverif'] = $this->Model_APS->cek_akun('siswa', "status_verifikasi = 0")->num_rows();
         $this->load->view('menu/admin/verifikasi', $data);
         $this->load->view('layout/footer');
     };
@@ -268,11 +259,17 @@ class Admin extends CI_Controller
           'panitia' => $this->input->post('panitia'),
           'instagram' => $this->input->post('instagram'),
           'avatar' => $this->input->post('avatar'),
+          'motto' => $this->input->post('motto'),
+          'banner' => $this->input->post('banner'),
+          'depan' => $this->input->post('depan'),
+          'warna' => $this->input->post('warna'),
+          'icon' => $this->input->post('icon'),
           'tgl_daftar' => date('Y-m-d H:i:s')
         ];
         $where = array('id' => '1');
         $this->Model_APS->proses_update($where, $data, 'profil');
-        $this->session->set_flashdata('alert', array('tipe' => 'success', 'isi' => "Data berhasil diupdate"));
+        $color = $this->input->post('warna');
+        $this->session->set_flashdata('alert', array('tipe' => 'success', 'isi' => "Data berhasil diupdate".'<script>var newValue = "'.$color.'";localStorage.setItem(key, newValue);location.reload();</script>'));
         redirect('admin/profil');
         break;
       default:
@@ -304,8 +301,15 @@ class Admin extends CI_Controller
     $this->load->view('form/wizard', $data);
     $this->load->view('layout/footer');
   }
+  
+  function review()
+  {
+    $data['akuns'] = $this->Model_APS->tampil_data('siswa', 'id_siswa', 'ASC')->num_rows();
+    $data['reviews'] = $this->Model_APS->get_review_all();
+    $this->load->view('menu/admin/review', $data);
+    $this->load->view('layout/footer');
+  }
 }
-
 
 /* End of file Admin.php */
 /* Location: ./application/controllers/Admin.php */

@@ -1,88 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed " dir="ltr" data-theme="theme-default" data-assets-path="<?= base_url("assets/") ?>" data-template="vertical-menu-template">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-  <title>Daftar Ulang <?= $profil[0]->nama ?></title>
-  <meta name="description" content="Web Daftar Ulang <?= $profil[0]->nama ?>" />
-  <meta name="keywords" content="smangat, sma srengat, <?= $profil[0]->nama ?>, daftar ulang, srengat, blitar">
-  <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/favicon/favicon.ico") ?>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="<?= base_url("assets/vendor/fonts/boxicons.css") ?>" />
-  <link rel="stylesheet" href="<?= base_url("assets/vendor/fonts/fontawesome.css") ?>" />
-  <link rel="stylesheet" href="<?= base_url("assets/vendor/css/core.css") ?>" class="template-customizer-core-css" />
-  <link rel="stylesheet" href="<?= base_url("assets/vendor/css/theme-default.css") ?>" class="template-customizer-theme-css" />
-  <link rel="stylesheet" href="<?= base_url("assets/css/demo.css") ?>" />
-  <link rel="stylesheet" href="<?= base_url("assets/vendor/css/pages/page-home.css") ?>" />
-  <script src="<?php echo base_url("assets/vendor/js/bootstrap.js") ?>"></script>
-  <script src="<?= base_url("assets/vendor/js/helpers.js") ?>"></script>
-  <script src="<?= base_url("assets/js/config.js") ?>"></script>
-  <style>
-    .header {
-      background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url("<?php echo base_url("assets/img/illustrations/sma-negeri-1-srengat.webp") ?>");
-      background-size: cover;
-      background-repeat: no-repeat;
-      min-height: 600px !important
-    }
-
-    .wave {
-      animation-name: wave-animation;
-      /* Refers to the name of your @keyframes element below */
-      animation-duration: 2.5s;
-      /* Change to speed up or slow down */
-      animation-iteration-count: infinite;
-      /* Never stop waving :) */
-      transform-origin: 70% 70%;
-      /* Pivot around the bottom-left palm */
-      display: inline-block;
-    }
-
-    @keyframes wave-animation {
-      0% {
-        transform: rotate(0.0deg)
-      }
-
-      10% {
-        transform: rotate(14.0deg)
-      }
-
-      /* The following five values can be played with to make the waving more or less extreme */
-      20% {
-        transform: rotate(-8.0deg)
-      }
-
-      30% {
-        transform: rotate(14.0deg)
-      }
-
-      40% {
-        transform: rotate(-4.0deg)
-      }
-
-      50% {
-        transform: rotate(10.0deg)
-      }
-
-      60% {
-        transform: rotate(0.0deg)
-      }
-
-      /* Reset for the last half to pause */
-      100% {
-        transform: rotate(0.0deg)
-      }
-    }
-  </style>
-</head>
-
 <body>
-
   <!-- Layout wrapper -->
-  <div class="layout-wrapper layout-content-navbar  layout-without-menu">
+  <div class="layout-wrapper layout-content-navbar layout-without-menu">
     <div class="layout-container">
 
       <!-- Layout container -->
@@ -97,7 +15,7 @@
               <div class="nav-item navbar-search-wrapper mb-0">
                 <a href="<?= base_url() ?>" class="app-brand-link">
                   <span class="app-brand-logo demo">
-                    <img src="<?= base_url("assets/img/") . $profil[0]->avatar ?>" width="40px">
+                    <img src="<?= base_url("assets/img/logo/") . $profil[0]->avatar ?>" width="40px">
                   </span>
                   <span class="app-brand-text text-dark fw-bold ms-2"><?= $profil[0]->nama ?></span>
                 </a>
@@ -206,7 +124,9 @@
                         </div>
                       </form>
                       <?php if ($alert == 1) {
-                        echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silakan menghubungi panitia</div>';
+                        echo '<div class="alert alert-danger" role="alert" id="alert">Jalur Masuk atau Password salah! Jika ada masalah silakan menghubungi panitia</div>
+                      <script>document.getElementById("pass").value = "' . $user['pass'] . '";
+                        document.getElementById("jalur").value = "' . $user['jalur'] . '";</script>';
                       } ?>
                       <p class="text-center">
                         <span>Ada Masalah?</span>
@@ -222,11 +142,10 @@
               </div>
               <!-- /test -->
               <div class="d-flex justify-content-center border-bottom border-light">
-                <div class="col-lg-6 p-0">
-                  <img src="<?= base_url() ?>assets/img/illustrations/web-sma-negeri-1-srengat.webp" class="img-fluid" alt="putra-putri-smangat">
+                <div class="col-lg-10 p-0" style="width: 100%;">
+                  <img src="<?= base_url("assets/img/banner/") . $profil[0]->banner ?>" class="img-fluid" style="width: 100%" alt="daftar-ulang-sman-1-srengat">
                 </div>
               </div>
-
 
               <!-- kontak -->
               <div class="help-center-contact-us help-center-bg-alt">
@@ -235,8 +154,8 @@
                     <div class="col-md-8 col-lg-6 text-center">
                       <h4>KONTAK KAMI</h4>
                       <p class="mb-4"><?= $profil[0]->nama . '<br>'
-                                        . $profil[0]->alamat . '<br>
-		    	Telp. ' . $profil[0]->telepon . '<br>' ?>
+                                        . wordwrap($profil[0]->alamat, 50, "<br>") . '<br>
+		    	Telp. ' . $profil[0]->telepon  ?>
                       </p>
                       <div class="d-flex justify-content-center flex-wrap gap-4">
                         <a href="mailto:<?= $profil[0]->email ?>" class="btn btn-label-primary d-grid"><?= $profil[0]->email ?></a>

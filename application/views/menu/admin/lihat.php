@@ -1,3 +1,25 @@
+<style>
+  #copyPopup {
+    visibility: hidden;
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-weight: bold;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  #copyPopup.show {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
 <!-- Content wrapper -->
 <div class="content-wrapper">
   <!-- Content -->
@@ -13,7 +35,7 @@
     <!-- tabel responsive -->
     <div class="card mb-4">
       <div class="card-datatable table-responsive">
-        <table class="datatables-projects border-top table">
+        <table class="datatables-projects border-top table" id="table-account">
           <thead>
             <tr>
               <th></th>
@@ -118,7 +140,7 @@
                   </select>
                 </div>
               </div>
-              <div class="row g-2">
+              <div class="row g-2 mb-3">
                 <div class="col mb-0">
                   <label for="no-urutEdit" class="form-label">Nomor Urut</label>
                   <input type="text" id="no-urutEdit" name="no-urutEdit" class="form-control" placeholder="no urut disini" />
@@ -129,10 +151,21 @@
                   <input type="text" id="nisnEdit" name="nisnEdit" class="form-control" placeholder="NISN Siswa" />
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-3">
                 <div class="col mb-0">
                   <label for="namaEdit" class="form-label">Nama</label>
                   <input type="text" id="namaEdit" name="namaEdit" class="form-control" placeholder="Nama Siswa" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-0">
+                  <label for="PinEdit" class="form-label">PIN Pendaftaran</label>
+                  <div class="input-group">
+                    <input type="text" id="PinEdit" name="PinEdit" class="form-control" placeholder="PIN Siswa" />
+                    <span class="input-group-text"><a title="Copy Pin" id="copyBtn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                        </svg></a></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,7 +180,33 @@
       </div>
     </div>
     <!-- end modal -->
+    <div id="copyPopup" role="alert" aria-live="assertive">Data telah disalin!</div>
     <hr class="my-5" />
+    <script>
+      const copyBtn = document.getElementById('copyBtn');
+      const pinInput = document.getElementById('PinEdit');
+      const popup = document.getElementById('copyPopup');
+
+      copyBtn.addEventListener('click', () => {
+        // Pastikan elemen tidak disabled, atau ambil value langsung
+        const pinValue = pinInput.value;
+
+        // Menggunakan Clipboard API
+        navigator.clipboard.writeText(pinValue).then(() => {
+          showPopup();
+        }).catch(err => {
+          alert('Gagal menyalin PIN: ' + err);
+        });
+      });
+
+      function showPopup() {
+        popup.classList.add('show');
+        setTimeout(() => {
+          popup.classList.remove('show');
+        }, 2000);
+      }
+    </script>
+
     <script src="<?php echo base_url("assets/js/datatables.js") ?>"></script>
     <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js") ?>"></script>
     <script src="<?php echo base_url("assets/vendor/libs/datatables-bs5/buttons.colVis.min.js") ?>"></script>
@@ -168,11 +227,12 @@
               document.getElementById("no-urutEdit").value = myObj.data[0].no_urut;
               document.getElementById("namaEdit").value = myObj.data[0].nama_lengkap;
               document.getElementById("nisnEdit").value = myObj.data[0].nisn;
+              document.getElementById("PinEdit").value = myObj.data[0].no_pendaftaran;
             });
           }
         };
         xmlhttp.open("GET", "<?= base_url("aksi/data/siswa/") ?>" + nomor, true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send();
-      }
+      };
     </script>

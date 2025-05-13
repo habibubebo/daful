@@ -9,7 +9,7 @@
           <?php foreach ($profil as $tp) { ?>
             <a href="<?= base_url() ?>" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="<?= base_url("assets/img/") ?><?= $tp->avatar ?>" width="40px">
+                <img src="<?= base_url("assets/img/logo/") ?><?= $tp->avatar ?>" width="40px">
               </span>
               <span class="app-brand-text menu-text fw-bolder ms-2"><?= $tp->nama ?></span>
             </a>
@@ -79,6 +79,11 @@
                 <li class="menu-item" id="m1-4">
                   <a href="<?= base_url("admin/data") ?>" class="menu-link">
                     <div data-i18n="Without navbar">Data Siswa</div>
+                  </a>
+                </li>
+                <li class="menu-item" id="m1-5">
+                  <a href="<?= base_url("admin/review") ?>" class="menu-link">
+                    <div data-i18n="Without navbar">Review Siswa</div>
                   </a>
                 </li>
               </ul>

@@ -554,28 +554,43 @@ function alamat() {
     }
    };
 function wali() {
-  var checkBox = document.getElementById("walicheck");
-  var text = document.getElementById("wali");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-    document.getElementById("nama-wali").value = '-';
-    document.getElementById("ttl-wali").value = '-';
-    $('#agama-wali').selectpicker('val', '-');
-    document.getElementById("kw-wali").value = '-';
-    $('#pdd-wali').selectpicker('val', '-');
-    $('#pk-wali').selectpicker('val', '-');
-    $('#ph-wali').selectpicker('val', '-');
-    document.getElementById("notelp-wali").value = '-';
-    document.getElementById("jalan-wali").value = '-';
-    document.getElementById("rt-wali").value = '-';
-    document.getElementById("rw-wali").value = '-';
-    document.getElementById("desa-wali").value = '-';
-    document.getElementById("kec-wali").value = '-';
-    document.getElementById("kab-wali").value = '-';
-    document.getElementById("hub-wali").value = '-';
-  }
+    var checkBox = document.getElementById("walicheck");
+    var text = document.getElementById("wali");
+    if (checkBox.checked == true) {
+      text.style.display = "block";
+      // document.getElementById("nama-wali").value = '';
+      // document.getElementById("ttl-wali").value = '';
+      // $('#agama-wali').selectpicker('val', '-');
+      // document.getElementById("kw-wali").value = '';
+      // $('#pdd-wali').selectpicker('val', '-');
+      // $('#pk-wali').selectpicker('val', '-');
+      // $('#ph-wali').selectpicker('val', '-');
+      // document.getElementById("notelp-wali").value = '';
+      // document.getElementById("jalan-wali").value = '';
+      // document.getElementById("rt-wali").value = '';
+      // document.getElementById("rw-wali").value = '';
+      // document.getElementById("desa-wali").value = '';
+      // document.getElementById("kec-wali").value = '';
+      // document.getElementById("kab-wali").value = '';
+      // document.getElementById("hub-wali").value = '';
+    } else {
+      text.style.display = "none";
+      document.getElementById("nama-wali").value = '-';
+      document.getElementById("ttl-wali").value = '-';
+      $('#agama-wali').selectpicker('val', '-');
+      document.getElementById("kw-wali").value = '-';
+      $('#pdd-wali').selectpicker('val', '-');
+      $('#pk-wali').selectpicker('val', '-');
+      $('#ph-wali').selectpicker('val', '-');
+      document.getElementById("notelp-wali").value = '-';
+      document.getElementById("jalan-wali").value = '-';
+      document.getElementById("rt-wali").value = '-';
+      document.getElementById("rw-wali").value = '-';
+      document.getElementById("desa-wali").value = '-';
+      document.getElementById("kec-wali").value = '-';
+      document.getElementById("kab-wali").value = '-';
+      document.getElementById("hub-wali").value = '-';
+    }
   };
 !function(){var a=`<div class="dz-preview dz-file-preview m-0">
   <div class="dz-details">

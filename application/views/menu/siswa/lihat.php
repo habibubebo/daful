@@ -2,13 +2,13 @@
 <div class="content-wrapper">
   <!-- Content -->
   <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="d-flex justify-content-between">
-      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Daftar Ulang/</span> Data diri</h4>
+    <div class="d-flex justify-content-between mb-3">
+      <h4 class="fw-bold py-3 my-auto"><span class="text-muted fw-light">Daftar Ulang/</span> Data diri <?= $bio[0]->nama_lengkap ?></h4>
       <div class="flex-column my-auto">
         <?php foreach ($bio as $tp) { ?>
           <?php if ($this->session->userdata('role') > 0) {
             echo '<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-          <a href="' . base_url("admin/verifikasi/verif/" . $tp->nisn) . '" class="btn btn-outline-primary"><i class="bx bxs-user-check" ></i> Verifikasi</a>
+          <button onclick="goBack()" class="btn btn-outline-secondary">Kembali</button><a href="' . base_url("admin/verifikasi/verif/" . $tp->nisn) . '" class="btn btn-outline-primary"><i class="bx bxs-user-check" ></i> Verifikasi</a>
           <div class="btn-group" role="group">
           <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bx bxs-file-pdf"></i><span class="d-none d-sm-inline-block"> Unduh</span></button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
@@ -17,7 +17,7 @@
           <a href="' . base_url("aksi/unduh/" . $tp->nisn) . '/wali" class="dropdown-item">Wali</a>
           </div></div></div>';
           } else {
-            echo '<a href="' . base_url("siswa") . '" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> Edit</a>';
+            echo '<a href="' . base_url("siswa") . '" class="btn btn-outline-primary"><i class="bx bx-edit me-sm-1"></i> Edit</a><div class="fixed-bottom mx-3"><a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="' . base_url("siswa/unduhan") . '">Unduh Bukti</a></div>';
           } ?>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <div class="col-xxl">
         <div class="card mb-4">
           <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Biodata Siswa</h5>
+            <h5 class="text-primary mb-0">Biodata Siswa</h5>
           </div>
           <div class="card-body">
             <div class="row mb-3">
@@ -90,7 +90,7 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label" for="agama">agama</label>
+              <label class="col-sm-4 col-form-label" for="agama">Agama</label>
               <div class="col-sm-8">
                 <input type="text" class="form-control" id="agama" name="agama" value="<?= $tp->agama ?>" />
               </div>
@@ -134,13 +134,8 @@
             <div class="row mb-3">
               <label class="col-sm-4 col-form-label" for="notelp">No. Telepon / HP</label>
               <div class="col-sm-8">
-                <div class="input-group mt-1">
-                  <input type="text" id="notelp" name="notelp" value="<?= $tp->notelp ?>" class="form-control" />
-                  <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp;
-                                                                                                              if ($p[0] == '0') {
-                                                                                                                $p = "62" . substr($p, 1);
-                                                                                                              }
-                                                                                                              echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                <div class="input-group"><input type="text" id="notelp" name="notelp" value="<?= $tp->notelp ?>" class="form-control" />
+                <a class="btn btn-outline-primary" href="<?= wa_link($tp->notelp) ?>"><i class='bx bxl-whatsapp'></i></a>
                 </div>
               </div>
             </div>
@@ -192,13 +187,13 @@
       <div class="col-xxl">
         <div class="card mb-4">
           <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Data Peserta Didik</h5>
+            <h5 class="text-primary mb-0">Data Peserta Didik</h5>
           </div>
           <div class="card-body">
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label" for="no-pend">No. Pendaftaran</label>
+              <label class="col-sm-4 col-form-label" for="no-pend">PIN Pendaftaran</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="no-pend" name="no-pend" value="<?= $tp->no_pendaftaran ?>" />
+                <input type="text" class="form-control copy-text" id="no-pend" name="no-pend" data-text="<?= $tp->no_pendaftaran ?>" value="<?= $tp->no_pendaftaran ?>" />
               </div>
             </div>
             <div class="row mb-3">
@@ -262,9 +257,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label class="col-sm-4 col-form-label" for="masuk-jalur">Diterima lewat jalur</label>
+              <label class="col-sm-4 col-form-label text-primary" for="masuk-jalur">Diterima lewat jalur</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="masuk-jalur" name="masuk-jalur" value="<?= $tp->masuk_jalur ?>" />
+                <input type="text" class="form-control text-primary" id="masuk-jalur" name="masuk-jalur" value="<?= $tp->masuk_jalur ?>" />
               </div>
             </div>
             <div class="row mb-3">
@@ -277,7 +272,7 @@
         </div>
         <div class="card mb-4">
           <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Jika Pindahan</h5>
+            <h5 class="text-primary mb-0">Jika Pindahan</h5>
           </div>
           <div class="card-body">
             <div class="row mb-3">
@@ -298,7 +293,7 @@
         <!-- bawah -->
         <div class="card mb-4">
           <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Data Tambahan</h5>
+            <h5 class="text-primary mb-0">Data Tambahan</h5>
           </div>
           <div class="card-body">
             <div class="row mb-3">
@@ -340,7 +335,7 @@
         <div class="col-xxl">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-              <h5 class="mb-0">Data Ayah</h5>
+              <h5 class="text-primary mb-0">Data Ayah</h5>
             </div>
             <div class="card-body">
               <div class="row mb-3">
@@ -350,13 +345,13 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="ttl-ayah">tempat, tanggal lahir</label>
+                <label class="col-sm-4 col-form-label" for="ttl-ayah">Tempat, Tanggal lahir</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="ttl-ayah" name="ttl-ayah" value="<?= $tp->ttl_ayah ?>" />
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="agama-ayah">agama</label>
+                <label class="col-sm-4 col-form-label" for="agama-ayah">Agama</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="agama-ayah" name="agama-ayah" value="<?= $tp->agama_ayah ?>" />
                 </div>
@@ -386,15 +381,11 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="notelp-ayah">nomor telepon / HP</label>
+                <label class="col-sm-4 col-form-label" for="notelp-ayah">Nomor HP/WA</label>
                 <div class="col-sm-8">
-                  <div class="input-group mt-1">
+                  <div class="input-group">
                     <input type="text" id="notelp-ayah" name="notelp-ayah" value="<?= $tp->notelp_ayah ?>" class="form-control" />
-                    <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp_ayah;
-                                                                                                                if ($p[0] == '0') {
-                                                                                                                  $p = "62" . substr($p, 1);
-                                                                                                                }
-                                                                                                                echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                    <a class="btn btn-outline-primary" href="<?= wa_link($tp->notelp_ayah) ?>"><i class='bx bxl-whatsapp'></i></a>
                   </div>
                 </div>
               </div>
@@ -417,7 +408,7 @@
         <div class="col-xxl">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-              <h5 class="mb-0">Data Ibu</h5>
+              <h5 class="text-primary mb-0">Data Ibu</h5>
             </div>
             <div class="card-body">
               <div class="row mb-3">
@@ -427,13 +418,13 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="ttl-ibu">tempat, tanggal lahir</label>
+                <label class="col-sm-4 col-form-label" for="ttl-ibu">Tempat, Tanggal lahir</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="ttl-ibu" name="ttl-ibu" value="<?= $tp->ttl_ibu ?>" />
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="agama-ibu">agama</label>
+                <label class="col-sm-4 col-form-label" for="agama-ibu">Agama</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="agama-ibu" name="agama-ibu" value="<?= $tp->agama_ibu ?>" />
                 </div>
@@ -463,15 +454,11 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="notelp-ibu">nomor telepon / HP</label>
+                <label class="col-sm-4 col-form-label" for="notelp-ibu">Nomor HP/WA</label>
                 <div class="col-sm-8">
-                  <div class="input-group mt-1">
+                  <div class="input-group">
                     <input type="text" id="notelp-ibu" name="notelp-ibu" value="<?= $tp->notelp_ibu ?>" class="form-control" />
-                    <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp_ibu;
-                                                                                                                if ($p[0] == '0') {
-                                                                                                                  $p = "62" . substr($p, 1);
-                                                                                                                }
-                                                                                                                echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                    <a class="btn btn-outline-primary" href="<?= wa_link($tp->notelp_ibu) ?>"><i class='bx bxl-whatsapp'></i></a>
                   </div>
                 </div>
               </div>
@@ -488,7 +475,7 @@
         <div class="col-xxl">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-              <h5 class="mb-0">Data Wali</h5>
+              <h5 class="text-primary mb-0">Data Wali</h5>
             </div>
             <div class="card-body">
               <div class="row mb-3">
@@ -498,13 +485,13 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="ttl-wali">tempat, tanggal lahir</label>
+                <label class="col-sm-4 col-form-label" for="ttl-wali">Tempat, Tanggal lahir</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="ttl-wali" name="ttl-wali" value="<?= $tp->ttl_wali ?>" />
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="agama-wali">agama</label>
+                <label class="col-sm-4 col-form-label" for="agama-wali">Agama</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="agama-wali" name="agama-wali" value="<?= $tp->agama_wali ?>" />
                 </div>
@@ -534,20 +521,16 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="notelp-wali">nomor telepon / HP</label>
+                <label class="col-sm-4 col-form-label" for="notelp-wali">Nomor HP/WA</label>
                 <div class="col-sm-8">
-                  <div class="input-group mt-1">
+                  <div class="input-group">
                     <input type="text" id="notelp-wali" name="notelp-wali" value="<?= $tp->notelp_wali ?>" class="form-control" />
-                    <span class="input-group-text"><a target="_blank" href="https://api.whatsapp.com/send?phone=<?php $p = $tp->notelp_wali;
-                                                                                                                if ($p[0] == '0') {
-                                                                                                                  $p = "62" . substr($p, 1);
-                                                                                                                }
-                                                                                                                echo "$p"; ?>"><i class='bx bxl-whatsapp'></i></a></span>
+                    <a class="btn btn-outline-primary" href="<?= wa_link($tp->notelp_wali) ?>"><i class='bx bxl-whatsapp'></i></a>
                   </div>
                 </div>
               </div>
               <div class="row mb-3">
-                <label class="col-sm-4 col-form-label" for="hub-wali">Hubungan keluarga dengan wali</label>
+                <label class="col-sm-4 col-form-label" for="hub-wali">Hub. dengan wali</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="hub-wali" name="hub-wali" value="<?= $tp->hub_wali ?>" />
                 </div>
@@ -567,7 +550,7 @@
         <div class="col-xxl">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-              <h5 class="mb-0">Data </h5>
+              <h5 class="text-primary mb-0">Data </h5>
             </div>
             <div class="card-body d-sm-flex align-items-center justify-content-between">
               <div class="row">
@@ -623,6 +606,15 @@
         </div>
       </div>
       <!-- / Content -->
+      <div class="notification bs-toast toast fade show bg-success" role="alert" aria-live="assertive" aria-atomic="true" id="notifWrapper">
+            <div class="toast-header">
+              <i class="icon-base bx bx-bell me-2"></i>
+              <div class="me-auto fw-medium">Notification</div>
+              <small>1 sec ago</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="notification"></div>
+          </div>
       <!-- upload -->
       <div class="content-header mb-1" hidden>
         <h6 class="mb-0">Upload Berkas</h6>
@@ -655,9 +647,7 @@
               </div>
             </div>          -->
       <!-- /upload  -->
-      <div class="fixed-bottom">
-        <a class="btn btn-primary w-100 d-md-none d-lg-none mb-3" href="<?= base_url('siswa/unduhan') ?>">Unduh Bukti</a>
-      </div>
+
 
       <script type="text/javascript">
         document.title = "Biodata <?= $tp->nama_lengkap ?>";
@@ -674,4 +664,37 @@
           isian.readOnly = true
         };
       </script>
+      <script>
+        const copyElements = document.querySelectorAll('.copy-text');
+        const notifWrap = document.getElementById('notifWrapper');
+        const notification = document.getElementById('notification');
+
+        copyElements.forEach(element => {
+            element.addEventListener('click', () => {
+                const textToCopy = element.getAttribute('data-text');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    notifWrap.style.display = 'block';
+                    notification.textContent = 'Teks disalin: ' + textToCopy;
+
+                    setTimeout(() => {
+                        notifWrap.style.display = 'none';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Gagal menyalin: ', err);
+                });
+            });
+        });
+    </script>
     <?php } ?>
+    <style>
+      .col-form-label {
+        font-size: 0.8em !important;
+      }
+      .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none; 
+            z-index: 99999; 
+        }
+    </style>

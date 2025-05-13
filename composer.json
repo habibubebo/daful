@@ -15,7 +15,8 @@
 		"phpoffice/phpspreadsheet": "*",
 		"mpdf/mpdf": "*",
 		"dompdf/dompdf": "^2.0",
-		"vlucas/phpdotenv": "^3.6"
+		"vlucas/phpdotenv": "^3.6",
+		"phpoffice/phpword": "^1.2"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
